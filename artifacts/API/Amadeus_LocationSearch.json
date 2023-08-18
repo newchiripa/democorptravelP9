@@ -1,0 +1,1029 @@
+{
+	"id": "6c0a848c-cd2a-4d5f-b30c-59c65f8b6990",
+	"createdAt": "2020-04-23T12:57:00.000Z",
+	"createdBy": "admin",
+	"auth": [],
+	"endpoints": [],
+	"paths": [
+		{
+			"id": "061089ae-106d-43b3-e97d-ff9dec6179c1",
+			"path": "/reference-data/locations",
+			"description": [
+				"==OBJECT STRING==",
+				"This operation allows retrieving the list of locations (airports or cities) that contain a specific keyword in the start of any word in their name or in the start of their IATA code.",
+				"Only major cities and civilian airports with several commercial flights per week are included by default. The response provides a list of cities and/or airports, sorted by default by travelers score, which is based on the number of travelers by airport or city, so that the airports and cities with the highest traffic are on top of the results.",
+				"",
+				"There are two response formats:",
+				"- the \"autocomplete\" one, which contains only most important descriptive information. This format allows a quick implementation of frontend Javascript autocomplete.",
+				"- the descriptive one, with more information on airports and cities",
+				"",
+				"### Request example:",
+				"Which cities or airports start with ’r'?",
+				"<pre><code>",
+				"GET https://test.api.amadeus.com/v1/reference-data/locations?subType=AIRPORT,CITY&keyword=r&page[limit]=5",
+				"</code></pre>",
+				"",
+				"### Response example in case of airports and cities successfully returned with default response format (descriptive response format)",
+				"",
+				"<pre><code>",
+				"{",
+				"    \"meta\": {",
+				"        \"count\": 127,",
+				"        \"links\": {",
+				"            \"self\": \"http://test.api.amadeus.com/v1/reference-data/locations?subType=AIRPORT,CITY&keyword=r&page[limit]=5\",",
+				"            \"next\": \"http://test.api.amadeus.com/v1/reference-data/locations?subType=AIRPORT,CITY&keyword=r&page[offset]=5&page[limit]=5\",",
+				"            \"last\": \"http://test.api.amadeus.com/v1/reference-data/locations?subType=AIRPORT,CITY&keyword=r&page[offset]=122&page[limit]=5\"",
+				"        }",
+				"    },",
+				"    \"data\": [",
+				"        {",
+				"            \"type\": \"location\",",
+				"            \"subType\": \"AIRPORT\",",
+				"            \"name\": \"R REAGAN NAT\",",
+				"            \"detailedName\": \"WASHINGTON/DC/US:R REAGAN NAT\",",
+				"            \"id\": \"ADCA\",",
+				"            \"self\": {",
+				"                \"href\": \"http://test.api.amadeus.com/v1/reference-data/locations/ADCA\",",
+				"                \"methods\": [",
+				"                    \"GET\"",
+				"                ]",
+				"            },",
+				"            \"timeZoneOffset\": \"-04:00\",",
+				"            \"iataCode\": \"DCA\",",
+				"            \"geoCode\": {",
+				"                \"latitude\": 38.85233,",
+				"                \"longitude\": -77.0372",
+				"            },",
+				"            \"address\": {",
+				"                \"cityName\": \"WASHINGTON\",",
+				"                \"cityCode\": \"WAS\",",
+				"                \"countryName\": \"UNITED STATES OF AMERICA\",",
+				"                \"countryCode\": \"US\",",
+				"                \"stateCode\": \"DC\",",
+				"                \"regionCode\": \"NAMER\"",
+				"            },",
+				"            \"analytics\": {",
+				"                \"travelers\": {",
+				"                    \"score\": 14",
+				"                }",
+				"            }",
+				"        },",
+				"        {",
+				"            \"type\": \"location\",",
+				"            \"subType\": \"AIRPORT\",",
+				"            \"name\": \"RAJIV GANDHI INTL\",",
+				"            \"detailedName\": \"HYDERABAD/IN:RAJIV GANDHI INTL\",",
+				"            \"id\": \"AHYD\",",
+				"            \"self\": {",
+				"                \"href\": \"http://test.api.amadeus.com/v1/reference-data/locations/AHYD\",",
+				"                \"methods\": [",
+				"                    \"GET\"",
+				"                ]",
+				"            },",
+				"            \"timeZoneOffset\": \"+05:30\",",
+				"            \"iataCode\": \"HYD\",",
+				"            \"geoCode\": {",
+				"                \"latitude\": 17.23132,",
+				"                \"longitude\": 78.42986",
+				"            },",
+				"            \"address\": {",
+				"                \"cityName\": \"HYDERABAD\",",
+				"                \"cityCode\": \"HYD\",",
+				"                \"countryName\": \"INDIA\",",
+				"                \"countryCode\": \"IN\",",
+				"                \"regionCode\": \"ASIA\"",
+				"            },",
+				"            \"analytics\": {",
+				"                \"travelers\": {",
+				"                    \"score\": 9",
+				"                }",
+				"            }",
+				"        },",
+				"        {",
+				"            \"type\": \"location\",",
+				"            \"subType\": \"CITY\",",
+				"            \"name\": \"RAJIV GANDHI INTL\",",
+				"            \"detailedName\": \"HYDERABAD/IN:RAJIV GANDHI INTL\",",
+				"            \"id\": \"CHYD\",",
+				"            \"self\": {",
+				"                \"href\": \"http://test.api.amadeus.com/v1/reference-data/locations/CHYD\",",
+				"                \"methods\": [",
+				"                    \"GET\"",
+				"                ]",
+				"            },",
+				"            \"timeZoneOffset\": \"+05:30\",",
+				"            \"iataCode\": \"HYD\",",
+				"            \"geoCode\": {",
+				"                \"latitude\": 17.23132,",
+				"                \"longitude\": 78.42986",
+				"            },",
+				"            \"address\": {",
+				"                \"cityName\": \"HYDERABAD\",",
+				"                \"cityCode\": \"HYD\",",
+				"                \"countryName\": \"INDIA\",",
+				"                \"countryCode\": \"IN\",",
+				"                \"regionCode\": \"ASIA\"",
+				"            },",
+				"            \"analytics\": {",
+				"                \"travelers\": {",
+				"                    \"score\": 9",
+				"                }",
+				"            }",
+				"        },",
+				"        {",
+				"            \"type\": \"location\",",
+				"            \"subType\": \"AIRPORT\",",
+				"            \"name\": \"INTERNATIONAL\",",
+				"            \"detailedName\": \"RALEIGH DURHAM/NC/US:INTERNATI\",",
+				"            \"id\": \"ARDU\",",
+				"            \"self\": {",
+				"                \"href\": \"http://test.api.amadeus.com/v1/reference-data/locations/ARDU\",",
+				"                \"methods\": [",
+				"                    \"GET\"",
+				"                ]",
+				"            },",
+				"            \"timeZoneOffset\": \"-04:00\",",
+				"            \"iataCode\": \"RDU\",",
+				"            \"geoCode\": {",
+				"                \"latitude\": 35.87946,",
+				"                \"longitude\": -78.7871",
+				"            },",
+				"            \"address\": {",
+				"                \"cityName\": \"RALEIGH DURHAM\",",
+				"                \"cityCode\": \"RDU\",",
+				"                \"countryName\": \"UNITED STATES OF AMERICA\",",
+				"                \"countryCode\": \"US\",",
+				"                \"stateCode\": \"NC\",",
+				"                \"regionCode\": \"NAMER\"",
+				"            },",
+				"            \"analytics\": {",
+				"                \"travelers\": {",
+				"                    \"score\": 7",
+				"                }",
+				"            }",
+				"        },",
+				"        {",
+				"            \"type\": \"location\",",
+				"            \"subType\": \"CITY\",",
+				"            \"name\": \"INTERNATIONAL\",",
+				"            \"detailedName\": \"RALEIGH DURHAM/NC/US:INTERNATI\",",
+				"            \"id\": \"CRDU\",",
+				"            \"self\": {",
+				"                \"href\": \"http://test.api.amadeus.com/v1/reference-data/locations/CRDU\",",
+				"                \"methods\": [",
+				"                    \"GET\"",
+				"                ]",
+				"            },",
+				"            \"timeZoneOffset\": \"-04:00\",",
+				"            \"iataCode\": \"RDU\",",
+				"            \"geoCode\": {",
+				"                \"latitude\": 35.87946,",
+				"                \"longitude\": -78.7871",
+				"            },",
+				"            \"address\": {",
+				"                \"cityName\": \"RALEIGH DURHAM\",",
+				"                \"cityCode\": \"RDU\",",
+				"                \"countryName\": \"UNITED STATES OF AMERICA\",",
+				"                \"countryCode\": \"US\",",
+				"                \"stateCode\": \"NC\",",
+				"                \"regionCode\": \"NAMER\"",
+				"            },",
+				"            \"analytics\": {",
+				"                \"travelers\": {",
+				"                    \"score\": 7",
+				"                }",
+				"            }",
+				"        }",
+				"    ]",
+				"}</code></pre>",
+				"",
+				"### Response example in case of airports and cities successfully returned with with view=LIGHT (autocomplete)",
+				"<pre><code>",
+				"{",
+				"    \"meta\": {",
+				"        \"count\": 127,",
+				"        \"links\": {",
+				"            \"self\": \"http://test.api.amadeus.com/v1/reference-data/locations?subType=AIRPORT,CITY&keyword=r&view=LIGHT&page[limit]=2\",",
+				"            \"next\": \"http://test.api.amadeus.com/v1/reference-data/locations?subType=AIRPORT,CITY&keyword=r&view=LIGHT&page[offset]=2&page[limit]=2\",",
+				"            \"last\": \"http://test.api.amadeus.com/v1/reference-data/locations?subType=AIRPORT,CITY&keyword=r&view=LIGHT&page[offset]=125&page[limit]=2\"",
+				"        }",
+				"    },",
+				"    \"data\": [",
+				"        {",
+				"            \"type\": \"location\",",
+				"            \"subType\": \"AIRPORT\",",
+				"            \"name\": \"R REAGAN NAT\",",
+				"            \"detailedName\": \"WASHINGTON/DC/US:R REAGAN NAT\",",
+				"            \"id\": \"ADCA\",",
+				"            \"self\": {",
+				"                \"href\": \"http://test.api.amadeus.com/v1/reference-data/locations/ADCA\",",
+				"                \"methods\": [",
+				"                    \"GET\"",
+				"                ]",
+				"            },",
+				"            \"iataCode\": \"DCA\",",
+				"            \"address\": {",
+				"                \"cityName\": \"WASHINGTON\",",
+				"                \"countryName\": \"UNITED STATES OF AMERICA\"",
+				"            }",
+				"        },",
+				"        {",
+				"            \"type\": \"location\",",
+				"            \"subType\": \"AIRPORT\",",
+				"            \"name\": \"RAJIV GANDHI INTL\",",
+				"            \"detailedName\": \"HYDERABAD/IN:RAJIV GANDHI INTL\",",
+				"            \"id\": \"AHYD\",",
+				"            \"self\": {",
+				"                \"href\": \"http://test.api.amadeus.com/v1/reference-data/locations/AHYD\",",
+				"                \"methods\": [",
+				"                    \"GET\"",
+				"                ]",
+				"            },",
+				"            \"iataCode\": \"HYD\",",
+				"            \"address\": {",
+				"                \"cityName\": \"HYDERABAD\",",
+				"                \"countryName\": \"INDIA\"",
+				"            }",
+				"        }",
+				"    ]",
+				"}",
+				"</code></pre>",
+				""
+			],
+			"summary": "Returns a list of airports and cities matching a given keyword.",
+			"method": "GET",
+			"example": "",
+			"responses": [
+				{
+					"status": "200",
+					"headers": [],
+					"content": [
+						{
+							"id": "632dfa14-94b2-4195-d6aa-552834ef734a",
+							"name": "Location",
+							"objectType": "array"
+						}
+					]
+				},
+				{
+					"status": "400",
+					"headers": [],
+					"content": []
+				},
+				{
+					"status": "default",
+					"headers": [],
+					"content": []
+				}
+			],
+			"headers": [
+				{
+					"name": "Authorization",
+					"description": "",
+					"required": true,
+					"value": "",
+					"default": "Bearer jkjkjk",
+					"example": ""
+				}
+			],
+			"parameters": [
+				{
+					"name": "subType",
+					"description": "sub type of the location (AIRPORT and/or CITY)",
+					"inPath": false,
+					"alternatives": "AIRPORT,CITY",
+					"required": true,
+					"type": "array"
+				},
+				{
+					"name": "keyword",
+					"description": "keyword that should represent the start of a word in a city or airport name or code",
+					"inPath": false,
+					"required": true,
+					"type": "string"
+				},
+				{
+					"name": "countryCode",
+					"description": "Country code of the location using [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) code format (e.g. US).",
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "page[limit]",
+					"description": "maximum items in one page",
+					"inPath": false,
+					"default": 10,
+					"required": false,
+					"type": "integer"
+				},
+				{
+					"name": "page[offset]",
+					"description": "start index of the requested page",
+					"inPath": false,
+					"default": 0,
+					"required": false,
+					"type": "integer"
+				},
+				{
+					"name": "sort",
+					"description": [
+						"==OBJECT STRING==",
+						"defines on which attribute the sorting will be done:",
+						"* analytics.travelers.score - sort by the number of travelers by airport or city, the airports and cities with the highest traffic are on top of the results",
+						""
+					],
+					"inPath": false,
+					"default": "analytics.travelers.score",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "view",
+					"description": [
+						"==OBJECT STRING==",
+						"select the level of information of the reply:",
+						"* LIGHT - Gives only the IATACode, name, detailedName, cityName and countryName",
+						"* FULL - Adds on top of the LIGHT information the timeZoneOffset, geocode, detailed address and travelers.score",
+						"default option is FULL",
+						""
+					],
+					"inPath": false,
+					"default": "FULL",
+					"required": false,
+					"type": "string"
+				}
+			],
+			"content": [],
+			"tags": "location"
+		},
+		{
+			"id": "051f765b-c5eb-4abc-add7-116047926dc5",
+			"path": "/reference-data/locations/(locationId)",
+			"description": [
+				"==OBJECT STRING==",
+				"This operation allows retrieving a locations (airports or cities) based on its id.",
+				"",
+				"### Request example:",
+				"Retrieve information about the LHR airport?",
+				"<pre><code>",
+				"GET https://test.api.amadeus.com/v1/reference-data/locations/ALHR",
+				"</code></pre>",
+				"",
+				"### Response examples:       ",
+				"<pre><code>",
+				"{",
+				"    \"meta\": {",
+				"        \"links\": {",
+				"            \"self\": \"http://test.api.amadeus.com/v1/reference-data/locations/ALHR\"",
+				"        }",
+				"    },",
+				"    \"data\": {",
+				"        \"type\": \"location\",",
+				"        \"subType\": \"AIRPORT\",",
+				"        \"name\": \"HEATHROW\",",
+				"        \"detailedName\": \"LONDON/GB:HEATHROW\",",
+				"        \"id\": \"ALHR\",",
+				"        \"self\": {",
+				"            \"href\": \"http://test.api.amadeus.com/v1/reference-data/locations/ALHR\",",
+				"            \"methods\": [",
+				"                \"GET\"",
+				"            ]",
+				"        },",
+				"        \"timeZoneOffset\": \"+01:00\",",
+				"        \"iataCode\": \"LHR\",",
+				"        \"geoCode\": {",
+				"            \"latitude\": 51.47294,",
+				"            \"longitude\": -0.45061",
+				"        },",
+				"        \"address\": {",
+				"            \"cityName\": \"LONDON\",",
+				"            \"cityCode\": \"LON\",",
+				"            \"countryName\": \"UNITED KINGDOM\",",
+				"            \"countryCode\": \"GB\",",
+				"            \"regionCode\": \"EUROP\"",
+				"        },",
+				"        \"analytics\": {",
+				"            \"travelers\": {",
+				"                \"score\": 45",
+				"            }",
+				"        }",
+				"    }",
+				"}",
+				"</pre></code> ",
+				""
+			],
+			"summary": "Returns a specific airports or cities based on its id.",
+			"method": "GET",
+			"example": "",
+			"responses": [
+				{
+					"status": "200",
+					"headers": [],
+					"content": [
+						{
+							"id": "2cbba482-36a8-41a5-b3f3-9a693450eb9c",
+							"name": "Location",
+							"objectType": "array"
+						}
+					]
+				},
+				{
+					"status": "400",
+					"headers": [],
+					"content": []
+				},
+				{
+					"status": "404",
+					"headers": [],
+					"content": []
+				},
+				{
+					"status": "default",
+					"headers": [],
+					"content": []
+				}
+			],
+			"headers": [],
+			"parameters": [
+				{
+					"name": "locationId",
+					"description": "identifier of the location",
+					"inPath": true,
+					"required": true,
+					"type": "string"
+				}
+			],
+			"content": [],
+			"tags": "location"
+		}
+	],
+	"definitions": [
+		{
+			"id": "2a8db165-6127-4f4f-d392-0128d12012ce",
+			"name": "Location",
+			"properties": [
+				{
+					"id": "9d877e9e-51ed-4d40-aad4-27deacffa2e0",
+					"name": "id",
+					"parent": "",
+					"description": "id of the ressource",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "0736d460-c439-4520-d765-9124009e4595",
+					"name": "self",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": {
+						"href": "string"
+					},
+					"objectType": "array",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "908c0533-7466-4611-abd2-ac1f51817c82",
+					"name": "type",
+					"parent": "",
+					"description": "the resource name",
+					"pattern": "",
+					"example": "location",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "5bf411dc-0cb4-46a5-c3d0-8ca87e584716",
+					"name": "subType",
+					"parent": "",
+					"description": "location sub type",
+					"pattern": "",
+					"example": "AIRPORT",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "a6d6ac25-552c-42b8-b965-60e47b0e9a44",
+					"name": "name",
+					"parent": "",
+					"description": "short name of the location",
+					"pattern": "",
+					"example": "Paris CDG",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "4271892f-ebf6-424d-ddb2-975bd13d2b48",
+					"name": "detailedName",
+					"parent": "",
+					"description": "detailed name of the location. For a city location it contains city name and country code. For an airport location it contains city name; country code and airport full name",
+					"pattern": "",
+					"example": "Paris/FR: Charles de Gaulle",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "cf74ca9d-78f1-4aa9-eff8-59120bd22a5a",
+					"name": "timeZoneOffset",
+					"parent": "",
+					"description": "timezone offset of the location at the date of the API call (including daylight saving time)",
+					"pattern": "",
+					"example": "+01:00",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "17157cd7-d4f8-4e19-fd91-7f57688a7d51",
+					"name": "iataCode",
+					"parent": "",
+					"description": "IATA code of the location. ([IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) here)",
+					"pattern": "",
+					"example": "CDG",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "48bd7b0b-6a53-48eb-994f-c2292cee582e",
+					"name": "geoCode",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "array",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "d09e7953-2edf-4b0f-db81-c5c1e827bbcd",
+					"name": "address",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "array",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "45c70f16-e1fd-476d-c075-f839c8a7d8df",
+					"name": "distance",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "array",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "05a01795-d881-4ec1-b1ae-716a23839a56",
+					"name": "analytics",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "array",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "ff63dbb4-ded4-4461-e813-35dc1cb2f9f7",
+					"name": "relevance",
+					"parent": "",
+					"description": "score value calculated based on distance and analytics",
+					"pattern": "",
+					"example": 9.6584,
+					"objectType": "number",
+					"isParent": false,
+					"children": []
+				}
+			]
+		},
+		{
+			"id": "14d35282-2135-4e39-ff6c-0059c6f1523e",
+			"name": "Address",
+			"properties": [
+				{
+					"id": "d53e4c07-ff85-479c-e6cc-6723f3d218e2",
+					"name": "cityName",
+					"parent": "",
+					"description": "name of the city of the location; equal to name if the location is a city",
+					"pattern": "",
+					"example": "Paris",
+					"objectType": "string"
+				},
+				{
+					"id": "c99e5acc-c79f-4472-eae7-1da0b7d645ec",
+					"name": "cityCode",
+					"parent": "",
+					"description": "IATA code of the city of the location; equal to IATAcode if the location is a city",
+					"pattern": "",
+					"example": "PAR",
+					"objectType": "string"
+				},
+				{
+					"id": "63501328-1dab-4a80-97fe-a11f8ace68e9",
+					"name": "countryName",
+					"parent": "",
+					"description": "name of the country of the location",
+					"pattern": "",
+					"example": "France",
+					"objectType": "string"
+				},
+				{
+					"id": "8dc47bcd-27e6-4434-d9b4-8cdbbe83f522",
+					"name": "countryCode",
+					"parent": "",
+					"description": "code of the country of the location in ISO standard",
+					"pattern": "",
+					"example": "FR",
+					"objectType": "string"
+				},
+				{
+					"id": "c8c34a5e-f178-4d01-e3e7-d79ba314ad20",
+					"name": "stateCode",
+					"parent": "",
+					"description": "code of the state of the location if any",
+					"pattern": "",
+					"example": "TO",
+					"objectType": "string"
+				},
+				{
+					"id": "5aee79f6-83bb-4ee7-d956-a7cce3445a4d",
+					"name": "regionCode",
+					"parent": "",
+					"description": "code of the region of the location in ISO standard",
+					"pattern": "",
+					"example": "EUROP",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "b2e92cf0-5cba-4748-e660-81ebf846a5c5",
+			"name": "Distance",
+			"properties": [
+				{
+					"id": "be07595c-c35d-4c25-c3df-04000bc04037",
+					"name": "value",
+					"parent": "",
+					"description": "great-circle distance between two locations. This distance thus do not take into account traffic conditions; international boundaries; mountains; water; or other elements that might make the a nearby location hard to reach.",
+					"pattern": "",
+					"example": 152,
+					"objectType": "integer"
+				},
+				{
+					"id": "0126a43b-b2ed-48dc-b094-741efa7a9f98",
+					"name": "unit",
+					"parent": "",
+					"description": "unit of the distance",
+					"pattern": "",
+					"example": "KM",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "1e308fe1-42cc-46cb-c4f7-4c9a052329c3",
+			"name": "GeoCode",
+			"properties": [
+				{
+					"id": "6746bde1-bf92-4da6-cef9-47440a3f0e6e",
+					"name": "latitude",
+					"parent": "",
+					"description": "latitude of the location",
+					"pattern": "",
+					"example": 43.580418,
+					"objectType": "number"
+				},
+				{
+					"id": "e699a17e-051d-4c63-eda2-dac80bed5b88",
+					"name": "longitude",
+					"parent": "",
+					"description": "longitude of the location",
+					"pattern": "",
+					"example": 7.125102,
+					"objectType": "number"
+				}
+			]
+		},
+		{
+			"id": "6833330c-b36d-43c9-ccfc-73f9e0be2e1b",
+			"name": "Analytics",
+			"properties": [
+				{
+					"id": "d033b91d-313b-44aa-a4d9-e09238f91981",
+					"name": "travelers",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": {
+						"properties": {
+							"score": {
+								"type": "number",
+								"format": "integer",
+								"description": "Approximate score for ranking purposes calculated based on number of travelers in the location.",
+								"example": 68
+							}
+						}
+					}
+				}
+			]
+		},
+		{
+			"id": "a0f4d5db-d6a2-4da8-9789-50a25ac23839",
+			"name": "Travelers",
+			"properties": [
+				{
+					"id": "b37a4702-0012-45e6-d6c4-2bf81ed0cde2",
+					"name": "score",
+					"parent": "",
+					"description": "Approximate score for ranking purposes calculated based on number of travelers in the location.",
+					"pattern": "",
+					"example": 68,
+					"objectType": "number"
+				}
+			]
+		},
+		{
+			"id": "0da0741c-0f7a-4033-bfad-b5bf02bf4462",
+			"name": "Error_400",
+			"properties": [
+				{
+					"id": "b424598b-741b-4a08-9d7d-ed218a6ca846",
+					"required": true,
+					"name": "errors",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				}
+			]
+		},
+		{
+			"id": "14306c93-13c9-4ab7-c99a-dc44c9131e0e",
+			"name": "Error_404",
+			"properties": [
+				{
+					"id": "8c84e3bb-1aea-4164-ca4b-5c49a7f06f23",
+					"required": true,
+					"name": "errors",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				}
+			]
+		},
+		{
+			"id": "5be4db38-e038-4beb-c462-859a72210a60",
+			"name": "Error_500",
+			"properties": [
+				{
+					"id": "9bb90b27-31e7-48a7-d4ef-b3e0f4f90850",
+					"required": true,
+					"name": "errors",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				}
+			]
+		},
+		{
+			"id": "98ac666e-3250-458b-a3ca-fdf356baa12f",
+			"name": "Issue",
+			"properties": [
+				{
+					"id": "813631b5-bd98-41d1-bdb9-159b049debdd",
+					"name": "status",
+					"parent": "",
+					"description": "the HTTP status code applicable to this error",
+					"pattern": "",
+					"example": "",
+					"objectType": "integer"
+				},
+				{
+					"id": "e848c6fb-0eac-4fca-dcc0-ed1acf9c99e4",
+					"name": "code",
+					"parent": "",
+					"description": "an application-specific error code",
+					"pattern": "",
+					"example": "",
+					"objectType": "integer"
+				},
+				{
+					"id": "f318c741-9fc1-4c4f-cc2e-4dcf45f96272",
+					"name": "title",
+					"parent": "",
+					"description": "a short summary of the error",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "b89ffb38-4416-4564-d9e5-9cfe77f6708f",
+					"name": "detail",
+					"parent": "",
+					"description": "explanation of the error",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "7b8290cc-d3de-415c-879a-2afbdcdd65b6",
+					"name": "pointer",
+					"parent": "e7eeb600-bbd5-4269-ef6c-331041ee7615",
+					"description": "a JSON Pointer [RFC6901] to the associated entity in the request document",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "51a6e470-8a12-4481-cccc-7eabbb906f4e",
+					"name": "parameter",
+					"parent": "e7eeb600-bbd5-4269-ef6c-331041ee7615",
+					"description": "a string indicating which URI query parameter caused the issue",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "c7d44038-05fe-41a5-dc43-0b6be8c7ee3e",
+					"name": "example",
+					"parent": "e7eeb600-bbd5-4269-ef6c-331041ee7615",
+					"description": "a string indicating an example of the right value",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "e7eeb600-bbd5-4269-ef6c-331041ee7615",
+					"name": "source",
+					"parent": "",
+					"description": "an object containing references to the source of the error",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				}
+			]
+		},
+		{
+			"id": "ce170821-3c4e-4504-cb83-5c024e923076",
+			"name": "Collection_Meta",
+			"properties": [
+				{
+					"id": "847cd042-f15d-4e07-8277-b2f7492e5f06",
+					"name": "count",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": 1,
+					"objectType": "integer"
+				},
+				{
+					"id": "b8d17b23-4b81-4284-fd99-09259ad5ac8b",
+					"name": "links",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": {
+						"self": "https://test.api.amadeus.com/v1/area/resources?param=value"
+					},
+					"objectType": {
+						"title": "CollectionLinks",
+						"properties": {
+							"self": {
+								"type": "string",
+								"format": "uri",
+								"example": "https://test.api.amadeus.com/v1/area/resources?..."
+							},
+							"next": {
+								"type": "string",
+								"format": "uri",
+								"example": "https://test.api.amadeus.com/v1/area/resources?..."
+							},
+							"previous": {
+								"type": "string",
+								"format": "uri",
+								"example": "https://test.api.amadeus.com/v1/area/resources?..."
+							},
+							"last": {
+								"type": "string",
+								"format": "uri",
+								"example": "https://test.api.amadeus.com/v1/area/resources?..."
+							},
+							"first": {
+								"type": "string",
+								"format": "uri",
+								"example": "https://test.api.amadeus.com/v1/area/resources?..."
+							},
+							"up": {
+								"type": "string",
+								"format": "uri",
+								"example": "https://test.api.amadeus.com/v1/area/resources?..."
+							}
+						},
+						"example": {
+							"self": "https://test.api.amadeus.com/v1/area/resources?param=value"
+						}
+					}
+				}
+			]
+		},
+		{
+			"id": "421b5dab-a60d-4908-e2ca-4d21cbc7c7e8",
+			"name": "Links",
+			"properties": [
+				{
+					"id": "c7528e58-48c1-4793-da58-255559783660",
+					"required": true,
+					"name": "href",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "76d81df0-e03a-49de-d869-ace061601455",
+					"name": "methods",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				},
+				{
+					"id": "66e58855-7b11-4013-8441-175ccd168dd6",
+					"name": "count",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "integer"
+				}
+			]
+		}
+	],
+	"documentation": [],
+	"name": "Amadeus_LocationSearch",
+	"endpoint": "https://test.api.amadeus.com/v1",
+	"ver": "20.5.4.950",
+	"version": "1.2.0",
+	"description": null,
+	"mediaType": "application/vnd.amadeus+json",
+	"securitySchemes": null,
+	"swaggerURI": null,
+	"swaggerSystem": null,
+	"apiType": "",
+	"about": [
+		"==OBJECT STRING==",
+		"# Introduction",
+		"",
+		"The Airport & City Search REST/JSON API provides the full name, IATA code and geographical information of cities or airports that match a given keyword parameter, for use in flight searches.",
+		"",
+		"The response provides a list of cities and/or airports, sorted by travelers' traffic score, which is based on the estimated yearly number of travelers by airport or city. Airports and cities with the highest traffic are at the top of the list.",
+		"",
+		"There are two response formats for this API:",
+		"- autocomplete, which contains only the most important information",
+		"- descriptive, with more detailed information",
+		"",
+		"# Authorization",
+		"",
+		"Before using the API you will need to get an access token. Please read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization)** for more information on how to get your token.",
+		"",
+		"# Supported Operations",
+		"",
+		"Resource: location",
+		"",
+		"HTTP Method: GET"
+	],
+	"enableProxy": true,
+	"restrictAccess": false,
+	"enableTrace": false,
+	"enableIDE": true,
+	"internalAPI": false,
+	"isPublic": false,
+	"tlsAllowUntrusted": false,
+	"useOwnProcess": false,
+	"package": "b69714db-0a11-4c2b-9cfa-aabfa4102da6",
+	"apiGroup": "10141d64-d063-4665-94ad-ee21142059b3",
+	"apiFormat": 0,
+	"roles": []
+}

@@ -1,0 +1,3 @@
+jQuery.sap.require("sap.m.MessageBox");
+oApp.setBusy(false);
+sap.m.MessageBox.show(xhr.responseText);

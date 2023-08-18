@@ -1,0 +1,6 @@
+if (oDateFrom.getDateValue() !== null) {
+    oDateFrom.setValueState(sap.ui.core.ValueState.None);
+}
+
+var numdays = parseInt(oInputSNights.getValue());
+oDateTo.setDateValue(new Date(oDateFrom.getDateValue().addDays(numdays)));

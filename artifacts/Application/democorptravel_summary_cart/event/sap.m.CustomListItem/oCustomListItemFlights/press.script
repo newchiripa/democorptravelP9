@@ -1,0 +1,8 @@
+var context = oEvent.oSource.getBindingContext();
+var dat = context.getObject();
+var data = dat.detailInfo;
+data.id = dat.id;
+modeloListOutboundSegments.setData(data.outbSegments);
+modeloListInboundSegments.setData(data.inbSegments)
+modeloPageDetailFlights.setData(data);
+oApp.toDetail(oPageDetailFlights);

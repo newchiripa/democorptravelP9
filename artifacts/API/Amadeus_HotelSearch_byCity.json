@@ -1,0 +1,2091 @@
+{
+	"id": "b44e921e-1526-ee11-907e-000d3a661202",
+	"createdAt": "2023-07-19T09:17:45.420Z",
+	"createdBy": "daniel.vieira@neptune-software.com",
+	"auth": [],
+	"endpoints": [],
+	"paths": [
+		{
+			"id": "7d13cf37-291b-45e4-a587-b809b4cae6df",
+			"path": "/reference-data/locations/hotels/by-hotels",
+			"summary": "Search Hotels using its unique Id",
+			"description": "",
+			"method": "GET",
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"content": []
+				},
+				{
+					"status": "400",
+					"description": [
+						"==OBJECT STRING==",
+						"Bad Request",
+						"",
+						" Code | Title  ",
+						"-----|-----",
+						"00001 | CHECK FORMAT",
+						"00477 | INVALID FORMAT",
+						"00009 | CHECK CITY CODE",
+						"01157 | INVALID CITY CODE",
+						"03237 | PROPERTY CODE NOT FOUND IN SYSTEM",
+						"01257 | INVALID PROPERTY CODE",
+						"00895 | NOTHING FOUND FOR REQUESTED CITY",
+						"01271 | GUEST RECORD NOT FOUND",
+						"11126 | NO PROPERTIES FOUND FOR RP/DI REQUESTED"
+					],
+					"headers": [],
+					"content": []
+				},
+				{
+					"status": "404",
+					"description": "Not Found",
+					"headers": [],
+					"content": []
+				},
+				{
+					"status": "500",
+					"description": "Internal Server Error",
+					"headers": [],
+					"content": []
+				}
+			],
+			"content": [],
+			"headers": [],
+			"parameters": [
+				{
+					"name": "hotelIds",
+					"description": "Amadeus Property Codes (8 chars)",
+					"required": true,
+					"inPath": false,
+					"example": [
+						"ACPAR419"
+					],
+					"type": "array"
+				}
+			],
+			"endpoints": [],
+			"endpoint": "",
+			"tags": "Hotels"
+		},
+		{
+			"id": "70e22a42-e51a-426a-8562-c02317d62330",
+			"path": "/reference-data/locations/hotels/by-city",
+			"summary": "Search Hotels in a city",
+			"description": "",
+			"method": "GET",
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"content": [
+						{
+							"id": "a832e14f-5252-47ce-aef2-92eced832e47",
+							"name": "HotelSearchResponse",
+							"objectType": "reference",
+							"isArray": true
+						}
+					]
+				},
+				{
+					"status": "400",
+					"description": [
+						"==OBJECT STRING==",
+						"Bad Request",
+						"",
+						" Code | Title  ",
+						"-----|-----",
+						"00001 | CHECK FORMAT",
+						"00477 | INVALID FORMAT",
+						"00009 | CHECK CITY CODE",
+						"01157 | INVALID CITY CODE",
+						"03237 | PROPERTY CODE NOT FOUND IN SYSTEM",
+						"01257 | INVALID PROPERTY CODE",
+						"00895 | NOTHING FOUND FOR REQUESTED CITY",
+						"01271 | GUEST RECORD NOT FOUND",
+						"11126 | NO PROPERTIES FOUND FOR RP/DI REQUESTED"
+					],
+					"headers": [],
+					"content": []
+				},
+				{
+					"status": "500",
+					"description": "Internal Server Error",
+					"headers": [],
+					"content": []
+				}
+			],
+			"content": [],
+			"headers": [
+				{
+					"name": "Authorization",
+					"description": "",
+					"required": true,
+					"value": "",
+					"default": "",
+					"example": ""
+				}
+			],
+			"parameters": [
+				{
+					"name": "cityCode",
+					"description": "Destination city code or airport code. In case of city  code , the search will be done around the city center. Available codes can be found in [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) (3 chars IATA Code).",
+					"required": true,
+					"inPath": false,
+					"example": "PAR",
+					"type": "string"
+				},
+				{
+					"name": "radius",
+					"description": "Maximum distance from the geographical coordinates express in defined units. The default unit is metric kilometer.",
+					"inPath": false,
+					"type": "integer",
+					"default": "50"
+				},
+				{
+					"name": "radiusUnit",
+					"description": "Unit of measurement used to express the radius. It can be either metric kilometer or imperial mile.",
+					"inPath": false,
+					"type": "string",
+					"default": "KM",
+					"alternatives": [
+						"KM",
+						"MILE"
+					]
+				},
+				{
+					"name": "chainCodes",
+					"description": "Array of hotel chain codes. Each code is a string consisted of 2 capital alphabetic characters.",
+					"inPath": false,
+					"type": "array"
+				},
+				{
+					"name": "amenities",
+					"description": "List of amenities.",
+					"inPath": false,
+					"type": "array"
+				},
+				{
+					"name": "ratings",
+					"description": "Hotel stars. Up to four values can be requested at the same time in a comma separated list.",
+					"inPath": false,
+					"type": "array"
+				},
+				{
+					"name": "hotelSource",
+					"description": "Hotel source with values BEDBANK for aggregators, DIRECTCHAIN for GDS/Distribution and ALL for both.",
+					"inPath": false,
+					"type": "string",
+					"default": "ALL",
+					"alternatives": [
+						"BEDBANK",
+						"DIRECTCHAIN",
+						"ALL"
+					]
+				}
+			],
+			"endpoints": [],
+			"endpoint": "",
+			"tags": "Hotels"
+		},
+		{
+			"id": "c4d3ae95-d545-4f3d-bbbf-a334e62acaee",
+			"path": "/reference-data/locations/hotels/by-geocode",
+			"summary": "Search Hotels using Geocode",
+			"description": "",
+			"method": "GET",
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"content": []
+				},
+				{
+					"status": "400",
+					"description": [
+						"==OBJECT STRING==",
+						"Bad Request",
+						"",
+						" Code | Title  ",
+						"-----|-----",
+						"00001 | CHECK FORMAT",
+						"00477 | INVALID FORMAT",
+						"00009 | CHECK CITY CODE",
+						"01157 | INVALID CITY CODE",
+						"03237 | PROPERTY CODE NOT FOUND IN SYSTEM",
+						"01257 | INVALID PROPERTY CODE",
+						"00895 | NOTHING FOUND FOR REQUESTED CITY",
+						"01271 | GUEST RECORD NOT FOUND",
+						"11126 | NO PROPERTIES FOUND FOR RP/DI REQUESTED"
+					],
+					"headers": [],
+					"content": []
+				},
+				{
+					"status": "500",
+					"description": "Internal Server Error",
+					"headers": [],
+					"content": []
+				}
+			],
+			"content": [],
+			"headers": [],
+			"parameters": [
+				{
+					"name": "latitude",
+					"description": "The latitude of the searched geographical point expressed in geometric degrees.",
+					"required": true,
+					"inPath": false,
+					"example": 41.397158,
+					"type": "number"
+				},
+				{
+					"name": "longitude",
+					"description": "The longitude of the searched geographical point expressed in geometric degrees.",
+					"required": true,
+					"inPath": false,
+					"example": 2.160873,
+					"type": "number"
+				},
+				{
+					"name": "radius",
+					"description": "Maximum distance from the geographical coordinates expressed in defined units. The default unit is metric kilometer.",
+					"inPath": false,
+					"type": "integer",
+					"default": 5
+				},
+				{
+					"name": "radiusUnit",
+					"description": "Unit of measurement used to express the radius. It can be either metric kilometer or imperial mile.",
+					"inPath": false,
+					"type": "string",
+					"default": "KM",
+					"alternatives": [
+						"KM",
+						"MILE"
+					]
+				},
+				{
+					"name": "chainCodes",
+					"description": "Array of hotel chain codes. Each code is a string consisted of 2 capital alphabetic characters.",
+					"inPath": false,
+					"type": "array"
+				},
+				{
+					"name": "amenities",
+					"description": "List of amenities.",
+					"inPath": false,
+					"type": "array"
+				},
+				{
+					"name": "ratings",
+					"description": "Hotel stars. Up to four values can be requested at the same time in a comma separated list.",
+					"inPath": false,
+					"type": "array"
+				},
+				{
+					"name": "hotelSource",
+					"description": "Hotel source with values BEDBANK for aggregators, DIRECTCHAIN for GDS/Distribution and ALL for both.",
+					"inPath": false,
+					"type": "string",
+					"default": "ALL",
+					"alternatives": [
+						"BEDBANK",
+						"DIRECTCHAIN",
+						"ALL"
+					]
+				}
+			],
+			"endpoints": [],
+			"endpoint": "",
+			"tags": "Hotels"
+		}
+	],
+	"definitions": [
+		{
+			"id": "f3241be2-9df9-4ecd-b463-6c68e6eb229b",
+			"name": "HotelSearchResponse",
+			"type": "object",
+			"properties": [
+				{
+					"id": "dd933387-ff08-457a-bc0c-d900a2d8a622",
+					"name": "data",
+					"isParent": true,
+					"objectType": "array",
+					"children": [
+						{
+							"id": "a17439b4-838e-453b-8f8c-634b38062cd4",
+							"name": "",
+							"reference": "Hotel",
+							"objectType": "reference",
+							"parent": "dd933387-ff08-457a-bc0c-d900a2d8a622",
+							"isParent": false,
+							"children": [],
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"enableValueHelp": true,
+							"canAddSubNode": false,
+							"enabled": false,
+							"hideNameField": true
+						}
+					],
+					"required": false,
+					"parent": "",
+					"maxLength": "",
+					"minLength": "",
+					"enableValueHelp": false,
+					"canAddSubNode": false,
+					"enabled": true,
+					"hideNameField": false
+				},
+				{
+					"id": "a17439b4-838e-453b-8f8c-634b38062cd4",
+					"name": "",
+					"reference": "Hotel",
+					"objectType": "reference",
+					"parent": "dd933387-ff08-457a-bc0c-d900a2d8a622",
+					"isParent": false,
+					"children": [],
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"enableValueHelp": true,
+					"canAddSubNode": false,
+					"enabled": false,
+					"hideNameField": true
+				},
+				{
+					"id": "43d2ddee-00d0-4548-b2eb-370ec0dbbf26",
+					"name": "meta",
+					"reference": "Meta",
+					"objectType": "reference",
+					"parent": "",
+					"isParent": false,
+					"children": [],
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"enableValueHelp": true,
+					"canAddSubNode": false,
+					"enabled": true,
+					"hideNameField": false
+				}
+			]
+		},
+		{
+			"id": "3fcc8f24-f42e-4327-9a8f-d4b909675d31",
+			"name": "Error_400",
+			"description": "A set of errors",
+			"type": "object",
+			"properties": [
+				{
+					"id": "7bff95f1-f1a1-4db7-8ed2-df3ec16a2ed7",
+					"name": "errors",
+					"isParent": true,
+					"objectType": "array",
+					"children": [
+						{
+							"id": "448ed9a4-46e6-4273-bdb8-106b4c648145",
+							"name": "",
+							"objectType": "object",
+							"parent": "7bff95f1-f1a1-4db7-8ed2-df3ec16a2ed7",
+							"isParent": true,
+							"children": [
+								{
+									"id": "b23cb54d-a9c7-424e-9bd5-891f9d560d0b",
+									"children": [],
+									"name": "status",
+									"objectType": "integer",
+									"parent": "448ed9a4-46e6-4273-bdb8-106b4c648145",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "The [HTTP status code](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) of this response. This is present only in terminal errors which cause an unsuccessful response. In the case of multiple errors, they must all have the same status."
+								},
+								{
+									"id": "18c9c9b7-1d5c-45b4-be8a-1a5dbe4605a1",
+									"children": [],
+									"name": "code",
+									"objectType": "integer",
+									"parent": "448ed9a4-46e6-4273-bdb8-106b4c648145",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "A machine-readable error code from the Amadeus Canned Messages table, that will enable the API Consumers code to handle this type of error"
+								},
+								{
+									"id": "cb706b01-2786-4929-b819-fabbf20d6340",
+									"children": [],
+									"name": "title",
+									"objectType": "string",
+									"parent": "448ed9a4-46e6-4273-bdb8-106b4c648145",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "An error title from the Canned Messages table with a 1:1 correspondence to the error code. This may be localized"
+								},
+								{
+									"id": "1fdac864-211d-4c30-8edc-12a8751739fc",
+									"children": [],
+									"name": "detail",
+									"objectType": "string",
+									"parent": "448ed9a4-46e6-4273-bdb8-106b4c648145",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "An easy-to-read explanation specific to this occurrence of the problem. It should give the API consumer an idea of what went wrong and how to recover from it. Like the title, this field’s value can be localized."
+								},
+								{
+									"id": "efd4b8cb-88dd-4eeb-8fa0-ea7b8afd2528",
+									"children": [
+										{
+											"id": "544d3e9b-e4cb-4506-a094-6539d4a9af26",
+											"children": [],
+											"name": "parameter",
+											"objectType": "string",
+											"parent": "efd4b8cb-88dd-4eeb-8fa0-ea7b8afd2528",
+											"isParent": false,
+											"required": false,
+											"maxLength": "",
+											"minLength": "",
+											"description": "The key of the URI path or query parameter that caused the error"
+										},
+										{
+											"id": "ba58867a-2630-4940-85eb-c6162773ca11",
+											"children": [],
+											"name": "pointer",
+											"objectType": "string",
+											"parent": "efd4b8cb-88dd-4eeb-8fa0-ea7b8afd2528",
+											"isParent": false,
+											"required": false,
+											"maxLength": "",
+											"minLength": "",
+											"description": "A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error"
+										},
+										{
+											"id": "9732bf88-8f08-4813-b207-69212d9e8f7e",
+											"children": [],
+											"name": "example",
+											"objectType": "string",
+											"parent": "efd4b8cb-88dd-4eeb-8fa0-ea7b8afd2528",
+											"isParent": false,
+											"required": false,
+											"maxLength": "",
+											"minLength": "",
+											"description": "A sample input to guide the user when resolving this issue"
+										}
+									],
+									"name": "source",
+									"objectType": "object",
+									"parent": "448ed9a4-46e6-4273-bdb8-106b4c648145",
+									"isParent": true,
+									"required": false,
+									"maxLength": "",
+									"minLength": ""
+								},
+								{
+									"id": "88eb580e-b163-4d8e-be4d-82907be85624",
+									"children": [],
+									"name": "documentation",
+									"objectType": "string",
+									"parent": "448ed9a4-46e6-4273-bdb8-106b4c648145",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "A link to a web page or file with further documentation to help the API consumer resolve this error"
+								}
+							],
+							"required": false,
+							"maxLength": "",
+							"minLength": ""
+						}
+					],
+					"required": false,
+					"parent": "",
+					"maxLength": "",
+					"minLength": ""
+				},
+				{
+					"id": "448ed9a4-46e6-4273-bdb8-106b4c648145",
+					"name": "",
+					"objectType": "object",
+					"parent": "7bff95f1-f1a1-4db7-8ed2-df3ec16a2ed7",
+					"isParent": true,
+					"children": [
+						{
+							"id": "b23cb54d-a9c7-424e-9bd5-891f9d560d0b",
+							"children": [],
+							"name": "status",
+							"objectType": "integer",
+							"parent": "448ed9a4-46e6-4273-bdb8-106b4c648145",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "The [HTTP status code](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) of this response. This is present only in terminal errors which cause an unsuccessful response. In the case of multiple errors, they must all have the same status."
+						},
+						{
+							"id": "18c9c9b7-1d5c-45b4-be8a-1a5dbe4605a1",
+							"children": [],
+							"name": "code",
+							"objectType": "integer",
+							"parent": "448ed9a4-46e6-4273-bdb8-106b4c648145",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "A machine-readable error code from the Amadeus Canned Messages table, that will enable the API Consumers code to handle this type of error"
+						},
+						{
+							"id": "cb706b01-2786-4929-b819-fabbf20d6340",
+							"children": [],
+							"name": "title",
+							"objectType": "string",
+							"parent": "448ed9a4-46e6-4273-bdb8-106b4c648145",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "An error title from the Canned Messages table with a 1:1 correspondence to the error code. This may be localized"
+						},
+						{
+							"id": "1fdac864-211d-4c30-8edc-12a8751739fc",
+							"children": [],
+							"name": "detail",
+							"objectType": "string",
+							"parent": "448ed9a4-46e6-4273-bdb8-106b4c648145",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "An easy-to-read explanation specific to this occurrence of the problem. It should give the API consumer an idea of what went wrong and how to recover from it. Like the title, this field’s value can be localized."
+						},
+						{
+							"id": "efd4b8cb-88dd-4eeb-8fa0-ea7b8afd2528",
+							"children": [
+								{
+									"id": "544d3e9b-e4cb-4506-a094-6539d4a9af26",
+									"children": [],
+									"name": "parameter",
+									"objectType": "string",
+									"parent": "efd4b8cb-88dd-4eeb-8fa0-ea7b8afd2528",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "The key of the URI path or query parameter that caused the error"
+								},
+								{
+									"id": "ba58867a-2630-4940-85eb-c6162773ca11",
+									"children": [],
+									"name": "pointer",
+									"objectType": "string",
+									"parent": "efd4b8cb-88dd-4eeb-8fa0-ea7b8afd2528",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error"
+								},
+								{
+									"id": "9732bf88-8f08-4813-b207-69212d9e8f7e",
+									"children": [],
+									"name": "example",
+									"objectType": "string",
+									"parent": "efd4b8cb-88dd-4eeb-8fa0-ea7b8afd2528",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "A sample input to guide the user when resolving this issue"
+								}
+							],
+							"name": "source",
+							"objectType": "object",
+							"parent": "448ed9a4-46e6-4273-bdb8-106b4c648145",
+							"isParent": true,
+							"required": false,
+							"maxLength": "",
+							"minLength": ""
+						},
+						{
+							"id": "88eb580e-b163-4d8e-be4d-82907be85624",
+							"children": [],
+							"name": "documentation",
+							"objectType": "string",
+							"parent": "448ed9a4-46e6-4273-bdb8-106b4c648145",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "A link to a web page or file with further documentation to help the API consumer resolve this error"
+						}
+					],
+					"required": false,
+					"maxLength": "",
+					"minLength": ""
+				},
+				{
+					"id": "b23cb54d-a9c7-424e-9bd5-891f9d560d0b",
+					"children": [],
+					"name": "status",
+					"objectType": "integer",
+					"parent": "448ed9a4-46e6-4273-bdb8-106b4c648145",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "The [HTTP status code](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) of this response. This is present only in terminal errors which cause an unsuccessful response. In the case of multiple errors, they must all have the same status."
+				},
+				{
+					"id": "18c9c9b7-1d5c-45b4-be8a-1a5dbe4605a1",
+					"children": [],
+					"name": "code",
+					"objectType": "integer",
+					"parent": "448ed9a4-46e6-4273-bdb8-106b4c648145",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "A machine-readable error code from the Amadeus Canned Messages table, that will enable the API Consumers code to handle this type of error"
+				},
+				{
+					"id": "cb706b01-2786-4929-b819-fabbf20d6340",
+					"children": [],
+					"name": "title",
+					"objectType": "string",
+					"parent": "448ed9a4-46e6-4273-bdb8-106b4c648145",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "An error title from the Canned Messages table with a 1:1 correspondence to the error code. This may be localized"
+				},
+				{
+					"id": "1fdac864-211d-4c30-8edc-12a8751739fc",
+					"children": [],
+					"name": "detail",
+					"objectType": "string",
+					"parent": "448ed9a4-46e6-4273-bdb8-106b4c648145",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "An easy-to-read explanation specific to this occurrence of the problem. It should give the API consumer an idea of what went wrong and how to recover from it. Like the title, this field’s value can be localized."
+				},
+				{
+					"id": "efd4b8cb-88dd-4eeb-8fa0-ea7b8afd2528",
+					"children": [
+						{
+							"id": "544d3e9b-e4cb-4506-a094-6539d4a9af26",
+							"children": [],
+							"name": "parameter",
+							"objectType": "string",
+							"parent": "efd4b8cb-88dd-4eeb-8fa0-ea7b8afd2528",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "The key of the URI path or query parameter that caused the error"
+						},
+						{
+							"id": "ba58867a-2630-4940-85eb-c6162773ca11",
+							"children": [],
+							"name": "pointer",
+							"objectType": "string",
+							"parent": "efd4b8cb-88dd-4eeb-8fa0-ea7b8afd2528",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error"
+						},
+						{
+							"id": "9732bf88-8f08-4813-b207-69212d9e8f7e",
+							"children": [],
+							"name": "example",
+							"objectType": "string",
+							"parent": "efd4b8cb-88dd-4eeb-8fa0-ea7b8afd2528",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "A sample input to guide the user when resolving this issue"
+						}
+					],
+					"name": "source",
+					"objectType": "object",
+					"parent": "448ed9a4-46e6-4273-bdb8-106b4c648145",
+					"isParent": true,
+					"required": false,
+					"maxLength": "",
+					"minLength": ""
+				},
+				{
+					"id": "544d3e9b-e4cb-4506-a094-6539d4a9af26",
+					"children": [],
+					"name": "parameter",
+					"objectType": "string",
+					"parent": "efd4b8cb-88dd-4eeb-8fa0-ea7b8afd2528",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "The key of the URI path or query parameter that caused the error"
+				},
+				{
+					"id": "ba58867a-2630-4940-85eb-c6162773ca11",
+					"children": [],
+					"name": "pointer",
+					"objectType": "string",
+					"parent": "efd4b8cb-88dd-4eeb-8fa0-ea7b8afd2528",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error"
+				},
+				{
+					"id": "9732bf88-8f08-4813-b207-69212d9e8f7e",
+					"children": [],
+					"name": "example",
+					"objectType": "string",
+					"parent": "efd4b8cb-88dd-4eeb-8fa0-ea7b8afd2528",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "A sample input to guide the user when resolving this issue"
+				},
+				{
+					"id": "88eb580e-b163-4d8e-be4d-82907be85624",
+					"children": [],
+					"name": "documentation",
+					"objectType": "string",
+					"parent": "448ed9a4-46e6-4273-bdb8-106b4c648145",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "A link to a web page or file with further documentation to help the API consumer resolve this error"
+				}
+			]
+		},
+		{
+			"id": "1b2e217c-4ac0-4a5e-b0bb-1546f15f35a8",
+			"name": "Error_404",
+			"description": "A set of errors",
+			"type": "object",
+			"properties": [
+				{
+					"id": "c600ad5c-cdf9-453d-8348-6e64e287534c",
+					"name": "errors",
+					"isParent": true,
+					"objectType": "array",
+					"children": [
+						{
+							"id": "19421ff3-0499-4e68-a019-ac60ddc6485e",
+							"name": "",
+							"objectType": "object",
+							"parent": "c600ad5c-cdf9-453d-8348-6e64e287534c",
+							"isParent": true,
+							"children": [
+								{
+									"id": "1c233afc-1c18-4291-8771-4aad0330f373",
+									"children": [],
+									"name": "status",
+									"objectType": "integer",
+									"parent": "19421ff3-0499-4e68-a019-ac60ddc6485e",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "The [HTTP status code](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) of this response. This is present only in terminal errors which cause an unsuccessful response. In the case of multiple errors, they must all have the same status."
+								},
+								{
+									"id": "35b58944-173b-4fbd-b0fb-2fd55928957b",
+									"children": [],
+									"name": "code",
+									"objectType": "integer",
+									"parent": "19421ff3-0499-4e68-a019-ac60ddc6485e",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "A machine-readable error code from the Amadeus Canned Messages table, that will enable the API Consumers code to handle this type of error"
+								},
+								{
+									"id": "2060abf9-a542-4521-90e2-c1289a509386",
+									"children": [],
+									"name": "title",
+									"objectType": "string",
+									"parent": "19421ff3-0499-4e68-a019-ac60ddc6485e",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "An error title from the Canned Messages table with a 1:1 correspondence to the error code. This may be localized"
+								},
+								{
+									"id": "808c9716-5e14-48a4-8742-0c36bba5c30b",
+									"children": [],
+									"name": "detail",
+									"objectType": "string",
+									"parent": "19421ff3-0499-4e68-a019-ac60ddc6485e",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "An easy-to-read explanation specific to this occurrence of the problem. It should give the API consumer an idea of what went wrong and how to recover from it. Like the title, this field’s value can be localized."
+								},
+								{
+									"id": "3064ed69-adfb-49c5-b7e2-7dbe1d876d15",
+									"children": [
+										{
+											"id": "dcff4a4b-bcfd-421a-a3eb-ae301e12e91d",
+											"children": [],
+											"name": "parameter",
+											"objectType": "string",
+											"parent": "3064ed69-adfb-49c5-b7e2-7dbe1d876d15",
+											"isParent": false,
+											"required": false,
+											"maxLength": "",
+											"minLength": "",
+											"description": "The key of the URI path or query parameter that caused the error"
+										},
+										{
+											"id": "31193650-bfc3-45d9-be27-41e072835532",
+											"children": [],
+											"name": "pointer",
+											"objectType": "string",
+											"parent": "3064ed69-adfb-49c5-b7e2-7dbe1d876d15",
+											"isParent": false,
+											"required": false,
+											"maxLength": "",
+											"minLength": "",
+											"description": "A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error"
+										},
+										{
+											"id": "8f916fbf-9eeb-4904-a4db-cdb2e942fbf0",
+											"children": [],
+											"name": "example",
+											"objectType": "string",
+											"parent": "3064ed69-adfb-49c5-b7e2-7dbe1d876d15",
+											"isParent": false,
+											"required": false,
+											"maxLength": "",
+											"minLength": "",
+											"description": "A sample input to guide the user when resolving this issue"
+										}
+									],
+									"name": "source",
+									"objectType": "object",
+									"parent": "19421ff3-0499-4e68-a019-ac60ddc6485e",
+									"isParent": true,
+									"required": false,
+									"maxLength": "",
+									"minLength": ""
+								},
+								{
+									"id": "2c946f11-49b3-40ee-a3dd-1a025c9181ad",
+									"children": [],
+									"name": "documentation",
+									"objectType": "string",
+									"parent": "19421ff3-0499-4e68-a019-ac60ddc6485e",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "A link to a web page or file with further documentation to help the API consumer resolve this error"
+								}
+							],
+							"required": false,
+							"maxLength": "",
+							"minLength": ""
+						}
+					],
+					"required": false,
+					"parent": "",
+					"maxLength": "",
+					"minLength": ""
+				},
+				{
+					"id": "19421ff3-0499-4e68-a019-ac60ddc6485e",
+					"name": "",
+					"objectType": "object",
+					"parent": "c600ad5c-cdf9-453d-8348-6e64e287534c",
+					"isParent": true,
+					"children": [
+						{
+							"id": "1c233afc-1c18-4291-8771-4aad0330f373",
+							"children": [],
+							"name": "status",
+							"objectType": "integer",
+							"parent": "19421ff3-0499-4e68-a019-ac60ddc6485e",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "The [HTTP status code](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) of this response. This is present only in terminal errors which cause an unsuccessful response. In the case of multiple errors, they must all have the same status."
+						},
+						{
+							"id": "35b58944-173b-4fbd-b0fb-2fd55928957b",
+							"children": [],
+							"name": "code",
+							"objectType": "integer",
+							"parent": "19421ff3-0499-4e68-a019-ac60ddc6485e",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "A machine-readable error code from the Amadeus Canned Messages table, that will enable the API Consumers code to handle this type of error"
+						},
+						{
+							"id": "2060abf9-a542-4521-90e2-c1289a509386",
+							"children": [],
+							"name": "title",
+							"objectType": "string",
+							"parent": "19421ff3-0499-4e68-a019-ac60ddc6485e",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "An error title from the Canned Messages table with a 1:1 correspondence to the error code. This may be localized"
+						},
+						{
+							"id": "808c9716-5e14-48a4-8742-0c36bba5c30b",
+							"children": [],
+							"name": "detail",
+							"objectType": "string",
+							"parent": "19421ff3-0499-4e68-a019-ac60ddc6485e",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "An easy-to-read explanation specific to this occurrence of the problem. It should give the API consumer an idea of what went wrong and how to recover from it. Like the title, this field’s value can be localized."
+						},
+						{
+							"id": "3064ed69-adfb-49c5-b7e2-7dbe1d876d15",
+							"children": [
+								{
+									"id": "dcff4a4b-bcfd-421a-a3eb-ae301e12e91d",
+									"children": [],
+									"name": "parameter",
+									"objectType": "string",
+									"parent": "3064ed69-adfb-49c5-b7e2-7dbe1d876d15",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "The key of the URI path or query parameter that caused the error"
+								},
+								{
+									"id": "31193650-bfc3-45d9-be27-41e072835532",
+									"children": [],
+									"name": "pointer",
+									"objectType": "string",
+									"parent": "3064ed69-adfb-49c5-b7e2-7dbe1d876d15",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error"
+								},
+								{
+									"id": "8f916fbf-9eeb-4904-a4db-cdb2e942fbf0",
+									"children": [],
+									"name": "example",
+									"objectType": "string",
+									"parent": "3064ed69-adfb-49c5-b7e2-7dbe1d876d15",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "A sample input to guide the user when resolving this issue"
+								}
+							],
+							"name": "source",
+							"objectType": "object",
+							"parent": "19421ff3-0499-4e68-a019-ac60ddc6485e",
+							"isParent": true,
+							"required": false,
+							"maxLength": "",
+							"minLength": ""
+						},
+						{
+							"id": "2c946f11-49b3-40ee-a3dd-1a025c9181ad",
+							"children": [],
+							"name": "documentation",
+							"objectType": "string",
+							"parent": "19421ff3-0499-4e68-a019-ac60ddc6485e",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "A link to a web page or file with further documentation to help the API consumer resolve this error"
+						}
+					],
+					"required": false,
+					"maxLength": "",
+					"minLength": ""
+				},
+				{
+					"id": "1c233afc-1c18-4291-8771-4aad0330f373",
+					"children": [],
+					"name": "status",
+					"objectType": "integer",
+					"parent": "19421ff3-0499-4e68-a019-ac60ddc6485e",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "The [HTTP status code](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) of this response. This is present only in terminal errors which cause an unsuccessful response. In the case of multiple errors, they must all have the same status."
+				},
+				{
+					"id": "35b58944-173b-4fbd-b0fb-2fd55928957b",
+					"children": [],
+					"name": "code",
+					"objectType": "integer",
+					"parent": "19421ff3-0499-4e68-a019-ac60ddc6485e",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "A machine-readable error code from the Amadeus Canned Messages table, that will enable the API Consumers code to handle this type of error"
+				},
+				{
+					"id": "2060abf9-a542-4521-90e2-c1289a509386",
+					"children": [],
+					"name": "title",
+					"objectType": "string",
+					"parent": "19421ff3-0499-4e68-a019-ac60ddc6485e",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "An error title from the Canned Messages table with a 1:1 correspondence to the error code. This may be localized"
+				},
+				{
+					"id": "808c9716-5e14-48a4-8742-0c36bba5c30b",
+					"children": [],
+					"name": "detail",
+					"objectType": "string",
+					"parent": "19421ff3-0499-4e68-a019-ac60ddc6485e",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "An easy-to-read explanation specific to this occurrence of the problem. It should give the API consumer an idea of what went wrong and how to recover from it. Like the title, this field’s value can be localized."
+				},
+				{
+					"id": "3064ed69-adfb-49c5-b7e2-7dbe1d876d15",
+					"children": [
+						{
+							"id": "dcff4a4b-bcfd-421a-a3eb-ae301e12e91d",
+							"children": [],
+							"name": "parameter",
+							"objectType": "string",
+							"parent": "3064ed69-adfb-49c5-b7e2-7dbe1d876d15",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "The key of the URI path or query parameter that caused the error"
+						},
+						{
+							"id": "31193650-bfc3-45d9-be27-41e072835532",
+							"children": [],
+							"name": "pointer",
+							"objectType": "string",
+							"parent": "3064ed69-adfb-49c5-b7e2-7dbe1d876d15",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error"
+						},
+						{
+							"id": "8f916fbf-9eeb-4904-a4db-cdb2e942fbf0",
+							"children": [],
+							"name": "example",
+							"objectType": "string",
+							"parent": "3064ed69-adfb-49c5-b7e2-7dbe1d876d15",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "A sample input to guide the user when resolving this issue"
+						}
+					],
+					"name": "source",
+					"objectType": "object",
+					"parent": "19421ff3-0499-4e68-a019-ac60ddc6485e",
+					"isParent": true,
+					"required": false,
+					"maxLength": "",
+					"minLength": ""
+				},
+				{
+					"id": "dcff4a4b-bcfd-421a-a3eb-ae301e12e91d",
+					"children": [],
+					"name": "parameter",
+					"objectType": "string",
+					"parent": "3064ed69-adfb-49c5-b7e2-7dbe1d876d15",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "The key of the URI path or query parameter that caused the error"
+				},
+				{
+					"id": "31193650-bfc3-45d9-be27-41e072835532",
+					"children": [],
+					"name": "pointer",
+					"objectType": "string",
+					"parent": "3064ed69-adfb-49c5-b7e2-7dbe1d876d15",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error"
+				},
+				{
+					"id": "8f916fbf-9eeb-4904-a4db-cdb2e942fbf0",
+					"children": [],
+					"name": "example",
+					"objectType": "string",
+					"parent": "3064ed69-adfb-49c5-b7e2-7dbe1d876d15",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "A sample input to guide the user when resolving this issue"
+				},
+				{
+					"id": "2c946f11-49b3-40ee-a3dd-1a025c9181ad",
+					"children": [],
+					"name": "documentation",
+					"objectType": "string",
+					"parent": "19421ff3-0499-4e68-a019-ac60ddc6485e",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "A link to a web page or file with further documentation to help the API consumer resolve this error"
+				}
+			]
+		},
+		{
+			"id": "97a93646-05b9-4e9e-ae61-a8ba5311c6ab",
+			"name": "Error_500",
+			"description": "A set of errors",
+			"type": "object",
+			"properties": [
+				{
+					"id": "044acf06-a840-417b-ab7e-01b09d819b0e",
+					"name": "errors",
+					"isParent": true,
+					"objectType": "array",
+					"children": [
+						{
+							"id": "7e8a27b5-f127-4612-a646-f4f5b5d37108",
+							"name": "",
+							"objectType": "object",
+							"parent": "044acf06-a840-417b-ab7e-01b09d819b0e",
+							"isParent": true,
+							"children": [
+								{
+									"id": "62ea5c0d-3639-4646-bcdb-bf618f305986",
+									"children": [],
+									"name": "status",
+									"objectType": "integer",
+									"parent": "7e8a27b5-f127-4612-a646-f4f5b5d37108",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "The [HTTP status code](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) of this response. This is present only in terminal errors which cause an unsuccessful response. In the case of multiple errors, they must all have the same status."
+								},
+								{
+									"id": "2cc8a2d0-22c8-4867-9a97-da5007f8169e",
+									"children": [],
+									"name": "code",
+									"objectType": "integer",
+									"parent": "7e8a27b5-f127-4612-a646-f4f5b5d37108",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "A machine-readable error code from the Amadeus Canned Messages table, that will enable the API Consumers code to handle this type of error"
+								},
+								{
+									"id": "29144d64-51a9-439b-bc90-36753f9abefc",
+									"children": [],
+									"name": "title",
+									"objectType": "string",
+									"parent": "7e8a27b5-f127-4612-a646-f4f5b5d37108",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "An error title from the Canned Messages table with a 1:1 correspondence to the error code. This may be localized"
+								},
+								{
+									"id": "b77a0d13-8a03-46b5-b846-41abab426156",
+									"children": [],
+									"name": "detail",
+									"objectType": "string",
+									"parent": "7e8a27b5-f127-4612-a646-f4f5b5d37108",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "An easy-to-read explanation specific to this occurrence of the problem. It should give the API consumer an idea of what went wrong and how to recover from it. Like the title, this field’s value can be localized."
+								},
+								{
+									"id": "92c83c93-4f2b-46f5-b5ed-93d12e4959b6",
+									"children": [
+										{
+											"id": "fe58beaa-49b8-4531-9c2c-eddea0f7293b",
+											"children": [],
+											"name": "parameter",
+											"objectType": "string",
+											"parent": "92c83c93-4f2b-46f5-b5ed-93d12e4959b6",
+											"isParent": false,
+											"required": false,
+											"maxLength": "",
+											"minLength": "",
+											"description": "The key of the URI path or query parameter that caused the error"
+										},
+										{
+											"id": "d1175dfa-e883-4e29-b9bb-c662a2d0dfb0",
+											"children": [],
+											"name": "pointer",
+											"objectType": "string",
+											"parent": "92c83c93-4f2b-46f5-b5ed-93d12e4959b6",
+											"isParent": false,
+											"required": false,
+											"maxLength": "",
+											"minLength": "",
+											"description": "A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error"
+										},
+										{
+											"id": "665dec89-a697-42c2-b988-52d597142e20",
+											"children": [],
+											"name": "example",
+											"objectType": "string",
+											"parent": "92c83c93-4f2b-46f5-b5ed-93d12e4959b6",
+											"isParent": false,
+											"required": false,
+											"maxLength": "",
+											"minLength": "",
+											"description": "A sample input to guide the user when resolving this issue"
+										}
+									],
+									"name": "source",
+									"objectType": "object",
+									"parent": "7e8a27b5-f127-4612-a646-f4f5b5d37108",
+									"isParent": true,
+									"required": false,
+									"maxLength": "",
+									"minLength": ""
+								},
+								{
+									"id": "c15feb56-8d2e-4bf2-86f8-16f261422aea",
+									"children": [],
+									"name": "documentation",
+									"objectType": "string",
+									"parent": "7e8a27b5-f127-4612-a646-f4f5b5d37108",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "A link to a web page or file with further documentation to help the API consumer resolve this error"
+								}
+							],
+							"required": false,
+							"maxLength": "",
+							"minLength": ""
+						}
+					],
+					"required": false,
+					"parent": "",
+					"maxLength": "",
+					"minLength": ""
+				},
+				{
+					"id": "7e8a27b5-f127-4612-a646-f4f5b5d37108",
+					"name": "",
+					"objectType": "object",
+					"parent": "044acf06-a840-417b-ab7e-01b09d819b0e",
+					"isParent": true,
+					"children": [
+						{
+							"id": "62ea5c0d-3639-4646-bcdb-bf618f305986",
+							"children": [],
+							"name": "status",
+							"objectType": "integer",
+							"parent": "7e8a27b5-f127-4612-a646-f4f5b5d37108",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "The [HTTP status code](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) of this response. This is present only in terminal errors which cause an unsuccessful response. In the case of multiple errors, they must all have the same status."
+						},
+						{
+							"id": "2cc8a2d0-22c8-4867-9a97-da5007f8169e",
+							"children": [],
+							"name": "code",
+							"objectType": "integer",
+							"parent": "7e8a27b5-f127-4612-a646-f4f5b5d37108",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "A machine-readable error code from the Amadeus Canned Messages table, that will enable the API Consumers code to handle this type of error"
+						},
+						{
+							"id": "29144d64-51a9-439b-bc90-36753f9abefc",
+							"children": [],
+							"name": "title",
+							"objectType": "string",
+							"parent": "7e8a27b5-f127-4612-a646-f4f5b5d37108",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "An error title from the Canned Messages table with a 1:1 correspondence to the error code. This may be localized"
+						},
+						{
+							"id": "b77a0d13-8a03-46b5-b846-41abab426156",
+							"children": [],
+							"name": "detail",
+							"objectType": "string",
+							"parent": "7e8a27b5-f127-4612-a646-f4f5b5d37108",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "An easy-to-read explanation specific to this occurrence of the problem. It should give the API consumer an idea of what went wrong and how to recover from it. Like the title, this field’s value can be localized."
+						},
+						{
+							"id": "92c83c93-4f2b-46f5-b5ed-93d12e4959b6",
+							"children": [
+								{
+									"id": "fe58beaa-49b8-4531-9c2c-eddea0f7293b",
+									"children": [],
+									"name": "parameter",
+									"objectType": "string",
+									"parent": "92c83c93-4f2b-46f5-b5ed-93d12e4959b6",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "The key of the URI path or query parameter that caused the error"
+								},
+								{
+									"id": "d1175dfa-e883-4e29-b9bb-c662a2d0dfb0",
+									"children": [],
+									"name": "pointer",
+									"objectType": "string",
+									"parent": "92c83c93-4f2b-46f5-b5ed-93d12e4959b6",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error"
+								},
+								{
+									"id": "665dec89-a697-42c2-b988-52d597142e20",
+									"children": [],
+									"name": "example",
+									"objectType": "string",
+									"parent": "92c83c93-4f2b-46f5-b5ed-93d12e4959b6",
+									"isParent": false,
+									"required": false,
+									"maxLength": "",
+									"minLength": "",
+									"description": "A sample input to guide the user when resolving this issue"
+								}
+							],
+							"name": "source",
+							"objectType": "object",
+							"parent": "7e8a27b5-f127-4612-a646-f4f5b5d37108",
+							"isParent": true,
+							"required": false,
+							"maxLength": "",
+							"minLength": ""
+						},
+						{
+							"id": "c15feb56-8d2e-4bf2-86f8-16f261422aea",
+							"children": [],
+							"name": "documentation",
+							"objectType": "string",
+							"parent": "7e8a27b5-f127-4612-a646-f4f5b5d37108",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "A link to a web page or file with further documentation to help the API consumer resolve this error"
+						}
+					],
+					"required": false,
+					"maxLength": "",
+					"minLength": ""
+				},
+				{
+					"id": "62ea5c0d-3639-4646-bcdb-bf618f305986",
+					"children": [],
+					"name": "status",
+					"objectType": "integer",
+					"parent": "7e8a27b5-f127-4612-a646-f4f5b5d37108",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "The [HTTP status code](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) of this response. This is present only in terminal errors which cause an unsuccessful response. In the case of multiple errors, they must all have the same status."
+				},
+				{
+					"id": "2cc8a2d0-22c8-4867-9a97-da5007f8169e",
+					"children": [],
+					"name": "code",
+					"objectType": "integer",
+					"parent": "7e8a27b5-f127-4612-a646-f4f5b5d37108",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "A machine-readable error code from the Amadeus Canned Messages table, that will enable the API Consumers code to handle this type of error"
+				},
+				{
+					"id": "29144d64-51a9-439b-bc90-36753f9abefc",
+					"children": [],
+					"name": "title",
+					"objectType": "string",
+					"parent": "7e8a27b5-f127-4612-a646-f4f5b5d37108",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "An error title from the Canned Messages table with a 1:1 correspondence to the error code. This may be localized"
+				},
+				{
+					"id": "b77a0d13-8a03-46b5-b846-41abab426156",
+					"children": [],
+					"name": "detail",
+					"objectType": "string",
+					"parent": "7e8a27b5-f127-4612-a646-f4f5b5d37108",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "An easy-to-read explanation specific to this occurrence of the problem. It should give the API consumer an idea of what went wrong and how to recover from it. Like the title, this field’s value can be localized."
+				},
+				{
+					"id": "92c83c93-4f2b-46f5-b5ed-93d12e4959b6",
+					"children": [
+						{
+							"id": "fe58beaa-49b8-4531-9c2c-eddea0f7293b",
+							"children": [],
+							"name": "parameter",
+							"objectType": "string",
+							"parent": "92c83c93-4f2b-46f5-b5ed-93d12e4959b6",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "The key of the URI path or query parameter that caused the error"
+						},
+						{
+							"id": "d1175dfa-e883-4e29-b9bb-c662a2d0dfb0",
+							"children": [],
+							"name": "pointer",
+							"objectType": "string",
+							"parent": "92c83c93-4f2b-46f5-b5ed-93d12e4959b6",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error"
+						},
+						{
+							"id": "665dec89-a697-42c2-b988-52d597142e20",
+							"children": [],
+							"name": "example",
+							"objectType": "string",
+							"parent": "92c83c93-4f2b-46f5-b5ed-93d12e4959b6",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "A sample input to guide the user when resolving this issue"
+						}
+					],
+					"name": "source",
+					"objectType": "object",
+					"parent": "7e8a27b5-f127-4612-a646-f4f5b5d37108",
+					"isParent": true,
+					"required": false,
+					"maxLength": "",
+					"minLength": ""
+				},
+				{
+					"id": "fe58beaa-49b8-4531-9c2c-eddea0f7293b",
+					"children": [],
+					"name": "parameter",
+					"objectType": "string",
+					"parent": "92c83c93-4f2b-46f5-b5ed-93d12e4959b6",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "The key of the URI path or query parameter that caused the error"
+				},
+				{
+					"id": "d1175dfa-e883-4e29-b9bb-c662a2d0dfb0",
+					"children": [],
+					"name": "pointer",
+					"objectType": "string",
+					"parent": "92c83c93-4f2b-46f5-b5ed-93d12e4959b6",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error"
+				},
+				{
+					"id": "665dec89-a697-42c2-b988-52d597142e20",
+					"children": [],
+					"name": "example",
+					"objectType": "string",
+					"parent": "92c83c93-4f2b-46f5-b5ed-93d12e4959b6",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "A sample input to guide the user when resolving this issue"
+				},
+				{
+					"id": "c15feb56-8d2e-4bf2-86f8-16f261422aea",
+					"children": [],
+					"name": "documentation",
+					"objectType": "string",
+					"parent": "7e8a27b5-f127-4612-a646-f4f5b5d37108",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "A link to a web page or file with further documentation to help the API consumer resolve this error"
+				}
+			]
+		},
+		{
+			"id": "91bcb30d-f470-4ea1-8d88-48104b44a9f3",
+			"name": "Hotel",
+			"description": "Hotel location information",
+			"properties": [
+				{
+					"id": "821d48bb-f29b-4ba0-dd02-e6d3dd3de791",
+					"name": "chainCode",
+					"objectType": "string",
+					"required": false,
+					"parent": "",
+					"example": "YX",
+					"isParent": false,
+					"enableValueHelp": false,
+					"canAddSubNode": false,
+					"enabled": true,
+					"hideNameField": false,
+					"children": []
+				},
+				{
+					"id": "c75f4fe6-c352-46d2-dda0-4e7a0764f551",
+					"name": "iataCode",
+					"objectType": "string",
+					"required": false,
+					"parent": "",
+					"example": "PAR",
+					"isParent": false,
+					"enableValueHelp": false,
+					"canAddSubNode": false,
+					"enabled": true,
+					"hideNameField": false,
+					"children": []
+				},
+				{
+					"id": "19ac2628-3f35-4dc7-b4a6-2cce505bdb41",
+					"name": "dupeId",
+					"objectType": "number",
+					"required": false,
+					"parent": "",
+					"example": 700054607,
+					"isParent": false,
+					"enableValueHelp": false,
+					"canAddSubNode": false,
+					"enabled": true,
+					"hideNameField": false,
+					"children": []
+				},
+				{
+					"id": "ff0d1340-87c8-4592-82a4-54a607c0e68d",
+					"name": "name",
+					"objectType": "string",
+					"required": false,
+					"parent": "",
+					"example": "HOTEL LES RIVES DE NOTRE DAME",
+					"isParent": false,
+					"enableValueHelp": false,
+					"canAddSubNode": false,
+					"enabled": true,
+					"hideNameField": false,
+					"children": []
+				},
+				{
+					"id": "801cf3b7-c27b-4297-f493-481927ece441",
+					"name": "hotelId",
+					"objectType": "string",
+					"required": false,
+					"parent": "",
+					"example": "YXPARRND",
+					"isParent": false,
+					"enableValueHelp": false,
+					"canAddSubNode": false,
+					"enabled": true,
+					"hideNameField": false,
+					"children": []
+				},
+				{
+					"id": "caf25aa4-a584-4254-cec7-9c6c0bd15aec",
+					"name": "latitude",
+					"objectType": "number",
+					"required": false,
+					"parent": "9fc5d3bb-c411-495f-db83-a7e4153ddff8",
+					"example": 48.85327,
+					"isParent": false,
+					"enableValueHelp": false,
+					"canAddSubNode": false,
+					"enabled": true,
+					"hideNameField": false,
+					"children": []
+				},
+				{
+					"id": "a7ed53e5-86be-4bcd-8885-b7335175ef70",
+					"name": "longitude",
+					"objectType": "number",
+					"required": false,
+					"parent": "9fc5d3bb-c411-495f-db83-a7e4153ddff8",
+					"example": 2.34574,
+					"isParent": false,
+					"enableValueHelp": false,
+					"canAddSubNode": false,
+					"enabled": true,
+					"hideNameField": false,
+					"children": []
+				},
+				{
+					"id": "9fc5d3bb-c411-495f-db83-a7e4153ddff8",
+					"name": "geoCode",
+					"objectType": "object",
+					"required": false,
+					"parent": "",
+					"isParent": true,
+					"enableValueHelp": false,
+					"canAddSubNode": true,
+					"enabled": true,
+					"hideNameField": false,
+					"children": [
+						{
+							"id": "caf25aa4-a584-4254-cec7-9c6c0bd15aec",
+							"name": "latitude",
+							"objectType": "number",
+							"required": false,
+							"parent": "9fc5d3bb-c411-495f-db83-a7e4153ddff8",
+							"example": 48.85327,
+							"isParent": false,
+							"enableValueHelp": false,
+							"canAddSubNode": false,
+							"enabled": true,
+							"hideNameField": false,
+							"children": []
+						},
+						{
+							"id": "a7ed53e5-86be-4bcd-8885-b7335175ef70",
+							"name": "longitude",
+							"objectType": "number",
+							"required": false,
+							"parent": "9fc5d3bb-c411-495f-db83-a7e4153ddff8",
+							"example": 2.34574,
+							"isParent": false,
+							"enableValueHelp": false,
+							"canAddSubNode": false,
+							"enabled": true,
+							"hideNameField": false,
+							"children": []
+						}
+					]
+				},
+				{
+					"id": "bb793e5e-bb3b-4e0f-be97-deba187b51e9",
+					"name": "countryCode",
+					"objectType": "string",
+					"required": false,
+					"parent": "512cf424-6d0f-462a-f851-2c9e6521e3bb",
+					"example": "FR",
+					"isParent": false,
+					"enableValueHelp": false,
+					"canAddSubNode": false,
+					"enabled": true,
+					"hideNameField": false,
+					"children": []
+				},
+				{
+					"id": "512cf424-6d0f-462a-f851-2c9e6521e3bb",
+					"name": "address",
+					"objectType": "object",
+					"required": false,
+					"parent": "",
+					"isParent": true,
+					"enableValueHelp": false,
+					"canAddSubNode": true,
+					"enabled": true,
+					"hideNameField": false,
+					"children": [
+						{
+							"id": "bb793e5e-bb3b-4e0f-be97-deba187b51e9",
+							"name": "countryCode",
+							"objectType": "string",
+							"required": false,
+							"parent": "512cf424-6d0f-462a-f851-2c9e6521e3bb",
+							"example": "FR",
+							"isParent": false,
+							"enableValueHelp": false,
+							"canAddSubNode": false,
+							"enabled": true,
+							"hideNameField": false,
+							"children": []
+						}
+					]
+				},
+				{
+					"id": "bfc1445d-d91e-4622-a192-1b44560fe151",
+					"name": "value",
+					"objectType": "number",
+					"required": false,
+					"parent": "f0a3d974-0fa4-47d4-cd7e-67551e28822f",
+					"example": 0.23,
+					"isParent": false,
+					"enableValueHelp": false,
+					"canAddSubNode": false,
+					"enabled": true,
+					"hideNameField": false,
+					"children": []
+				},
+				{
+					"id": "5a931305-c670-4cf1-f492-2c4b7aa67f66",
+					"name": "unit",
+					"objectType": "string",
+					"required": false,
+					"parent": "f0a3d974-0fa4-47d4-cd7e-67551e28822f",
+					"example": "KM",
+					"isParent": false,
+					"enableValueHelp": false,
+					"canAddSubNode": false,
+					"enabled": true,
+					"hideNameField": false,
+					"children": []
+				},
+				{
+					"id": "f0a3d974-0fa4-47d4-cd7e-67551e28822f",
+					"name": "distance",
+					"objectType": "object",
+					"required": false,
+					"parent": "",
+					"isParent": true,
+					"enableValueHelp": false,
+					"canAddSubNode": true,
+					"enabled": true,
+					"hideNameField": false,
+					"children": [
+						{
+							"id": "bfc1445d-d91e-4622-a192-1b44560fe151",
+							"name": "value",
+							"objectType": "number",
+							"required": false,
+							"parent": "f0a3d974-0fa4-47d4-cd7e-67551e28822f",
+							"example": 0.23,
+							"isParent": false,
+							"enableValueHelp": false,
+							"canAddSubNode": false,
+							"enabled": true,
+							"hideNameField": false,
+							"children": []
+						},
+						{
+							"id": "5a931305-c670-4cf1-f492-2c4b7aa67f66",
+							"name": "unit",
+							"objectType": "string",
+							"required": false,
+							"parent": "f0a3d974-0fa4-47d4-cd7e-67551e28822f",
+							"example": "KM",
+							"isParent": false,
+							"enableValueHelp": false,
+							"canAddSubNode": false,
+							"enabled": true,
+							"hideNameField": false,
+							"children": []
+						}
+					]
+				},
+				{
+					"id": "d3f13685-42c4-4077-9e1a-0ea279808081",
+					"name": "giataId",
+					"objectType": "number",
+					"required": false,
+					"parent": "",
+					"example": 101031,
+					"isParent": false,
+					"enableValueHelp": false,
+					"canAddSubNode": false,
+					"enabled": true,
+					"hideNameField": false,
+					"children": []
+				},
+				{
+					"id": "505c4d20-ef34-4132-fb69-946ea0786296",
+					"name": "lastUpdate",
+					"objectType": "string",
+					"required": false,
+					"parent": "",
+					"example": "2023-06-15T10:15:27",
+					"isParent": false,
+					"enableValueHelp": false,
+					"canAddSubNode": false,
+					"enabled": true,
+					"hideNameField": false,
+					"children": []
+				}
+			]
+		},
+		{
+			"id": "18816a7c-4a78-4889-a5e9-e638d31ca0f2",
+			"name": "Meta",
+			"description": "Meta information about the returned object(s) in \"data\"",
+			"type": "object",
+			"properties": [
+				{
+					"id": "8e246650-928b-4c63-b6c1-4c3d8dcd6983",
+					"children": [],
+					"name": "count",
+					"objectType": "integer",
+					"parent": "",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "Total number of object(s) retrieved"
+				},
+				{
+					"id": "23c4afd8-12c2-43b5-ae7e-1ae93f60e1b3",
+					"name": "sort",
+					"isParent": true,
+					"objectType": "array",
+					"children": [
+						{
+							"id": "17a492e0-6e73-486c-8e9b-11d4058658dc",
+							"name": "",
+							"objectType": "string",
+							"parent": "23c4afd8-12c2-43b5-ae7e-1ae93f60e1b3",
+							"isParent": false,
+							"children": [],
+							"required": false,
+							"maxLength": "",
+							"minLength": ""
+						}
+					],
+					"required": false,
+					"parent": "",
+					"maxLength": "",
+					"minLength": ""
+				},
+				{
+					"id": "17a492e0-6e73-486c-8e9b-11d4058658dc",
+					"name": "",
+					"objectType": "string",
+					"parent": "23c4afd8-12c2-43b5-ae7e-1ae93f60e1b3",
+					"isParent": false,
+					"children": [],
+					"required": false,
+					"maxLength": "",
+					"minLength": ""
+				},
+				{
+					"id": "38947a6e-3e9f-4a8e-9b44-35d345f0b766",
+					"children": [
+						{
+							"id": "5d0d16c4-5e1a-4534-8b81-6ea7c77fa0cd",
+							"children": [],
+							"name": "self",
+							"objectType": "string",
+							"parent": "38947a6e-3e9f-4a8e-9b44-35d345f0b766",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "Link to the same page."
+						},
+						{
+							"id": "0e331a6a-02ab-4ee7-bcbf-577827576d70",
+							"children": [],
+							"name": "first",
+							"objectType": "string",
+							"parent": "38947a6e-3e9f-4a8e-9b44-35d345f0b766",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "Link to the first page."
+						},
+						{
+							"id": "707860a4-462b-494c-923a-b601c5e32feb",
+							"children": [],
+							"name": "prev",
+							"objectType": "string",
+							"parent": "38947a6e-3e9f-4a8e-9b44-35d345f0b766",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "Link to the previous page."
+						},
+						{
+							"id": "5fed1058-d709-490d-9fac-3dcac7c0b525",
+							"children": [],
+							"name": "next",
+							"objectType": "string",
+							"parent": "38947a6e-3e9f-4a8e-9b44-35d345f0b766",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "Link to the next page."
+						},
+						{
+							"id": "3399a52e-e1c5-48c7-8da7-c038c9b29ca3",
+							"children": [],
+							"name": "last",
+							"objectType": "string",
+							"parent": "38947a6e-3e9f-4a8e-9b44-35d345f0b766",
+							"isParent": false,
+							"required": false,
+							"maxLength": "",
+							"minLength": "",
+							"description": "Link to the last page."
+						}
+					],
+					"name": "links",
+					"objectType": "object",
+					"parent": "",
+					"isParent": true,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "Links related to the returned object(s)"
+				},
+				{
+					"id": "5d0d16c4-5e1a-4534-8b81-6ea7c77fa0cd",
+					"children": [],
+					"name": "self",
+					"objectType": "string",
+					"parent": "38947a6e-3e9f-4a8e-9b44-35d345f0b766",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "Link to the same page."
+				},
+				{
+					"id": "0e331a6a-02ab-4ee7-bcbf-577827576d70",
+					"children": [],
+					"name": "first",
+					"objectType": "string",
+					"parent": "38947a6e-3e9f-4a8e-9b44-35d345f0b766",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "Link to the first page."
+				},
+				{
+					"id": "707860a4-462b-494c-923a-b601c5e32feb",
+					"children": [],
+					"name": "prev",
+					"objectType": "string",
+					"parent": "38947a6e-3e9f-4a8e-9b44-35d345f0b766",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "Link to the previous page."
+				},
+				{
+					"id": "5fed1058-d709-490d-9fac-3dcac7c0b525",
+					"children": [],
+					"name": "next",
+					"objectType": "string",
+					"parent": "38947a6e-3e9f-4a8e-9b44-35d345f0b766",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "Link to the next page."
+				},
+				{
+					"id": "3399a52e-e1c5-48c7-8da7-c038c9b29ca3",
+					"children": [],
+					"name": "last",
+					"objectType": "string",
+					"parent": "38947a6e-3e9f-4a8e-9b44-35d345f0b766",
+					"isParent": false,
+					"required": false,
+					"maxLength": "",
+					"minLength": "",
+					"description": "Link to the last page."
+				}
+			]
+		}
+	],
+	"documentation": [],
+	"name": "Amadeus_HotelSearch_byCity",
+	"endpoint": "https://test.api.amadeus.com/v1",
+	"ver": "23.7.19.941",
+	"version": "1.0.5",
+	"description": "Since the other Hotel Search is now V3, in order to get Hotel IDs, we need to get them through this API first...",
+	"mediaType": null,
+	"securitySchemes": null,
+	"swaggerURI": null,
+	"swaggerSystem": null,
+	"apiType": "",
+	"about": "<p>Before using the API you will need to get an access token. Please read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization)** for more information on how to get your token.</p>",
+	"enableProxy": true,
+	"restrictAccess": false,
+	"enableTrace": false,
+	"enableIDE": true,
+	"internalAPI": false,
+	"isPublic": false,
+	"tlsAllowUntrusted": true,
+	"useOwnProcess": false,
+	"package": "b69714db-0a11-4c2b-9cfa-aabfa4102da6",
+	"apiGroup": "10141d64-d063-4665-94ad-ee21142059b3",
+	"apiFormat": 1,
+	"roles": []
+}

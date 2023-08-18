@@ -1,0 +1,3 @@
+if (oDateTo.getDateValue() !== null) {
+    oDateTo.setValueState(sap.ui.core.ValueState.None);
+}

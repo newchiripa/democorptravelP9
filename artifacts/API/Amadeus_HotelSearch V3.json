@@ -1,0 +1,3391 @@
+{
+	"id": "cd12a0ea-1026-ee11-907e-000d3a661202",
+	"createdAt": "2023-07-19T08:47:40.303Z",
+	"createdBy": "daniel.vieira@neptune-software.com",
+	"auth": [],
+	"endpoints": [],
+	"paths": [
+		{
+			"id": "72e53448-9214-4020-8ae5-f12f45937642",
+			"path": "/shopping/hotel-offers",
+			"description": "",
+			"summary": "getMultiHotelOffers",
+			"method": "GET",
+			"example": "",
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"content": [
+						{
+							"name": "MultiResponse",
+							"objectType": "object"
+						}
+					]
+				},
+				{
+					"status": "400",
+					"description": [
+						"==OBJECT STRING==",
+						"Bad request:",
+						"",
+						"| Code | Title  |",
+						"|-----|-----|",
+						"| 23   | PASSENGER TYPE NOT SUPPORTED   |",
+						"| 61 | INVALID CURRENCY CODE|",
+						"| 137 | INVALID ADULTS OCCUPANCY REQUESTED|",
+						"| 145 | DURATION PERIOD OR DATES INCORRECT|",
+						"| 195 | SERVICE RESTRICTION|",
+						"| 249 | INVALID RATE CODE|",
+						"| 377 | MAX STAY DURATION IS EXCEEDED|",
+						"| 381 | INVALID CHECK-IN DATE|",
+						"| 382 | INVALID CHECK-OUT DATE|",
+						"| 383 | INVALID CITY CODE|",
+						"| 392 | INVALID HOTEL CODE|",
+						"| 397 | INVALID NUMBER OF ADULTS|",
+						"| 400 | INVALID PROPERTY CODE|",
+						"| 404 | CHECK_OUT DATE MUST BE FURTHER IN THE FUTURE THAN CHECK-IN DATE|",
+						"| 424 | NO HOTELS FOUND WHICH MATCH THIS INPUT|",
+						"| 431 | CHECK-OUT DATE IS TOO FAR IN THE FUTURE THAN CHECK-IN DATE|",
+						"| 424 | NO HOTELS FOUND WHICH MATCH THIS INPUT|",
+						"| 431 | CHECK-OUT DATE IS TOO FAR IN THE FUTURE|",
+						"| 450 | INVALID PROVIDER RESPONSE|",
+						"| 451 | INVALID CREDENTIALS|",
+						"| 562 | RESTRICTED ACCESS FOR THE REQUESTED RATES AND CHAINS|",
+						"| 784 | PROVIDER TIME OUT|",
+						"| 790 | RATE SECURITY NOT LOADED| "
+					],
+					"headers": [],
+					"content": [
+						{
+							"name": "Errors",
+							"objectType": "object"
+						}
+					]
+				},
+				{
+					"status": "500",
+					"description": "Internal server error.",
+					"headers": [],
+					"content": [
+						{
+							"name": "Errors",
+							"objectType": "object"
+						}
+					]
+				}
+			],
+			"headers": [
+				{
+					"name": "Authorization",
+					"description": "",
+					"required": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				}
+			],
+			"parameters": [
+				{
+					"name": "hotelIds",
+					"description": "Amadeus property codes on 8 chars. Mandatory parameter for a search by predefined list of hotels.",
+					"inPath": false,
+					"example": [
+						"MCLONGHM"
+					],
+					"required": true,
+					"type": "array"
+				},
+				{
+					"name": "adults",
+					"description": "Number of adult guests (1-9) per room.",
+					"inPath": false,
+					"example": 1,
+					"default": 1,
+					"required": false,
+					"type": "integer",
+					"minLength": 1,
+					"maxLength": 9
+				},
+				{
+					"name": "checkInDate",
+					"description": "Check-in date of the stay (hotel local date). Format YYYY-MM-DD. The lowest accepted value is the present date (no dates in the past). If not present, the default value will be today's date in the GMT time zone.",
+					"inPath": false,
+					"example": "2023-11-22",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "checkOutDate",
+					"description": "Check-out date of the stay (hotel local date). Format YYYY-MM-DD. The lowest accepted value is checkInDate+1. If not present, it will default to checkInDate +1.",
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "countryOfResidence",
+					"description": "Code of the country of residence of the traveler expressed using ISO 3166-1 format.",
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "roomQuantity",
+					"description": "Number of rooms requested (1-9).",
+					"inPath": false,
+					"default": 1,
+					"required": false,
+					"type": "integer",
+					"minLength": 1,
+					"maxLength": 9
+				},
+				{
+					"name": "priceRange",
+					"description": [
+						"==OBJECT STRING==",
+						"Filter hotel offers by price per night interval (ex: 200-300 or -300 or 100).",
+						"It is mandatory to include a currency when this field is set."
+					],
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "currency",
+					"description": [
+						"==OBJECT STRING==",
+						"Use this parameter to request a specific currency. ISO currency code (http://www.iso.org/iso/home/standards/currency_codes.htm).",
+						"If a hotel does not support the requested currency, the prices for the hotel will be returned in the local currency of the hotel."
+					],
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "paymentPolicy",
+					"description": "Filter the response based on a specific payment type. NONE means all types (default).",
+					"inPath": false,
+					"default": "NONE",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "boardType",
+					"description": [
+						"==OBJECT STRING==",
+						"Filter response based on available meals:",
+						"        * ROOM_ONLY = Room Only",
+						"        * BREAKFAST = Breakfast",
+						"        * HALF_BOARD = Diner & Breakfast (only for Aggregators)",
+						"        * FULL_BOARD = Full Board (only for Aggregators)",
+						"        * ALL_INCLUSIVE = All Inclusive (only for Aggregators)"
+					],
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "includeClosed",
+					"description": "Show all properties (include sold out) or available only. For sold out properties, please check availability on other dates.",
+					"inPath": false,
+					"required": false,
+					"type": "boolean"
+				},
+				{
+					"name": "bestRateOnly",
+					"description": "Used to return only the cheapest offer per hotel or all available offers.",
+					"inPath": false,
+					"default": true,
+					"required": false,
+					"type": "boolean"
+				},
+				{
+					"name": "lang",
+					"description": [
+						"==OBJECT STRING==",
+						"Requested language of descriptive texts. ",
+						"Examples: FR , fr , fr-FR.",
+						"If a language is not available the text will be returned in english.",
+						"ISO language code (https://www.iso.org/iso-639-language-codes.html)."
+					],
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				}
+			],
+			"content": [],
+			"tags": "shopping"
+		},
+		{
+			"id": "fbf506b2-cb39-4590-ce91-51569c3a7273",
+			"path": "/shopping/hotel-offers/(offerId)",
+			"description": " ",
+			"summary": "getOfferPricing",
+			"method": "GET",
+			"example": "",
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"content": [
+						{
+							"name": "PricingResponse",
+							"objectType": "object"
+						}
+					]
+				},
+				{
+					"status": "400",
+					"description": [
+						"==OBJECT STRING==",
+						"Bad Request:",
+						"code| title",
+						"------- | -------------------------------------",
+						"23 | PASSENGER TYPE NOT SUPPORTED",
+						"61 |INVALID CURRENCY CODE",
+						"137 | INVALID ADULTS OCCUPANCY REQUESTED",
+						"145 | DURATION PERIOD OR DATES INCORRECT",
+						"195 | SERVICE RESTRICTION",
+						"249 | INVALID RATE CODE",
+						"377 | MAX STAY DURATION IS EXCEEDED",
+						"381 | INVALID CHECK-IN DATE",
+						"382 | INVALID CHECK-OUT DATE",
+						"383 | INVALID CITY CODE",
+						"392 | INVALID HOTEL CODE",
+						"397 | INVALID NUMBER OF ADULTS",
+						"400 | INVALID PROPERTY CODE",
+						"402 | INVALID ROOM TYPE",
+						"404 | CHECK_OUT DATE MUST BE FURTHER IN THE FUTURE THAN CHECK-IN DATE",
+						"424 | NO HOTELS FOUND WHICH MATCH THIS INPUT",
+						"431 | CHECK-OUT DATE IS TOO FAR IN THE FUTURE",
+						"450 | INVALID PROVIDER RESPONSE",
+						"451 | INVALID CREDENTIAL",
+						"562 | RESTRICTED ACCESS FOR THE REQUESTED RATES AND CHAINS",
+						"784 | PROVIDER TIME OUT",
+						"790 | NO PROPERTIES FOUND WITHIN THIS RADIUS",
+						"795 | NO SIMILAR NAME FOUND, PLEASE ENLARGE YOUR SEARCH CRITERIA",
+						"842 | RATE SECURITY NOT LOADED"
+					],
+					"headers": [],
+					"content": [
+						{
+							"name": "Errors",
+							"objectType": "object"
+						}
+					]
+				},
+				{
+					"status": "404",
+					"description": "Hotel or offer not found",
+					"headers": [],
+					"content": [
+						{
+							"name": "Errors",
+							"objectType": "object"
+						}
+					]
+				},
+				{
+					"status": "500",
+					"description": "Internal server error.",
+					"headers": [],
+					"content": [
+						{
+							"name": "Errors",
+							"objectType": "object"
+						}
+					]
+				}
+			],
+			"headers": [],
+			"parameters": [
+				{
+					"name": "offerId",
+					"description": "Unique identifier of an offer. Either the GDS booking code or the aggregator offerId with a limited lifetime.",
+					"inPath": true,
+					"example": "TSXOJ6LFQ2",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"name": "lang",
+					"description": [
+						"==OBJECT STRING==",
+						"Requested language of descriptive texts. ",
+						"Examples: FR , fr , fr-FR.",
+						"If a language is not available the text will be returned in english.",
+						"ISO language code (https://www.iso.org/iso-639-language-codes.html)."
+					],
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				}
+			],
+			"content": [],
+			"tags": "shopping"
+		}
+	],
+	"definitions": [
+		{
+			"id": "7d42e8b7-a6e3-4b7d-a0e9-c8d05419bca5",
+			"name": "HotelOffers",
+			"properties": [
+				{
+					"id": "98e98a9b-0782-46e3-cdb9-b1c5a57cbfe0",
+					"name": "type",
+					"parent": "",
+					"description": "the type of the object (hotel-offers)",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "b3b930da-8a59-4709-eb5b-034f86790956",
+					"name": "available",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "boolean",
+					"maxLength": ""
+				},
+				{
+					"id": "ae9be23f-6bc1-4847-e681-c5803469ed48",
+					"name": "self",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "2a52050f-ae61-45fd-9e72-3cd1f68e7b52",
+					"name": "offers",
+					"parent": "",
+					"description": "Hotel Offer",
+					"pattern": "",
+					"example": "",
+					"objectType": "array",
+					"maxLength": ""
+				},
+				{
+					"id": "5d4f8518-9d8f-4169-fd6c-1b0bb8ef285d",
+					"parent": "2a52050f-ae61-45fd-9e72-3cd1f68e7b52",
+					"name": "type",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "28c15266-e965-40df-ee96-870e3328349d",
+					"parent": "2a52050f-ae61-45fd-9e72-3cd1f68e7b52",
+					"name": "id",
+					"description": "Unique identifier of this offer. Might be valid for a temporary period only.",
+					"pattern": "^[A-Z0-9]*$",
+					"example": "TSXOJ6LFQ2",
+					"default": "",
+					"objectType": "string",
+					"maxLength": 100
+				},
+				{
+					"id": "99e4a97c-9be9-43d5-dc59-e68a99b4a5f0",
+					"parent": "2a52050f-ae61-45fd-9e72-3cd1f68e7b52",
+					"name": "checkInDate",
+					"description": [
+						"==OBJECT STRING==",
+						"check-in date of the stay (hotel local date). Format YYYY-MM-DD",
+						"The lowest accepted value is today date (no dates in the past)."
+					],
+					"pattern": "",
+					"example": "2020-12-30",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "304d9619-bb43-4d14-b496-58234fca3dae",
+					"parent": "2a52050f-ae61-45fd-9e72-3cd1f68e7b52",
+					"name": "checkOutDate",
+					"description": [
+						"==OBJECT STRING==",
+						"check-out date of the stay (hotel local date). Format YYYY-MM-DD",
+						"The lowest accepted value is `checkInDate`+1."
+					],
+					"pattern": "",
+					"example": "2020-12-31",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "2c582c09-938a-496c-c5a6-096be9d43d2b",
+					"parent": "2a52050f-ae61-45fd-9e72-3cd1f68e7b52",
+					"name": "roomQuantity",
+					"description": "number of rooms (1-9)",
+					"pattern": "",
+					"example": "1",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "2078eb46-3d88-4457-a71f-a2eab1adc105",
+					"parent": "2a52050f-ae61-45fd-9e72-3cd1f68e7b52",
+					"name": "rateCode",
+					"description": [
+						"==OBJECT STRING==",
+						"Special Rate - Provider Response Code (3 chars)",
+						"Examples",
+						"",
+						"  * RAC - Rack",
+						"",
+						"  * BAR - Best Available Rate",
+						"",
+						"  * PRO - Promotional",
+						"",
+						"  * COR - Corporate",
+						"",
+						"  * GOV - Government (qualified)",
+						"",
+						"  * AAA - AAA (qualified)",
+						"",
+						"  * BNB - Bed and Breakfast",
+						"",
+						"  * PKG - Package",
+						"",
+						"  * TVL - Travel Industry",
+						"",
+						"  * SPC - Special Promo Rate",
+						"",
+						"  * WKD - Weekend",
+						"",
+						"  * CON - Convention",
+						"",
+						"  * SNR - Senior (Europe) (qualified)",
+						"",
+						"  * ARP - AARP - American Association of Retired People (50+) (qualified)",
+						"",
+						"  * SRS - Senior (qualified)",
+						"",
+						"  * ROR - Room Only Rate (no breakfast)",
+						"",
+						"  * FAM - Family",
+						"",
+						"  * DAY - Day rate"
+					],
+					"pattern": "^[A-Z0-9*]{3}$",
+					"example": "RAC",
+					"default": "",
+					"objectType": "string",
+					"maxLength": 3
+				},
+				{
+					"id": "7d7eed81-d749-4dc4-c78d-60c1cee008a9",
+					"parent": "2a52050f-ae61-45fd-9e72-3cd1f68e7b52",
+					"name": "rateFamilyEstimated",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "a639973f-0db8-41f7-f970-2edf828e6a61",
+					"parent": "2a52050f-ae61-45fd-9e72-3cd1f68e7b52",
+					"name": "category",
+					"description": [
+						"==OBJECT STRING==",
+						"Special Rate Category",
+						"Examples:",
+						"  ASSOCIATION",
+						"  FAMILY_PLAN"
+					],
+					"pattern": "",
+					"example": "FAMILY_PLAN",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "56633846-efc4-44ee-eef0-ad6d5ec97d9c",
+					"parent": "2a52050f-ae61-45fd-9e72-3cd1f68e7b52",
+					"name": "description",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "057c1b47-f30d-4edb-f45f-4877a73c2be5",
+					"parent": "2a52050f-ae61-45fd-9e72-3cd1f68e7b52",
+					"name": "commission",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "851876e3-a371-4195-b5de-519940694e31",
+					"parent": "2a52050f-ae61-45fd-9e72-3cd1f68e7b52",
+					"name": "boardType",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "0a0ba70e-5996-456c-c7ae-cc9b3348f44a",
+					"parent": "2a52050f-ae61-45fd-9e72-3cd1f68e7b52",
+					"name": "room",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "e166b797-2ec7-4e92-c3ac-78d1c10dbe46",
+					"parent": "2a52050f-ae61-45fd-9e72-3cd1f68e7b52",
+					"name": "guests",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "f0d03efb-7caa-48b9-c6ef-b3d73444b896",
+					"parent": "2a52050f-ae61-45fd-9e72-3cd1f68e7b52",
+					"name": "price",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "f635dc52-c6e2-4f4b-cbc3-448628577078",
+					"parent": "2a52050f-ae61-45fd-9e72-3cd1f68e7b52",
+					"name": "policies",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "26d60a5a-36b8-4f09-d3de-d5b1ab548f36",
+					"parent": "2a52050f-ae61-45fd-9e72-3cd1f68e7b52",
+					"name": "self",
+					"description": "A self link to the object. Use this to refresh the Offer price",
+					"pattern": "",
+					"example": "https://test.travel.api.amadeus.com/v2/shopping/hotel-offers/63A93695B58821ABB0EC2B33FE9FAB24D72BF34B1BD7D707293763D8D9378FC3",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "07f4388c-9fef-4d26-9a12-1dc2bf14752e",
+					"name": "hotel",
+					"parent": "",
+					"description": "Hotel Content",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "3f1c26a9-893a-49b3-ba5e-f20cd9b1bdef",
+					"parent": "07f4388c-9fef-4d26-9a12-1dc2bf14752e",
+					"name": "hotelId",
+					"description": "Amadeus Property Code (8 chars)",
+					"pattern": "^[A-Z0-9]{8}$",
+					"example": "ADPAR001",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "c8b99a6e-b46e-407c-a3bc-391ca6d3cd33",
+					"parent": "07f4388c-9fef-4d26-9a12-1dc2bf14752e",
+					"name": "chainCode",
+					"description": "Brand (RT...) or Merchant (AD...) (Amadeus 2 chars Code)",
+					"pattern": "^[A-Z]{2}$",
+					"example": "AD",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "53e797eb-4ebb-4a48-dc31-1f8155917e9a",
+					"parent": "07f4388c-9fef-4d26-9a12-1dc2bf14752e",
+					"name": "brandCode",
+					"description": [
+						"==OBJECT STRING==",
+						"Brand (RT...) (Amadeus 2 chars Code). Small Properties distributed by Merchants may not have a Brand.",
+						"Example - AD (Value Hotels) is the Provider/Merchant, and RT (Accor) is the Brand of the Property"
+					],
+					"pattern": "^[A-Z]{2}$",
+					"example": "RT",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "5a4d7f09-9859-488c-8125-2657e660ee5d",
+					"parent": "07f4388c-9fef-4d26-9a12-1dc2bf14752e",
+					"name": "dupeId",
+					"description": [
+						"==OBJECT STRING==",
+						"Unique Property identifier of the physical hotel.",
+						"One physical hotel can be represented by different Providers, each one having its own `hotelID`.",
+						"This attribute allows a client application to group together hotels that are actually the same."
+					],
+					"pattern": "",
+					"example": "501132260",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "7b8684e6-68aa-4b3e-ece7-bb6eec721d91",
+					"parent": "07f4388c-9fef-4d26-9a12-1dc2bf14752e",
+					"name": "name",
+					"description": "Hotel Name",
+					"pattern": "",
+					"example": "Hotel de Paris",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "ca8a7376-e160-47a4-90bf-f94693b36321",
+					"parent": "07f4388c-9fef-4d26-9a12-1dc2bf14752e",
+					"name": "cityCode",
+					"description": "Warning: The IATA city code associated to the hotel (not necessary the real Hotel City)",
+					"pattern": "^[A-Z]{3}$",
+					"example": "PAR",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "565abe04-c08e-4e61-85c7-5ddcbbf8f0d6",
+			"name": "PricingResponse",
+			"properties": [
+				{
+					"id": "69d5762e-c824-4321-df7d-7b626c3f5b5a",
+					"name": "data",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "e0bdca0e-01ed-4277-857e-7ff94a6ec457",
+					"parent": "69d5762e-c824-4321-df7d-7b626c3f5b5a",
+					"name": "type",
+					"description": "the type of the object (hotel-offers)",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "0f153c6f-907a-451a-f026-fd84eb6efba2",
+					"parent": "69d5762e-c824-4321-df7d-7b626c3f5b5a",
+					"name": "available",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "boolean",
+					"maxLength": ""
+				},
+				{
+					"id": "b09078b0-36aa-49b7-a8e0-41c912d4b2e2",
+					"parent": "69d5762e-c824-4321-df7d-7b626c3f5b5a",
+					"name": "self",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "a129da0e-3e4b-48fc-d882-ae4c281937ff",
+					"parent": "69d5762e-c824-4321-df7d-7b626c3f5b5a",
+					"name": "offers",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "array",
+					"maxLength": ""
+				},
+				{
+					"id": "a6c26aed-74fa-4298-e11b-7efc6768e6cc",
+					"parent": "69d5762e-c824-4321-df7d-7b626c3f5b5a",
+					"name": "hotel",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "cf6a8142-da3c-4f61-b348-c97b6f43926d",
+			"name": "Errors",
+			"description": "A set of errors",
+			"properties": [
+				{
+					"id": "c33cc38a-9350-4efc-c72e-95fc382a3222",
+					"name": "errors",
+					"parent": "",
+					"description": "The Error Definition",
+					"pattern": "",
+					"example": "",
+					"objectType": "array",
+					"maxLength": ""
+				},
+				{
+					"id": "b6b99eaa-3e71-4cd7-dfee-eceb13ccb865",
+					"parent": "c33cc38a-9350-4efc-c72e-95fc382a3222",
+					"name": "status",
+					"description": "The [HTTP status code](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) of this response. This is present only in terminal errors which cause an unsuccessful response. In the case of multiple errors, they must all have the same status.",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "integer",
+					"maxLength": ""
+				},
+				{
+					"id": "75256c03-8cd8-4b1a-ff78-bca41a7733d9",
+					"parent": "c33cc38a-9350-4efc-c72e-95fc382a3222",
+					"name": "code",
+					"description": "A machine-readable error code from the Amadeus Canned Messages table, that will enable the API Consumers code to handle this type of error",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "integer",
+					"maxLength": ""
+				},
+				{
+					"id": "c22c907e-2b38-4263-eaf6-29547e3a2562",
+					"parent": "c33cc38a-9350-4efc-c72e-95fc382a3222",
+					"name": "title",
+					"description": "An error title from the Canned Messages table with a 1:1 correspondence to the error code. This may be localized",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "810e4ca2-fc73-411e-f374-fc811f48de72",
+					"parent": "c33cc38a-9350-4efc-c72e-95fc382a3222",
+					"name": "detail",
+					"description": "An easy-to-read explanation specific to this occurrence of the problem. It should give the API consumer an idea of what went wrong and how to recover from it. Like the title, this field’s value can be localized.",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "8437a71a-8e1a-4df4-fdf6-dcb7549d094b",
+					"parent": "c33cc38a-9350-4efc-c72e-95fc382a3222",
+					"name": "source",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "308abed9-1272-4766-a6fe-cc360dee4af3",
+					"parent": "c33cc38a-9350-4efc-c72e-95fc382a3222",
+					"name": "documentation",
+					"description": "A link to a web page or file with further documentation to help the API consumer resolve this error",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "f08b170f-c5e4-42eb-a70a-8366da2fc50f",
+			"name": "MultiResponse",
+			"properties": [
+				{
+					"id": "01b637ee-5e8d-40be-990d-f438cbe1cfb1",
+					"name": "data",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "e5f685b9-a9a1-40ad-cf12-c7eac0ea8b77",
+					"parent": "01b637ee-5e8d-40be-990d-f438cbe1cfb1",
+					"name": "type",
+					"description": "the type of the object (hotel-offers)",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "ee354328-9aaa-4ec5-8354-125651c4eaee",
+					"parent": "01b637ee-5e8d-40be-990d-f438cbe1cfb1",
+					"name": "available",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "boolean",
+					"maxLength": ""
+				},
+				{
+					"id": "af26cab9-24f6-438f-ab50-9b07341beb36",
+					"parent": "01b637ee-5e8d-40be-990d-f438cbe1cfb1",
+					"name": "self",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "fc19fc3a-352c-4ba6-f38c-1476cc8bda31",
+					"parent": "01b637ee-5e8d-40be-990d-f438cbe1cfb1",
+					"name": "offers",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "array",
+					"maxLength": ""
+				},
+				{
+					"id": "59f4ec46-0ca9-41bf-f0d2-8a4e60e90296",
+					"parent": "01b637ee-5e8d-40be-990d-f438cbe1cfb1",
+					"name": "hotel",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "04b20eb9-daea-428f-d34b-5e35d3bc68c6",
+			"name": "Hotel",
+			"description": "Hotel Content",
+			"properties": [
+				{
+					"id": "d19f8fd0-72f0-4cdb-d312-3e035713a03e",
+					"name": "hotelId",
+					"parent": "",
+					"description": "Amadeus Property Code (8 chars)",
+					"pattern": "^[A-Z0-9]{8}$",
+					"example": "ADPAR001",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "71b95e6a-1c09-4b13-9bea-4610612d72c1",
+					"name": "chainCode",
+					"parent": "",
+					"description": "Brand (RT...) or Merchant (AD...) (Amadeus 2 chars Code)",
+					"pattern": "^[A-Z]{2}$",
+					"example": "AD",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "daba1f2a-9cc1-44b1-e06e-16dd10064f08",
+					"name": "brandCode",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"Brand (RT...) (Amadeus 2 chars Code). Small Properties distributed by Merchants may not have a Brand.",
+						"Example - AD (Value Hotels) is the Provider/Merchant, and RT (Accor) is the Brand of the Property"
+					],
+					"pattern": "^[A-Z]{2}$",
+					"example": "RT",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "87b7d77f-145a-4d55-eed1-05d4f8e9ca71",
+					"name": "dupeId",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"Unique Property identifier of the physical hotel.",
+						"One physical hotel can be represented by different Providers, each one having its own `hotelID`.",
+						"This attribute allows a client application to group together hotels that are actually the same."
+					],
+					"pattern": "",
+					"example": "501132260",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "0fe673df-a2a6-4486-a618-085cf8c8ed1a",
+					"name": "name",
+					"parent": "",
+					"description": "Hotel Name",
+					"pattern": "",
+					"example": "Hotel de Paris",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "7171d0bd-592c-4014-daac-0a2fae33596c",
+					"name": "cityCode",
+					"parent": "",
+					"description": "Warning: The IATA city code associated to the hotel (not necessary the real Hotel City)",
+					"pattern": "^[A-Z]{3}$",
+					"example": "PAR",
+					"objectType": "string",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "44b979c3-1c8d-4046-a429-c59f21d0604a",
+			"name": "HotelOffer",
+			"description": "Hotel Offer",
+			"properties": [
+				{
+					"id": "b16a7e01-3437-4bed-bae1-d2d00307add6",
+					"name": "type",
+					"parent": "",
+					"description": "data type",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "7de4fee0-27fd-4c86-94f2-d3dc92143c33",
+					"required": true,
+					"name": "id",
+					"parent": "",
+					"description": "Unique identifier of this offer. Might be valid for a temporary period only.",
+					"pattern": "^[A-Z0-9]*$",
+					"example": "TSXOJ6LFQ2",
+					"objectType": "string",
+					"maxLength": 100
+				},
+				{
+					"id": "5060e30b-2e81-4dc7-96b5-bf3dbf4d7cef",
+					"name": "checkInDate",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"check-in date of the stay (hotel local date). Format YYYY-MM-DD",
+						"The lowest accepted value is today date (no dates in the past)."
+					],
+					"pattern": "",
+					"example": "2020-12-30",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "fe87da0d-28ee-4517-e638-520c00e97f75",
+					"name": "checkOutDate",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"check-out date of the stay (hotel local date). Format YYYY-MM-DD",
+						"The lowest accepted value is `checkInDate`+1."
+					],
+					"pattern": "",
+					"example": "2020-12-31",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "7a6ce051-08ee-49c6-e682-5f8a9fe1969e",
+					"name": "roomQuantity",
+					"parent": "",
+					"description": "number of rooms (1-9)",
+					"pattern": "",
+					"example": "1",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "e524fe4e-3fd0-4ec5-8110-fc529ee7eddd",
+					"required": true,
+					"name": "rateCode",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"Special Rate - Provider Response Code (3 chars)",
+						"Examples",
+						"",
+						"  * RAC - Rack",
+						"",
+						"  * BAR - Best Available Rate",
+						"",
+						"  * PRO - Promotional",
+						"",
+						"  * COR - Corporate",
+						"",
+						"  * GOV - Government (qualified)",
+						"",
+						"  * AAA - AAA (qualified)",
+						"",
+						"  * BNB - Bed and Breakfast",
+						"",
+						"  * PKG - Package",
+						"",
+						"  * TVL - Travel Industry",
+						"",
+						"  * SPC - Special Promo Rate",
+						"",
+						"  * WKD - Weekend",
+						"",
+						"  * CON - Convention",
+						"",
+						"  * SNR - Senior (Europe) (qualified)",
+						"",
+						"  * ARP - AARP - American Association of Retired People (50+) (qualified)",
+						"",
+						"  * SRS - Senior (qualified)",
+						"",
+						"  * ROR - Room Only Rate (no breakfast)",
+						"",
+						"  * FAM - Family",
+						"",
+						"  * DAY - Day rate"
+					],
+					"pattern": "^[A-Z0-9*]{3}$",
+					"example": "RAC",
+					"objectType": "string",
+					"maxLength": 3
+				},
+				{
+					"id": "9fb0ec5c-7c65-4e27-dd17-c97682ceb65c",
+					"name": "rateFamilyEstimated",
+					"parent": "",
+					"description": "The estimated rate code family of the offer. Grouping various rate plan codes that belongs to the same family and indicates the type of the rate",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "59e719be-6e3a-4771-da2c-063253085b3e",
+					"parent": "9fb0ec5c-7c65-4e27-dd17-c97682ceb65c",
+					"name": "code",
+					"description": "The estimated rate family (PRO,FAM,GOV)",
+					"pattern": "[A-Z0-9]{3}",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "4219a49d-b5fc-4f65-8615-883801b74764",
+					"parent": "9fb0ec5c-7c65-4e27-dd17-c97682ceb65c",
+					"name": "type",
+					"description": "The type of the rate (public=P, negotiated=N, conditional=C)",
+					"pattern": "[PNC]",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "17566c35-e2d7-4a18-8eaa-0e0a0a7076e9",
+					"name": "category",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"Special Rate Category",
+						"Examples:",
+						"  ASSOCIATION",
+						"  FAMILY_PLAN"
+					],
+					"pattern": "",
+					"example": "FAMILY_PLAN",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "3ea5d62e-5a64-450c-feba-eeef451d4b50",
+					"name": "description",
+					"parent": "",
+					"description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "09734cad-7ab3-45a7-91ad-bafb9184be61",
+					"parent": "3ea5d62e-5a64-450c-feba-eeef451d4b50",
+					"name": "text",
+					"description": "Free Text",
+					"pattern": "",
+					"example": "A description",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "f8835217-a903-413d-db0c-50eb0c7cf2cd",
+					"parent": "3ea5d62e-5a64-450c-feba-eeef451d4b50",
+					"name": "lang",
+					"description": "see RFC 5646",
+					"pattern": "",
+					"example": "fr-FR",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "0be4d6c7-1ab4-437a-e3d9-bb29e7d60be4",
+					"name": "commission",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "329b4bd5-68ec-49b7-a859-7a05d5d881f3",
+					"parent": "0be4d6c7-1ab4-437a-e3d9-bb29e7d60be4",
+					"name": "percentage",
+					"description": "Percentage of the commission paid to the travel seller. Value is between 0 and 100",
+					"pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "c8abbd9b-4b39-499b-d2dc-65bf77322518",
+					"parent": "0be4d6c7-1ab4-437a-e3d9-bb29e7d60be4",
+					"name": "amount",
+					"description": "Amount of the commission paid to the travel seller. The amount is always linked to the currency code of the offer",
+					"pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "aed4a5d9-30ea-4faf-91bb-4042701f1da9",
+					"parent": "0be4d6c7-1ab4-437a-e3d9-bb29e7d60be4",
+					"name": "description",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "3e728288-9947-4b59-b324-f13e1d3476d8",
+					"name": "boardType",
+					"parent": "",
+					"description": "The included Breakfast/Meals",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "18b67ce1-24f9-434c-e05f-ba34d873d46c",
+					"required": true,
+					"name": "room",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "503ff20e-0441-4dad-e59c-5f903cfc7121",
+					"parent": "18b67ce1-24f9-434c-e05f-ba34d873d46c",
+					"name": "type",
+					"description": [
+						"==OBJECT STRING==",
+						"Room type code, 3 character identifier of the room.",
+						"The first character identifies the room type category. ",
+						"The second numeric character identifies the number of beds. ",
+						"The third character identifies the bed type. ",
+						"There is a special case where ROH is returned, this value stands for Run Of House."
+					],
+					"pattern": "^[A-Z0-9*]{3}$",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "5b1c1ce5-c43b-4c30-aa90-8821b683302f",
+					"parent": "18b67ce1-24f9-434c-e05f-ba34d873d46c",
+					"name": "typeEstimated",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "f6604d48-0487-4795-9577-3f795f888576",
+					"parent": "18b67ce1-24f9-434c-e05f-ba34d873d46c",
+					"name": "description",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "ff07e2fe-fbb3-4ba9-e2c0-97da1f7a46f9",
+					"name": "guests",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "adb80ffa-1bc5-4475-9e84-6900262e73d3",
+					"parent": "ff07e2fe-fbb3-4ba9-e2c0-97da1f7a46f9",
+					"name": "adults",
+					"description": "number of adult guests (1-9) per room",
+					"pattern": "",
+					"example": 2,
+					"default": "",
+					"objectType": "integer",
+					"maxLength": ""
+				},
+				{
+					"id": "3c1c9bac-f886-4157-fc65-b8660ac6d8c8",
+					"parent": "ff07e2fe-fbb3-4ba9-e2c0-97da1f7a46f9",
+					"name": "childAges",
+					"description": "Comma separated list of ages of each child at the time of check-out from the hotel. If several children have the same age, the ages will be repeated.",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "array",
+					"maxLength": ""
+				},
+				{
+					"id": "8c16f60d-02e0-4a32-86fc-083f2d0ba053",
+					"required": true,
+					"name": "price",
+					"parent": "",
+					"description": "price information",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "4b464579-51e2-4fe4-bc9c-d1b139fdff3c",
+					"parent": "8c16f60d-02e0-4a32-86fc-083f2d0ba053",
+					"name": "currency",
+					"description": "currency Code apply to all elements of the price",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "d1b27d97-6261-4b27-f188-c2459b97ffec",
+					"parent": "8c16f60d-02e0-4a32-86fc-083f2d0ba053",
+					"name": "sellingTotal",
+					"description": "sellingTotal = Total + margins + markup + totalFees - discounts",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "02611baf-c803-407c-94cd-abfabdcb70d3",
+					"parent": "8c16f60d-02e0-4a32-86fc-083f2d0ba053",
+					"name": "total",
+					"description": "total = base + totalTaxes",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "9f3f32b0-2d26-465b-e83a-cf5299891bf0",
+					"parent": "8c16f60d-02e0-4a32-86fc-083f2d0ba053",
+					"name": "base",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "e1ee4129-cb79-4b31-a2ad-f5bd1a94d9b1",
+					"parent": "8c16f60d-02e0-4a32-86fc-083f2d0ba053",
+					"name": "taxes",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "array",
+					"maxLength": ""
+				},
+				{
+					"id": "4390e70c-57e6-460d-94e1-62755cef7642",
+					"parent": "8c16f60d-02e0-4a32-86fc-083f2d0ba053",
+					"name": "markups",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "array",
+					"maxLength": ""
+				},
+				{
+					"id": "00818ccf-cc66-44dd-8649-9ab45afba4e6",
+					"parent": "8c16f60d-02e0-4a32-86fc-083f2d0ba053",
+					"name": "variations",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "b08fbc16-d6aa-4ba3-c3b1-e05385570b77",
+					"name": "policies",
+					"parent": "",
+					"description": "Booking Rules",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "98645c79-2b6b-4330-fd43-5328d6a3e88e",
+					"parent": "b08fbc16-d6aa-4ba3-c3b1-e05385570b77",
+					"name": "paymentType",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "6123fd6e-6bd0-4e8c-8437-21b10b0da17b",
+					"parent": "b08fbc16-d6aa-4ba3-c3b1-e05385570b77",
+					"name": "guarantee",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "c5a1da79-838b-4789-ebd0-453f6b7566b5",
+					"parent": "b08fbc16-d6aa-4ba3-c3b1-e05385570b77",
+					"name": "deposit",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "aec8ca39-9b40-483c-e3f1-d3f547a2194e",
+					"parent": "b08fbc16-d6aa-4ba3-c3b1-e05385570b77",
+					"name": "prepay",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "027c88e0-ee9e-40be-e719-f63e8d33ecdd",
+					"parent": "b08fbc16-d6aa-4ba3-c3b1-e05385570b77",
+					"name": "holdTime",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "d8f42349-5023-407f-9e3a-ba7eb8c3a620",
+					"parent": "b08fbc16-d6aa-4ba3-c3b1-e05385570b77",
+					"name": "cancellations",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "array",
+					"maxLength": ""
+				},
+				{
+					"id": "7f941114-6a59-46ca-9f59-942cfd3ff32d",
+					"parent": "b08fbc16-d6aa-4ba3-c3b1-e05385570b77",
+					"name": "checkInOut",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "c0dd521d-2216-41ba-e557-0ce90b27cd4b",
+					"name": "self",
+					"parent": "",
+					"description": "A self link to the object. Use this to refresh the Offer price",
+					"pattern": "",
+					"example": "https://test.travel.api.amadeus.com/v2/shopping/hotel-offers/63A93695B58821ABB0EC2B33FE9FAB24D72BF34B1BD7D707293763D8D9378FC3",
+					"objectType": "string",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "a6edbe81-f3c0-4d5c-e093-67ea3e0332b7",
+			"name": "BoardType",
+			"description": "The included Breakfast/Meals",
+			"properties": []
+		},
+		{
+			"id": "7a324690-5ceb-41c7-8012-e04ff75f34f8",
+			"name": "Error",
+			"description": "The Error Definition",
+			"properties": [
+				{
+					"id": "b087faec-f26b-4def-cefc-e2cf4c4617e5",
+					"name": "status",
+					"parent": "",
+					"description": "The [HTTP status code](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) of this response. This is present only in terminal errors which cause an unsuccessful response. In the case of multiple errors, they must all have the same status.",
+					"pattern": "",
+					"example": "",
+					"objectType": "integer",
+					"maxLength": ""
+				},
+				{
+					"id": "e3ad49d0-4e7e-4f60-b8c9-92f5be53714b",
+					"name": "code",
+					"parent": "",
+					"description": "A machine-readable error code from the Amadeus Canned Messages table, that will enable the API Consumers code to handle this type of error",
+					"pattern": "",
+					"example": "",
+					"objectType": "integer",
+					"maxLength": ""
+				},
+				{
+					"id": "f242b06a-191a-4d10-9d7a-c4e2c062db3b",
+					"name": "title",
+					"parent": "",
+					"description": "An error title from the Canned Messages table with a 1:1 correspondence to the error code. This may be localized",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "7f78ab60-ddbc-4cfd-a5d6-2142dbf04fb8",
+					"name": "detail",
+					"parent": "",
+					"description": "An easy-to-read explanation specific to this occurrence of the problem. It should give the API consumer an idea of what went wrong and how to recover from it. Like the title, this field’s value can be localized.",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "9af51b4f-6113-41bc-d055-82185bbfbe5f",
+					"name": "source",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "cc93b427-5998-4de3-feee-f2c64d7baf43",
+					"parent": "9af51b4f-6113-41bc-d055-82185bbfbe5f",
+					"name": "parameter",
+					"description": "The key of the URI path or query parameter that caused the error",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "b5a510a4-c79f-4cfe-af18-d86d200e7ea5",
+					"parent": "9af51b4f-6113-41bc-d055-82185bbfbe5f",
+					"name": "pointer",
+					"description": "A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "4c26453e-9217-44bf-8bb0-5c6412d193dc",
+					"parent": "9af51b4f-6113-41bc-d055-82185bbfbe5f",
+					"name": "example",
+					"description": "A sample input to guide the user when resolving this issue",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "3f94139a-9aa3-4ec4-bf02-6040b77614e1",
+					"name": "documentation",
+					"parent": "",
+					"description": "A link to a web page or file with further documentation to help the API consumer resolve this error",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "1e748066-ff13-4620-e9f4-185a66418e69",
+			"name": "Error_Source",
+			"properties": [
+				{
+					"id": "ac084568-e3f3-49be-e7e1-109d15e89b9a",
+					"name": "parameter",
+					"parent": "",
+					"description": "The key of the URI path or query parameter that caused the error",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "17018996-8385-41cf-f515-b0dfe8df82b8",
+					"name": "pointer",
+					"parent": "",
+					"description": "A JSON Pointer [RFC6901] to the associated entity in the request body that caused this error",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "0eae951d-6abe-4cfa-b499-11ca94cbdc44",
+					"name": "example",
+					"parent": "",
+					"description": "A sample input to guide the user when resolving this issue",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "89cbbfe0-b1da-41a2-d6cc-fdc0a9104f31",
+			"name": "HotelProduct_CancellationPolicy",
+			"properties": [
+				{
+					"id": "43b83bf7-f660-4a67-f189-9ed38d4474b1",
+					"name": "type",
+					"parent": "",
+					"description": "* FULL_STAY: the Penalty amount equals the `total` price.",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "725b3dc8-be0a-4697-ec0f-ffbf363d2f31",
+					"name": "amount",
+					"parent": "",
+					"description": "Amount of the cancellation fee.",
+					"pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "d5515988-7531-45d5-a861-f5ae459f3d0c",
+					"name": "numberOfNights",
+					"parent": "",
+					"description": "Number of nights due as fee in case of cancellation.",
+					"pattern": "",
+					"example": "",
+					"objectType": "integer",
+					"maxLength": ""
+				},
+				{
+					"id": "7688d7b0-7709-4f96-e88b-7ec5b96df7a8",
+					"name": "percentage",
+					"parent": "",
+					"description": "Percentage of the total stay amount to be paid in case of cancellation. Value is between 0 and 100.",
+					"pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "f22d5254-d903-4a18-ae68-189cb50a80dd",
+					"name": "deadline",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"Represents the deadline after which the penalty applies. DateTime is in ISO 8601 [https://www.w3.org/TR/NOTE-datetime].",
+						"Example: 2010-08-14T12:00:00+01:00",
+						"Example: 2010-08-14T12:00:00Z",
+						"Example: 2010-08-14T12:00:00-01:00",
+						"The value is expressed in the hotel local time zone, with the added time zone difference. So you can compute the deadline in UTC(GMT) if desired."
+					],
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "6007282e-9f65-4d4a-cd5c-aa54936181b6",
+					"name": "description",
+					"parent": "",
+					"description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "e24850f2-4299-4ff9-cad5-3195d7d0b771",
+					"parent": "6007282e-9f65-4d4a-cd5c-aa54936181b6",
+					"name": "text",
+					"description": "Free Text",
+					"pattern": "",
+					"example": "A description",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "3cc7870a-8913-45be-af41-fa4c26498e04",
+					"parent": "6007282e-9f65-4d4a-cd5c-aa54936181b6",
+					"name": "lang",
+					"description": "see RFC 5646",
+					"pattern": "",
+					"example": "fr-FR",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "38fce5c8-44a8-4703-aa11-2f68be35eb7f",
+			"name": "HotelProduct_CheckInOutPolicy",
+			"properties": [
+				{
+					"id": "f785c6f1-6ce8-488b-fc7b-07eeb71c5e66",
+					"name": "checkIn",
+					"parent": "",
+					"description": "Check-in From time limit in ISO-8601 format [http://www.w3.org/TR/xmlschema-2/#time]",
+					"pattern": "",
+					"example": "13:00:00",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "723943d7-5ca5-4b35-eb2d-3d7726d27901",
+					"name": "checkInDescription",
+					"parent": "",
+					"description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "49d99d1f-3c63-4441-c646-490348834b8a",
+					"parent": "723943d7-5ca5-4b35-eb2d-3d7726d27901",
+					"name": "text",
+					"description": "Free Text",
+					"pattern": "",
+					"example": "A description",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "f66f1c54-3377-43fb-c19c-4fabd25a1a68",
+					"parent": "723943d7-5ca5-4b35-eb2d-3d7726d27901",
+					"name": "lang",
+					"description": "see RFC 5646",
+					"pattern": "",
+					"example": "fr-FR",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "73b046aa-53a8-499c-861e-ab07bd8a31d5",
+					"name": "checkOut",
+					"parent": "",
+					"description": "Check-out Until time limit in ISO-8601 format [http://www.w3.org/TR/xmlschema-2/#time]",
+					"pattern": "",
+					"example": "11:00:00",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "af60a951-457f-4e9e-c142-964ae631e283",
+					"name": "checkOutDescription",
+					"parent": "",
+					"description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "b32d0016-69d4-46e7-b0b5-2b90a33a0803",
+					"parent": "af60a951-457f-4e9e-c142-964ae631e283",
+					"name": "text",
+					"description": "Free Text",
+					"pattern": "",
+					"example": "A description",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "13206c75-3bea-4321-aa10-8d7e55b9b19b",
+					"parent": "af60a951-457f-4e9e-c142-964ae631e283",
+					"name": "lang",
+					"description": "see RFC 5646",
+					"pattern": "",
+					"example": "fr-FR",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "80f7b516-d24d-439c-894d-02b691050fc6",
+			"name": "HotelProduct_Commission",
+			"properties": [
+				{
+					"id": "80f21ef5-b40e-4349-eda6-de5edcb5c690",
+					"name": "percentage",
+					"parent": "",
+					"description": "Percentage of the commission paid to the travel seller. Value is between 0 and 100",
+					"pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "1ca94b87-377b-4b46-8566-549b58cf6dc2",
+					"name": "amount",
+					"parent": "",
+					"description": "Amount of the commission paid to the travel seller. The amount is always linked to the currency code of the offer",
+					"pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "7b42dcc7-fee3-4c63-eaed-91010ada8fb2",
+					"name": "description",
+					"parent": "",
+					"description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "7e62cee5-e3cb-4634-f2b2-524f75fb36c0",
+					"parent": "7b42dcc7-fee3-4c63-eaed-91010ada8fb2",
+					"name": "text",
+					"description": "Free Text",
+					"pattern": "",
+					"example": "A description",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "280baa4d-a753-44e0-c540-70e40dc99327",
+					"parent": "7b42dcc7-fee3-4c63-eaed-91010ada8fb2",
+					"name": "lang",
+					"description": "see RFC 5646",
+					"pattern": "",
+					"example": "fr-FR",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "5e68df1f-78e3-413b-eacf-fe8833df2079",
+			"name": "HotelProduct_DepositPolicy",
+			"description": "the deposit/prepay policy information applicable to the offer. It includes accepted payments, deadline and the amount due",
+			"properties": [
+				{
+					"id": "808730e6-d223-4fe5-9643-9329f78ead7d",
+					"name": "amount",
+					"parent": "",
+					"description": "Deposit-Prepay amount",
+					"pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "5ea4acbd-978a-42ca-917e-cb92b7000a9a",
+					"name": "deadline",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"The date and time of the deadline in ISO 8601[https://www.w3.org/TR/NOTE-datetime]. ",
+						" Example: 2010-08-14T13:00:00",
+						" Please note that this value is expressed in the hotels local time zone"
+					],
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "bc40259e-1f46-406b-d576-f1984c1d0050",
+					"name": "description",
+					"parent": "",
+					"description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "21de10c4-9aa5-40df-e9c5-fe7d455acbd4",
+					"parent": "bc40259e-1f46-406b-d576-f1984c1d0050",
+					"name": "text",
+					"description": "Free Text",
+					"pattern": "",
+					"example": "A description",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "7d52de65-e3f5-4b13-e384-f5984ee6bae1",
+					"parent": "bc40259e-1f46-406b-d576-f1984c1d0050",
+					"name": "lang",
+					"description": "see RFC 5646",
+					"pattern": "",
+					"example": "fr-FR",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "7dcfaa15-122d-4e4c-9b23-a00b2ed9c835",
+					"name": "acceptedPayments",
+					"parent": "",
+					"description": "Accepted Payment Methods and Card Types. Several Payment Methods and Card Types may be available.",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "b7bd36a1-34e4-457b-89ff-b16629a2e714",
+					"parent": "7dcfaa15-122d-4e4c-9b23-a00b2ed9c835",
+					"name": "creditCards",
+					"description": "Accepted Payment Card Types for the `method` CREDIT_CARD",
+					"pattern": "^[A-Z]{2}$",
+					"example": "",
+					"default": "",
+					"objectType": "array",
+					"maxLength": 2
+				},
+				{
+					"id": "fdac6744-4d28-417b-ee7c-e0bb80c3d9d6",
+					"parent": "7dcfaa15-122d-4e4c-9b23-a00b2ed9c835",
+					"name": "methods",
+					"description": "Accepted Payment Methods",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "array",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "b62b8aec-5f70-44fc-8f27-a1dfcba791b7",
+			"name": "HotelProduct_EstimatedRoomType",
+			"description": "estimated room category, bed type and number of beds in the room. This information has been parsed from the room description, and is thus only provided for informational purposes",
+			"properties": [
+				{
+					"id": "b42f9a02-7bbd-4222-f424-78ba4a1de2a8",
+					"name": "category",
+					"parent": "",
+					"description": "Category code",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "3baf049f-a5e4-4111-84c2-58cfb1766a59",
+					"name": "beds",
+					"parent": "",
+					"description": "Number of beds in the room (1-9)",
+					"pattern": "",
+					"example": "",
+					"objectType": "integer",
+					"maxLength": ""
+				},
+				{
+					"id": "cfe59a41-5d85-431f-cbda-48e934a7df42",
+					"name": "bedType",
+					"parent": "",
+					"description": "Type of the bed",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "25cb5dff-dd33-456b-a527-6c3817e17ec9",
+			"name": "HotelProduct_GuaranteePolicy",
+			"description": "the guarantee policy information applicable to the offer. It includes accepted payments",
+			"properties": [
+				{
+					"id": "4266e34a-806c-4df1-98e5-14fb50e54da8",
+					"name": "description",
+					"parent": "",
+					"description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "4d3d68b8-ac37-40ca-8c66-c885b5302d26",
+					"parent": "4266e34a-806c-4df1-98e5-14fb50e54da8",
+					"name": "text",
+					"description": "Free Text",
+					"pattern": "",
+					"example": "A description",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "e60012b3-72f5-4f68-fa40-593bf3057423",
+					"parent": "4266e34a-806c-4df1-98e5-14fb50e54da8",
+					"name": "lang",
+					"description": "see RFC 5646",
+					"pattern": "",
+					"example": "fr-FR",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "2ee8485b-5dda-41bf-8c48-4cb8ef9cc6d0",
+					"name": "acceptedPayments",
+					"parent": "",
+					"description": "Accepted Payment Methods and Card Types. Several Payment Methods and Card Types may be available.",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "71058798-b733-44a8-858e-db7a4b384f53",
+					"parent": "2ee8485b-5dda-41bf-8c48-4cb8ef9cc6d0",
+					"name": "creditCards",
+					"description": "Accepted Payment Card Types for the `method` CREDIT_CARD",
+					"pattern": "^[A-Z]{2}$",
+					"example": "",
+					"default": "",
+					"objectType": "array",
+					"maxLength": 2
+				},
+				{
+					"id": "cdb9e251-2005-4f4c-8d89-0ff4d704edfe",
+					"parent": "2ee8485b-5dda-41bf-8c48-4cb8ef9cc6d0",
+					"name": "methods",
+					"description": "Accepted Payment Methods",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "array",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "87961976-aef1-4b80-ad3d-efd4411dcb50",
+			"name": "HotelProduct_Guests",
+			"properties": [
+				{
+					"id": "58149d46-0bf0-4c76-bfb7-168762d35014",
+					"name": "adults",
+					"parent": "",
+					"description": "number of adult guests (1-9) per room",
+					"pattern": "",
+					"example": 2,
+					"objectType": "integer",
+					"maxLength": ""
+				},
+				{
+					"id": "b863b3c5-b336-4168-cafa-fb3d3994dad8",
+					"name": "childAges",
+					"parent": "",
+					"description": "Comma separated list of ages of each child at the time of check-out from the hotel. If several children have the same age, the ages will be repeated.",
+					"pattern": "",
+					"example": "",
+					"objectType": "array",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "93f65b88-ab14-40af-e2f8-b19bd91313db",
+			"name": "HotelProduct_HoldPolicy",
+			"description": "the hold policy",
+			"properties": [
+				{
+					"id": "c673a1e4-5adb-49a8-a30a-07264f7a799c",
+					"required": true,
+					"name": "deadline",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"The date and time of the deadline in ISO 8601[https://www.w3.org/TR/NOTE-datetime]. ",
+						" Example: 2010-08-14T13:00:00",
+						" Please note that this value is expressed in the hotels local time zone"
+					],
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "f92981d7-4435-40cf-84b4-956b289d3b5a",
+			"name": "HotelProduct_HotelPrice",
+			"description": "price information",
+			"properties": [
+				{
+					"id": "b9c7c9e0-59b2-487c-ea41-1b21362dc53d",
+					"name": "currency",
+					"parent": "",
+					"description": "currency Code apply to all elements of the price",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "b975e5cc-552b-4e61-9caf-796265d9e4fa",
+					"name": "sellingTotal",
+					"parent": "",
+					"description": "sellingTotal = Total + margins + markup + totalFees - discounts",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "cce48e15-6142-453e-a3ee-c42a9d277143",
+					"name": "total",
+					"parent": "",
+					"description": "total = base + totalTaxes",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "d2605644-2134-43d4-d0a7-0662bf1bf441",
+					"name": "base",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "f063150f-599f-4deb-d188-78753018a273",
+					"name": "taxes",
+					"parent": "",
+					"description": "IATA Tax definition: An impost for raising revenue for the general treasury and which will be used for general public purposes.",
+					"pattern": "",
+					"example": "",
+					"objectType": "array",
+					"maxLength": ""
+				},
+				{
+					"id": "5426cb0a-cb08-4baa-9f77-3d9a908d045e",
+					"parent": "f063150f-599f-4deb-d188-78753018a273",
+					"name": "amount",
+					"description": "Defines amount with decimal separator.",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "73f07cb1-6c01-4437-cf91-d918bc34e517",
+					"parent": "f063150f-599f-4deb-d188-78753018a273",
+					"name": "currency",
+					"description": "Defines a monetary unit. It is a three alpha code (iata code). Example: EUR for Euros, USD for US dollar, etc.",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": 3
+				},
+				{
+					"id": "bd569e83-19ad-4dc9-ca93-5ac47f53797c",
+					"parent": "f063150f-599f-4deb-d188-78753018a273",
+					"name": "code",
+					"description": "International Standards Organization (ISO) Tax code.It is a two-letter country code.",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "ac81f763-5e11-4424-b2b9-398b096a52e5",
+					"parent": "f063150f-599f-4deb-d188-78753018a273",
+					"name": "percentage",
+					"description": "In the case of a tax on TST value, the percentage of the tax will be indicated in this field.",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "7c66651d-001c-4470-aaa0-3fa450c901d3",
+					"parent": "f063150f-599f-4deb-d188-78753018a273",
+					"name": "included",
+					"description": "Indicates if tax is included or not",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "boolean",
+					"maxLength": ""
+				},
+				{
+					"id": "0950f9a4-3585-415a-a33e-44a4c2baa391",
+					"parent": "f063150f-599f-4deb-d188-78753018a273",
+					"name": "description",
+					"description": "Example - \"Governement tax\"",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "ed44c26c-7a8d-4d90-9e96-da942d4bb215",
+					"parent": "f063150f-599f-4deb-d188-78753018a273",
+					"name": "pricingFrequency",
+					"description": [
+						"==OBJECT STRING==",
+						"Specifies if the tax applies per stay or per night",
+						"  - PER_STAY",
+						"  - PER_NIGHT"
+					],
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "655675d6-8d39-4b2a-96cd-9ceadee718e5",
+					"parent": "f063150f-599f-4deb-d188-78753018a273",
+					"name": "pricingMode",
+					"description": [
+						"==OBJECT STRING==",
+						"Specifies if the tax applies per occupant or per room",
+						"  - PER_OCCUPANT",
+						"  - PER_PRODUCT"
+					],
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "38379259-f04e-4937-c655-e5848fe8a691",
+					"name": "markups",
+					"parent": "",
+					"description": "Markup applied to provide a service or a product to the client. The markup can be introduced by any stakeholder. Typical use case is to convey markup information set by the travel agent or in case of merchant mode.",
+					"pattern": "",
+					"example": "",
+					"objectType": "array",
+					"maxLength": ""
+				},
+				{
+					"id": "c9dce2be-5b40-4a37-ab19-78ed2ca59fc4",
+					"parent": "38379259-f04e-4937-c655-e5848fe8a691",
+					"name": "amount",
+					"description": "Defines the monetary value with decimal position as a String.",
+					"pattern": "",
+					"example": "10",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "298b5812-8fc2-4916-b3a3-f9fa47186ba5",
+					"name": "variations",
+					"parent": "",
+					"description": "Daily price variations and the average daily price (when available) is shown here",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "d5bb232f-660f-4fab-82e4-65afffd14ac6",
+					"parent": "298b5812-8fc2-4916-b3a3-f9fa47186ba5",
+					"name": "average",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "20c593f7-961f-47fa-9d2e-ccac9df13f23",
+					"parent": "298b5812-8fc2-4916-b3a3-f9fa47186ba5",
+					"name": "changes",
+					"description": "A collection of price periods if the daily price changes during the stay",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "array",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "fd966c5e-b41f-46d7-b1bf-ae8094b3a0a5",
+			"name": "HotelProduct_PaymentPolicy",
+			"description": "Accepted Payment Methods and Card Types. Several Payment Methods and Card Types may be available.",
+			"properties": [
+				{
+					"id": "8d911055-79c5-44bb-c4bc-2e9d4cc839b2",
+					"name": "creditCards",
+					"parent": "",
+					"description": "Accepted Payment Card Types for the `method` CREDIT_CARD",
+					"pattern": "^[A-Z]{2}$",
+					"example": "",
+					"objectType": "array",
+					"maxLength": 2
+				},
+				{
+					"id": "ff820c39-7967-4682-f75b-c606f38ee202",
+					"name": "methods",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"The Payment Methods",
+						" * CREDIT_CARD (CC) - Payment Cards in `creditCards` are accepted",
+						" * AGENCY_ACCOUNT - Agency Account (Credit Line) is accepted. Agency is Charged at CheckOut",
+						" * TRAVEL_AGENT_ID - Agency IATA/ARC Number is accepted to Guarantee the booking",
+						" * CORPORATE_ID (COR-ID) - Corporate Account is accepted to Guarantee the booking",
+						" * HOTEL_GUEST_ID - Hotel Chain Rewards Card Number is accepted to Guarantee the booking",
+						" * CHECK - Checks are accepted",
+						" * MISC_CHARGE_ORDER - Miscellaneous Charge Order is accepted",
+						" * ADVANCE_DEPOSIT - Cash is accepted for Deposit/PrePay",
+						" * COMPANY_ADDRESS - Company Billing Address is accepted to Guarantee the booking"
+					],
+					"pattern": "",
+					"example": "",
+					"objectType": "array",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "7c6e3ddd-330a-47d0-8c81-e0ee87080e26",
+			"name": "HotelProduct_PolicyDetails",
+			"description": "Booking Rules",
+			"properties": [
+				{
+					"id": "548c56ee-c61f-4393-f3e5-081806164ee4",
+					"name": "paymentType",
+					"parent": "",
+					"description": "payment type. Guarantee means Pay at Check Out. Check the `methods` in `guarantee` or `deposit` or `prepay`.",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "764af3be-cadd-4a70-f6ac-8302e570105d",
+					"name": "guarantee",
+					"parent": "",
+					"description": "the guarantee policy information applicable to the offer. It includes accepted payments",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "71466cee-a711-48ab-9aab-6304724c5562",
+					"parent": "764af3be-cadd-4a70-f6ac-8302e570105d",
+					"name": "description",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "ea159f33-32fb-4414-cb82-f2445ed31361",
+					"parent": "764af3be-cadd-4a70-f6ac-8302e570105d",
+					"name": "acceptedPayments",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "8693b02f-da82-4537-8ffa-c9559b379bfc",
+					"name": "deposit",
+					"parent": "",
+					"description": "the deposit/prepay policy information applicable to the offer. It includes accepted payments, deadline and the amount due",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "eea80e2a-961a-46c4-8a05-c0b59ac4014c",
+					"parent": "8693b02f-da82-4537-8ffa-c9559b379bfc",
+					"name": "amount",
+					"description": "Deposit-Prepay amount",
+					"pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "90da5c5d-84ce-45e6-b243-cceadc585dcd",
+					"parent": "8693b02f-da82-4537-8ffa-c9559b379bfc",
+					"name": "deadline",
+					"description": [
+						"==OBJECT STRING==",
+						"The date and time of the deadline in ISO 8601[https://www.w3.org/TR/NOTE-datetime]. ",
+						" Example: 2010-08-14T13:00:00",
+						" Please note that this value is expressed in the hotels local time zone"
+					],
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "3a0fe13c-eb53-4f0b-eb0c-ae341c02941f",
+					"parent": "8693b02f-da82-4537-8ffa-c9559b379bfc",
+					"name": "description",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "0c0d072c-8835-435b-ff59-8c190f32899f",
+					"parent": "8693b02f-da82-4537-8ffa-c9559b379bfc",
+					"name": "acceptedPayments",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "31f5f4cc-c95c-431c-a52b-b1481f20a804",
+					"name": "prepay",
+					"parent": "",
+					"description": "the deposit/prepay policy information applicable to the offer. It includes accepted payments, deadline and the amount due",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "24ef7706-461f-48c9-a78f-e1e93b0f48f3",
+					"parent": "31f5f4cc-c95c-431c-a52b-b1481f20a804",
+					"name": "amount",
+					"description": "Deposit-Prepay amount",
+					"pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "eb20a035-4fbd-4ff7-9504-16fd7e6b01f2",
+					"parent": "31f5f4cc-c95c-431c-a52b-b1481f20a804",
+					"name": "deadline",
+					"description": [
+						"==OBJECT STRING==",
+						"The date and time of the deadline in ISO 8601[https://www.w3.org/TR/NOTE-datetime]. ",
+						" Example: 2010-08-14T13:00:00",
+						" Please note that this value is expressed in the hotels local time zone"
+					],
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "3c4f15cc-2529-49fd-fdaf-a1f60abcd9c9",
+					"parent": "31f5f4cc-c95c-431c-a52b-b1481f20a804",
+					"name": "description",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "831398c3-0f53-4944-cee1-ea3a4e38c730",
+					"parent": "31f5f4cc-c95c-431c-a52b-b1481f20a804",
+					"name": "acceptedPayments",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "fa7cdea9-da14-49f8-9498-8a4391b45f43",
+					"name": "holdTime",
+					"parent": "",
+					"description": "the hold policy",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "d65369b4-5231-4483-a6bb-eb3c421ae7c0",
+					"parent": "fa7cdea9-da14-49f8-9498-8a4391b45f43",
+					"name": "deadline",
+					"description": [
+						"==OBJECT STRING==",
+						"The date and time of the deadline in ISO 8601[https://www.w3.org/TR/NOTE-datetime]. ",
+						" Example: 2010-08-14T13:00:00",
+						" Please note that this value is expressed in the hotels local time zone"
+					],
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "02d2ec0c-b26b-4b88-cca5-2f1360e97271",
+					"name": "cancellations",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "array",
+					"maxLength": ""
+				},
+				{
+					"id": "faff1461-4e24-4ade-95f4-eabb15c0187f",
+					"parent": "02d2ec0c-b26b-4b88-cca5-2f1360e97271",
+					"name": "type",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "6c91f2e4-e3a7-4946-9847-e04b74651259",
+					"parent": "02d2ec0c-b26b-4b88-cca5-2f1360e97271",
+					"name": "amount",
+					"description": "Amount of the cancellation fee.",
+					"pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "46760f02-5ca6-4ecf-8488-404fddb70cbf",
+					"parent": "02d2ec0c-b26b-4b88-cca5-2f1360e97271",
+					"name": "numberOfNights",
+					"description": "Number of nights due as fee in case of cancellation.",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "integer",
+					"maxLength": ""
+				},
+				{
+					"id": "8b33fd51-b615-4e40-80d9-34abb47c28bd",
+					"parent": "02d2ec0c-b26b-4b88-cca5-2f1360e97271",
+					"name": "percentage",
+					"description": "Percentage of the total stay amount to be paid in case of cancellation. Value is between 0 and 100.",
+					"pattern": "^\\\\d+(\\\\.\\\\d+)?$",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "3f74bbfe-3410-4d7b-bd5f-e8904e94f5ec",
+					"parent": "02d2ec0c-b26b-4b88-cca5-2f1360e97271",
+					"name": "deadline",
+					"description": [
+						"==OBJECT STRING==",
+						"Represents the deadline after which the penalty applies. DateTime is in ISO 8601 [https://www.w3.org/TR/NOTE-datetime].",
+						"Example: 2010-08-14T12:00:00+01:00",
+						"Example: 2010-08-14T12:00:00Z",
+						"Example: 2010-08-14T12:00:00-01:00",
+						"The value is expressed in the hotel local time zone, with the added time zone difference. So you can compute the deadline in UTC(GMT) if desired."
+					],
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "8afd2d9a-24e1-44b0-f841-2c4d7c75b10b",
+					"parent": "02d2ec0c-b26b-4b88-cca5-2f1360e97271",
+					"name": "description",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "a6596a73-ed86-4a3d-e3b2-e74273c5d45d",
+					"name": "checkInOut",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "de6e57c5-4094-4e38-ee98-b12659011dd0",
+					"parent": "a6596a73-ed86-4a3d-e3b2-e74273c5d45d",
+					"name": "checkIn",
+					"description": "Check-in From time limit in ISO-8601 format [http://www.w3.org/TR/xmlschema-2/#time]",
+					"pattern": "",
+					"example": "13:00:00",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "19168095-4d70-4047-a27d-d9a47f0a9215",
+					"parent": "a6596a73-ed86-4a3d-e3b2-e74273c5d45d",
+					"name": "checkInDescription",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "b70ea689-d84f-45b8-9460-fa76e6294176",
+					"parent": "a6596a73-ed86-4a3d-e3b2-e74273c5d45d",
+					"name": "checkOut",
+					"description": "Check-out Until time limit in ISO-8601 format [http://www.w3.org/TR/xmlschema-2/#time]",
+					"pattern": "",
+					"example": "11:00:00",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "96eb45e3-b619-4dbe-9e50-b38bfa132266",
+					"parent": "a6596a73-ed86-4a3d-e3b2-e74273c5d45d",
+					"name": "checkOutDescription",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "374df495-d22e-43c4-b86c-041adeeedf76",
+			"name": "HotelProduct_PriceVariation",
+			"description": "Some prices may vary during a stay, thus here you can see the daily price per period of the stay",
+			"properties": [
+				{
+					"id": "11693b60-2bb6-43a2-a6a1-3cef72a77157",
+					"required": true,
+					"name": "startDate",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"Begin date of the period",
+						"Format: YYYY-MM-DD"
+					],
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "0252279e-aa72-45f9-bb13-0dd69ae09642",
+					"required": true,
+					"name": "endDate",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"End date of the period",
+						"Format: YYYY-MM-DD"
+					],
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "3f50c26b-4fff-42a3-8caa-5c4d3bc7bb3b",
+					"name": "currency",
+					"parent": "",
+					"description": "currency Code apply to all elements of the price",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "f28c1fa2-72e9-41ab-a7d8-a1e7539b0968",
+					"name": "sellingTotal",
+					"parent": "",
+					"description": "sellingTotal = Total + margins + markup + totalFees - discounts",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "d6e97d4f-f30c-4d6b-dc8c-fb951b5782a1",
+					"name": "total",
+					"parent": "",
+					"description": "total = base + totalTaxes",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "8e4dce8e-a7dc-4472-ac5f-069fef859534",
+					"name": "base",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "3d70f26e-23f4-4026-ef21-c4ce549fd4bf",
+					"name": "markups",
+					"parent": "",
+					"description": "Markup applied to provide a service or a product to the client. The markup can be introduced by any stakeholder. Typical use case is to convey markup information set by the travel agent or in case of merchant mode.",
+					"pattern": "",
+					"example": "",
+					"objectType": "array",
+					"maxLength": ""
+				},
+				{
+					"id": "c9fb05ae-f784-4e6a-f5a9-434a6a1264b3",
+					"parent": "3d70f26e-23f4-4026-ef21-c4ce549fd4bf",
+					"name": "amount",
+					"description": "Defines the monetary value with decimal position as a String.",
+					"pattern": "",
+					"example": "10",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "7214ff13-58c6-42f2-f42b-f2934732086f",
+			"name": "HotelProduct_PriceVariations",
+			"description": "Daily price variations and the average daily price (when available) is shown here",
+			"properties": [
+				{
+					"id": "deab81bc-0c6b-48c3-ee57-30c9164278ee",
+					"name": "average",
+					"parent": "",
+					"description": "Price valuation information",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "7c7f1b0d-2d30-45d2-ed43-e3225bb7b735",
+					"parent": "deab81bc-0c6b-48c3-ee57-30c9164278ee",
+					"name": "currency",
+					"description": "currency Code apply to all elements of the price",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "b1d41600-4e0f-45a1-faed-7c9cbca2dc0e",
+					"parent": "deab81bc-0c6b-48c3-ee57-30c9164278ee",
+					"name": "sellingTotal",
+					"description": "sellingTotal = Total + margins + markup + totalFees - discounts",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "a50fd032-635c-470c-9ea9-2e435c770dbd",
+					"parent": "deab81bc-0c6b-48c3-ee57-30c9164278ee",
+					"name": "total",
+					"description": "total = base + totalTaxes",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "e12fdc9f-1d04-4b3d-f605-b6e8f6659e14",
+					"parent": "deab81bc-0c6b-48c3-ee57-30c9164278ee",
+					"name": "base",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "f0fac6e5-1d8b-4717-f830-17c2e28c9475",
+					"parent": "deab81bc-0c6b-48c3-ee57-30c9164278ee",
+					"name": "markups",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "array",
+					"maxLength": ""
+				},
+				{
+					"id": "79a80200-9dc0-4d18-a695-cb8b0a7f9b18",
+					"name": "changes",
+					"parent": "",
+					"description": "Some prices may vary during a stay, thus here you can see the daily price per period of the stay",
+					"pattern": "",
+					"example": "",
+					"objectType": "array",
+					"maxLength": ""
+				},
+				{
+					"id": "c21fa738-f475-4e04-ecd1-9d8150036461",
+					"parent": "79a80200-9dc0-4d18-a695-cb8b0a7f9b18",
+					"name": "startDate",
+					"description": [
+						"==OBJECT STRING==",
+						"Begin date of the period",
+						"Format: YYYY-MM-DD"
+					],
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "5404ce6e-3035-449b-a2bc-db02fb8810cb",
+					"parent": "79a80200-9dc0-4d18-a695-cb8b0a7f9b18",
+					"name": "endDate",
+					"description": [
+						"==OBJECT STRING==",
+						"End date of the period",
+						"Format: YYYY-MM-DD"
+					],
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "76a3b60a-3276-4b70-e1b0-0bc934a90489",
+					"parent": "79a80200-9dc0-4d18-a695-cb8b0a7f9b18",
+					"name": "currency",
+					"description": "currency Code apply to all elements of the price",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "8e2c1bd2-0e38-49de-9a22-c7550a18b523",
+					"parent": "79a80200-9dc0-4d18-a695-cb8b0a7f9b18",
+					"name": "sellingTotal",
+					"description": "sellingTotal = Total + margins + markup + totalFees - discounts",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "132fc7e2-2ec3-4058-b6c4-e6ed89c3b46e",
+					"parent": "79a80200-9dc0-4d18-a695-cb8b0a7f9b18",
+					"name": "total",
+					"description": "total = base + totalTaxes",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "b7b536c7-edd8-4b9f-8823-85110f797a1a",
+					"parent": "79a80200-9dc0-4d18-a695-cb8b0a7f9b18",
+					"name": "base",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "230a96fb-480b-401b-97a0-9fc0e891329a",
+					"parent": "79a80200-9dc0-4d18-a695-cb8b0a7f9b18",
+					"name": "markups",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "array",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "823a5b12-de6f-49fb-f624-8018d4a1b56f",
+			"name": "HotelProduct_RateFamily",
+			"description": "The estimated rate code family of the offer. Grouping various rate plan codes that belongs to the same family and indicates the type of the rate",
+			"properties": [
+				{
+					"id": "5b29e576-f0fa-4fae-bb81-2de376cd29f4",
+					"name": "code",
+					"parent": "",
+					"description": "The estimated rate family (PRO,FAM,GOV)",
+					"pattern": "[A-Z0-9]{3}",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "013cb3fd-0dca-4a53-aaef-383e60e561db",
+					"name": "type",
+					"parent": "",
+					"description": "The type of the rate (public=P, negotiated=N, conditional=C)",
+					"pattern": "[PNC]",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "aa0220bb-0179-460b-e23c-5d3f9e182229",
+			"name": "HotelProduct_RoomDetails",
+			"properties": [
+				{
+					"id": "7bd69dc4-6acb-4fc1-dcdc-0ee8875b25ea",
+					"name": "type",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"Room type code, 3 character identifier of the room.",
+						"The first character identifies the room type category. ",
+						"The second numeric character identifies the number of beds. ",
+						"The third character identifies the bed type. ",
+						"There is a special case where ROH is returned, this value stands for Run Of House."
+					],
+					"pattern": "^[A-Z0-9*]{3}$",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "77af9919-239a-4496-f875-012068b68310",
+					"name": "typeEstimated",
+					"parent": "",
+					"description": "estimated room category, bed type and number of beds in the room. This information has been parsed from the room description, and is thus only provided for informational purposes",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "08b643e1-2549-4851-97da-4b5e70d8b8f3",
+					"parent": "77af9919-239a-4496-f875-012068b68310",
+					"name": "category",
+					"description": "Category code",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "72fb3ee0-3538-4e98-8e55-385fd1d5f62a",
+					"parent": "77af9919-239a-4496-f875-012068b68310",
+					"name": "beds",
+					"description": "Number of beds in the room (1-9)",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "integer",
+					"maxLength": ""
+				},
+				{
+					"id": "4974ece5-53af-4522-d3fe-011980c3cc1d",
+					"parent": "77af9919-239a-4496-f875-012068b68310",
+					"name": "bedType",
+					"description": "Type of the bed",
+					"pattern": "",
+					"example": "",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "1046d6e9-3706-41f7-a3be-7c599eea652f",
+					"name": "description",
+					"parent": "",
+					"description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+					"pattern": "",
+					"example": "",
+					"objectType": "object",
+					"maxLength": ""
+				},
+				{
+					"id": "24325020-410d-46f2-d56c-9f7f2815823e",
+					"parent": "1046d6e9-3706-41f7-a3be-7c599eea652f",
+					"name": "text",
+					"description": "Free Text",
+					"pattern": "",
+					"example": "A description",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "14d164ba-9cb3-4fd9-e8a5-3241f909cf39",
+					"parent": "1046d6e9-3706-41f7-a3be-7c599eea652f",
+					"name": "lang",
+					"description": "see RFC 5646",
+					"pattern": "",
+					"example": "fr-FR",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "0d181325-a6d2-4fb9-86ea-396dbc968663",
+			"name": "Markup",
+			"description": "Markup applied to provide a service or a product to the client. The markup can be introduced by any stakeholder. Typical use case is to convey markup information set by the travel agent or in case of merchant mode.",
+			"properties": [
+				{
+					"id": "f75bb12c-9b5e-4ec9-bd37-642677ba69be",
+					"name": "amount",
+					"parent": "",
+					"description": "Defines the monetary value with decimal position as a String.",
+					"pattern": "",
+					"example": "10",
+					"objectType": "string",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "c95684e7-3bf5-48f0-8423-1aa552d055df",
+			"name": "Method",
+			"description": [
+				"==OBJECT STRING==",
+				"The Payment Methods",
+				" * CREDIT_CARD (CC) - Payment Cards in `creditCards` are accepted",
+				" * AGENCY_ACCOUNT - Agency Account (Credit Line) is accepted. Agency is Charged at CheckOut",
+				" * TRAVEL_AGENT_ID - Agency IATA/ARC Number is accepted to Guarantee the booking",
+				" * CORPORATE_ID (COR-ID) - Corporate Account is accepted to Guarantee the booking",
+				" * HOTEL_GUEST_ID - Hotel Chain Rewards Card Number is accepted to Guarantee the booking",
+				" * CHECK - Checks are accepted",
+				" * MISC_CHARGE_ORDER - Miscellaneous Charge Order is accepted",
+				" * ADVANCE_DEPOSIT - Cash is accepted for Deposit/PrePay",
+				" * COMPANY_ADDRESS - Company Billing Address is accepted to Guarantee the booking"
+			],
+			"properties": []
+		},
+		{
+			"id": "83d210fc-697b-4d72-f94f-acad802887d9",
+			"name": "PaymentType",
+			"description": "payment type. Guarantee means Pay at Check Out. Check the `methods` in `guarantee` or `deposit` or `prepay`.",
+			"properties": []
+		},
+		{
+			"id": "f73dc4dd-c39a-4553-dcf4-bd792f4f70ae",
+			"name": "Price",
+			"description": "Price valuation information",
+			"properties": [
+				{
+					"id": "6f7e4ca1-ee54-4d35-c158-d698349aadd5",
+					"name": "currency",
+					"parent": "",
+					"description": "currency Code apply to all elements of the price",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "ed22172d-c37e-4e30-e31b-a17dc6f74d86",
+					"name": "sellingTotal",
+					"parent": "",
+					"description": "sellingTotal = Total + margins + markup + totalFees - discounts",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "b242307a-ca2c-4208-b773-42a183b91f2c",
+					"name": "total",
+					"parent": "",
+					"description": "total = base + totalTaxes",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "fb7523dd-49d7-45bc-9feb-5eac3cbbdaa5",
+					"name": "base",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "6bfc5763-890c-40b0-a447-d36f0565cfd5",
+					"name": "markups",
+					"parent": "",
+					"description": "Markup applied to provide a service or a product to the client. The markup can be introduced by any stakeholder. Typical use case is to convey markup information set by the travel agent or in case of merchant mode.",
+					"pattern": "",
+					"example": "",
+					"objectType": "array",
+					"maxLength": ""
+				},
+				{
+					"id": "72eed451-83c1-4b13-be8e-92e842cfee06",
+					"parent": "6bfc5763-890c-40b0-a447-d36f0565cfd5",
+					"name": "amount",
+					"description": "Defines the monetary value with decimal position as a String.",
+					"pattern": "",
+					"example": "10",
+					"default": "",
+					"objectType": "string",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "3fe2324f-8ec8-4c6c-87df-6c75843ec4c8",
+			"name": "QualifiedFreeText",
+			"description": "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language",
+			"properties": [
+				{
+					"id": "f2b1379b-7522-46d0-a65a-d71d078587f4",
+					"name": "text",
+					"parent": "",
+					"description": "Free Text",
+					"pattern": "",
+					"example": "A description",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "7a87f527-bed8-4767-a236-44fbdb2c753d",
+					"name": "lang",
+					"parent": "",
+					"description": "see RFC 5646",
+					"pattern": "",
+					"example": "fr-FR",
+					"objectType": "string",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "bfbf441b-60be-4ce0-83db-f1900762c8ec",
+			"name": "Tax",
+			"description": "IATA Tax definition: An impost for raising revenue for the general treasury and which will be used for general public purposes.",
+			"properties": [
+				{
+					"id": "51789a93-0dc6-44c4-9c69-133e7a47312b",
+					"name": "amount",
+					"parent": "",
+					"description": "Defines amount with decimal separator.",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "1d1adc5b-edfc-4af8-c3d6-27bf69446a77",
+					"name": "currency",
+					"parent": "",
+					"description": "Defines a monetary unit. It is a three alpha code (iata code). Example: EUR for Euros, USD for US dollar, etc.",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": 3
+				},
+				{
+					"id": "15a2f0b1-8767-4a85-beea-82ddc22b0b93",
+					"name": "code",
+					"parent": "",
+					"description": "International Standards Organization (ISO) Tax code.It is a two-letter country code.",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "6b1fdc30-a399-4981-d41a-c0cf4835a3d2",
+					"name": "percentage",
+					"parent": "",
+					"description": "In the case of a tax on TST value, the percentage of the tax will be indicated in this field.",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "70ae7833-9ed8-436f-bd81-2cea34c65c7a",
+					"name": "included",
+					"parent": "",
+					"description": "Indicates if tax is included or not",
+					"pattern": "",
+					"example": "",
+					"objectType": "boolean",
+					"maxLength": ""
+				},
+				{
+					"id": "b270ff75-893a-459f-8ae0-31c5fe85a91d",
+					"name": "description",
+					"parent": "",
+					"description": "Example - \"Governement tax\"",
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "26f7f3bd-2c88-4877-9778-33688815b899",
+					"name": "pricingFrequency",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"Specifies if the tax applies per stay or per night",
+						"  - PER_STAY",
+						"  - PER_NIGHT"
+					],
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				},
+				{
+					"id": "1ae2f6ab-ae0f-4f3b-ff0f-c035cd636ebf",
+					"name": "pricingMode",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"Specifies if the tax applies per occupant or per room",
+						"  - PER_OCCUPANT",
+						"  - PER_PRODUCT"
+					],
+					"pattern": "",
+					"example": "",
+					"objectType": "string",
+					"maxLength": ""
+				}
+			]
+		},
+		{
+			"id": "d132cc10-fe98-4a88-f6a3-218b71715bca",
+			"name": "Type",
+			"description": "data type",
+			"properties": []
+		},
+		{
+			"id": "89dface2-f5ab-4868-ed30-257dbfc86132",
+			"name": "CancellationType",
+			"description": "* FULL_STAY: the Penalty amount equals the `total` price.",
+			"properties": []
+		}
+	],
+	"documentation": [],
+	"name": "Amadeus_HotelSearch V3",
+	"endpoint": "https://test.api.amadeus.com/v3",
+	"ver": "23.7.19.852",
+	"version": "3.0.9",
+	"description": null,
+	"mediaType": "application/vnd.amadeus+json",
+	"securitySchemes": null,
+	"swaggerURI": null,
+	"swaggerSystem": null,
+	"apiType": "",
+	"about": [
+		"==OBJECT STRING==",
+		"Before using this API, we recommend you read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262)** for more information on how to generate an access token. ",
+		"",
+		"Please also be aware that our test environment is based on a subset of the production for this API it may change dynamically. For your tests, use big cities like LON (London) or NYC (New-York)."
+	],
+	"enableProxy": true,
+	"restrictAccess": false,
+	"enableTrace": false,
+	"enableIDE": true,
+	"internalAPI": false,
+	"isPublic": false,
+	"tlsAllowUntrusted": true,
+	"useOwnProcess": false,
+	"package": "b69714db-0a11-4c2b-9cfa-aabfa4102da6",
+	"apiGroup": "10141d64-d063-4665-94ad-ee21142059b3",
+	"apiFormat": 0,
+	"roles": []
+}

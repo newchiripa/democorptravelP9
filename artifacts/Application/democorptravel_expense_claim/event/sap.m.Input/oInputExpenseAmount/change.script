@@ -1,0 +1,3 @@
+if (oInputExpenseAmount.getValue().length > 0) {
+    oInputExpenseAmount.setValueState(sap.ui.core.ValueState.None);
+}

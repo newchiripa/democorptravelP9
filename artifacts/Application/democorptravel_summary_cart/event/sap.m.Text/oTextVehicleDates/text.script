@@ -1,0 +1,4 @@
+if (typeof formattedPickup === "undefined" || formattedPickup === null || formattedPickup === "") { return; }  
+if (typeof formattedDropff === "undefined" || formattedDropff === null || formattedDropff === "") { return; }  
+var formattedText = moment(formattedPickup).format("DD-MMM") + " - " + moment(formattedDropff).format("DD-MMM"); 
+return formattedText;

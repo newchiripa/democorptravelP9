@@ -1,0 +1,46 @@
+//oButtonDExpenseRaw.setVisible(false);
+
+var dataEntry = modeloPageTripDetail.getData();
+var keyNr = parseInt(modeloTableExpenses.getData().length + 1);
+var keyID = genKey(keyNr, 3);
+var formdata = {
+    REINR: "",
+    KEY: "",
+    IMAGE: "",
+    IMAGE_SOURCE: "",
+    RECEIPTNO: "",
+    DED_FLAG: "",
+    PAID_COM: "",
+    EXP_TYPE: "",
+    EXP_TEXT: "",
+    REC_AMOUNT: "",
+    REC_CURR: "",
+    REC_RATE: "",
+    LOC_AMOUNT: "",
+    LOC_CURR: "",
+    TAX_CODE: "",
+    REC_DATE: "",
+    SHORTTXT: "",
+    KEY_STOP: "",
+    SHARE_PERC: "",
+    REC_RATE_CM: "",
+    PAPER_RECEIPT: "",
+    RECEIPT_OK: "",
+    REC_REFNR: "",
+    PROTECT: "",
+}
+
+formdata.REINR = dataEntry.REINR;
+formdata.KEY = dataEntry.REINR + keyID;
+formdata.RECEIPTNO = keyID;
+formdata.REC_CURR = dataEntry.CURRENCY;
+formdata.REC_DATE = dataEntry.DEP_DATE;
+modeloDialogExpense.setData(formdata);
+oSelectExpenseType.setSelectedKey();
+oSelectExpenseCurrency.setSelectedKey();
+oImageReceipt.setSrc();
+oDialogExpense.open();
+
+
+// Fire Expense Change
+setFieldsReceipt();

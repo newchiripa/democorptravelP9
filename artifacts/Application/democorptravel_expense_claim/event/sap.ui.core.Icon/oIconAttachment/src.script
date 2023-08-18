@@ -1,0 +1,5 @@
+if (typeof IMAGE === "undefined" || IMAGE === null || IMAGE === "") { return; }  
+
+    var formattedText = "sap-icon://attachment";
+
+return formattedText;

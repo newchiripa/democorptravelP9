@@ -1,0 +1,11 @@
+var selectedItem = oEvent.getSource();
+
+if (selectedItem) {
+    
+    var context = selectedItem.getBindingContext();
+    var data = context.getObject();
+    modeloFormHotelDetails.setData(data);
+    oApp.toDetail(oPageDetailHotels);
+
+}
+

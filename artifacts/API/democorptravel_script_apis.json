@@ -1,0 +1,66 @@
+{
+	"id": "459937c4-71fa-4c51-87c2-8ad4e8ff8fdf",
+	"createdAt": "2020-05-04T08:59:46.686Z",
+	"createdBy": "david",
+	"auth": [],
+	"endpoints": [],
+	"paths": [
+		{
+			"id": "9a80baa1-9bc2-40e7-ac5c-8e481731a908",
+			"method": "GET",
+			"path": "/getConfigData",
+			"description": "",
+			"parameters": [],
+			"headers": [],
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"body": [],
+					"content": [
+						{
+							"id": "84b141b2-294a-40fc-f561-f67589421d6e",
+							"name": "data",
+							"objectType": "array"
+						}
+					]
+				}
+			],
+			"serverScript": "0a666a19-3026-484b-8f5b-df14edb9c904"
+		}
+	],
+	"definitions": [
+		{
+			"id": "411476dc-3851-4224-eb9b-adfd02ace1ea",
+			"name": "data",
+			"description": "",
+			"isInclude": false,
+			"properties": []
+		}
+	],
+	"documentation": [],
+	"name": "democorptravel_script_apis",
+	"endpoint": "/api/serverscript/democorptravel_script_apis",
+	"ver": "20.5.4.1022",
+	"version": null,
+	"description": null,
+	"mediaType": null,
+	"securitySchemes": null,
+	"swaggerURI": null,
+	"swaggerSystem": null,
+	"apiType": "script",
+	"about": null,
+	"enableProxy": false,
+	"restrictAccess": false,
+	"enableTrace": false,
+	"enableIDE": true,
+	"internalAPI": false,
+	"isPublic": false,
+	"tlsAllowUntrusted": false,
+	"useOwnProcess": false,
+	"package": "b69714db-0a11-4c2b-9cfa-aabfa4102da6",
+	"apiGroup": "f35647fa-722a-4a35-ba03-1029deb1fc99",
+	"apiFormat": 0,
+	"roles": []
+}

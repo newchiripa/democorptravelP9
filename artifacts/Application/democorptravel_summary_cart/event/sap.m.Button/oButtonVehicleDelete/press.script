@@ -1,0 +1,19 @@
+var data = modeloPageVehicleRate.getData();
+
+ModelData.Delete(oListCarsSelected, "transactionId", data.transactionId, "EQ");
+setCacheoListCarsSelected();
+
+jQuery.sap.require("sap.m.MessageBox");
+sap.m.MessageBox.show("Item successfully removed from Trip");
+
+oApp.backDetailToPage(oPageBlank);
+oApp.backMasterToPage(oPageMaster);
+
+setTimeout(function() {
+    //console.log("Reset");
+    var data = modeloListCarsSelected.getData();
+    modeloListVehicleResults.setData(data);
+    getValuesAndTotals();
+}, 100);
+
+oButtonRefreshListss.firePress();

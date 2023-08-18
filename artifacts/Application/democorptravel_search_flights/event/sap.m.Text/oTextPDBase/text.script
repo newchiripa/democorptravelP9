@@ -1,0 +1,4 @@
+if (typeof base === "undefined" || base === null || base === "") { return; }  
+if (typeof currency === "undefined" || currency === null || currency === "") { return; }  
+var formattedText = parseFloat(base).toFixed(2) + " " + currency; 
+return formattedText;

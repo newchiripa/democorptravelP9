@@ -1,0 +1,4 @@
+if (typeof airlineName === "undefined" || airlineName === null ) { return; }  
+if (typeof  flightno === "undefined" ||  flightno === null ) { return; }  
+var formattedText = airlineName + " " +  flightno; 
+return formattedText;

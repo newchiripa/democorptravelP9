@@ -1,0 +1,19 @@
+if (typeof outstop === "undefined" || outstop === null || outstop === "") { return; }  
+var formattedText;
+
+switch (outstop) {
+
+    case 0:
+        formattedText = "/media/root/DemoTravelSuite/non_stop.png";
+        break;
+
+    case 1:
+        formattedText = "/media/root/DemoTravelSuite/one_stop.png";
+        break;
+
+    default:
+        formattedText = "/media/root/DemoTravelSuite/multiple_stops.png";
+        break;
+
+}
+return formattedText;

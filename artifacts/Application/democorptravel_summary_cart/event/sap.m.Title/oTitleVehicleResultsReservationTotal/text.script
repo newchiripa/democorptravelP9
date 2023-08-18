@@ -1,0 +1,4 @@
+if (typeof totalReservation === "undefined" || totalReservation === null || totalReservation === "") { return; }  
+if (typeof  rateCurrency === "undefined" ||  rateCurrency === null ||  rateCurrency === "") { return; }  
+var formattedText = totalReservation + " " +  rateCurrency; 
+return formattedText;

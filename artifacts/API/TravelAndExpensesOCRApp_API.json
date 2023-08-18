@@ -1,0 +1,289 @@
+{
+	"id": "b51e4729-c7ed-475c-b452-f84443033ad9",
+	"createdAt": "2020-04-14T10:28:22.000Z",
+	"createdBy": "lloyd",
+	"auth": [],
+	"endpoints": [],
+	"paths": [
+		{
+			"id": "36d00b20-2f83-497b-e32e-83955c70dc3d",
+			"method": "GET",
+			"path": "/getImagesOfClaim",
+			"description": "",
+			"parameters": [
+				{
+					"name": "expenseNumber",
+					"description": "",
+					"required": true,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				}
+			],
+			"headers": [],
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"body": [],
+					"content": [
+						{
+							"id": "523dba94-213d-44f1-d772-70c405ebc362",
+							"name": "data",
+							"objectType": "array"
+						}
+					]
+				}
+			],
+			"serverScript": "67d0c459-6e62-4a3a-aab8-717346439982"
+		},
+		{
+			"id": "75bf3a17-2eda-47bf-b04e-3c1b337205a8",
+			"method": "GET",
+			"path": "/getListOfClaims",
+			"description": "",
+			"parameters": [],
+			"headers": [],
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"body": [],
+					"content": [
+						{
+							"id": "8689c09a-4647-4221-80d3-3423669b0224",
+							"name": "data",
+							"objectType": "array"
+						}
+					]
+				}
+			],
+			"serverScript": "ac750746-ae25-4ccd-9dce-3041b6ec8c9b"
+		},
+		{
+			"id": "db863e67-3c02-413a-f89a-9099452c7ece",
+			"method": "GET",
+			"path": "/getListOfExpenses",
+			"description": "",
+			"parameters": [
+				{
+					"name": "claimNumber",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				}
+			],
+			"headers": [],
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"body": [],
+					"content": [
+						{
+							"id": "08919044-8b26-4c4a-fc20-b1d61c9b9429",
+							"name": "data",
+							"objectType": "array"
+						}
+					]
+				}
+			],
+			"serverScript": "37abb8d7-66a7-4d29-ae28-3f95977be3b7"
+		},
+		{
+			"id": "709da63e-4a71-4b0e-a87c-a9aa06c13bb4",
+			"method": "POST",
+			"path": "/saveExpense",
+			"description": "",
+			"parameters": [],
+			"headers": [],
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"body": [],
+					"content": [
+						{
+							"id": "8961807f-67af-4b71-d379-47e2bc4c37a2",
+							"name": "data",
+							"objectType": "object"
+						}
+					]
+				}
+			],
+			"content": [
+				{
+					"name": "data",
+					"objectType": "object"
+				}
+			],
+			"serverScript": "b6f6b0f3-369e-45a0-b01f-3180aa255b59"
+		},
+		{
+			"id": "4975ca23-f3dc-49c6-ccf1-9e49103eb9dc",
+			"method": "POST",
+			"path": "/saveClaim",
+			"description": "",
+			"parameters": [],
+			"headers": [],
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"body": [],
+					"content": [
+						{
+							"id": "32916df4-54e8-4db1-bc96-d2ae49291d0a",
+							"name": "data",
+							"objectType": "object"
+						}
+					]
+				}
+			],
+			"serverScript": "014bf2fd-8bae-4031-99ea-870f4482818e",
+			"content": [
+				{
+					"name": "data",
+					"objectType": "object"
+				}
+			]
+		},
+		{
+			"id": "a6c4f015-64d5-4b8d-9adf-d5864c6e44da",
+			"method": "POST",
+			"path": "/saveImages",
+			"description": "",
+			"parameters": [],
+			"headers": [],
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"body": []
+				}
+			],
+			"serverScript": "34ae214f-ad63-4121-8716-b548e711e819",
+			"content": [
+				{
+					"name": "data",
+					"objectType": "array"
+				}
+			]
+		},
+		{
+			"id": "41fc63cc-c8cb-415e-b1c8-b036235af72a",
+			"method": "GET",
+			"path": "/getListOfExpenseTypes",
+			"description": "",
+			"parameters": [],
+			"headers": [],
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"body": [],
+					"content": [
+						{
+							"id": "ccc0e416-ac55-4c19-ac85-2db42d2f742b",
+							"name": "data",
+							"objectType": "array"
+						}
+					]
+				}
+			],
+			"serverScript": "26d7b098-43de-4e91-8fbc-678b80171696"
+		},
+		{
+			"id": "4934ea00-6251-4c43-e9ca-60744b2a64c1",
+			"method": "GET",
+			"path": "/getConfigTable",
+			"description": "",
+			"parameters": [],
+			"headers": [],
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"body": [],
+					"content": [
+						{
+							"id": "efdd2724-a15f-4b85-c60e-8deafb7aeff8",
+							"name": "data",
+							"objectType": "array"
+						}
+					]
+				}
+			],
+			"serverScript": "e01beadd-a6bf-4614-bf13-5944c6a3f67a"
+		},
+		{
+			"id": "037a7780-9076-4ce5-bdf2-9d934ad39b7a",
+			"method": "GET",
+			"path": "/getCarHireConfigTable",
+			"description": "",
+			"parameters": [],
+			"headers": [],
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"body": [],
+					"content": [
+						{
+							"id": "9f70e60a-04b5-45de-8633-d9432a343392",
+							"name": "data",
+							"objectType": "array"
+						}
+					]
+				}
+			],
+			"serverScript": "8e7bf92f-4789-4c78-ab3a-61e3e254e7ae"
+		}
+	],
+	"definitions": [
+		{
+			"id": "aae6e01a-cd80-4f7d-bb95-147291b3a76e",
+			"name": "data",
+			"description": "",
+			"isInclude": false,
+			"properties": []
+		}
+	],
+	"documentation": [],
+	"name": "TravelAndExpensesOCRApp_API",
+	"endpoint": "/api/serverscript/travelandexpensesocrapp_api",
+	"ver": "20.5.4.956",
+	"version": null,
+	"description": null,
+	"mediaType": null,
+	"securitySchemes": null,
+	"swaggerURI": null,
+	"swaggerSystem": null,
+	"apiType": "script",
+	"about": null,
+	"enableProxy": false,
+	"restrictAccess": false,
+	"enableTrace": false,
+	"enableIDE": true,
+	"internalAPI": false,
+	"isPublic": false,
+	"tlsAllowUntrusted": false,
+	"useOwnProcess": false,
+	"package": "b69714db-0a11-4c2b-9cfa-aabfa4102da6",
+	"apiGroup": "b204e596-c68f-4e43-bb81-9becdabb9ad2",
+	"apiFormat": 0,
+	"roles": []
+}

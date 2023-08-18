@@ -1,0 +1,4 @@
+if (typeof pickupLocationHours === "undefined" || pickupLocationHours === null || pickupLocationHours === "") { return; }  
+
+var formattedText = pickupLocationHours.split(";").join("\n"); 
+return formattedText;

@@ -1,0 +1,4 @@
+if (typeof outbDepLocation === "undefined" || outbDepLocation === null || outbDepLocation === "") { return; }  
+if (typeof outbArrLocation === "undefined" || outbArrLocation === null || outbArrLocation === "") { return; }  
+var formattedText = outbDepLocation + " - " + outbArrLocation; 
+return formattedText;

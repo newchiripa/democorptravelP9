@@ -1,0 +1,7 @@
+if (typeof cabin === "undefined" || cabin === null || cabin === "") {
+    return;
+}
+var formattedText = cabin;
+
+
+return formattedText;

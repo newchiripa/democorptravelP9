@@ -1,0 +1,1912 @@
+{
+	"id": "ac5b856b-6f5e-4d84-9221-c6d8ebc54275",
+	"createdAt": "2020-04-17T14:46:47.000Z",
+	"createdBy": "lloyd",
+	"auth": [],
+	"endpoints": [],
+	"paths": [
+		{
+			"id": "9d3d06be-e082-4f5b-f4a7-d49e61808bc8",
+			"method": "GET",
+			"path": "/oauth/token/v1",
+			"description": "Valid for just under 2 hours",
+			"parameters": [],
+			"headers": [
+				{
+					"name": "client_id",
+					"description": "",
+					"required": true,
+					"value": "",
+					"default": "d6f621a148704b489d63b7dde738c33b",
+					"example": ""
+				},
+				{
+					"name": "client_secret",
+					"description": "",
+					"required": true,
+					"value": "",
+					"default": "AA4aeabAB300431695bDBc0944489521",
+					"example": ""
+				}
+			],
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"body": [],
+					"content": [
+						{
+							"id": "956e91ce-a7fc-4e1a-e197-23f6f0bb2dd1",
+							"name": "data",
+							"objectType": "object"
+						}
+					]
+				}
+			],
+			"summary": "Creates a authorisation token, to be used in other API's"
+		},
+		{
+			"id": "e94882d8-a46a-4755-de75-6bff4142780b",
+			"method": "GET",
+			"path": "/cars/locations/v1",
+			"description": "",
+			"parameters": [
+				{
+					"name": "brand",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "Avis,Budget,Payless",
+					"example": ""
+				},
+				{
+					"name": "country_code",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "keyword",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "transaction_id",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "lat",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": " 42.3736861242963 ",
+					"example": ""
+				},
+				{
+					"name": "long",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": " -71.029931402219 ",
+					"example": ""
+				}
+			],
+			"headers": [
+				{
+					"name": "client_id",
+					"description": "",
+					"required": true,
+					"value": "",
+					"default": "d6f621a148704b489d63b7dde738c33b",
+					"example": ""
+				},
+				{
+					"name": "authorization",
+					"description": "",
+					"required": true,
+					"value": "",
+					"default": "Bearer pl84CsQHVMjrwNKjxX9I9FnCD6Dc",
+					"example": ""
+				}
+			],
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"body": [],
+					"content": [
+						{
+							"id": "6032b04e-ce52-4644-c7e5-cf72c4a9f03d",
+							"name": "data",
+							"objectType": "array"
+						}
+					]
+				},
+				{
+					"status": "206",
+					"description": "OK",
+					"headers": [],
+					"body": [],
+					"content": [
+						{
+							"id": "35c6145d-1dd2-4da2-c0df-d57b81205dd0",
+							"name": "data",
+							"objectType": "array"
+						}
+					]
+				}
+			],
+			"summary": "Car Locations"
+		},
+		{
+			"id": "c8536a9e-0ca7-4096-bff0-a51a7ac06b94",
+			"method": "GET",
+			"path": "/cars/catalog/v1/vehicles",
+			"description": "",
+			"parameters": [
+				{
+					"name": "brand",
+					"description": "",
+					"required": true,
+					"inPath": false,
+					"value": "",
+					"default": "Avis",
+					"example": ""
+				},
+				{
+					"name": "pickup_date",
+					"description": "",
+					"required": true,
+					"inPath": false,
+					"value": "",
+					"default": "2020-05-15T04:00:00 ",
+					"example": ""
+				},
+				{
+					"name": "pickup_location",
+					"description": "",
+					"required": true,
+					"inPath": false,
+					"value": "",
+					"default": "EWR",
+					"example": ""
+				},
+				{
+					"name": "age",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "date_of_birth",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "membership_code",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "dropoff_date",
+					"description": "",
+					"required": true,
+					"inPath": false,
+					"value": "",
+					"default": "2020-05-20T04:00:00 ",
+					"example": ""
+				},
+				{
+					"name": "dropoff_location",
+					"description": "",
+					"required": true,
+					"inPath": false,
+					"value": "",
+					"default": "EWR",
+					"example": ""
+				},
+				{
+					"name": "country_code",
+					"description": "",
+					"required": true,
+					"inPath": false,
+					"value": "",
+					"default": "US",
+					"example": ""
+				},
+				{
+					"name": "discount_code",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "coupon_code",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "iata_number",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "transaction_id",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				}
+			],
+			"headers": [
+				{
+					"name": "client_id",
+					"description": "",
+					"required": true,
+					"value": "",
+					"default": "d6f621a148704b489d63b7dde738c33b",
+					"example": ""
+				},
+				{
+					"name": "authorization",
+					"description": "",
+					"required": true,
+					"value": "",
+					"default": "Bearer pl84CsQHVMjrwNKjxX9I9FnCD6Dc",
+					"example": ""
+				}
+			],
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"body": [],
+					"content": [
+						{
+							"id": "7785fbe7-3471-413f-e7cd-07f29ce1f3c5",
+							"name": "data",
+							"objectType": "array"
+						}
+					]
+				},
+				{
+					"status": "404",
+					"description": "ERROR",
+					"headers": [],
+					"body": [],
+					"content": [
+						{
+							"id": "2a82db8e-523e-43c9-d414-723945f1ec48",
+							"name": "data",
+							"objectType": "array"
+						}
+					]
+				}
+			],
+			"summary": "Get vehicles for given location"
+		},
+		{
+			"id": "042cbc7f-d6bf-40e9-b020-e65ff365ac74",
+			"method": "POST",
+			"path": "/cars/reservation/v1",
+			"description": "",
+			"parameters": [],
+			"headers": [
+				{
+					"name": "client_id",
+					"description": "",
+					"required": true,
+					"value": "",
+					"default": "d6f621a148704b489d63b7dde738c33b",
+					"example": ""
+				},
+				{
+					"name": "authorization",
+					"description": "",
+					"required": true,
+					"value": "",
+					"default": "Bearer pl84CsQHVMjrwNKjxX9I9FnCD6Dc",
+					"example": ""
+				}
+			],
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"body": [],
+					"content": [
+						{
+							"id": "287a86bd-2112-43d3-a3f0-8f864e3c49ee",
+							"name": "data",
+							"objectType": "array"
+						}
+					]
+				}
+			],
+			"summary": "Create a reservation",
+			"content": [
+				{
+					"name": "reservationBodyPost",
+					"objectType": "object"
+				}
+			]
+		},
+		{
+			"id": "883c1320-dfbe-4ed6-ea88-15e016490e52",
+			"method": "GET",
+			"path": "/cars/catalog/v1/vehicles/rates",
+			"description": "",
+			"parameters": [
+				{
+					"name": "brand",
+					"description": "",
+					"required": true,
+					"inPath": false,
+					"value": "",
+					"default": "Avis",
+					"example": ""
+				},
+				{
+					"name": "pickup_date",
+					"description": "",
+					"required": true,
+					"inPath": false,
+					"value": "",
+					"default": "2020-05-15T04:00:00 ",
+					"example": ""
+				},
+				{
+					"name": "pickup_location",
+					"description": "",
+					"required": true,
+					"inPath": false,
+					"value": "",
+					"default": "EWR",
+					"example": ""
+				},
+				{
+					"name": "dropoff_date",
+					"description": "",
+					"required": true,
+					"inPath": false,
+					"value": "",
+					"default": "2020-05-20T04:00:00",
+					"example": ""
+				},
+				{
+					"name": "dropoff_location",
+					"description": "",
+					"required": true,
+					"inPath": false,
+					"value": "",
+					"default": "EWR",
+					"example": ""
+				},
+				{
+					"name": "age",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "date_of_birth",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "country_code",
+					"description": "",
+					"required": true,
+					"inPath": false,
+					"value": "",
+					"default": "US",
+					"example": ""
+				},
+				{
+					"name": "vehicle_class_code",
+					"description": "",
+					"required": true,
+					"inPath": false,
+					"value": "",
+					"default": "A",
+					"example": ""
+				},
+				{
+					"name": "rate_code",
+					"description": "",
+					"required": true,
+					"inPath": false,
+					"value": "",
+					"default": "DH",
+					"example": ""
+				},
+				{
+					"name": "loyalty_company_id",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "loyalty_code",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "discount_code",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "coupon_code",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "iata_number",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "transaction_id",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				}
+			],
+			"headers": [
+				{
+					"name": "client_id",
+					"description": "",
+					"required": true,
+					"value": "",
+					"default": "d6f621a148704b489d63b7dde738c33b",
+					"example": ""
+				},
+				{
+					"name": "authorization",
+					"description": "",
+					"required": true,
+					"value": "",
+					"default": "Bearer pl84CsQHVMjrwNKjxX9I9FnCD6Dc",
+					"example": ""
+				}
+			],
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"body": [],
+					"content": [
+						{
+							"id": "117b874f-326a-4eca-c6c4-0e4e9481d83c",
+							"name": "data",
+							"objectType": "array"
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "f9542c99-680c-47d8-c83a-5446089715a8",
+			"method": "GET",
+			"path": "/cars/reservation/v1",
+			"description": "",
+			"parameters": [
+				{
+					"name": "brand",
+					"description": "",
+					"required": true,
+					"inPath": false,
+					"value": "",
+					"default": "Avis",
+					"example": ""
+				},
+				{
+					"name": "confirmation_number",
+					"description": "",
+					"required": true,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "last_name",
+					"description": "",
+					"required": true,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				}
+			],
+			"headers": [
+				{
+					"name": "client_id",
+					"description": "",
+					"required": true,
+					"value": "",
+					"default": "d6f621a148704b489d63b7dde738c33b",
+					"example": ""
+				},
+				{
+					"name": "authorization",
+					"description": "",
+					"required": true,
+					"value": "",
+					"default": "Bearer pl84CsQHVMjrwNKjxX9I9FnCD6Dc",
+					"example": ""
+				}
+			],
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"body": [],
+					"content": [
+						{
+							"id": "c2efa647-8ad7-469a-f873-7fd375c9ba39",
+							"name": "data",
+							"objectType": "array"
+						}
+					]
+				}
+			],
+			"summary": "View Reservation"
+		},
+		{
+			"id": "ca1689f0-d453-4cc1-f78b-5c176bf392f4",
+			"method": "PUT",
+			"path": "/cars/reservation/v1",
+			"description": "",
+			"parameters": [],
+			"headers": [
+				{
+					"name": "client_id",
+					"description": "",
+					"required": true,
+					"value": "",
+					"default": "d6f621a148704b489d63b7dde738c33b",
+					"example": ""
+				},
+				{
+					"name": "authorization",
+					"description": "",
+					"required": true,
+					"value": "",
+					"default": "Bearer pl84CsQHVMjrwNKjxX9I9FnCD6Dc",
+					"example": ""
+				}
+			],
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"body": [],
+					"content": [
+						{
+							"id": "83988656-461f-4a5e-e68a-c87c11e6c3e1",
+							"name": "data",
+							"objectType": "array"
+						}
+					]
+				}
+			],
+			"summary": "Cancel Reservation"
+		}
+	],
+	"definitions": [
+		{
+			"id": "5ee35cfb-669a-4533-f064-9448303db549",
+			"name": "data",
+			"description": "",
+			"isInclude": false,
+			"properties": []
+		},
+		{
+			"id": "557abb13-c19b-451a-ec28-b8ec644dc414",
+			"name": "reservationBodyPost",
+			"description": "",
+			"isInclude": false,
+			"properties": [
+				{
+					"id": "de29a3bb-0e38-439e-c6a4-41b530988adf",
+					"name": "brand",
+					"parent": "8894e282-6ed7-435c-8116-83dc1bb2be61",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": [],
+					"required": true,
+					"default": "Avis"
+				},
+				{
+					"id": "8894e282-6ed7-435c-8116-83dc1bb2be61",
+					"name": "product",
+					"parent": "",
+					"description": "",
+					"objectType": "object",
+					"objectName": "product",
+					"isParent": true,
+					"children": [
+						{
+							"id": "de29a3bb-0e38-439e-c6a4-41b530988adf",
+							"name": "brand",
+							"parent": "8894e282-6ed7-435c-8116-83dc1bb2be61",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": [],
+							"required": true,
+							"default": "Avis"
+						}
+					],
+					"required": true
+				},
+				{
+					"id": "afa92d4f-e87e-4057-e9f1-4c565690976d",
+					"name": "transaction_id",
+					"parent": "57031da4-920c-4877-be37-63b6696b695f",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "57031da4-920c-4877-be37-63b6696b695f",
+					"name": "transaction",
+					"parent": "",
+					"description": "",
+					"objectType": "object",
+					"objectName": "transaction",
+					"isParent": true,
+					"children": [
+						{
+							"id": "afa92d4f-e87e-4057-e9f1-4c565690976d",
+							"name": "transaction_id",
+							"parent": "57031da4-920c-4877-be37-63b6696b695f",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": []
+						}
+					]
+				},
+				{
+					"id": "daeadaca-9568-43e3-ea9f-c15d30d4ae4b",
+					"name": "email_notification",
+					"parent": "892f107f-cce4-4d6d-fc17-77797a46ea3c",
+					"description": "",
+					"objectType": "boolean",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "e15e6640-b052-4e25-d43c-55da4e399118",
+					"name": "pickup_date",
+					"parent": "892f107f-cce4-4d6d-fc17-77797a46ea3c",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": [],
+					"required": true
+				},
+				{
+					"id": "1432dfec-7490-421a-8ec5-8ed6ae47586e",
+					"name": "pickup_location",
+					"parent": "892f107f-cce4-4d6d-fc17-77797a46ea3c",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": [],
+					"required": true
+				},
+				{
+					"id": "a705ccb0-7a6e-45b2-f5d1-8acaaa2c3365",
+					"name": "dropoff_date",
+					"parent": "892f107f-cce4-4d6d-fc17-77797a46ea3c",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": [],
+					"required": true
+				},
+				{
+					"id": "08339490-99e6-4a11-a81b-9ceac8989ffe",
+					"name": "dropoff_location",
+					"parent": "892f107f-cce4-4d6d-fc17-77797a46ea3c",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": [],
+					"required": true
+				},
+				{
+					"id": "a91d33b3-36ff-4e20-8a19-6319cd402815",
+					"name": "vehicle_class_code",
+					"parent": "892f107f-cce4-4d6d-fc17-77797a46ea3c",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": [],
+					"required": true
+				},
+				{
+					"id": "892f107f-cce4-4d6d-fc17-77797a46ea3c",
+					"name": "reservation",
+					"parent": "",
+					"description": "",
+					"objectType": "object",
+					"objectName": "reservation",
+					"isParent": true,
+					"children": [
+						{
+							"id": "daeadaca-9568-43e3-ea9f-c15d30d4ae4b",
+							"name": "email_notification",
+							"parent": "892f107f-cce4-4d6d-fc17-77797a46ea3c",
+							"description": "",
+							"objectType": "boolean",
+							"isParent": false,
+							"children": []
+						},
+						{
+							"id": "e15e6640-b052-4e25-d43c-55da4e399118",
+							"name": "pickup_date",
+							"parent": "892f107f-cce4-4d6d-fc17-77797a46ea3c",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": [],
+							"required": true
+						},
+						{
+							"id": "1432dfec-7490-421a-8ec5-8ed6ae47586e",
+							"name": "pickup_location",
+							"parent": "892f107f-cce4-4d6d-fc17-77797a46ea3c",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": [],
+							"required": true
+						},
+						{
+							"id": "a705ccb0-7a6e-45b2-f5d1-8acaaa2c3365",
+							"name": "dropoff_date",
+							"parent": "892f107f-cce4-4d6d-fc17-77797a46ea3c",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": [],
+							"required": true
+						},
+						{
+							"id": "08339490-99e6-4a11-a81b-9ceac8989ffe",
+							"name": "dropoff_location",
+							"parent": "892f107f-cce4-4d6d-fc17-77797a46ea3c",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": [],
+							"required": true
+						},
+						{
+							"id": "a91d33b3-36ff-4e20-8a19-6319cd402815",
+							"name": "vehicle_class_code",
+							"parent": "892f107f-cce4-4d6d-fc17-77797a46ea3c",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": [],
+							"required": true
+						}
+					],
+					"required": true
+				},
+				{
+					"id": "304c437d-74c5-4e9e-b545-e452f4349209",
+					"name": "rate_code",
+					"parent": "73168e1b-b8e1-4706-af11-950b3a1514bb",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": [],
+					"required": true
+				},
+				{
+					"id": "ffad417a-a0ee-4d79-ae18-6ed478f27080",
+					"name": "country_code",
+					"parent": "73168e1b-b8e1-4706-af11-950b3a1514bb",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": [],
+					"required": false
+				},
+				{
+					"id": "01e3f9da-0547-4704-cfd2-8944116dde97",
+					"name": "code",
+					"parent": "f0c37525-7c23-40ea-b596-30a23e103f27",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "f0c37525-7c23-40ea-b596-30a23e103f27",
+					"name": "discount",
+					"parent": "73168e1b-b8e1-4706-af11-950b3a1514bb",
+					"description": "",
+					"objectType": "object",
+					"objectName": "discount",
+					"isParent": true,
+					"children": [
+						{
+							"id": "01e3f9da-0547-4704-cfd2-8944116dde97",
+							"name": "code",
+							"parent": "f0c37525-7c23-40ea-b596-30a23e103f27",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": []
+						}
+					]
+				},
+				{
+					"id": "b04225e6-7f48-46a7-ae96-bbfcac957ddc",
+					"name": "loyalty",
+					"parent": "73168e1b-b8e1-4706-af11-950b3a1514bb",
+					"description": "",
+					"objectType": "object",
+					"objectName": "loyalty",
+					"isParent": true,
+					"children": []
+				},
+				{
+					"id": "54a658ef-0b21-4c89-fc6e-d4a3bf795f5e",
+					"name": "code",
+					"parent": "dc7831f0-2ba8-42e4-f72b-f97a6c782723",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "dc7831f0-2ba8-42e4-f72b-f97a6c782723",
+					"name": "membership",
+					"parent": "73168e1b-b8e1-4706-af11-950b3a1514bb",
+					"description": "",
+					"objectType": "object",
+					"objectName": "membership",
+					"isParent": true,
+					"children": [
+						{
+							"id": "54a658ef-0b21-4c89-fc6e-d4a3bf795f5e",
+							"name": "code",
+							"parent": "dc7831f0-2ba8-42e4-f72b-f97a6c782723",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": []
+						}
+					]
+				},
+				{
+					"id": "62822393-71a7-495b-bbea-5492a9d84bd2",
+					"name": "code",
+					"parent": "2c1ef390-e789-457c-fca9-faae563f3d55",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "2c1ef390-e789-457c-fca9-faae563f3d55",
+					"name": "coupon",
+					"parent": "73168e1b-b8e1-4706-af11-950b3a1514bb",
+					"description": "",
+					"objectType": "object",
+					"objectName": "coupon",
+					"isParent": true,
+					"children": [
+						{
+							"id": "62822393-71a7-495b-bbea-5492a9d84bd2",
+							"name": "code",
+							"parent": "2c1ef390-e789-457c-fca9-faae563f3d55",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": []
+						}
+					]
+				},
+				{
+					"id": "73168e1b-b8e1-4706-af11-950b3a1514bb",
+					"name": "rate",
+					"parent": "cf4ed266-de84-4a2a-e5c1-e40e070ffe6a",
+					"description": "",
+					"objectType": "object",
+					"objectName": "rate",
+					"isParent": true,
+					"children": [
+						{
+							"id": "304c437d-74c5-4e9e-b545-e452f4349209",
+							"name": "rate_code",
+							"parent": "73168e1b-b8e1-4706-af11-950b3a1514bb",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": [],
+							"required": true
+						},
+						{
+							"id": "ffad417a-a0ee-4d79-ae18-6ed478f27080",
+							"name": "country_code",
+							"parent": "73168e1b-b8e1-4706-af11-950b3a1514bb",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": [],
+							"required": false
+						},
+						{
+							"id": "f0c37525-7c23-40ea-b596-30a23e103f27",
+							"name": "discount",
+							"parent": "73168e1b-b8e1-4706-af11-950b3a1514bb",
+							"description": "",
+							"objectType": "object",
+							"objectName": "discount",
+							"isParent": true,
+							"children": [
+								{
+									"id": "01e3f9da-0547-4704-cfd2-8944116dde97",
+									"name": "code",
+									"parent": "f0c37525-7c23-40ea-b596-30a23e103f27",
+									"description": "",
+									"objectType": "string",
+									"isParent": false,
+									"children": []
+								}
+							]
+						},
+						{
+							"id": "b04225e6-7f48-46a7-ae96-bbfcac957ddc",
+							"name": "loyalty",
+							"parent": "73168e1b-b8e1-4706-af11-950b3a1514bb",
+							"description": "",
+							"objectType": "object",
+							"objectName": "loyalty",
+							"isParent": true,
+							"children": []
+						},
+						{
+							"id": "dc7831f0-2ba8-42e4-f72b-f97a6c782723",
+							"name": "membership",
+							"parent": "73168e1b-b8e1-4706-af11-950b3a1514bb",
+							"description": "",
+							"objectType": "object",
+							"objectName": "membership",
+							"isParent": true,
+							"children": [
+								{
+									"id": "54a658ef-0b21-4c89-fc6e-d4a3bf795f5e",
+									"name": "code",
+									"parent": "dc7831f0-2ba8-42e4-f72b-f97a6c782723",
+									"description": "",
+									"objectType": "string",
+									"isParent": false,
+									"children": []
+								}
+							]
+						},
+						{
+							"id": "2c1ef390-e789-457c-fca9-faae563f3d55",
+							"name": "coupon",
+							"parent": "73168e1b-b8e1-4706-af11-950b3a1514bb",
+							"description": "",
+							"objectType": "object",
+							"objectName": "coupon",
+							"isParent": true,
+							"children": [
+								{
+									"id": "62822393-71a7-495b-bbea-5492a9d84bd2",
+									"name": "code",
+									"parent": "2c1ef390-e789-457c-fca9-faae563f3d55",
+									"description": "",
+									"objectType": "string",
+									"isParent": false,
+									"children": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"id": "cf4ed266-de84-4a2a-e5c1-e40e070ffe6a",
+					"name": "rate_totals",
+					"parent": "",
+					"description": "",
+					"objectType": "object",
+					"objectName": "rate_totals",
+					"isParent": true,
+					"children": [
+						{
+							"id": "73168e1b-b8e1-4706-af11-950b3a1514bb",
+							"name": "rate",
+							"parent": "cf4ed266-de84-4a2a-e5c1-e40e070ffe6a",
+							"description": "",
+							"objectType": "object",
+							"objectName": "rate",
+							"isParent": true,
+							"children": [
+								{
+									"id": "304c437d-74c5-4e9e-b545-e452f4349209",
+									"name": "rate_code",
+									"parent": "73168e1b-b8e1-4706-af11-950b3a1514bb",
+									"description": "",
+									"objectType": "string",
+									"isParent": false,
+									"children": [],
+									"required": true
+								},
+								{
+									"id": "ffad417a-a0ee-4d79-ae18-6ed478f27080",
+									"name": "country_code",
+									"parent": "73168e1b-b8e1-4706-af11-950b3a1514bb",
+									"description": "",
+									"objectType": "string",
+									"isParent": false,
+									"children": [],
+									"required": false
+								},
+								{
+									"id": "f0c37525-7c23-40ea-b596-30a23e103f27",
+									"name": "discount",
+									"parent": "73168e1b-b8e1-4706-af11-950b3a1514bb",
+									"description": "",
+									"objectType": "object",
+									"objectName": "discount",
+									"isParent": true,
+									"children": [
+										{
+											"id": "01e3f9da-0547-4704-cfd2-8944116dde97",
+											"name": "code",
+											"parent": "f0c37525-7c23-40ea-b596-30a23e103f27",
+											"description": "",
+											"objectType": "string",
+											"isParent": false,
+											"children": []
+										}
+									]
+								},
+								{
+									"id": "b04225e6-7f48-46a7-ae96-bbfcac957ddc",
+									"name": "loyalty",
+									"parent": "73168e1b-b8e1-4706-af11-950b3a1514bb",
+									"description": "",
+									"objectType": "object",
+									"objectName": "loyalty",
+									"isParent": true,
+									"children": []
+								},
+								{
+									"id": "dc7831f0-2ba8-42e4-f72b-f97a6c782723",
+									"name": "membership",
+									"parent": "73168e1b-b8e1-4706-af11-950b3a1514bb",
+									"description": "",
+									"objectType": "object",
+									"objectName": "membership",
+									"isParent": true,
+									"children": [
+										{
+											"id": "54a658ef-0b21-4c89-fc6e-d4a3bf795f5e",
+											"name": "code",
+											"parent": "dc7831f0-2ba8-42e4-f72b-f97a6c782723",
+											"description": "",
+											"objectType": "string",
+											"isParent": false,
+											"children": []
+										}
+									]
+								},
+								{
+									"id": "2c1ef390-e789-457c-fca9-faae563f3d55",
+									"name": "coupon",
+									"parent": "73168e1b-b8e1-4706-af11-950b3a1514bb",
+									"description": "",
+									"objectType": "object",
+									"objectName": "coupon",
+									"isParent": true,
+									"children": [
+										{
+											"id": "62822393-71a7-495b-bbea-5492a9d84bd2",
+											"name": "code",
+											"parent": "2c1ef390-e789-457c-fca9-faae563f3d55",
+											"description": "",
+											"objectType": "string",
+											"isParent": false,
+											"children": []
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"id": "fa2f2a87-84e5-4bf8-98ea-425819805d2b",
+					"name": "title",
+					"parent": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "dbfca77b-d620-46e7-dbb1-ab177d79dfe0",
+					"name": "first_name",
+					"parent": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": [],
+					"required": true
+				},
+				{
+					"id": "fb5911e7-94c3-44a4-91d6-b5566fb43206",
+					"name": "last_name",
+					"parent": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": [],
+					"required": true
+				},
+				{
+					"id": "32e11194-4cc5-4c7d-aa5d-aef107eca693",
+					"name": "telephone",
+					"parent": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "955cf14a-bfa0-4500-efee-49662c3970dd",
+					"name": "email",
+					"parent": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "7c59f8d5-9ef3-4df0-8d23-09a748d2d854",
+					"name": "age",
+					"parent": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+					"description": "",
+					"objectType": "number",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "16f4ad15-e141-4624-8381-68c88daa5495",
+					"name": "date_of_birth",
+					"parent": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+					"name": "contact",
+					"parent": "7cf1f7a8-6d62-4229-e43d-b3e9b635500a",
+					"description": "",
+					"objectType": "object",
+					"objectName": "contact",
+					"isParent": true,
+					"children": [
+						{
+							"id": "fa2f2a87-84e5-4bf8-98ea-425819805d2b",
+							"name": "title",
+							"parent": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": []
+						},
+						{
+							"id": "dbfca77b-d620-46e7-dbb1-ab177d79dfe0",
+							"name": "first_name",
+							"parent": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": [],
+							"required": true
+						},
+						{
+							"id": "fb5911e7-94c3-44a4-91d6-b5566fb43206",
+							"name": "last_name",
+							"parent": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": [],
+							"required": true
+						},
+						{
+							"id": "32e11194-4cc5-4c7d-aa5d-aef107eca693",
+							"name": "telephone",
+							"parent": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": []
+						},
+						{
+							"id": "955cf14a-bfa0-4500-efee-49662c3970dd",
+							"name": "email",
+							"parent": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": []
+						},
+						{
+							"id": "7c59f8d5-9ef3-4df0-8d23-09a748d2d854",
+							"name": "age",
+							"parent": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+							"description": "",
+							"objectType": "number",
+							"isParent": false,
+							"children": []
+						},
+						{
+							"id": "16f4ad15-e141-4624-8381-68c88daa5495",
+							"name": "date_of_birth",
+							"parent": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": []
+						}
+					],
+					"required": true
+				},
+				{
+					"id": "d0eede96-3674-4374-d3f2-af2d8a35250a",
+					"name": "address_line_1",
+					"parent": "33259a72-ea37-4d56-fd9e-face896c7a46",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "9c2fffb5-72b4-41a8-c6ee-9f60c3b2b641",
+					"name": "address_line_2",
+					"parent": "33259a72-ea37-4d56-fd9e-face896c7a46",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "f79d109f-ac5d-4bb2-c07f-c5a2e97a4d71",
+					"name": "address_line_3",
+					"parent": "33259a72-ea37-4d56-fd9e-face896c7a46",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "9da721ef-c88c-4592-b0fa-387df0a09b2a",
+					"name": "city",
+					"parent": "33259a72-ea37-4d56-fd9e-face896c7a46",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "204a24eb-be26-4608-d132-06b4e0e73097",
+					"name": "state_name",
+					"parent": "33259a72-ea37-4d56-fd9e-face896c7a46",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "42e1f70b-90a9-4bba-c40b-fce6dfa3494b",
+					"name": "postal_code",
+					"parent": "33259a72-ea37-4d56-fd9e-face896c7a46",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "3368ade4-f270-478f-f654-5234724cb1a2",
+					"name": "country_code",
+					"parent": "33259a72-ea37-4d56-fd9e-face896c7a46",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "33259a72-ea37-4d56-fd9e-face896c7a46",
+					"name": "address",
+					"parent": "7cf1f7a8-6d62-4229-e43d-b3e9b635500a",
+					"description": "",
+					"objectType": "object",
+					"objectName": "address",
+					"isParent": true,
+					"children": [
+						{
+							"id": "d0eede96-3674-4374-d3f2-af2d8a35250a",
+							"name": "address_line_1",
+							"parent": "33259a72-ea37-4d56-fd9e-face896c7a46",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": []
+						},
+						{
+							"id": "9c2fffb5-72b4-41a8-c6ee-9f60c3b2b641",
+							"name": "address_line_2",
+							"parent": "33259a72-ea37-4d56-fd9e-face896c7a46",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": []
+						},
+						{
+							"id": "f79d109f-ac5d-4bb2-c07f-c5a2e97a4d71",
+							"name": "address_line_3",
+							"parent": "33259a72-ea37-4d56-fd9e-face896c7a46",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": []
+						},
+						{
+							"id": "9da721ef-c88c-4592-b0fa-387df0a09b2a",
+							"name": "city",
+							"parent": "33259a72-ea37-4d56-fd9e-face896c7a46",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": []
+						},
+						{
+							"id": "204a24eb-be26-4608-d132-06b4e0e73097",
+							"name": "state_name",
+							"parent": "33259a72-ea37-4d56-fd9e-face896c7a46",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": []
+						},
+						{
+							"id": "42e1f70b-90a9-4bba-c40b-fce6dfa3494b",
+							"name": "postal_code",
+							"parent": "33259a72-ea37-4d56-fd9e-face896c7a46",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": []
+						},
+						{
+							"id": "3368ade4-f270-478f-f654-5234724cb1a2",
+							"name": "country_code",
+							"parent": "33259a72-ea37-4d56-fd9e-face896c7a46",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": []
+						}
+					]
+				},
+				{
+					"id": "a67cae5a-b9e4-4009-818f-47f1a73b56e3",
+					"name": "license_number",
+					"parent": "f289b134-a2fe-4884-b659-b0432017a665",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "1fd2be6d-8362-4c08-826b-3a57123cb819",
+					"name": "state_code",
+					"parent": "f289b134-a2fe-4884-b659-b0432017a665",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "c83464b4-976c-4188-89f9-40eb2114ef4a",
+					"name": "country_code",
+					"parent": "f289b134-a2fe-4884-b659-b0432017a665",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "f289b134-a2fe-4884-b659-b0432017a665",
+					"name": "driver",
+					"parent": "7cf1f7a8-6d62-4229-e43d-b3e9b635500a",
+					"description": "",
+					"objectType": "object",
+					"objectName": "driver",
+					"isParent": true,
+					"children": [
+						{
+							"id": "a67cae5a-b9e4-4009-818f-47f1a73b56e3",
+							"name": "license_number",
+							"parent": "f289b134-a2fe-4884-b659-b0432017a665",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": []
+						},
+						{
+							"id": "1fd2be6d-8362-4c08-826b-3a57123cb819",
+							"name": "state_code",
+							"parent": "f289b134-a2fe-4884-b659-b0432017a665",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": []
+						},
+						{
+							"id": "c83464b4-976c-4188-89f9-40eb2114ef4a",
+							"name": "country_code",
+							"parent": "f289b134-a2fe-4884-b659-b0432017a665",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": []
+						}
+					]
+				},
+				{
+					"id": "7cf1f7a8-6d62-4229-e43d-b3e9b635500a",
+					"name": "passenger",
+					"parent": "",
+					"description": "",
+					"objectType": "object",
+					"objectName": "passenger",
+					"isParent": true,
+					"children": [
+						{
+							"id": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+							"name": "contact",
+							"parent": "7cf1f7a8-6d62-4229-e43d-b3e9b635500a",
+							"description": "",
+							"objectType": "object",
+							"objectName": "contact",
+							"isParent": true,
+							"children": [
+								{
+									"id": "fa2f2a87-84e5-4bf8-98ea-425819805d2b",
+									"name": "title",
+									"parent": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+									"description": "",
+									"objectType": "string",
+									"isParent": false,
+									"children": []
+								},
+								{
+									"id": "dbfca77b-d620-46e7-dbb1-ab177d79dfe0",
+									"name": "first_name",
+									"parent": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+									"description": "",
+									"objectType": "string",
+									"isParent": false,
+									"children": [],
+									"required": true
+								},
+								{
+									"id": "fb5911e7-94c3-44a4-91d6-b5566fb43206",
+									"name": "last_name",
+									"parent": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+									"description": "",
+									"objectType": "string",
+									"isParent": false,
+									"children": [],
+									"required": true
+								},
+								{
+									"id": "32e11194-4cc5-4c7d-aa5d-aef107eca693",
+									"name": "telephone",
+									"parent": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+									"description": "",
+									"objectType": "string",
+									"isParent": false,
+									"children": []
+								},
+								{
+									"id": "955cf14a-bfa0-4500-efee-49662c3970dd",
+									"name": "email",
+									"parent": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+									"description": "",
+									"objectType": "string",
+									"isParent": false,
+									"children": []
+								},
+								{
+									"id": "7c59f8d5-9ef3-4df0-8d23-09a748d2d854",
+									"name": "age",
+									"parent": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+									"description": "",
+									"objectType": "number",
+									"isParent": false,
+									"children": []
+								},
+								{
+									"id": "16f4ad15-e141-4624-8381-68c88daa5495",
+									"name": "date_of_birth",
+									"parent": "d47c5f3b-bcb7-4092-d771-043c59ff7302",
+									"description": "",
+									"objectType": "string",
+									"isParent": false,
+									"children": []
+								}
+							],
+							"required": true
+						},
+						{
+							"id": "33259a72-ea37-4d56-fd9e-face896c7a46",
+							"name": "address",
+							"parent": "7cf1f7a8-6d62-4229-e43d-b3e9b635500a",
+							"description": "",
+							"objectType": "object",
+							"objectName": "address",
+							"isParent": true,
+							"children": [
+								{
+									"id": "d0eede96-3674-4374-d3f2-af2d8a35250a",
+									"name": "address_line_1",
+									"parent": "33259a72-ea37-4d56-fd9e-face896c7a46",
+									"description": "",
+									"objectType": "string",
+									"isParent": false,
+									"children": []
+								},
+								{
+									"id": "9c2fffb5-72b4-41a8-c6ee-9f60c3b2b641",
+									"name": "address_line_2",
+									"parent": "33259a72-ea37-4d56-fd9e-face896c7a46",
+									"description": "",
+									"objectType": "string",
+									"isParent": false,
+									"children": []
+								},
+								{
+									"id": "f79d109f-ac5d-4bb2-c07f-c5a2e97a4d71",
+									"name": "address_line_3",
+									"parent": "33259a72-ea37-4d56-fd9e-face896c7a46",
+									"description": "",
+									"objectType": "string",
+									"isParent": false,
+									"children": []
+								},
+								{
+									"id": "9da721ef-c88c-4592-b0fa-387df0a09b2a",
+									"name": "city",
+									"parent": "33259a72-ea37-4d56-fd9e-face896c7a46",
+									"description": "",
+									"objectType": "string",
+									"isParent": false,
+									"children": []
+								},
+								{
+									"id": "204a24eb-be26-4608-d132-06b4e0e73097",
+									"name": "state_name",
+									"parent": "33259a72-ea37-4d56-fd9e-face896c7a46",
+									"description": "",
+									"objectType": "string",
+									"isParent": false,
+									"children": []
+								},
+								{
+									"id": "42e1f70b-90a9-4bba-c40b-fce6dfa3494b",
+									"name": "postal_code",
+									"parent": "33259a72-ea37-4d56-fd9e-face896c7a46",
+									"description": "",
+									"objectType": "string",
+									"isParent": false,
+									"children": []
+								},
+								{
+									"id": "3368ade4-f270-478f-f654-5234724cb1a2",
+									"name": "country_code",
+									"parent": "33259a72-ea37-4d56-fd9e-face896c7a46",
+									"description": "",
+									"objectType": "string",
+									"isParent": false,
+									"children": []
+								}
+							]
+						},
+						{
+							"id": "f289b134-a2fe-4884-b659-b0432017a665",
+							"name": "driver",
+							"parent": "7cf1f7a8-6d62-4229-e43d-b3e9b635500a",
+							"description": "",
+							"objectType": "object",
+							"objectName": "driver",
+							"isParent": true,
+							"children": [
+								{
+									"id": "a67cae5a-b9e4-4009-818f-47f1a73b56e3",
+									"name": "license_number",
+									"parent": "f289b134-a2fe-4884-b659-b0432017a665",
+									"description": "",
+									"objectType": "string",
+									"isParent": false,
+									"children": []
+								},
+								{
+									"id": "1fd2be6d-8362-4c08-826b-3a57123cb819",
+									"name": "state_code",
+									"parent": "f289b134-a2fe-4884-b659-b0432017a665",
+									"description": "",
+									"objectType": "string",
+									"isParent": false,
+									"children": []
+								},
+								{
+									"id": "c83464b4-976c-4188-89f9-40eb2114ef4a",
+									"name": "country_code",
+									"parent": "f289b134-a2fe-4884-b659-b0432017a665",
+									"description": "",
+									"objectType": "string",
+									"isParent": false,
+									"children": []
+								}
+							]
+						}
+					],
+					"required": true
+				},
+				{
+					"id": "a8ec72b9-5261-4d79-ed20-a2b3f42977fa",
+					"name": "code",
+					"parent": "179380ff-d18c-475c-9a14-dd58fafe0eb1",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "179380ff-d18c-475c-9a14-dd58fafe0eb1",
+					"name": "insurance",
+					"parent": "",
+					"description": "",
+					"objectType": "array",
+					"objectName": "insurance",
+					"isParent": true,
+					"children": [
+						{
+							"id": "a8ec72b9-5261-4d79-ed20-a2b3f42977fa",
+							"name": "code",
+							"parent": "179380ff-d18c-475c-9a14-dd58fafe0eb1",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": []
+						}
+					]
+				},
+				{
+					"id": "f7e5ece8-d68e-4021-e499-9826b26b5fb3",
+					"name": "code",
+					"parent": "892a49fc-65a4-4892-9a8c-62b445ab8e9e",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "6e0e87cf-4f0a-403a-fad9-b76d03ad494e",
+					"name": "quantity",
+					"parent": "892a49fc-65a4-4892-9a8c-62b445ab8e9e",
+					"description": "",
+					"objectType": "number",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "892a49fc-65a4-4892-9a8c-62b445ab8e9e",
+					"name": "extras",
+					"parent": "",
+					"description": "",
+					"objectType": "array",
+					"objectName": "extras",
+					"isParent": true,
+					"children": [
+						{
+							"id": "f7e5ece8-d68e-4021-e499-9826b26b5fb3",
+							"name": "code",
+							"parent": "892a49fc-65a4-4892-9a8c-62b445ab8e9e",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": []
+						},
+						{
+							"id": "6e0e87cf-4f0a-403a-fad9-b76d03ad494e",
+							"name": "quantity",
+							"parent": "892a49fc-65a4-4892-9a8c-62b445ab8e9e",
+							"description": "",
+							"objectType": "number",
+							"isParent": false,
+							"children": []
+						}
+					]
+				},
+				{
+					"id": "873cc871-c36d-483a-b213-97de6d1d410f",
+					"name": "airline_code",
+					"parent": "b9ed942f-5a6b-4260-b5f9-4272e77a1c21",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "46d3ff9a-29e8-4426-94cf-99f9bb34520f",
+					"name": "airline_number",
+					"parent": "b9ed942f-5a6b-4260-b5f9-4272e77a1c21",
+					"description": "",
+					"objectType": "string",
+					"isParent": false,
+					"children": []
+				},
+				{
+					"id": "b9ed942f-5a6b-4260-b5f9-4272e77a1c21",
+					"name": "arrival_flight",
+					"parent": "",
+					"description": "",
+					"objectType": "object",
+					"objectName": "arrival_flight",
+					"isParent": true,
+					"children": [
+						{
+							"id": "873cc871-c36d-483a-b213-97de6d1d410f",
+							"name": "airline_code",
+							"parent": "b9ed942f-5a6b-4260-b5f9-4272e77a1c21",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": []
+						},
+						{
+							"id": "46d3ff9a-29e8-4426-94cf-99f9bb34520f",
+							"name": "airline_number",
+							"parent": "b9ed942f-5a6b-4260-b5f9-4272e77a1c21",
+							"description": "",
+							"objectType": "string",
+							"isParent": false,
+							"children": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "b04c6455-3088-4943-f6b6-bfb2c06537f6",
+			"name": "dataObject",
+			"description": "",
+			"isInclude": false,
+			"properties": []
+		}
+	],
+	"documentation": [],
+	"name": "Avis Budget Group STAGED",
+	"endpoint": "https://stage.abgapiservices.com",
+	"ver": "20.12.11.1616",
+	"version": null,
+	"description": null,
+	"mediaType": null,
+	"securitySchemes": null,
+	"swaggerURI": null,
+	"swaggerSystem": null,
+	"apiType": "",
+	"about": null,
+	"enableProxy": true,
+	"restrictAccess": false,
+	"enableTrace": false,
+	"enableIDE": true,
+	"internalAPI": false,
+	"isPublic": false,
+	"tlsAllowUntrusted": false,
+	"useOwnProcess": false,
+	"package": "b69714db-0a11-4c2b-9cfa-aabfa4102da6",
+	"apiGroup": "f35647fa-722a-4a35-ba03-1029deb1fc99",
+	"apiFormat": 0,
+	"roles": []
+}

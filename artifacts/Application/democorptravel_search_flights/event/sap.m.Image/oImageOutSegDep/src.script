@@ -1,0 +1,9 @@
+if (typeof airline === "undefined" || airline === null || airline === "") { return; }  
+var formattedText
+if (airline === "Multiple"){
+    formattedText = "/media/root/DemoTravelSuite/multiple_airlines.png";
+} else {
+   formattedText = "https://daisycon.io/images/airline/?width=125&height=25&color=ffffff&iata=" + airline;
+}
+
+return formattedText;

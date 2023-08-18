@@ -1,0 +1,23 @@
+// List Get Selected Row
+// Replace yourField with Field ID and yourList with correct List ID
+
+var selectedItem = oEvent.getSource();
+
+if (selectedItem) {
+    var context = selectedItem.getBindingContext();
+    var data = context.getObject();
+    // modeloFormHotelDetails.setData(data);
+
+    console.log(data);
+
+    detailStruc = data;
+
+    var options = {
+        parameters: {
+            lat: detailStruc.latitude, // Required
+            lon: detailStruc.longitude, // Required
+            format: "json", // Optional
+        },
+    };
+    apioAPIGetReverseGeocoding(options);    
+}

@@ -1,0 +1,3 @@
+if (typeof REC_DATE === "undefined" || REC_DATE === null || REC_DATE === "") { return; }  
+var formattedText = formatSAPDate(REC_DATE);
+return formattedText;

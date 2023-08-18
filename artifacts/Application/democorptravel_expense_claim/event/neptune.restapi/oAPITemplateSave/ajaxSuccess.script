@@ -1,0 +1,71 @@
+oApp.setBusy(false);
+//handle messages
+
+var data = modeloModelSAPSAVE.getData().result;
+
+if (data.IT_STATUS.length > 0) {
+    modeloListErrors.setData(data.IT_STATUS);
+    oDialogErrors.open();
+
+} else {
+    //successful, get the REINR, refresh things and save images.
+    var reinr = data.IT_TRAVEL_HEAD[0].REINR;
+    //refresh trip model
+    modeloPageTripDetail.setData(data.IT_TRAVEL_HEAD[0]);
+
+    //expenses (receipts)
+    var attachments = [];
+    var recs = data.IT_RECEIPTS;
+    for (i = 0; i < recs.length; i++) {
+        if (recs[i].REINR === reinr) attachments.push(recs[i]);
+
+    }
+    modeloTableExpenses.setData(attachments);
+    oIconTabFilterExpenses.setCount(attachments.length)
+
+    //now, let's save images in the background?
+    //debugger;
+    var tempImg = modeloModelTempImg.getData();
+    for (i = 0; i < tempImg.length; i++) {
+        var expense = ModelData.Find(oTableExpenses, "RECEIPTNO", tempImg[i].KEY, "EQ");
+        if (typeof expense !== "undefined") {
+            expense[0].IMAGE = tempImg[i].IMAGE;
+            //save image:
+            var dataArray = [];
+            var dataSet = {
+                "KEY": "WA_TRAVEL_HEAD",
+                "VALUE": JSON.stringify(modeloPageTripDetail.getData())
+            }
+            dataArray.push(dataSet);
+
+            dataSet = {
+                "KEY": "WA_RECEIPTS",
+                "VALUE": JSON.stringify(expense[0])
+            }
+            dataArray.push(dataSet);
+            var options = {
+                parameters: {
+                    "$select": "", // Optional 
+                    "sap-client": "800" // Required 
+                },
+                data: dataArray
+            };
+
+            apioAPISaveReceiptImage(options);
+        }
+    }
+
+
+
+    setFieldsReceipt();
+
+    //display message Success
+    var txt = oTextTripSaved.getText().replace('XXX', reinr);
+    jQuery.sap.require("sap.m.MessageBox");
+    sap.m.MessageBox.show(txt, {
+        icon: sap.m.MessageBox.Icon.SUCCESS,
+        title: oTextSavedOK.getText(),
+    });
+
+    oButtonSync.firePress();
+}

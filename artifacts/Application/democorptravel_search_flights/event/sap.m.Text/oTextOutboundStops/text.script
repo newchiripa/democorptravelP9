@@ -1,0 +1,18 @@
+if (typeof outstop === "undefined" || outstop === null || outstop === "") { return; } 
+switch (outstop) {
+
+    case 0:
+        var formattedText = oTextDirect.getText(); 
+        break;
+
+    case 1:
+        var formattedText = oTextOneStop.getText() + ": " + outstoplocs ; 
+        break;
+
+    default:
+        var formattedText = outstop + " " + oTextStops.getText() + ": " + outstoplocs ; 
+        break;
+
+}
+
+return formattedText;

@@ -1,0 +1,3 @@
+if (typeof fareBasis === "undefined" || fareBasis === null || fareBasis === "") { return; }  
+var formattedText = "Fare Basis: " + fareBasis; 
+return formattedText;

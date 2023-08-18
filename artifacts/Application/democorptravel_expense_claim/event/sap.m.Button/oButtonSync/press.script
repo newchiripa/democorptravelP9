@@ -1,0 +1,16 @@
+debugger;
+var dataArray = [];
+var dataSet = {
+    "KEY": "GV_PAGE_SETTINGS",
+    "VALUE": JSON.stringify(modeloPageSettings.getData())
+}
+dataArray.push(dataSet);
+var options = {
+    parameters: {
+        "$select": "", // Optional 
+        "sap-client": "800" // Required 
+    },
+    data: dataArray
+};
+oApp.setBusy(true);
+apioAPTemplateGetData(options);

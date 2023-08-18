@@ -1,0 +1,18 @@
+var data = modeloPageDetailFlights.getData();
+
+ModelData.Delete(oListFlightsSelected, "id", data.id, "EQ");
+setCacheoListFlightsSelected();
+
+jQuery.sap.require("sap.m.MessageBox");
+sap.m.MessageBox.show("Item successfully removed from Trip");
+
+oApp.backDetailToPage(oPageBlank);
+oApp.backMasterToPage(oPageMaster);
+
+setTimeout(function() {
+    var data = modeloListFlightsSelected.getData();
+    modeloListFlights.setData(data);
+    getValuesAndTotals();
+}, 100);
+
+oButtonRefreshListss.firePress();

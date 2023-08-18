@@ -1,0 +1,4 @@
+if (typeof indepdate === "undefined" || indepdate === null || indepdate === "") { return; }  
+
+var formattedText = moment(indepdate).format("DD MMM"); 
+return formattedText;

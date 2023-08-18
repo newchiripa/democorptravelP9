@@ -1,0 +1,31 @@
+
+var options = {
+    headers: {
+        "Authorization": "Bearer " + AmadeusToken // Required. 
+    },
+    parameters: {
+        "subType": "AIRPORT,CITY", // Required 
+        "keyword": oInputSFFrom.getValue(), // Required 
+        "page[limit]": "5", // Optional 
+        "sort": "analytics.travelers.score", // Optional 
+        "view": "LIGHT" // Optional 
+    }
+};
+
+apioAPIGetAirpFrom(options);
+
+
+//USING SABRE
+// var options = {
+//     headers: {
+//         "Authorization": "Bearer T1RLAQKCYarKHR9QEl6jo83bP4oT8lJ+aRAukBsUifIxxCsGM67VqI+yAADAk8T62JmQtbdXiokVjjyn4o1ls9XqdlsnDir533Z6wGWyIXpbjWC0MuhWFePpIL1MDlAxktPg4OAzXzU/bAmCpUwJQWy1yPSGdKyqrgqt5oSSuCpHbbADkR1A/K/Kgs4QdgDMk9WnAzHt9sycH6ZlghLO3tBI3nURHxwhSrO4e+slxMmM41OjPLKLUMiCSIgz/3p4WhZNL4chmVqeArrgLFb9gx7V3t6o2YeUsGUJC4sGL3yrajAfPziErYHsA1g5" // Optional. 
+//     },
+//     parameters: {
+//         "query": oInputSFFrom.getValue(), // Required 
+//         "category": "AIR", // Optional 
+//         "limit": "5" // Optional 
+//     }
+// };
+
+// apioAPIGetAirpFrom(options);
+

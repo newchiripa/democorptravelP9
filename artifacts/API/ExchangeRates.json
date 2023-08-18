@@ -1,0 +1,84 @@
+{
+	"id": "7517fb2f-18c8-415c-ab35-57978c67df66",
+	"createdAt": "2020-04-28T09:41:38.000Z",
+	"createdBy": "lloyd",
+	"auth": [],
+	"endpoints": [],
+	"paths": [
+		{
+			"id": "f9088c18-47fd-423f-e1dd-d7baec3c0212",
+			"method": "GET",
+			"path": "/latest",
+			"description": "",
+			"parameters": [
+				{
+					"name": "base",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "symbols",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				}
+			],
+			"headers": [],
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"body": [],
+					"content": [
+						{
+							"id": "1ad8cae7-3601-42e5-d801-7b000d2db17e",
+							"name": "body",
+							"objectType": "array"
+						}
+					]
+				}
+			]
+		}
+	],
+	"definitions": [
+		{
+			"id": "6136edec-b4af-48c5-fc2b-672ed13a8397",
+			"name": "body",
+			"description": "",
+			"isInclude": false,
+			"properties": []
+		}
+	],
+	"documentation": [],
+	"name": "ExchangeRates",
+	"endpoint": "https://api.exchangeratesapi.io",
+	"ver": "20.12.8.1734",
+	"version": null,
+	"description": null,
+	"mediaType": null,
+	"securitySchemes": null,
+	"swaggerURI": null,
+	"swaggerSystem": null,
+	"apiType": "",
+	"about": null,
+	"enableProxy": true,
+	"restrictAccess": false,
+	"enableTrace": false,
+	"enableIDE": true,
+	"internalAPI": false,
+	"isPublic": false,
+	"tlsAllowUntrusted": false,
+	"useOwnProcess": false,
+	"package": "b69714db-0a11-4c2b-9cfa-aabfa4102da6",
+	"apiGroup": "f35647fa-722a-4a35-ba03-1029deb1fc99",
+	"apiFormat": 0,
+	"roles": []
+}

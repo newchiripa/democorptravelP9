@@ -1,0 +1,57 @@
+//TODO: Validation of fields 
+
+//if there are images to submit, save them temporarily to be sent later one by one
+var tempImg = [];
+//debugger;
+for (i = 0; i < modeloTableExpenses.getData().length; i++) {
+    //if (modeloTableExpenses.getData()[i].IMAGE.length > 0 && modeloTableExpenses.getData()[i].IMAGE_SOURCE !== "SAP"){
+    if (modeloTableExpenses.getData()[i].IMAGE.length > 0){
+        //if is an unsaved pic, save locally first
+        ////var imgkey = Math.random().toString(36).slice(2);//get random number
+        var localimg = {
+            "IMAGE": modeloTableExpenses.getData()[i].IMAGE,
+            "KEY": modeloTableExpenses.getData()[i].RECEIPTNO //imgkey
+        }
+        tempImg.push(localimg);
+        //pair the image key to the Expenses model
+        
+        //modeloTableExpenses.getData()[i].IMAGEINTID = imgkey;
+    }
+    modeloTableExpenses.getData()[i].IMAGE = "";
+}
+modeloModelTempImg.setData(tempImg);
+
+
+//now, let's prepare the data to be sent for the SAVING
+var dataArray = [];
+modeloPageTripDetail.getData().SELECT_DRAFT = true;
+modeloPageTripDetail.getData().SELECT_APPROVED = false;
+var dataSet = {
+    "KEY": "WA_TRAVEL_HEAD",
+    "VALUE": JSON.stringify(modeloPageTripDetail.getData())
+}
+
+dataArray.push(dataSet);
+
+dataSet = {
+    "KEY": "IT_RECEIPTS",
+    "VALUE": JSON.stringify(modeloTableExpenses.getData())
+}
+dataArray.push(dataSet);
+
+
+dataSet = {
+    "KEY": "GV_PAGE_SETTINGS",
+    "VALUE": JSON.stringify(modeloPageSettings.getData())
+}
+dataArray.push(dataSet);
+
+var options = {
+    parameters: {
+        "$select": "", // Optional 
+        "sap-client": "800" // Required 
+    },
+    data: dataArray
+};
+oApp.setBusy(true);
+apioAPITemplateSave(options);

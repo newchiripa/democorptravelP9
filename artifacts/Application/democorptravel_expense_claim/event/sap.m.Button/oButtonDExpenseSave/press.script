@@ -1,0 +1,23 @@
+//TODO: ADD LOGIC TO SAVE EXPENSE
+var formdata = modeloDialogExpense.getData();
+formdata.IMAGE = oImageReceipt.getSrc();
+
+var data = ModelData.Find(oTableExpenses, "KEY", formdata.KEY, "EQ");
+
+
+if (typeof data !== "undefined") {
+    //modify an existing item
+    ModelData.Update(oTableExpenses, "KEY", formdata.KEY, formdata, "EQ");
+} else {
+    //add new expense
+    ModelData.Add(oTableExpenses, formdata);
+}
+
+// Sort descending ReceiptNO
+var oSorter = new sap.ui.model.Sorter("RECEIPTNO", true, false);
+var binding = oTableExpenses.getBinding("items");
+binding.sort(oSorter);
+
+
+oIconTabFilterExpenses.setCount(modeloTableExpenses.getData().length);
+oDialogExpense.close();

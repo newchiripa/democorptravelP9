@@ -1,0 +1,96 @@
+var context = oEvent.oSource.getBindingContext();
+var data = context.getObject();
+
+
+var obj = {};
+
+//outbound information
+obj.outbDepLocation = data.outdepairport;
+obj.outbArrLocation = data.outarrairport;
+obj.outbTotalTravelTime = data.outtraveltime;
+obj.outbSegments = [];
+obj.inbSegments = [];
+
+var dictAircraft = modeloMultiModelAmadeusFlights.oData.dictionaries.aircraft;
+var dictAirline = modeloMultiModelAmadeusFlights.oData.dictionaries.carriers;
+var fareRuleSeg = data.allDet.travelerPricings[0].fareDetailsBySegment;
+var price = data.allDet.price;
+
+
+for (i = 0; i < data.out.segments.length; i++) {
+    var seg = {};
+    seg.airline = data.out.segments[i].carrierCode;
+    seg.airlineName = dictAirline[data.out.segments[i].carrierCode];
+    seg.flightno = data.out.segments[i].carrierCode + data.out.segments[i].number;
+    seg.depdate = data.out.segments[i].departure.at;
+    seg.deptime = getTimeFormatted(data.out.segments[i].departure.at);
+    seg.depairport = data.out.segments[i].departure.iataCode;
+    seg.depterminal = data.out.segments[i].departure.terminal;
+    
+    seg.arrdate = data.out.segments[i].arrival.at;
+    seg.arrtime = getTimeFormatted(data.out.segments[i].arrival.at);
+    seg.days = howManyDays(data.outdepdate, data.outarrdate);
+    seg.arrairport = data.out.segments[i].arrival.iataCode;
+    seg.arrterminal = data.out.segments[i].arrival.terminal;
+    seg.airplane = dictAircraft[data.out.segments[i].aircraft.code];
+    seg.flightduration = data.out.segments[i].duration.substring(2);
+    var getSegRule = fareRuleSeg.find(({
+        segmentId
+    }) => segmentId === data.out.segments[i].id);
+    seg.cabin = getSegRule.cabin;
+    seg.includedBags = getSegRule.includedCheckedBags.quantity;
+    seg.fareBasis = getSegRule.fareBasis;
+
+    obj.outbSegments.push(seg);
+}
+
+//inbound information
+obj.inbDepLocation = data.indepairport;
+obj.inbArrLocation = data.inarrairport;
+obj.inbTotalTravelTime = data.intraveltime;
+obj.showInbound = false;
+
+if (typeof data.inb !== "undefined") {
+    obj.showInbound = true;
+    for (i = 0; i < data.inb.segments.length; i++) {
+        var seg = {};
+        seg.airline = data.inb.segments[i].carrierCode;
+        seg.airlineName = dictAirline[data.inb.segments[i].carrierCode];
+        seg.flightno = data.inb.segments[i].carrierCode + data.inb.segments[i].number;
+        seg.depdate = data.inb.segments[i].departure.at;
+        seg.deptime = getTimeFormatted(data.inb.segments[i].departure.at);
+        seg.depairport = data.inb.segments[i].departure.iataCode;
+        seg.depterminal = data.inb.segments[i].departure.terminal;
+        seg.arrdate = data.inb.segments[i].arrival.at;
+        seg.arrtime = getTimeFormatted(data.inb.segments[i].arrival.at);
+        seg.days = howManyDays(data.outdepdate, data.outarrdate);
+        seg.arrairport = data.inb.segments[i].arrival.iataCode;
+        seg.arrterminal = data.inb.segments[i].arrival.terminal;
+        seg.airplane = dictAircraft[data.inb.segments[i].aircraft.code];
+        seg.flightduration = data.inb.segments[i].duration.substring(2);
+        var getSegRule = fareRuleSeg.find(({
+            segmentId
+        }) => segmentId === data.inb.segments[i].id);
+        seg.cabin = getSegRule.cabin;
+        seg.includedBags = getSegRule.includedCheckedBags.quantity;
+        seg.fareBasis = getSegRule.fareBasis;
+        obj.inbSegments.push(seg);
+    }
+}
+
+
+
+//pricing details
+obj.base = price.base;
+obj.currency = price.currency;
+obj.grandTotal = price.grandTotal;
+obj.taxes = parseFloat(price.grandTotal) - parseFloat(price.base);
+
+modeloListOutboundSegments.setData(obj.outbSegments);
+modeloListInboundSegments.setData(obj.inbSegments)
+modeloPageSelection.setData(obj);
+dataToSave = data;
+dataToSave.detailInfo = obj;
+oApp.toDetail(oPageSelection);
+
+//console.log(obj);

@@ -1,0 +1,14 @@
+
+var selectedItem = oEvent.getSource();
+
+if (selectedItem) {
+    
+    var context = selectedItem.getBindingContext();
+    var data = context.getObject();
+    oDialogExpense.open();
+    modeloDialogExpense.setData(data);
+    oSelectExpenseType.setSelectedKey(data.EXP_TYPE);
+    oSelectExpenseCurrency.setSelectedKey(data.REC_CURR);
+    oImageReceipt.setSrc(data.IMAGE);
+
+}

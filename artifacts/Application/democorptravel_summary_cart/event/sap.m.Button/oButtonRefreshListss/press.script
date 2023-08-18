@@ -1,0 +1,22 @@
+//console.log("Refreshing HotelsSelected Cache...");
+getCacheoListHotelsSelected();
+var data1 = modeloListHotelsSelected.getData();
+modeloListHotels.setData(data1);
+//console.log("modeloListHotels: ", modeloListHotels);
+
+//console.log("Refreshing CarsSelected Cache...");
+getCacheoListCarsSelected();
+var data2 = modeloListCarsSelected.getData();
+modeloListVehicleResults.setData(data2);
+//console.log("modeloListCarsSelected: ", modeloListCarsSelected);
+
+//console.log("Refreshing FlightsSelected Cache...");
+getCacheoListFlightsSelected();
+var data3 = modeloListFlightsSelected.getData();
+modeloListFlights.setData(data3);
+
+oApp.setBusy(true);
+
+callValuesTotalsAndCalculateTripValue();
+
+sap.m.MessageToast.show("Refreshed");

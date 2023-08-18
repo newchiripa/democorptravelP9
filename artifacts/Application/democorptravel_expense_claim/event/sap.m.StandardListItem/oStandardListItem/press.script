@@ -1,0 +1,85 @@
+// List Get Selected Row
+var context = oEvent.oSource.getBindingContext();
+var schemaId = context.getProperty("T_SCHEMA");
+var schemaTxt = context.getProperty("SHORTTXT");
+
+// Set Default Data
+var data = {
+    REINR: "",
+    SELECT_DRAFT: "",
+    SELECT_APPROVED: "",
+    SELECT_MEALS: "",
+    SELECT_ACC: "",
+    COMMENT: "",
+    UPDATE: "",
+    UPDATE_ICON: "",
+    UPDATE_COLOR: "",
+    TRIP_TOTAL: "",
+    CURRENCY: "",
+    STATUS: "",
+    STATUS_TXT: "",
+    SCHEM_TXT: "",
+    MOREI: "",
+    PDF: "",
+    DEP_DATE: "",
+    DEP_TIME: "",
+    ARR_DATE: "",
+    ARR_TIME: "",
+    CUSTOMER: "",
+    LOCATION: "",
+    COUNTRY: "",
+    REGION: "",
+    OUT_DATE: "",
+    OUT_TIME: "",
+    RET_DATE: "",
+    RET_TIME: "",
+    RET_COUN: "",
+    RET_RGIO: "",
+    RET_TTCS: "",
+    T_SCHEMA: "",
+    TT_COMSP: "",
+    TT_STATU: "",
+    T_ACTYPE: "",
+    PD_MEALS: "",
+    PD_ACCOM: "",
+    NO_NIGHT: "",
+    PSTLZ: "",
+    ORT01: "",
+    STRAS: "",
+    STATE: "",
+    REQUEST: "",
+    TRAVEL_PLAN: "",
+    EXPENSES: "",
+    ORT02: "",
+    CITY_CODE: "",
+    TAX_PER_DIEM: "",
+    TAX_PD_MAN: "",
+    TAX_OV_MAN: "",
+    EXCHANGE_DATE: "",
+    ROUNDING: "",
+    FILTER: "",
+    INT_ORDER: ""
+}
+data.T_SCHEMA = schemaId;
+data.SCHEM_TXT = schemaTxt;
+data.UPDATE = 'I'; //this creates a new one
+
+// Set TripID
+jQuery.sap.require("sap.ui.core.format.DateFormat");
+var oOutFormat = sap.ui.core.format.DateFormat.getDateTimeInstance({
+    pattern: "MMddHHmmss"
+});
+var oDate = new Date;
+data.REINR = oOutFormat.format(oDate);
+
+modeloPageTripDetail.setData(data);
+
+//zero all expenses:
+var attachments = [];
+modeloTableExpenses.setData(attachments);
+oIconTabFilterExpenses.setCount(attachments.length);
+setFieldsReceipt();
+// Close Pop
+oPopoverSchema.close();
+
+oApp.toDetail(oPageTripDetail);

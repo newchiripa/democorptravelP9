@@ -1,0 +1,4 @@
+if (typeof imageSrc === "undefined" || imageSrc === null || imageSrc === "") { return; } 
+var formattedText = "/proxy/" + encodeURIComponent(imageSrc);
+//console.log(formattedText);
+return formattedText;

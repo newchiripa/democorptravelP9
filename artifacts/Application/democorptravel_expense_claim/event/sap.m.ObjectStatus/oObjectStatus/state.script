@@ -1,0 +1,26 @@
+if (typeof TYPE === "undefined" || TYPE === null || TYPE === "") { return; }  
+var formattedText;
+switch (TYPE) {
+
+    case "E":
+        //execute code block 1
+        formattedText = sap.ui.core.ValueState.Error;
+        break;
+
+    case "W":
+        formattedText = sap.ui.core.ValueState.Warning;
+        break;
+
+    case "S":
+        formattedText = sap.ui.core.ValueState.Success;
+        break;
+    case "I":
+        formattedText = sap.ui.core.ValueState.Information;
+        break;
+    default:
+        formattedText = sap.ui.core.ValueState.None;
+        break;
+
+}
+
+return formattedText;

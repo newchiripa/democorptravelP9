@@ -1,0 +1,4 @@
+if (typeof totalprice === "undefined" || totalprice === null || totalprice === "") { return; }  
+if (typeof  currency === "undefined" ||  currency === null ||  currency === "") { return; }  
+var formattedText = totalprice + " " +  currency; 
+return formattedText;

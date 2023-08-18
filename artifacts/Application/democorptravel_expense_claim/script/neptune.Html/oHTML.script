@@ -1,0 +1,2 @@
+<input type="file" id="inputReceipt" onchange="getFilefromFileSystem(this);" accept='image/*'/>
+<input type="file" id="inputCamera" accept="image/*" capture="camera" onchange="getFilefromFileSystem(this);"/>

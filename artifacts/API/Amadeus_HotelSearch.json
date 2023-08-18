@@ -1,0 +1,2840 @@
+{
+	"id": "03876222-c102-4f0c-b816-3fe239b9d177",
+	"createdAt": "2020-04-24T14:56:12.000Z",
+	"createdBy": "admin",
+	"auth": [],
+	"endpoints": [],
+	"paths": [
+		{
+			"id": "85eed2da-d71d-49ce-ed7c-ece16073d6d8",
+			"path": "/shopping/hotel-offers",
+			"description": [
+				"==OBJECT STRING==",
+				"This service returns a list of hotels with multiple shopping offers around a city center or geolocation for a given date range.",
+				"",
+				"It is also possible to directly ask for a specific list of hotels.",
+				"",
+				"The user can refine the search criteria by asking for specific hotel categories, hotel chains or hotel facilities, such as parking or restaurant.",
+				"It is also possible to ask for a specific meal or budget.",
+				"",
+				"By default, only available hotels are returned, with the cheapest available option for each hotel. It is however also possible to retrieve details about the closed properties, and to retrieve all available offers per hotel.",
+				"",
+				"__Warning__: at this step only preliminary prices are returned. Use the next service to ask for a single hotel to retrieve exact prices.",
+				"",
+				"__Minimum mandatory parameters for a hotel search (mutually exclusive):__",
+				"- cityCode",
+				"- geocodes (longitude and latitude)",
+				"- list of hotels",
+				"",
+				"### Query example",
+				"Get the cheapest hotel offers in Paris today with a search radius of 5 Km around the city center. Include all available hotel descriptive content.",
+				"<pre><code>",
+				"GET https://test.api.amadeus.com/v2/shopping/hotel-offers?cityCode=PAR&adults=1&radius=5&radiusUnit=KM&paymentPolicy=NONE&includeClosed=false&bestRateOnly=true&view=FULL&sort=PRICE",
+				"</code></pre>",
+				"",
+				"### Response example",
+				"<pre><code>",
+				"{",
+				"  \"data\": [",
+				"    {",
+				"      \"type\": \"hotel-offers\",",
+				"      \"hotel\": {",
+				"        \"type\": \"hotel\",",
+				"        \"hotelId\": \"EAMIAMAP\",",
+				"        \"chainCode\": \"EA\",",
+				"        \"dupeId\": \"700107767\",",
+				"        \"name\": \"CONCORDE OPERA PARIS OPERA PARIS\",",
+				"        \"rating\": \"2\",",
+				"        \"cityCode\": \"MIA\",",
+				"        \"latitude\": 48.85693,",
+				"        \"longitude\": 2.3412,",
+				"        \"hotelDistance\": {",
+				"          \"distance\": 0.4,",
+				"          \"distanceUnit\": \"KM\"",
+				"        },",
+				"        \"address\": {",
+				"          \"lines\": [",
+				"            \"LEFISTON STREET\"",
+				"          ],",
+				"          \"cityName\": \"PARIS\",",
+				"          \"countryCode\": \"FR\"",
+				"        },",
+				"        \"contact\": {",
+				"          \"phone\": \"1-305-436-1811\",",
+				"          \"fax\": \"1-305-436-1864\"",
+				"        },",
+				"        \"amenities\": [",
+				"          \"HANDICAP_FAC\",",
+				"          \"ACC_BATHS\",",
+				"          \"ACC_WASHBASIN\",",
+				"          \"ACC_BATH_CTRLS\",",
+				"          \"ACC_LIGHT_SW\",",
+				"          \"ACC_ELEVATORS\",",
+				"          \"ACC_TOILETS\",",
+				"          \"SERV_DOGS_ALWD\",",
+				"          \"DIS_PARKG\",",
+				"          \"HANDRAIL_BTHRM\",",
+				"          \"ADAPTED_PHONES\",",
+				"          \"ADAPT_RM_DOORS\",",
+				"          \"ACC_RM_WCHAIR\",",
+				"          \"TV_SUB/CAPTION\",",
+				"          \"ACC_WCHAIR\",",
+				"          \"HANDRAIL_BTHRM\",",
+				"          \"EXT_ROOM_ENTRY\",",
+				"          \"EMERG_LIGHTING\",",
+				"          \"EXTINGUISHERS\",",
+				"          \"FIRE_SAFETY\",",
+				"          \"RESTRIC_RM_ACC\",",
+				"          \"SMOKE_DETECTOR\",",
+				"          \"SPRINKLERS\",",
+				"          \"KIDS_WELCOME\",",
+				"          \"ELEVATOR\",",
+				"          \"INT_HOTSPOTS\",",
+				"          \"FREE_INTERNET\",",
+				"          \"LAUNDRY_SVC\",",
+				"          \"NO_PORN_FILMS\",",
+				"          \"PARKING\",",
+				"          \"PETS_ALLOWED\",",
+				"          \"SWIMMING_POOL\",",
+				"          \"AIR_CONDITIONING\",",
+				"          \"KITCHEN\",",
+				"          \"NONSMOKING_RMS\",",
+				"          \"TELEVISION\",",
+				"          \"WI-FI_IN_ROOM\"",
+				"        ],",
+				"        \"media\": [",
+				"          {",
+				"            \"uri\": \"http://pdt.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/69810B23CB8644A18AF760DC66BE41A6\",",
+				"            \"category\": \"EXTERIOR\"",
+				"          }",
+				"        ]",
+				"      },",
+				"      \"available\": true,",
+				"      \"offers\": [",
+				"        {",
+				"          \"id\": \"ECF8AD653801C3A81B3D04BAEF0D85AF182E8FB2115B0FAD144D49FAD108C60D\",",
+				"          \"rateCode\": \"RAC\",",
+				"          \"room\": {",
+				"            \"type\": \"A0C\",",
+				"            \"typeEstimated\": {",
+				"              \"category\": \"ACCESSIBLE_ROOM\",",
+				"              \"beds\": 1,",
+				"              \"bedType\": \"QUEEN\"",
+				"            },",
+				"            \"description\": {",
+				"              \"lang\": \"EN\",",
+				"              \"text\": \"NIGHTLY VALUE RATE\\nSTANDARD STUDIO 1 QUEEN NONSMKNG ACCESSIBLE\\nFREE WIFI\"",
+				"            }",
+				"          },",
+				"          \"guests\": {",
+				"            \"adults\": 1",
+				"          },",
+				"          \"price\": {",
+				"            \"currency\": \"USD\",",
+				"            \"base\": \"114.99\",",
+				"            \"total\": \"129.94\",",
+				"            \"variations\": {",
+				"              \"average\": {",
+				"                \"base\": \"114.99\"",
+				"              },",
+				"              \"changes\": [",
+				"                {",
+				"                  \"startDate\": \"2019-01-22\",",
+				"                  \"endDate\": \"2019-01-23\",",
+				"                  \"base\": \"114.99\"",
+				"                }",
+				"              ]",
+				"            }",
+				"          }",
+				"        }",
+				"      ],",
+				"      \"self\": \"https://test.api.amadeus.com/v2/shopping/hotel-offers/by-hotel?hotelId=EAMIAMAP&adults=1&paymentPolicy=NONE&view=FULL\"",
+				"    },",
+				"    {",
+				"      \"type\": \"hotel-offers\",",
+				"      \"hotel\": {",
+				"        \"type\": \"hotel\",",
+				"        \"hotelId\": \"BWPAR261\",",
+				"        \"chainCode\": \"BW\",",
+				"        \"dupeId\": \"700019804\",",
+				"        \"name\": \"BEST WESTERN AU TROCADERO\",",
+				"        \"rating\": \"3\",",
+				"        \"cityCode\": \"PAR\",",
+				"        \"latitude\": 48.85326,",
+				"        \"longitude\": 2.33855,",
+				"        \"hotelDistance\": {",
+				"          \"distance\": 0.5,",
+				"          \"distanceUnit\": \"KM\"",
+				"        },",
+				"        \"address\": {",
+				"          \"lines\": [",
+				"            \"3 AVENUE RAYMOND-POINCARE \"",
+				"          ],",
+				"          \"postalCode\": \"FR75116\",",
+				"          \"cityName\": \"PARIS\",",
+				"          \"countryCode\": \"FR\"",
+				"        },",
+				"        \"contact\": {",
+				"          \"fax\": \"33-1-47278085\",",
+				"          \"phone\": \"33-1-47273330\"",
+				"        },",
+				"        \"description\": {",
+				"          \"lang\": \"en\",",
+				"          \"text\": \"The best western au trocadero is located in one of the most elegant district of paris, facing the trocadero, the eiffel tower and champ de mars. You will enjoy the friendly setting.\"",
+				"        },",
+				"        \"amenities\": [",
+				"          \"BAR\",",
+				"          \"ICE_MACHINES\",",
+				"          \"RESTAURANT\",",
+				"          \"ACC_BATHS\",",
+				"          \"ACC_TOILETS\",",
+				"          \"HANDRAIL_BTHRM\",",
+				"          \"ACC_RM_WCHAIR\",",
+				"          \"BABY-SITTING\",",
+				"          \"KIDS_WELCOME\",",
+				"          \"ELEVATOR\",",
+				"          \"WIFI\",",
+				"          \"LAUNDRY_SVC\",",
+				"          \"LOUNGE\",",
+				"          \"AIR_CONDITIONING\",",
+				"          \"HAIR_DRYER\",",
+				"          \"MINIBAR\",",
+				"          \"NONSMOKING_RMS\",",
+				"          \"ROOM_SERVICE\",",
+				"          \"TELEVISION\",",
+				"          \"WI-FI_IN_ROOM\",",
+				"          \"EXT_ROOM_ENTRY\",",
+				"          \"EMERG_LIGHTING\",",
+				"          \"EXTINGUISHERS\",",
+				"          \"FIRE_SAFETY\",",
+				"          \"SMOKE_DETECTOR\",",
+				"          \"VIDEO_SURVEIL\"",
+				"        ],",
+				"        \"media\": [",
+				"          {",
+				"            \"uri\": \"http://pdt.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/D231E485EDCB4AB1B61F3032404474D1\",",
+				"            \"category\": \"EXTERIOR\"",
+				"          }",
+				"        ]",
+				"      },",
+				"      \"available\": true,",
+				"      \"offers\": [",
+				"        {",
+				"          \"id\": \"7D158B52F8A4EED40A30AA8D96E957EC26C3AC381099486510BA1E32F468FA35\",",
+				"          \"rateCode\": \"RAC\",",
+				"          \"rateFamilyEstimated\": {",
+				"            \"code\": \"BAR\",",
+				"            \"type\": \"P\"",
+				"          },",
+				"          \"room\": {",
+				"            \"type\": \"A2T\",",
+				"            \"description\": {",
+				"              \"lang\": \"EN\",",
+				"              \"text\": \"FLEXIBLE RATE*BEST LEAST RESTRICTIVE RATE\\n2 SINGLE BEDS,CONFORT RM,GRABBR,RAMP ACCESS,\\nWHEELCHAIR\"",
+				"            }",
+				"          },",
+				"          \"guests\": {",
+				"            \"adults\": 1",
+				"          },",
+				"          \"price\": {",
+				"            \"currency\": \"EUR\",",
+				"            \"base\": \"150.00\",",
+				"            \"total\": \"151.65\",",
+				"            \"variations\": {",
+				"              \"average\": {",
+				"                \"base\": \"150.00\"",
+				"              },",
+				"              \"changes\": [",
+				"                {",
+				"                  \"startDate\": \"2019-01-22\",",
+				"                  \"endDate\": \"2019-01-23\",",
+				"                  \"base\": \"150.00\"",
+				"                }",
+				"              ]",
+				"            }",
+				"          }",
+				"        }",
+				"      ],",
+				"      \"self\": \"https://test.api.amadeus.com/v2/shopping/hotel-offers/by-hotel?hotelId=BWPAR261&adults=1&paymentPolicy=NONE&view=FULL\"",
+				"    }",
+				"  ],",
+				"  \"meta\": {",
+				"    \"links\": {",
+				"      \"next\": \"https://test.api.amadeus.com/v2/shopping/hotel-offers?adults=1&bestRateOnly=true&cityCode=PAR&includeClosed=false&paymentPolicy=NONE&radius=5&radiusUnit=KM&sort=PRICE&view=FULL&page[offset]=05G15W3U2NWG_96\"",
+				"    }",
+				"  }",
+				"}",
+				"</code></pre>",
+				""
+			],
+			"summary": "FIND HOTELS.",
+			"method": "POST",
+			"example": "",
+			"responses": [
+				{
+					"status": "200",
+					"headers": [],
+					"content": [
+						{
+							"id": "fc44d7c5-10a7-4cbc-c5ad-670c7302f52c",
+							"name": "HotelOffers",
+							"objectType": "object"
+						}
+					]
+				},
+				{
+					"status": "400",
+					"headers": [],
+					"content": []
+				},
+				{
+					"status": "500",
+					"headers": [],
+					"content": []
+				}
+			],
+			"headers": [
+				{
+					"name": "Authorization",
+					"description": "",
+					"required": true,
+					"value": "",
+					"default": "Bearer  v5saf1MEJxOCN2erDEEM0G3LbEBK",
+					"example": ""
+				}
+			],
+			"parameters": [
+				{
+					"name": "cityCode",
+					"description": [
+						"==OBJECT STRING==",
+						"Destination City Code (or Airport Code). In case of city code, the search will be done around the city center. Available codes can be found in [IATA table codes](http://www.iata.org/publications/Pages/code-search.aspx) (3 chars IATA Code)     ",
+						"",
+						"Example: PAR",
+						"",
+						"Should be used together with `radius`+`radiusUnit` (required)",
+						"",
+						"__Mandatory parameter for a city search__"
+					],
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "latitude",
+					"description": [
+						"==OBJECT STRING==",
+						"search around a geographical point. The latitude is specified in decimal degrees    ",
+						"",
+						"Example: 52.5238    ",
+						"",
+						"Should be used together with `longitude`+`radius`+`radiusUnit`  (required)",
+						"",
+						"__Mandatory parameter for a search by geocodes__"
+					],
+					"inPath": false,
+					"required": false,
+					"type": "number",
+					"minLength": -90,
+					"maxLength": 90
+				},
+				{
+					"name": "longitude",
+					"description": [
+						"==OBJECT STRING==",
+						"search around a geographical point. The longitude is specified in decimal degrees    ",
+						"",
+						"Example: 13.3835",
+						"",
+						"Should be used together with `latitude`+`radius`+`radiusUnit`  (required)",
+						"",
+						"__Mandatory parameter for a search by geocodes__"
+					],
+					"inPath": false,
+					"required": false,
+					"type": "number",
+					"minLength": -180,
+					"maxLength": 180
+				},
+				{
+					"name": "hotelIds",
+					"description": [
+						"==OBJECT STRING==",
+						"Amadeus Property Codes (8 chars) (comma separated list)",
+						"",
+						"Example: BGLONBGB,BGMILBGB    ",
+						"",
+						"__Mandatory parameter for a search by predefined list of hotels__",
+						""
+					],
+					"inPath": false,
+					"required": false,
+					"type": "array"
+				},
+				{
+					"name": "checkInDate",
+					"description": [
+						"==OBJECT STRING==",
+						"check-in date of the stay (hotel local date). Format YYYY-MM-DD",
+						"",
+						"The lowest accepted value is the present date (no dates in the past). ",
+						"If not present, the default value will be today's date in the GMT timezone.",
+						"",
+						""
+					],
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "checkOutDate",
+					"description": [
+						"==OBJECT STRING==",
+						"check-out date of the stay (hotel local date). Format YYYY-MM-DD",
+						"",
+						"The lowest accepted value is checkInDate+1. ",
+						"If not present, it will default to checkInDate + 1",
+						"",
+						""
+					],
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "roomQuantity",
+					"description": "number of rooms (1-9)",
+					"inPath": false,
+					"default": 1,
+					"required": false,
+					"type": "integer",
+					"minLength": 1,
+					"maxLength": 9
+				},
+				{
+					"name": "adults",
+					"description": "number of adult guests (1-9) per room",
+					"inPath": false,
+					"default": 2,
+					"required": false,
+					"type": "integer",
+					"minLength": 1,
+					"maxLength": 9
+				},
+				{
+					"name": "childAges",
+					"description": "comma separated list of ages of each child at the time of check-out from the hotel. If several children have the same age, their ages should be repeated in the list",
+					"inPath": false,
+					"required": false,
+					"type": "array"
+				},
+				{
+					"name": "radius",
+					"description": "maximum distance (in `radiusUnit`) from Destination (city center or geocodes)",
+					"inPath": false,
+					"default": 5,
+					"required": false,
+					"type": "integer",
+					"minLength": 1,
+					"maxLength": 200
+				},
+				{
+					"name": "radiusUnit",
+					"description": "distance unit (of the `radius` value)",
+					"inPath": false,
+					"default": "KM",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "hotelName",
+					"description": [
+						"==OBJECT STRING==",
+						"Search by Hotel Name. Accepts maximum 4 keywords.",
+						"",
+						"Example: Hotel California",
+						"Example: Hotel Califo"
+					],
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "chains",
+					"description": [
+						"==OBJECT STRING==",
+						"Chain (EM...) or Brand (SB...) or Merchant (AD...) (comma separated list of Amadeus 2 chars Codes)",
+						"",
+						"Example Chains:",
+						"* EM = Marriott",
+						"* EH = Hilton",
+						"* HY = Hyatt",
+						"* 6C = IHG",
+						"* WR = Wyndham",
+						"* RT = Accor",
+						"* BW = Best Western",
+						"* EC = Choice",
+						"* CW = Radisson",
+						"",
+						"Example Merchants:",
+						"* AD = Value Hotels    ",
+						"* HV = HRS",
+						""
+					],
+					"inPath": false,
+					"required": false,
+					"type": "array"
+				},
+				{
+					"name": "rateCodes",
+					"description": [
+						"==OBJECT STRING==",
+						"Special Rate (comma separated list of Amadeus 3 chars Codes): Public Rate (PRO...), Qualified Rate (GOV...) or Corporate Rate (IBM...).",
+						"",
+						"When a Corporate Rate is entered, Amadeus performs a check to verify which chains have authorized the caller to view the rate, only authorized chains will be queried for availability.",
+						"",
+						"Warning: The availability response can also contain Public rates.",
+						"",
+						"Example Rates: ",
+						"* GOV - Government Rate",
+						"* AAA - AAA Rate",
+						"* MIL - Military/Veteran Rate",
+						"* SNR - Senior Rate",
+						"* PRO - Promotional Code",
+						"* COR - Corporate Code",
+						"",
+						""
+					],
+					"inPath": false,
+					"required": false,
+					"type": "array"
+				},
+				{
+					"name": "amenities",
+					"description": "amenities (list)",
+					"inPath": false,
+					"alternatives": "SWIMMING_POOL,SPA,FITNESS_CENTER,AIR_CONDITIONING,RESTAURANT,PARKING,PETS_ALLOWED,AIRPORT_SHUTTLE,BUSINESS_CENTER,DISABLED_FACILITIES,WIFI,MEETING_ROOMS,NO_KID_ALLOWED,TENNIS,GOLF,KITCHEN,ANIMAL_WATCHING,BABY-SITTING,BEACH,CASINO,JACUZZI,SAUNA,SOLARIUM,MASSAGE,VALET_PARKING,BAR,KIDS_WELCOME,NO_PORN_FILMS,MINIBAR,TELEVISION,WI-FI_IN_ROOM,ROOM_SERVICE,GUARDED_PARKG,SERV_SPEC_MENU",
+					"required": false,
+					"type": "array"
+				},
+				{
+					"name": "ratings",
+					"description": [
+						"==OBJECT STRING==",
+						"hotel stars. Up to four values can be requested at the same time in a comma separated list",
+						"* 5 stars",
+						"* 4 stars",
+						"* 3 stars",
+						"* 2 stars",
+						"* 1 star",
+						""
+					],
+					"inPath": false,
+					"alternatives": "5,4,3,2,1",
+					"required": false,
+					"type": "array"
+				},
+				{
+					"name": "priceRange",
+					"description": [
+						"==OBJECT STRING==",
+						"filter hotel offers by price per night interval (ex: 200-300 or -300 or 100)",
+						"",
+						"It is mandatory to include a currency when this field is set",
+						"",
+						"Note: a margin of +/- 10% is applied on the daily price",
+						"",
+						""
+					],
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "currency",
+					"description": [
+						"==OBJECT STRING==",
+						"use this parameter to request a specific currency. ISO currency code (http://www.iso.org/iso/home/standards/currency_codes.htm).",
+						"",
+						"If a hotel does not support the requested currency, the prices for the hotel will be returned in the local currency of the hotel",
+						"and instead a currency conversion rate will be added in the dictionary.",
+						"",
+						"Example: EUR",
+						"",
+						""
+					],
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "paymentPolicy",
+					"description": "filter the response based on a specific payment type. NONE means all types (default)",
+					"inPath": false,
+					"default": "NONE",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "boardType",
+					"description": [
+						"==OBJECT STRING==",
+						"filter response based on available meals",
+						"* ROOM_ONLY = RO / Room Only",
+						"* BREAKFAST = BB / Bed & Breakfast",
+						"* HALF_BOARD = DBB / Diner & Bed & Breakfast (only for Aggregators)",
+						"* FULL_BOARD = FB / Full Board (only for Aggregators)",
+						"* ALL_INCLUSIVE = AI / All Inclusive (only for Aggregators)",
+						""
+					],
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "includeClosed",
+					"description": "show All properties (include Sold Out) or Available only. For Sold Out properties, please check availability on other dates. To be used with `sort` DISTANCE or NONE",
+					"inPath": false,
+					"default": false,
+					"required": false,
+					"type": "boolean"
+				},
+				{
+					"name": "bestRateOnly",
+					"description": "use to return only the cheapest offer per hotel or all available offers",
+					"inPath": false,
+					"default": true,
+					"required": false,
+					"type": "boolean"
+				},
+				{
+					"name": "view",
+					"description": [
+						"==OBJECT STRING==",
+						"hotel descriptive content to include in the response",
+						"",
+						"NONE: geocoordinates, hotel distance",
+						"",
+						"LIGHT: NONE view + city name, phone number, fax, address, postal code, country code, state code, ratings, 1 image",
+						"",
+						"FULL: LIGHT view + hotel description, amenities and facilities",
+						""
+					],
+					"inPath": false,
+					"default": "FULL",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "sort",
+					"description": [
+						"==OBJECT STRING==",
+						"sort by:",
+						"* distance from city center (or reference point)",
+						"* lowest price first (warning: all hotels may not be returned)",
+						""
+					],
+					"inPath": false,
+					"default": "NONE",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "page[limit]",
+					"description": "maximum number of hotels to return in each response",
+					"inPath": false,
+					"required": false,
+					"type": "integer",
+					"minLength": 1,
+					"maxLength": 96
+				},
+				{
+					"name": "page[offset]",
+					"description": "used to specify the next scrolling window if all offers could not be returned in the current response. Use the next link in the response to have it automatically added.",
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "lang",
+					"description": [
+						"==OBJECT STRING==",
+						"requested language of descriptive texts. ",
+						"",
+						"Examples: FR , fr , fr-FR",
+						"",
+						"if a language is not avaiable the text will be returned in english.",
+						"ISO language code (https://www.iso.org/iso-639-language-codes.html)",
+						""
+					],
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				}
+			],
+			"content": [],
+			"tags": "shopping"
+		},
+		{
+			"id": "6cf9d8d3-ac16-47b3-af50-e9e64bd13b93",
+			"path": "/shopping/hotel-offers/by-hotel",
+			"description": [
+				"==OBJECT STRING==",
+				"This service will return all available offers for a given hotel at a given date range.",
+				"The user can filter the offers returned by asking for a specific meal, rateCode, or other parameters as described here.",
+				"",
+				"Note: At this step, exact prices are returned.",
+				"",
+				"### Query example",
+				"Get all offers for Bulgari Hotels Resorts Milano available today.",
+				"<pre><code>",
+				"GET https://test.api.amadeus.com/v2/shopping/hotel-offers/by-hotel?hotelId=BGMILBGB&adults=2&roomQuantity=1&paymentPolicy=NONE&view=FULL_ALL_IMAGES",
+				"</code></pre>",
+				"",
+				"### Response example",
+				"<pre><code>",
+				"{",
+				"  \"data\": {",
+				"    \"type\": \"hotel-offers\",",
+				"    \"hotel\": {",
+				"      \"type\": \"hotel\",",
+				"      \"hotelId\": \"BGMILBGB\",",
+				"      \"chainCode\": \"BG\",",
+				"      \"dupeId\": \"700025106\",",
+				"      \"name\": \"BULGARI HOTELS RESORTS MILANO\",",
+				"      \"rating\": \"5\",",
+				"      \"cityCode\": \"MIL\",",
+				"      \"latitude\": 45.47253,",
+				"      \"longitude\": 9.18805,",
+				"      \"address\": {",
+				"        \"lines\": [",
+				"          \"VIA PRIVATA FRATELLI GABBA 7B\"",
+				"        ],",
+				"        \"postalCode\": \"20121\",",
+				"        \"cityName\": \"MILAN\",",
+				"        \"countryCode\": \"IT\"",
+				"      },",
+				"      \"contact\": {",
+				"        \"phone\": \"39-02-8058051\",",
+				"        \"fax\": \"39-02-805805222\"",
+				"      },",
+				"      \"amenities\": [",
+				"        \"CONVENTION_CTR\",",
+				"        \"MEETING_ROOMS\",",
+				"        \"ICE_MACHINES\",",
+				"        \"RESTAURANT\",",
+				"        \"HANDICAP_FAC\",",
+				"        \"ACC_TOILETS\",",
+				"        \"DIS_PARKG\",",
+				"        \"BABY-SITTING\",",
+				"        \"BEAUTY_PARLOUR\",",
+				"        \"CAR_RENTAL\",",
+				"        \"ELEVATOR\",",
+				"        \"EXCHANGE_FAC\",",
+				"        \"WIFI\",",
+				"        \"LAUNDRY_SVC\",",
+				"        \"SPA\",",
+				"        \"VALET_PARKING\",",
+				"        \"HAIRDRESSER\",",
+				"        \"SWIMMING_POOL\",",
+				"        \"AIR_CONDITIONING\",",
+				"        \"HAIR_DRYER\",",
+				"        \"MINIBAR\",",
+				"        \"MOVIE_CHANNELS\",",
+				"        \"ROOM_SERVICE\",",
+				"        \"TELEVISION\",",
+				"        \"SAFE_DEP_BOX\",",
+				"        \"FITNESS_CENTER\"",
+				"      ],",
+				"      \"media\": [",
+				"        {",
+				"          \"uri\": \"http://pdt.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/B6AA0C7920214C49AAFBCFFF32A15300\",",
+				"          \"category\": \"EXTERIOR\"",
+				"        },",
+				"        {",
+				"          \"uri\": \"http://pdt.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/0B9245555964410B97E958128EB3DE52\",",
+				"          \"category\": \"LOBBY\"",
+				"        },",
+				"        {",
+				"          \"uri\": \"http://pdt.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/DDFD5AD22B134110BCDBE64186FE860A\",",
+				"          \"category\": \"SUITE\"",
+				"        }",
+				"      ]",
+				"    },",
+				"    \"available\": true,",
+				"    \"offers\": [",
+				"      {",
+				"        \"id\": \"8BB1F89D377409FEFACB3E73654A5D765CD812920802E5976BFBB060BAF23AD7\",",
+				"        \"rateCode\": \"RAC\",",
+				"        \"rateFamilyEstimated\": {",
+				"          \"code\": \"RAC\",",
+				"          \"type\": \"P\"",
+				"        },",
+				"        \"room\": {",
+				"          \"type\": \"REG\",",
+				"          \"typeEstimated\": {",
+				"            \"category\": \"SUPERIOR_ROOM\",",
+				"            \"beds\": 1,",
+				"            \"bedType\": \"KING\"",
+				"          },",
+				"          \"description\": {",
+				"            \"lang\": \"EN\",",
+				"            \"text\": \"Regular Rate\\nSuperior Room garden or patio view, large bathr\\noom, 1 King, 35sqm/377sqft, Wireless internet,\"",
+				"          }",
+				"        },",
+				"        \"guests\": {",
+				"          \"adults\": 2",
+				"        },",
+				"        \"price\": {",
+				"          \"currency\": \"EUR\",",
+				"          \"total\": \"857.00\"",
+				"        },",
+				"        \"self\": \"https://test.api.amadeus.com/v2/shopping/hotel-offers/8BB1F89D377409FEFACB3E73654A5D765CD812920802E5976BFBB060BAF23AD7\"",
+				"      },",
+				"      {",
+				"        \"id\": \"2E5650829E01B8BD88085B597266F15EF03E6E23BC8DB1A470A6D03F8E2BA1A8\",",
+				"        \"rateCode\": \"RAC\",",
+				"        \"rateFamilyEstimated\": {",
+				"          \"code\": \"RAC\",",
+				"          \"type\": \"P\"",
+				"        },",
+				"        \"room\": {",
+				"          \"type\": \"REG\",",
+				"          \"typeEstimated\": {",
+				"            \"category\": \"DELUXE_ROOM\"",
+				"          },",
+				"          \"description\": {",
+				"            \"lang\": \"EN\",",
+				"            \"text\": \"Regular Rate\\nDeluxe Room garden or patio view, walk-in close\\nt, large bathroom, 1 King or 2 Queen, 40sqm/430\"",
+				"          }",
+				"        },",
+				"        \"guests\": {",
+				"          \"adults\": 2",
+				"        },",
+				"        \"price\": {",
+				"          \"currency\": \"EUR\",",
+				"          \"total\": \"912.00\"",
+				"        },",
+				"        \"self\": \"https://test.api.amadeus.com/v2/shopping/hotel-offers/2E5650829E01B8BD88085B597266F15EF03E6E23BC8DB1A470A6D03F8E2BA1A8\"",
+				"      }",
+				"    ]",
+				"  }",
+				"}",
+				"</code></pre>",
+				"",
+				""
+			],
+			"summary": "VIEW HOTEL ROOMS.",
+			"method": "GET",
+			"example": "",
+			"responses": [
+				{
+					"status": "200",
+					"headers": [],
+					"content": []
+				},
+				{
+					"status": "400",
+					"headers": [],
+					"content": []
+				},
+				{
+					"status": "404",
+					"headers": [],
+					"content": []
+				},
+				{
+					"status": "500",
+					"headers": [],
+					"content": []
+				}
+			],
+			"headers": [],
+			"parameters": [
+				{
+					"name": "hotelId",
+					"description": [
+						"==OBJECT STRING==",
+						"Amadeus Property Code (8 chars)",
+						"",
+						"Example: BGMILBGB",
+						""
+					],
+					"inPath": false,
+					"required": true,
+					"type": "string"
+				},
+				{
+					"name": "checkInDate",
+					"description": [
+						"==OBJECT STRING==",
+						"check-in date of the stay (hotel local date). Format YYYY-MM-DD",
+						"",
+						"The lowest accepted value is the present date (no dates in the past). ",
+						"If not present, the default value will be today's date in the GMT timezone.",
+						"",
+						""
+					],
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "checkOutDate",
+					"description": [
+						"==OBJECT STRING==",
+						"check-out date of the stay (hotel local date). Format YYYY-MM-DD",
+						"",
+						"The lowest accepted value is checkInDate+1. ",
+						"If not present, it will default to checkInDate + 1",
+						"",
+						""
+					],
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "adults",
+					"description": "number of adult guests (1-9) per room",
+					"inPath": false,
+					"default": 2,
+					"required": false,
+					"type": "integer",
+					"minLength": 1,
+					"maxLength": 9
+				},
+				{
+					"name": "childAges",
+					"description": "comma separated list of ages of each child at the time of check-out from the hotel. If several children have the same age, their ages should be repeated in the list",
+					"inPath": false,
+					"required": false,
+					"type": "array"
+				},
+				{
+					"name": "rateCodes",
+					"description": [
+						"==OBJECT STRING==",
+						"Special Rate (comma separated list of Amadeus 3 chars Codes): Public Rate (PRO...), Qualified Rate (GOV...) or Corporate Rate (IBM...).",
+						"",
+						"When a Corporate Rate is entered, Amadeus performs a check to verify which chains have authorized the caller to view the rate, only authorized chains will be queried for availability.",
+						"",
+						"Warning: The availability response can also contain Public rates.",
+						"",
+						"Example Rates: ",
+						"* GOV - Government Rate",
+						"* AAA - AAA Rate",
+						"* MIL - Military/Veteran Rate",
+						"* SNR - Senior Rate",
+						"* PRO - Promotional Code",
+						"* COR - Corporate Code",
+						"",
+						""
+					],
+					"inPath": false,
+					"required": false,
+					"type": "array"
+				},
+				{
+					"name": "roomQuantity",
+					"description": "number of rooms (1-9)",
+					"inPath": false,
+					"default": 1,
+					"required": false,
+					"type": "integer",
+					"minLength": 1,
+					"maxLength": 9
+				},
+				{
+					"name": "currency",
+					"description": [
+						"==OBJECT STRING==",
+						"use this parameter to request a specific currency. ISO currency code (http://www.iso.org/iso/home/standards/currency_codes.htm).",
+						"",
+						"If a hotel does not support the requested currency, the prices for the hotel will be returned in the local currency of the hotel",
+						"and instead a currency conversion rate will be added in the dictionary.",
+						"",
+						"Example: EUR",
+						"",
+						""
+					],
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "paymentPolicy",
+					"description": "filter the response based on a specific payment type. NONE means all types (default)",
+					"inPath": false,
+					"default": "NONE",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "boardType",
+					"description": [
+						"==OBJECT STRING==",
+						"filter response based on available meals",
+						"* ROOM_ONLY = RO / Room Only",
+						"* BREAKFAST = BB / Bed & Breakfast",
+						"* HALF_BOARD = DBB / Diner & Bed & Breakfast (only for Aggregators)",
+						"* FULL_BOARD = FB / Full Board (only for Aggregators)",
+						"* ALL_INCLUSIVE = AI / All Inclusive (only for Aggregators)",
+						""
+					],
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "view",
+					"description": [
+						"==OBJECT STRING==",
+						"hotel descriptive content to include in the response",
+						"",
+						"NONE: geocoordinates, hotel distance",
+						"",
+						"LIGHT: NONE view + city name, phone number, fax, address, postal code, country code, state code, ratings, 1 image",
+						"",
+						"FULL: LIGHT view + hotel description, amenities and facilities",
+						"",
+						"FULL_ALL_IMAGES: FULL view + all images",
+						""
+					],
+					"inPath": false,
+					"default": "FULL_ALL_IMAGES",
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "lang",
+					"description": [
+						"==OBJECT STRING==",
+						"requested language of descriptive texts. ",
+						"",
+						"Examples: FR , fr , fr-FR",
+						"",
+						"if a language is not avaiable the text will be returned in english.",
+						"ISO language code (https://www.iso.org/iso-639-language-codes.html)",
+						""
+					],
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				}
+			],
+			"content": [],
+			"tags": "shopping"
+		},
+		{
+			"id": "8f9885ec-59b9-4a50-e2ef-bc4a85bb1e49",
+			"path": "/shopping/hotel-offers/(offerId)",
+			"description": [
+				"==OBJECT STRING==",
+				"Return all available details of a specific hotel offer.",
+				"   Returned details mainly includes:",
+				"  - prices with tax",
+				"  - accepted methods of payments",
+				"  - cancellation policies",
+				"  - guaranteed pricing",
+				"  - descriptions about the meal, room, and special rate.",
+				""
+			],
+			"summary": "VIEW ROOM DETAILS.",
+			"method": "GET",
+			"example": "",
+			"responses": [
+				{
+					"status": "200",
+					"headers": [],
+					"content": []
+				},
+				{
+					"status": "400",
+					"headers": [],
+					"content": []
+				},
+				{
+					"status": "404",
+					"headers": [],
+					"content": []
+				},
+				{
+					"status": "500",
+					"headers": [],
+					"content": []
+				}
+			],
+			"headers": [],
+			"parameters": [
+				{
+					"name": "offerId",
+					"description": "offer id to request. Please note that an offer id has a limited lifetime and will expire",
+					"inPath": true,
+					"required": true,
+					"type": "string"
+				},
+				{
+					"name": "lang",
+					"description": [
+						"==OBJECT STRING==",
+						"requested language of descriptive texts. ",
+						"",
+						"Examples: FR , fr , fr-FR",
+						"",
+						"if a language is not avaiable the text will be returned in english.",
+						"ISO language code (https://www.iso.org/iso-639-language-codes.html)",
+						""
+					],
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				}
+			],
+			"content": [],
+			"tags": "shopping"
+		}
+	],
+	"definitions": [
+		{
+			"id": "f1159a9b-ea9f-466a-c0f7-dd533672955e",
+			"name": "HotelOffers",
+			"description": "details of the requested hotel and the available offers",
+			"properties": [
+				{
+					"id": "ec055099-90b1-4383-942a-f39681bb06e0",
+					"name": "type",
+					"parent": "",
+					"description": "the type of the object (hotel-offers)",
+					"pattern": "",
+					"example": "",
+					"default": "offers",
+					"objectType": "string"
+				},
+				{
+					"id": "8f7e7e7c-b21b-40f6-b696-0010bc42879e",
+					"name": "hotel",
+					"parent": "",
+					"description": "Hotel Content",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "76041ef5-c3f5-4f07-bc07-fba6e38438fd",
+					"name": "available",
+					"parent": "",
+					"description": "availability status of this hotel",
+					"pattern": "",
+					"example": "",
+					"objectType": "boolean"
+				},
+				{
+					"id": "d6d81cd8-cd01-4a13-f88e-74741f202f13",
+					"name": "offers",
+					"parent": "",
+					"description": "Hotel Offer",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				},
+				{
+					"id": "a6b30af3-99bf-483f-9fbc-c3e79988d99c",
+					"name": "self",
+					"parent": "",
+					"description": "a self link to the object",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "fd4df9cb-e9d0-443f-bfda-497665141c27",
+			"name": "Hotel",
+			"description": "Hotel Content",
+			"properties": [
+				{
+					"id": "d7a06eac-fe3f-41f1-b718-777e8d7653f3",
+					"required": true,
+					"name": "type",
+					"parent": "",
+					"description": "data type Hotel",
+					"pattern": "",
+					"example": "hotel",
+					"default": "hotel",
+					"objectType": "string"
+				},
+				{
+					"id": "ae2e0780-962a-44e1-e20a-52397afc22bd",
+					"required": true,
+					"name": "hotelId",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"Amadeus Property Code (8 chars)",
+						""
+					],
+					"pattern": "^[A-Z0-9]{8}$",
+					"example": "ADPAR001",
+					"objectType": "string"
+				},
+				{
+					"id": "390deb06-85b0-430f-c745-e736436afc66",
+					"required": true,
+					"name": "chainCode",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"Brand (RT...) or Merchant (AD...) (Amadeus 2 chars Code)",
+						""
+					],
+					"pattern": "^[A-Z]{2}$",
+					"example": "AD",
+					"objectType": "string"
+				},
+				{
+					"id": "9d8bcc3a-8ee8-4287-b61e-e466e437085e",
+					"name": "brandCode",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"Brand (RT...) (Amadeus 2 chars Code). Small Properties distributed by Merchants may not have a Brand.",
+						"Example: AD (Value Hotels) is the Provider/Merchant, and RT (Accor) is the Brand of the Property",
+						"",
+						""
+					],
+					"pattern": "^[A-Z]{2}$",
+					"example": "RT",
+					"objectType": "string"
+				},
+				{
+					"id": "d737311a-821a-4505-8c96-a7cc68a9a84f",
+					"name": "dupeId",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"Unique Property identifier of the physical hotel.",
+						"One physical hotel can be represented by different Providers, each one having its own `hotelID`.",
+						"This attribute allows a client application to group together hotels that are actually the same.",
+						"",
+						""
+					],
+					"pattern": "",
+					"example": "501132260",
+					"objectType": "string"
+				},
+				{
+					"id": "16c24c19-10f3-48a8-f8fa-4c3ce93a97e7",
+					"required": true,
+					"name": "name",
+					"parent": "",
+					"description": "Hotel Name",
+					"pattern": "",
+					"example": "Hotel de Paris",
+					"objectType": "string"
+				},
+				{
+					"id": "068ae87f-90a5-4ea1-8d73-b9f47fb54eef",
+					"name": "rating",
+					"parent": "",
+					"description": "Hotel Stars (1-5)",
+					"pattern": "^[1-5]$",
+					"example": "5",
+					"objectType": "string"
+				},
+				{
+					"id": "16c0365a-be76-4d30-de87-ffe01c5e76df",
+					"name": "description",
+					"parent": "",
+					"description": "text and language",
+					"pattern": "",
+					"example": "",
+					"objectType": {
+						"description": "text and language",
+						"properties": {
+							"lang": {
+								"type": "string",
+								"pattern": "[a-zA-Z0-9-]{2,5}",
+								"description": "Language code of the text ISO language code (https://www.iso.org/iso-639-language-codes.html)"
+							},
+							"text": {
+								"type": "string",
+								"description": "Text description"
+							}
+						}
+					}
+				},
+				{
+					"id": "67023466-8673-480e-d9b9-44a98d43b9a1",
+					"name": "amenities",
+					"parent": "",
+					"description": "amenities (list)",
+					"pattern": "",
+					"example": [
+						"SWIMMING_POOL",
+						"SPA"
+					],
+					"objectType": "array"
+				},
+				{
+					"id": "4b2db794-0161-45f2-80a9-aaae27084ca9",
+					"name": "media",
+					"parent": "",
+					"description": "media",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				},
+				{
+					"id": "555af0f7-9a88-4419-b2af-8f59bf38c323",
+					"name": "cityCode",
+					"parent": "",
+					"description": "Warning: The IATA city code associated to the hotel (not necessary the real Hotel City)",
+					"pattern": "^[A-Z]{3}$",
+					"example": "PAR",
+					"objectType": "string"
+				},
+				{
+					"id": "531e4d71-71cb-4115-cabf-ea0d24849256",
+					"name": "latitude",
+					"parent": "",
+					"description": "Hotel Latitude in decimal degrees (5 decimals)",
+					"pattern": "",
+					"example": 52.52387,
+					"objectType": "number"
+				},
+				{
+					"id": "74e3c60b-c3de-484c-98ee-9e3bbfd06075",
+					"name": "longitude",
+					"parent": "",
+					"description": "Hotel Longitude in decimal degrees (5 decimals)",
+					"pattern": "",
+					"example": 13.38357,
+					"objectType": "number"
+				},
+				{
+					"id": "f7a19ce1-210b-4dcc-a556-0cc3a8a78ead",
+					"name": "hotelDistance",
+					"parent": "",
+					"description": "distance from the point of search to the hotel",
+					"pattern": "",
+					"example": "",
+					"objectType": {
+						"description": "distance from the point of search to the hotel",
+						"properties": {
+							"distance": {
+								"type": "number",
+								"format": "double",
+								"minimum": 0,
+								"maximum": 250,
+								"example": 0.3,
+								"description": "distance (in `distanceUnit`)"
+							},
+							"distanceUnit": {
+								"type": "string",
+								"enum": [
+									"KM",
+									"MILE"
+								],
+								"example": "KM",
+								"description": "unit of measure (Km or Miles)"
+							}
+						}
+					}
+				},
+				{
+					"id": "19d0e82f-2d11-4e75-db3f-4b8f9f0bf457",
+					"name": "address",
+					"parent": "",
+					"description": "Address Details",
+					"pattern": "",
+					"example": "",
+					"objectType": {
+						"description": "Address Details",
+						"properties": {
+							"lines": {
+								"type": "array",
+								"items": {
+									"type": "string"
+								},
+								"description": "When the address is unformatted these lines will contain free form address details."
+							},
+							"postalCode": {
+								"type": "string",
+								"description": "Post office code number"
+							},
+							"cityName": {
+								"type": "string",
+								"description": "City Name"
+							},
+							"countryCode": {
+								"type": "string",
+								"pattern": "^[A-Z]{2}$",
+								"example": "FR",
+								"description": "ISO 3166-1 defines codes for the names of countries, dependent territories, and special areas of geographical interest"
+							},
+							"stateCode": {
+								"type": "string",
+								"description": "ISO 3166-2 defines codes for identifying the principal subdivisions (e.g. provinces or states) of all countries coded in ISO 3166-1"
+							}
+						}
+					}
+				},
+				{
+					"id": "0b737c4c-2dd5-41d3-f9ec-f281f97581b3",
+					"name": "contact",
+					"parent": "",
+					"description": "Contact Details",
+					"pattern": "",
+					"example": "",
+					"objectType": {
+						"description": "Contact Details",
+						"required": [
+							"phone",
+							"fax"
+						],
+						"properties": {
+							"phone": {
+								"type": "string",
+								"description": "Phone Number",
+								"pattern": "[0-9]{2}",
+								"minLength": 2,
+								"maxLength": 90,
+								"example": "+33679278416"
+							},
+							"fax": {
+								"type": "string",
+								"description": "Fax Number",
+								"pattern": "[0-9]{2}",
+								"minLength": 2,
+								"maxLength": 90,
+								"example": "+33679278417"
+							},
+							"email": {
+								"type": "string",
+								"format": "email",
+								"description": "Email Address",
+								"pattern": "@",
+								"minLength": 3,
+								"maxLength": 90,
+								"example": "hotel@brand.com"
+							}
+						}
+					}
+				}
+			]
+		},
+		{
+			"id": "1830d01a-bca5-41cf-f274-4f832c2e8b0d",
+			"name": "File",
+			"description": "media",
+			"properties": [
+				{
+					"id": "22c6c413-9167-4ddc-83f4-ad19f4c000c3",
+					"required": true,
+					"name": "uri",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"href to display the image",
+						""
+					],
+					"pattern": "",
+					"example": "http://pdt.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/69810B23CB8644A18AF760DC66BE41A6",
+					"objectType": "string"
+				},
+				{
+					"id": "6901b1a0-1a8d-4811-8f33-cf3be65e0904",
+					"required": true,
+					"name": "category",
+					"parent": "",
+					"description": "media category (enum)",
+					"pattern": "",
+					"example": "EXTERIOR",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "712001b9-d65f-4e33-aee5-f038c4e84319",
+			"name": "HotelDistance",
+			"description": "distance from the point of search to the hotel",
+			"properties": [
+				{
+					"id": "04d7c99b-21a4-4316-e10b-6a9a6c6123df",
+					"name": "distance",
+					"parent": "",
+					"description": "distance (in `distanceUnit`)",
+					"pattern": "",
+					"example": 0.3,
+					"objectType": "number"
+				},
+				{
+					"id": "1392d153-4531-4c90-bc74-c2751fa056f6",
+					"name": "distanceUnit",
+					"parent": "",
+					"description": "unit of measure (Km or Miles)",
+					"pattern": "",
+					"example": "KM",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "a3ed6fcc-536f-43a5-8fba-18349a20de7f",
+			"name": "AddressHotel",
+			"description": "Address Details",
+			"properties": [
+				{
+					"id": "844b8228-fef6-489b-f3dd-7e55495fca63",
+					"name": "lines",
+					"parent": "",
+					"description": "When the address is unformatted these lines will contain free form address details.",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				},
+				{
+					"id": "fe77472b-1adf-46e1-f616-efde7c90b639",
+					"name": "postalCode",
+					"parent": "",
+					"description": "Post office code number",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "75241fa9-151c-465a-c179-ec2a84731672",
+					"name": "cityName",
+					"parent": "",
+					"description": "City Name",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "c93378f5-ebbd-41d2-d3bf-9dfb85dd2e67",
+					"name": "countryCode",
+					"parent": "",
+					"description": "ISO 3166-1 defines codes for the names of countries, dependent territories, and special areas of geographical interest",
+					"pattern": "^[A-Z]{2}$",
+					"example": "FR",
+					"objectType": "string"
+				},
+				{
+					"id": "78035f0d-1ef9-4c5c-e931-c813da3f279c",
+					"name": "stateCode",
+					"parent": "",
+					"description": "ISO 3166-2 defines codes for identifying the principal subdivisions (e.g. provinces or states) of all countries coded in ISO 3166-1",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "bf69b54f-a822-4b58-c9db-acc4e3b815d4",
+			"name": "ContactHotel",
+			"description": "Contact Details",
+			"properties": [
+				{
+					"id": "1e296f7b-deea-465f-db40-a9b79d82ce27",
+					"required": true,
+					"name": "phone",
+					"parent": "",
+					"description": "Phone Number",
+					"pattern": "[0-9]{2}",
+					"example": "+33679278416",
+					"objectType": "string"
+				},
+				{
+					"id": "ccd92a32-2ee6-4067-da7d-e3cbcfca11a2",
+					"required": true,
+					"name": "fax",
+					"parent": "",
+					"description": "Fax Number",
+					"pattern": "[0-9]{2}",
+					"example": "+33679278417",
+					"objectType": "string"
+				},
+				{
+					"id": "62e05a7f-2dfc-462c-f64f-903c3a1b699b",
+					"name": "email",
+					"parent": "",
+					"description": "Email Address",
+					"pattern": "@",
+					"example": "hotel@brand.com",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "7072231f-31f1-49e9-ab98-5bdbc0bf28c9",
+			"name": "HotelOffer",
+			"description": "Hotel Offer",
+			"properties": [
+				{
+					"id": "0a9525b7-cbe5-4795-f014-7521a551dd80",
+					"name": "type",
+					"parent": "",
+					"description": "data type",
+					"pattern": "",
+					"example": "hotel-offer",
+					"default": "hotel-offer",
+					"objectType": "string"
+				},
+				{
+					"id": "2c8cefa6-17d5-45e8-c49d-a97d4b49f81f",
+					"required": true,
+					"name": "id",
+					"parent": "",
+					"description": "Unique identifier of this offer. Might be valid for a temporary period only.",
+					"pattern": "^[A-Z0-9]*$",
+					"example": "63A93695B58821ABB0EC2B33FE9FAB24D72BF34B1BD7D707293763D8D9378FC3",
+					"objectType": "string"
+				},
+				{
+					"id": "15176c9b-cf4e-4398-f280-e4a3638811e0",
+					"name": "checkInDate",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"check-in date of the stay (hotel local date). Format YYYY-MM-DD",
+						"",
+						"The lowest accepted value is today date (no dates in the past). ",
+						"",
+						""
+					],
+					"pattern": "",
+					"example": "2020-12-30",
+					"objectType": "string"
+				},
+				{
+					"id": "e96d3987-df76-45e6-aaee-25dcba61437b",
+					"name": "checkOutDate",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"check-out date of the stay (hotel local date). Format YYYY-MM-DD",
+						"",
+						"The lowest accepted value is `checkInDate`+1. ",
+						"",
+						""
+					],
+					"pattern": "",
+					"example": "2020-12-31",
+					"objectType": "string"
+				},
+				{
+					"id": "f769baa4-c21d-4ef5-e50a-858e179b2722",
+					"name": "roomQuantity",
+					"parent": "",
+					"description": "number of rooms (1-9)",
+					"pattern": "",
+					"example": 1,
+					"objectType": "integer"
+				},
+				{
+					"id": "6f1300b2-5b6f-4bf2-a72d-84750ee293c1",
+					"required": true,
+					"name": "rateCode",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"Special Rate - Provider Response Code (3 chars)",
+						"Examples:",
+						"* RAC - Rack",
+						"* BAR - Best Available Rate",
+						"* PRO - Promotional",
+						"* COR - Corporate",
+						"* GOV - Government (qualified)",
+						"* AAA - AAA (qualified)",
+						"* BNB - Bed and Breakfast",
+						"* PKG - Package",
+						"* TVL - Travel Industry",
+						"* SPC - Special Promo Rate",
+						"* WKD - Weekend",
+						"* CON - Convention",
+						"* SNR - Senior (Europe) (qualified)",
+						"* ARP - AARP - American Association of Retired People (50+) (qualified)",
+						"* SRS - Senior (qualified)",
+						"* ROR - Room Only Rate (no breakfast)",
+						"* FAM - Family",
+						"* DAY - Day rate",
+						""
+					],
+					"pattern": "^[A-Z0-9*]{3}$",
+					"example": "RAC",
+					"objectType": "string"
+				},
+				{
+					"id": "ba7910cf-8bd0-43fe-a61a-af820e05266c",
+					"name": "rateFamilyEstimated",
+					"parent": "",
+					"description": "The estimated rate code family of the offer. Grouping various rate plan codes that belongs to the same family and indicates the type of the rate",
+					"pattern": "",
+					"example": "",
+					"objectType": {
+						"description": "The estimated rate code family of the offer. Grouping various rate plan codes that belongs to the same family and indicates the type of the rate",
+						"properties": {
+							"code": {
+								"description": "The estimated rate family (PRO,FAM,GOV)",
+								"type": "string",
+								"pattern": "[A-Z0-9]{3}"
+							},
+							"type": {
+								"description": "The type of the rate (public=P, negotiated=N, conditional=C)",
+								"type": "string",
+								"pattern": "[PNC]"
+							}
+						}
+					}
+				},
+				{
+					"id": "6b8e77fb-9ad0-496b-fd38-cdee79aa7c44",
+					"name": "category",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"Special Rate Category",
+						"Examples:",
+						" ASSOCIATION",
+						" FAMILY_PLAN",
+						""
+					],
+					"pattern": "",
+					"example": "FAMILY_PLAN",
+					"objectType": "string"
+				},
+				{
+					"id": "1b9afc70-0d16-44a7-ed79-0124680a6e50",
+					"name": "description",
+					"parent": "",
+					"description": "text and language",
+					"pattern": "",
+					"example": "",
+					"objectType": {
+						"description": "text and language",
+						"properties": {
+							"lang": {
+								"type": "string",
+								"pattern": "[a-zA-Z0-9-]{2,5}",
+								"description": "Language code of the text ISO language code (https://www.iso.org/iso-639-language-codes.html)"
+							},
+							"text": {
+								"type": "string",
+								"description": "Text description"
+							}
+						}
+					}
+				},
+				{
+					"id": "cfc95041-6c74-488e-c1f2-6d57381cf5e2",
+					"name": "commission",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "b33e1b2a-3312-467a-d226-135bd2d29dfe",
+					"name": "boardType",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"The included Breakfast/Meals",
+						""
+					],
+					"pattern": "",
+					"example": "BREAKFAST",
+					"objectType": "string"
+				},
+				{
+					"id": "4a60e274-73d8-4035-8af3-9c73e87206e6",
+					"required": true,
+					"name": "room",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "3ab8d218-922a-4bd1-b43b-25134608f9d9",
+					"name": "guests",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "edba0d6c-3daf-42c2-c1e8-2de6ec3d314f",
+					"required": true,
+					"name": "price",
+					"parent": "",
+					"description": "price information",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "e01dd122-35af-4e97-eb52-ec8e2603b494",
+					"name": "policies",
+					"parent": "",
+					"description": "Booking Rules",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "02c7ea59-a5c7-4d4b-aa72-2208ef7f3b66",
+					"name": "self",
+					"parent": "",
+					"description": "A self link to the object. Use this to refresh the Offer price",
+					"pattern": "",
+					"example": "https://test.api.amadeus.com/v2/shopping/hotel-offers/63A93695B58821ABB0EC2B33FE9FAB24D72BF34B1BD7D707293763D8D9378FC3",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "c333c9e5-5af4-49f5-dfae-33788aa9b704",
+			"name": "RateFamily",
+			"description": "The estimated rate code family of the offer. Grouping various rate plan codes that belongs to the same family and indicates the type of the rate",
+			"properties": [
+				{
+					"id": "c5ddd8ef-3a38-4a0b-ed7c-5374d860ec39",
+					"name": "code",
+					"parent": "",
+					"description": "The estimated rate family (PRO,FAM,GOV)",
+					"pattern": "[A-Z0-9]{3}",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "5f078d3b-c48f-4698-da90-aa9d0e6c030a",
+					"name": "type",
+					"parent": "",
+					"description": "The type of the rate (public=P, negotiated=N, conditional=C)",
+					"pattern": "[PNC]",
+					"example": "",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "e3750c4c-5d26-4bdc-f206-c6695adb1169",
+			"name": "Commission",
+			"properties": [
+				{
+					"id": "9ee5eb77-1b47-4ff6-93da-e5d316193cef",
+					"name": "percentage",
+					"parent": "",
+					"description": "Percentage of the commission paid to the travel seller. Value is between 0 and 100",
+					"pattern": "^\\\\d+(\\.\\\\d+)?$",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "66114306-fa5e-47db-f008-b3daf8bd97e4",
+					"name": "amount",
+					"parent": "",
+					"description": "Amount of the commission paid to the travel seller. The amount is always linked to the currency code of the offer",
+					"pattern": "^\\\\d+(\\.\\\\d+)?$",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "d8a29966-0cc0-443e-c1de-cb0a025d4b61",
+					"name": "description",
+					"parent": "",
+					"description": "text and language",
+					"pattern": "",
+					"example": "",
+					"objectType": {
+						"description": "text and language",
+						"properties": {
+							"lang": {
+								"type": "string",
+								"pattern": "[a-zA-Z0-9-]{2,5}",
+								"description": "Language code of the text ISO language code (https://www.iso.org/iso-639-language-codes.html)"
+							},
+							"text": {
+								"type": "string",
+								"description": "Text description"
+							}
+						}
+					}
+				}
+			]
+		},
+		{
+			"id": "f124230b-7075-4f7f-8117-54978a5ddb2d",
+			"name": "RoomDetails",
+			"properties": [
+				{
+					"id": "19a88f9f-62c0-4896-9fed-3ccc9d05dc8a",
+					"name": "type",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"Room type code, 3 character identifier of the room.",
+						"The first character identifies the room type category. ",
+						"The second numeric character identifies the number of beds. ",
+						"The third character identifies the bed type. ",
+						"There is a special case where ROH is returned, this value stands for Run Of House.",
+						""
+					],
+					"pattern": "^[A-Z0-9*]{3}$",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "50b5caf3-1514-4fad-dba8-b2e8df3fb143",
+					"name": "typeEstimated",
+					"parent": "",
+					"description": "estimated room category, bed type and number of beds in the room. This information has been parsed from the room description, and is thus only provided for informational purposes",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "165305f9-7ec6-4037-d23e-5103f8fa9571",
+					"name": "description",
+					"parent": "",
+					"description": "text and language",
+					"pattern": "",
+					"example": "",
+					"objectType": {
+						"description": "text and language",
+						"properties": {
+							"lang": {
+								"type": "string",
+								"pattern": "[a-zA-Z0-9-]{2,5}",
+								"description": "Language code of the text ISO language code (https://www.iso.org/iso-639-language-codes.html)"
+							},
+							"text": {
+								"type": "string",
+								"description": "Text description"
+							}
+						}
+					}
+				}
+			]
+		},
+		{
+			"id": "0ecd00b3-0b74-46fa-df8b-0adaec865390",
+			"name": "Guests",
+			"properties": [
+				{
+					"id": "e25da51e-58c6-436a-a582-fa85caf32d14",
+					"name": "adults",
+					"parent": "",
+					"description": "number of adult guests (1-9) per room",
+					"pattern": "",
+					"example": 2,
+					"objectType": "integer"
+				},
+				{
+					"id": "3e147a16-2e99-4f90-8931-29a4ee7190d9",
+					"name": "childAges",
+					"parent": "",
+					"description": "Comma separated list of ages of each child at the time of check-out from the hotel. If several children have the same age, the ages will be repeated.",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				}
+			]
+		},
+		{
+			"id": "85b56a9c-b1c9-4bbc-89bd-2b0d24cd1193",
+			"name": "HotelPrice",
+			"description": "price information",
+			"properties": [
+				{
+					"id": "84e2b040-3158-403e-9534-f5684a715021",
+					"name": "currency",
+					"parent": "",
+					"description": "Currency code",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "5f6dff40-a3ca-4140-d1db-478dcc85d7db",
+					"name": "total",
+					"parent": "",
+					"description": "Total amount including taxes",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "113b39f0-be99-45b0-a39c-e4c3cba7eded",
+					"name": "base",
+					"parent": "",
+					"description": "Total amount excluding taxes",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "0244e7b3-bd1d-4ba2-eff1-f6f811b2a06a",
+					"name": "taxes",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				},
+				{
+					"id": "9f8cd335-b864-49a2-9ecc-8230477a1b61",
+					"name": "variations",
+					"parent": "",
+					"description": "Daily price variations and the average daily price (when available) is shown here",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				}
+			]
+		},
+		{
+			"id": "2b7b0516-edac-4d85-8b98-c198f8b04103",
+			"name": "PolicyDetails",
+			"description": "Booking Rules",
+			"properties": [
+				{
+					"id": "dff2317e-eefa-4d84-85ee-83e58196bee0",
+					"name": "paymentType",
+					"parent": "",
+					"description": "payment type. Guarantee means Pay at Check Out. Check the `methods` in `guarantee` or `deposit` or `prepay`.",
+					"pattern": "",
+					"example": "deposit",
+					"objectType": "string"
+				},
+				{
+					"id": "7b1ee4c7-53a9-4831-f9e5-5760b0eda0fe",
+					"name": "guarantee",
+					"parent": "",
+					"description": "the guarantee policy information applicable to the offer. It includes accepted payments",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "8ee22311-b54c-4ef2-c833-559d499f78ef",
+					"name": "deposit",
+					"parent": "",
+					"description": "the deposit/prepay policy information applicable to the offer. It includes accepted payments, deadline and the amount due",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "603763f0-8ba0-4579-c4ca-a2ca7d96590b",
+					"name": "prepay",
+					"parent": "",
+					"description": "the deposit/prepay policy information applicable to the offer. It includes accepted payments, deadline and the amount due",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "1f012a9d-e21c-49cc-866c-da2de09469eb",
+					"name": "holdTime",
+					"parent": "",
+					"description": "the hold policy",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "9c316044-ac90-400d-ae42-1cb1d4fb1643",
+					"name": "cancellation",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "a1d0289a-67dc-4292-e53e-a605dda28d72",
+					"name": "checkInOut",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				}
+			]
+		},
+		{
+			"id": "912a36e1-0a92-4072-8430-c9689915bca0",
+			"name": "EstimatedRoomType",
+			"description": "estimated room category, bed type and number of beds in the room. This information has been parsed from the room description, and is thus only provided for informational purposes",
+			"properties": [
+				{
+					"id": "d1eaa501-ab5c-4308-b20f-571e957dc696",
+					"name": "category",
+					"parent": "",
+					"description": "Category code",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "0023b4db-8ccd-469d-b175-3253fdbb5f34",
+					"name": "beds",
+					"parent": "",
+					"description": "Number of beds in the room (1-9)",
+					"pattern": "",
+					"example": "",
+					"objectType": "integer"
+				},
+				{
+					"id": "02639b6e-2521-4c91-ec7c-c055f1b4c1ec",
+					"name": "bedType",
+					"parent": "",
+					"description": "Type of the bed",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "16a8b894-33d0-4075-c07f-251719f5dac2",
+			"name": "PriceVariations",
+			"description": "Daily price variations and the average daily price (when available) is shown here",
+			"properties": [
+				{
+					"id": "2eab64e0-cf3e-4143-b6ed-dc7749e7f0e4",
+					"name": "average",
+					"parent": "",
+					"description": "estimated nightly average for the stay",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "05e5d37e-a2b7-46a4-af72-774ce1f3fbdc",
+					"name": "changes",
+					"parent": "",
+					"description": "Some prices may vary during a stay, thus here you can see the daily price per period of the stay",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				}
+			]
+		},
+		{
+			"id": "27453dbf-2b1e-4301-bca1-cfd3eaeb9358",
+			"name": "GuaranteePolicy",
+			"description": "the guarantee policy information applicable to the offer. It includes accepted payments",
+			"properties": [
+				{
+					"id": "04a121d5-dbe9-475d-8108-6157f5970fe1",
+					"name": "description",
+					"parent": "",
+					"description": "text and language",
+					"pattern": "",
+					"example": "",
+					"objectType": {
+						"description": "text and language",
+						"properties": {
+							"lang": {
+								"type": "string",
+								"pattern": "[a-zA-Z0-9-]{2,5}",
+								"description": "Language code of the text ISO language code (https://www.iso.org/iso-639-language-codes.html)"
+							},
+							"text": {
+								"type": "string",
+								"description": "Text description"
+							}
+						}
+					}
+				},
+				{
+					"id": "61979386-b856-4afe-da1c-477b01ca2c54",
+					"name": "acceptedPayments",
+					"parent": "",
+					"description": "Accepted Payment Methods and Card Types. Several Payment Methods and Card Types may be available",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				}
+			]
+		},
+		{
+			"id": "3faf100a-8e99-4014-b132-d0f87085ec82",
+			"name": "DepositPolicy",
+			"description": "the deposit/prepay policy information applicable to the offer. It includes accepted payments, deadline and the amount due",
+			"properties": [
+				{
+					"id": "f62c0429-a7c5-433a-b2cf-55dc4b5b4c5f",
+					"name": "amount",
+					"parent": "",
+					"description": "Deposit-Prepay amount",
+					"pattern": "^\\\\d+(\\.\\\\d+)?$",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "21b74b3f-e1d3-4e55-b943-9c8fd9b4dd19",
+					"name": "deadline",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"The date and time of the deadline in ISO 8601[https://www.w3.org/TR/NOTE-datetime]. ",
+						" Example: 2010-08-14T13:00:00",
+						" Please note that this value is expressed in the hotels local time zone",
+						""
+					],
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "c3057626-f145-4975-a853-2ad3f957ae2a",
+					"name": "description",
+					"parent": "",
+					"description": "text and language",
+					"pattern": "",
+					"example": "",
+					"objectType": {
+						"description": "text and language",
+						"properties": {
+							"lang": {
+								"type": "string",
+								"pattern": "[a-zA-Z0-9-]{2,5}",
+								"description": "Language code of the text ISO language code (https://www.iso.org/iso-639-language-codes.html)"
+							},
+							"text": {
+								"type": "string",
+								"description": "Text description"
+							}
+						}
+					}
+				},
+				{
+					"id": "5c7e9ae8-9c05-4513-cc82-280a7cdf08ff",
+					"name": "acceptedPayments",
+					"parent": "",
+					"description": "Accepted Payment Methods and Card Types. Several Payment Methods and Card Types may be available",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				}
+			]
+		},
+		{
+			"id": "3ec50598-09bf-40ea-d0ea-60d0a53e4e2e",
+			"name": "HoldPolicy",
+			"description": "the hold policy",
+			"properties": [
+				{
+					"id": "d41b9d1b-8c09-427a-da84-d9b4ca35c9d4",
+					"required": true,
+					"name": "deadline",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"The date and time of the deadline in ISO 8601[https://www.w3.org/TR/NOTE-datetime]. ",
+						" Example: 2010-08-14T13:00:00",
+						" Please note that this value is expressed in the hotels local time zone",
+						""
+					],
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "5c786b35-8421-4fb7-a71b-154cdf464852",
+			"name": "CancellationPolicy",
+			"properties": [
+				{
+					"id": "af286069-97ff-4f15-cbbd-5d361eb6797f",
+					"name": "type",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"[\"Flat\",\"FlatPerNight\", \"Nights\", \"StayPercent\", \"FirstNight\", \"LastNight\", \"FirstAndLastNight\", \"FullStay\"]",
+						"Several penalty types can apply for the same product.",
+						""
+					],
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "30df0191-c54b-4cc1-dfe8-4753ed1ce361",
+					"name": "amount",
+					"parent": "",
+					"description": "Amount of the cancellation fee.",
+					"pattern": "^\\\\d+(\\.\\\\d+)?$",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "3b4c3050-2242-4b35-f0be-7f9d08a8edd5",
+					"name": "numberOfNights",
+					"parent": "",
+					"description": "Number of nights due as fee in case of cancellation.",
+					"pattern": "",
+					"example": "",
+					"objectType": "integer"
+				},
+				{
+					"id": "1580f3f2-736e-48e1-924d-8b374b9b491f",
+					"name": "percentage",
+					"parent": "",
+					"description": "Percentage of the total stay amount to be paid in case of cancellation. Value is between 0 and 100.",
+					"pattern": "^\\\\d+(\\.\\\\d+)?$",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "ec8d1884-558d-4b5f-f3d9-9ae31b7f0d6b",
+					"name": "deadline",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"Represents the deadline's date. Time is in ISO 8601 [https://www.w3.org/TR/NOTE-datetime].",
+						"Example: 2010-08-14T13:00:00",
+						"Please note that this value is expressed in the hotels local time zone",
+						""
+					],
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "5de4faf7-5fd3-4669-a883-2c75cb67c06d",
+					"name": "description",
+					"parent": "",
+					"description": "text and language",
+					"pattern": "",
+					"example": "",
+					"objectType": {
+						"description": "text and language",
+						"properties": {
+							"lang": {
+								"type": "string",
+								"pattern": "[a-zA-Z0-9-]{2,5}",
+								"description": "Language code of the text ISO language code (https://www.iso.org/iso-639-language-codes.html)"
+							},
+							"text": {
+								"type": "string",
+								"description": "Text description"
+							}
+						}
+					}
+				}
+			]
+		},
+		{
+			"id": "41d3eed3-c6c7-4f48-ab54-b66c4a78c397",
+			"name": "CheckInOutPolicy",
+			"properties": [
+				{
+					"id": "defbeaf2-2d11-45a7-b633-75b60cc5ba29",
+					"name": "checkIn",
+					"parent": "",
+					"description": "Check-in From time limit in ISO-8601 format [http://www.w3.org/TR/xmlschema-2/#time]",
+					"pattern": "",
+					"example": "13:00:00",
+					"objectType": "string"
+				},
+				{
+					"id": "6b8459d0-9ba9-497f-8ee4-1546989a7e86",
+					"name": "checkInDescription",
+					"parent": "",
+					"description": "text and language",
+					"pattern": "",
+					"example": "",
+					"objectType": {
+						"description": "text and language",
+						"properties": {
+							"lang": {
+								"type": "string",
+								"pattern": "[a-zA-Z0-9-]{2,5}",
+								"description": "Language code of the text ISO language code (https://www.iso.org/iso-639-language-codes.html)"
+							},
+							"text": {
+								"type": "string",
+								"description": "Text description"
+							}
+						}
+					}
+				},
+				{
+					"id": "1a3ea496-6e0a-4169-dbc6-95f60ff2621d",
+					"name": "checkOut",
+					"parent": "",
+					"description": "Check-out Until time limit in ISO-8601 format [http://www.w3.org/TR/xmlschema-2/#time]",
+					"pattern": "",
+					"example": "11:00:00",
+					"objectType": "string"
+				},
+				{
+					"id": "f8d836e3-f03a-4c84-d969-2baa61a67058",
+					"name": "checkOutDescription",
+					"parent": "",
+					"description": "text and language",
+					"pattern": "",
+					"example": "",
+					"objectType": {
+						"description": "text and language",
+						"properties": {
+							"lang": {
+								"type": "string",
+								"pattern": "[a-zA-Z0-9-]{2,5}",
+								"description": "Language code of the text ISO language code (https://www.iso.org/iso-639-language-codes.html)"
+							},
+							"text": {
+								"type": "string",
+								"description": "Text description"
+							}
+						}
+					}
+				}
+			]
+		},
+		{
+			"id": "db30bbe4-e340-4bb9-b6fe-022dd4875ff8",
+			"name": "HotelTax",
+			"properties": [
+				{
+					"id": "270278e8-20ab-4d75-e448-f6a62a02e93b",
+					"name": "currency",
+					"parent": "",
+					"description": "Currency code of the tax",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "30196004-22c1-4dec-a771-90f2f857ddcb",
+					"name": "amount",
+					"parent": "",
+					"description": "Amount of the tax",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "6d43e23d-23fc-4fbd-d4b2-8225aff99e5c",
+					"name": "code",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"The tax code which identifies the tax.",
+						"  Examples:",
+						"  1=BED_TAX",
+						"  2=CITY_TAX",
+						""
+					],
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "e9005a15-c964-4cc4-990d-34ecf97f020a",
+					"name": "percentage",
+					"parent": "",
+					"description": "percentage of the tax. Use together with pricingFrequency and pricingMode",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "23969751-a8db-49a7-89d3-f0372b892957",
+					"name": "included",
+					"parent": "",
+					"description": "Is the tax included in the base amount",
+					"pattern": "",
+					"example": "",
+					"objectType": "boolean"
+				},
+				{
+					"id": "41262bb9-70ec-47c1-ec89-e0aaa9f8b1dd",
+					"name": "description",
+					"parent": "",
+					"description": "Textual description of the tax",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "595b64e7-00ea-4e5f-af3e-62808f9c3115",
+					"name": "pricingFrequency",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"Specifies if the tax applies per stay or per night",
+						" - PER_STAY",
+						" - PER_NIGHT",
+						""
+					],
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "d2ef15e6-eaa7-415a-d3c1-2fdd4e1d01b8",
+					"name": "pricingMode",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"Specifies if the tax applies per occupant or per room",
+						" - PER_OCCUPANT",
+						" - PER_PRODUCT",
+						""
+					],
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "485e8aa6-a683-4972-fe8f-b5fc125ac63b",
+			"name": "BaseTotalAmount",
+			"description": "estimated nightly average for the stay",
+			"properties": [
+				{
+					"id": "688cad60-5398-4af9-f58f-eea783b6a030",
+					"name": "base",
+					"parent": "",
+					"description": "Amount excluding taxes.",
+					"pattern": "^\\\\d+(\\.\\\\d+)?$",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "3cf09c79-433d-449c-cd71-843c291d9aac",
+					"name": "total",
+					"parent": "",
+					"description": "Amount including taxes.",
+					"pattern": "^\\\\d+(\\.\\\\d+)?$",
+					"example": "",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "01d35106-8505-446a-ef10-81d50088f2c5",
+			"name": "PriceVariation",
+			"description": "Some prices may vary during a stay, thus here you can see the daily price per period of the stay",
+			"properties": [
+				{
+					"id": "2e82ca76-2400-4e06-c9bd-9b9e8f1c96ea",
+					"required": true,
+					"name": "startDate",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"Begin date of the period",
+						"Format: YYYY-MM-DD",
+						""
+					],
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "2eeb8de3-90ed-4ae5-e092-0cfe56f2da48",
+					"required": true,
+					"name": "endDate",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"End date of the period",
+						"Format: YYYY-MM-DD",
+						""
+					],
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "e9a243f0-df75-44a9-b3c5-1ff4edf4143a",
+					"name": "base",
+					"parent": "",
+					"description": "Daily amount excluding tax",
+					"pattern": "^\\\\d+(\\.\\\\d+)?$",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "adc60fa2-390f-4edb-ef88-9f48a6a8a437",
+					"name": "total",
+					"parent": "",
+					"description": "Daily amount including tax",
+					"pattern": "^\\\\d+(\\.\\\\d+)?$",
+					"example": "",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "403a3ddc-9f68-4331-bf80-667a3f20c83c",
+			"name": "PaymentPolicy",
+			"description": "Accepted Payment Methods and Card Types. Several Payment Methods and Card Types may be available",
+			"properties": [
+				{
+					"id": "e4d6be96-0a3b-4ddd-b539-7140b3733d56",
+					"name": "creditCards",
+					"parent": "",
+					"description": "Accepted Payment Card Types for the `method` CREDIT_CARD",
+					"pattern": "^[A-Z]{2}$",
+					"example": [
+						"CA",
+						"VI",
+						"AX"
+					],
+					"objectType": "array"
+				},
+				{
+					"id": "50242ed1-16bc-40de-d97d-db53d9572c34",
+					"name": "methods",
+					"parent": "",
+					"description": "Accepted Payment Methods",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				}
+			]
+		},
+		{
+			"id": "93faf7df-b639-4e85-a98e-0a29032138df",
+			"name": "TextWithLanguageType",
+			"description": "text and language",
+			"properties": [
+				{
+					"id": "eb9bf587-3479-4a17-b2c9-211f7e3a2ec8",
+					"name": "lang",
+					"parent": "",
+					"description": "Language code of the text ISO language code (https://www.iso.org/iso-639-language-codes.html)",
+					"pattern": "[a-zA-Z0-9-]{2,5}",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "109d3029-08eb-4ecd-810e-51bf77001430",
+					"name": "text",
+					"parent": "",
+					"description": "Text description",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "f7ef2dcf-0034-4d8f-c2e7-13ef541df21b",
+			"name": "Meta",
+			"description": "meta information",
+			"properties": [
+				{
+					"id": "fef604af-7cab-44c8-9153-91e98e244c6b",
+					"name": "links",
+					"parent": "",
+					"description": "links to continue in the shopping process",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "e8d731b0-3f53-4ff9-f090-1dd0d1818992",
+					"name": "lang",
+					"parent": "",
+					"description": "the default language of all texts returned",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "75ef247c-b159-417c-b334-98a635b7c773",
+			"name": "Links",
+			"description": "links to continue in the shopping process",
+			"properties": [
+				{
+					"id": "4690c649-76d3-4e45-9709-02a3ef41dcdc",
+					"name": "next",
+					"parent": "",
+					"description": "Use this link to get the next hotels in the search result",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "9a59b7bd-5cf0-4dbe-aca4-9d540ad301b7",
+			"name": "HotelDictionary",
+			"properties": [
+				{
+					"id": "14548b57-17a7-4114-e8fd-92535d88a4ab",
+					"name": "currencyConversionLookupRates",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"- Used to convey rate conversions the requested currency differs from the currency returned by a hotel",
+						"- origin_amount = reverse_rate x target_amount",
+						"- target_amount = rate x origin_amount",
+						"- Example:",
+						"        currencyConversionLookupRates: {",
+						"          USD: {",
+						"                rate: \"0.80\",",
+						"                targetDecimalPlaces: 2,",
+						"                target: EUR",
+						"            },",
+						"            GBP: {",
+						"                rate: \"1.14\",",
+						"                targetDecimalPlaces: 2,",
+						"                target: EUR",
+						"            }",
+						"        }",
+						""
+					],
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				}
+			]
+		},
+		{
+			"id": "5e046037-6f3c-4581-ee6a-0b1baca651fe",
+			"name": "CurrencyConversionRate",
+			"description": "conversion from provider's currency to requested currency",
+			"properties": [
+				{
+					"id": "0a2c10b3-dd72-4834-af3c-5354dc769996",
+					"name": "rate",
+					"parent": "",
+					"description": "The conversion factor to apply against the source currency to obtain the requested currency",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "c587a473-9a88-4b7d-cb63-c2d20c85051c",
+					"name": "target",
+					"parent": "",
+					"description": "Requested currency code",
+					"pattern": "[A-Z]{3}",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "e7d35900-63d5-4054-fd68-88b75e43f2f9",
+					"name": "targetDecimalPlaces",
+					"parent": "",
+					"description": "Indicates the number of decimal places for the target currency",
+					"pattern": "",
+					"example": "",
+					"objectType": "integer"
+				}
+			]
+		},
+		{
+			"id": "dca4d47e-9bbb-4381-afb5-d294f2b5f9c8",
+			"name": "ErrorResponse",
+			"properties": [
+				{
+					"id": "db0ed9b4-667b-4f67-b7e6-ceeecc59fdd8",
+					"required": true,
+					"name": "errors",
+					"parent": "",
+					"description": "Error",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				}
+			]
+		},
+		{
+			"id": "3d97a094-431a-4381-8cd7-e80dbf53ebf1",
+			"name": "Error",
+			"description": "Error",
+			"properties": [
+				{
+					"id": "6a839077-596f-4368-f647-63c614ee59d8",
+					"name": "code",
+					"parent": "",
+					"description": "[Integer] A machine-readable error code from the Amadeus Canned Messages table, that will enable the API Consumers code to handle this type of error",
+					"pattern": "",
+					"example": 1,
+					"objectType": "integer"
+				},
+				{
+					"id": "c10bad95-c8f8-4b30-c049-1ba63534731e",
+					"name": "title",
+					"parent": "",
+					"description": "[String] An error title from the Canned Messages table with a 1:1 correspondence to the error code. This may be localized",
+					"pattern": "",
+					"example": "Resource not found",
+					"objectType": "string"
+				},
+				{
+					"id": "35e0b7e6-b9de-409d-f449-0150d8a183d9",
+					"name": "detail",
+					"parent": "",
+					"description": "[String] An easy-to-read explanation specific to this occurrence of the problem. It should give the API consumer an idea of what went wrong and how to recover from it. Like the title, this field’s value can be localized.",
+					"pattern": "",
+					"example": "The targeted resource doesn't exist",
+					"objectType": "string"
+				},
+				{
+					"id": "65c745a7-40a4-4201-978e-f1e3a6c4e2fb",
+					"name": "status",
+					"parent": "",
+					"description": "[Integer] The [HTTP status code](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml) of this response. This is present only in terminal errors which cause an unsuccessful response. In the case of multiple errors, they must all have the same status.",
+					"pattern": "",
+					"example": 400,
+					"objectType": "integer"
+				}
+			]
+		}
+	],
+	"documentation": [],
+	"name": "Amadeus_HotelSearch",
+	"endpoint": "https://test.api.amadeus.com/v2",
+	"ver": "23.8.11.1225",
+	"version": "2.0.0",
+	"description": null,
+	"mediaType": "application/vnd.amadeus+json",
+	"securitySchemes": null,
+	"swaggerURI": null,
+	"swaggerSystem": null,
+	"apiType": "",
+	"about": [
+		"==OBJECT STRING==",
+		"The Hotel Search REST/JSON API is a hotel search API that enables you to find the best hotel offers that match your search from a wide choice of providers. The results contain the hotel details and will allow the user to select their preferred option based on price, location and amenities among other factors. A wide range of search criteria can be applied to narrow the search results.",
+		"",
+		"## Authorization",
+		"",
+		"Before using the API you will need to get an access token. Please read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization)** for more information on how to get your token.",
+		""
+	],
+	"enableProxy": true,
+	"restrictAccess": false,
+	"enableTrace": false,
+	"enableIDE": true,
+	"internalAPI": false,
+	"isPublic": false,
+	"tlsAllowUntrusted": false,
+	"useOwnProcess": false,
+	"package": "b69714db-0a11-4c2b-9cfa-aabfa4102da6",
+	"apiGroup": "10141d64-d063-4665-94ad-ee21142059b3",
+	"apiFormat": 0,
+	"roles": []
+}

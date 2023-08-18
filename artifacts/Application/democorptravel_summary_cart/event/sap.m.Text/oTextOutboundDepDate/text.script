@@ -1,0 +1,4 @@
+if (typeof outdepdate === "undefined" || outdepdate === null || outdepdate === "") { return; }  
+
+var formattedText = moment(outdepdate).format("DD MMM"); 
+return formattedText;

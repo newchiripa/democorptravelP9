@@ -1,0 +1,8 @@
+var data = modeloListHotelsSelected.getData();
+
+//console.log("---------------");
+//console.log("oListHotelsSelected: ",data);
+
+//getValuesAndTotals();
+modeloListHotels.setData(data);
+

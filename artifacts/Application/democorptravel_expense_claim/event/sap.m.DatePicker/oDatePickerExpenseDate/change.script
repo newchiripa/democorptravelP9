@@ -1,0 +1,3 @@
+if (oDatePickerExpenseDate.getValue().length > 0) {
+    oDatePickerExpenseDate.setValueState(sap.ui.core.ValueState.None);
+}

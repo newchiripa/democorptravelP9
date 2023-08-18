@@ -1,0 +1,16 @@
+console.log(AmadeusToken);
+
+var options = {
+    headers: {
+        "Authorization": "Bearer " + AmadeusToken // Required. 
+    },
+    parameters: {
+        "subType": "CITY", // Required 
+        "keyword": oInputSLocation.getValue(), // Required 
+        "page[limit]": "5", // Optional 
+        "sort": "analytics.travelers.score", // Optional 
+        "view": "LIGHT" // Optional 
+    }
+};
+
+apioAPIGetLocation(options);

@@ -1,0 +1,7 @@
+.TotalPrice {
+  border-color: #00A1C1;
+  border-width: medium;
+  border-style: solid;
+  padding: 10px;
+  border-radius: 25px;
+}

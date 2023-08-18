@@ -1,0 +1,34 @@
+//TODO: Validation of fields 
+
+var dataArray = [];
+modeloPageTripDetail.getData().SELECT_DRAFT = false;
+modeloPageTripDetail.getData().SELECT_APPROVED = true;
+var dataSet = {
+    "KEY": "WA_TRAVEL_HEAD",
+    "VALUE": JSON.stringify(modeloPageTripDetail.getData())
+}
+
+dataArray.push(dataSet);
+
+dataSet = {
+    "KEY": "IT_RECEIPTS",
+    "VALUE": JSON.stringify(modeloTableExpenses.getData())
+}
+dataArray.push(dataSet);
+
+
+dataSet = {
+    "KEY": "GV_PAGE_SETTINGS",
+    "VALUE": JSON.stringify(modeloPageSettings.getData())
+}
+dataArray.push(dataSet);
+
+var options = {
+    parameters: {
+        "$select": "", // Optional 
+        "sap-client": "800" // Required 
+    },
+    data: dataArray
+};
+oApp.setBusy(true);
+apioAPITemplateSave(options);

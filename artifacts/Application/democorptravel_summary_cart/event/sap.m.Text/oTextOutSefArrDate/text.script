@@ -1,0 +1,3 @@
+if (typeof outarrdate === "undefined" || outarrdate === null || outarrdate === "") { return; }  
+var formattedText = moment(outarrdate).format("DD MMM"); 
+return formattedText;

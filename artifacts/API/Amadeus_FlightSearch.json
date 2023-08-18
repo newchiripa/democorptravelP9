@@ -1,0 +1,2993 @@
+{
+	"id": "319021fa-f707-49ec-a83c-6180fd31b959",
+	"createdAt": "2020-04-23T09:00:17.000Z",
+	"createdBy": "admin",
+	"auth": [],
+	"endpoints": [],
+	"paths": [
+		{
+			"id": "9f825347-bce4-4975-98f9-2a680dac99f3",
+			"path": "/shopping/flight-offers",
+			"description": [
+				"==OBJECT STRING==",
+				"This operation aims at dynamically returning the lowest available fares by providing flight combinations matching the requested route and travel dates.",
+				"The search engine collects, filters, ranks and standardizes the flight offers coming from the providers.",
+				"",
+				"The customer can retrieve up to 250 recommendations among the cheapest fares available in the providers’ system.",
+				"The customer can also compare different types of fares on a given route in one single call.",
+				"",
+				"The operation also offers several options to customize the search in order to find and return the relevant flight offer depending on the customer’s need. Some of these parameters can be set by default and when the context is specific, they can also be overridden dynamically by adapting the request.",
+				"",
+				"### Query example",
+				"<pre><code>",
+				"{",
+				"  \"currencyCode\": \"USD\",",
+				"  \"originDestinations\": [",
+				"    {",
+				"      \"id\": \"1\",",
+				"      \"originLocationCode\": \"RIO\",",
+				"      \"destinationLocationCode\": \"MAD\",",
+				"      \"departureDateTimeRange\": {",
+				"        \"date\": \"2020-08-01\",",
+				"        \"time\": \"10:00:00\"",
+				"      }",
+				"    },",
+				"    {",
+				"      \"id\": \"2\",",
+				"      \"originLocationCode\": \"MAD\",",
+				"      \"destinationLocationCode\": \"RIO\",",
+				"      \"departureDateTimeRange\": {",
+				"        \"date\": \"2020-08-05\",",
+				"        \"time\": \"17:00:00\"",
+				"      }",
+				"    }",
+				"  ],",
+				"  \"travelers\": [",
+				"    {",
+				"      \"id\": \"1\",",
+				"      \"travelerType\": \"ADULT\"",
+				"    },",
+				"    {",
+				"      \"id\": \"2\",",
+				"      \"travelerType\": \"CHILD\"",
+				"    }",
+				"  ],",
+				"  \"sources\": [",
+				"    \"GDS\"",
+				"  ],",
+				"  \"searchCriteria\": {",
+				"    \"maxFlightOffers\": 2,",
+				"    \"flightFilters\": {",
+				"      \"cabinRestrictions\": [",
+				"        {",
+				"          \"cabin\": \"BUSINESS\",",
+				"          \"coverage\": \"MOST_SEGMENTS\",",
+				"          \"originDestinationIds\": [",
+				"            \"1\"",
+				"          ]",
+				"        }",
+				"      ],",
+				"      \"carrierRestrictions\": {",
+				"        \"excludedCarrierCodes\": [",
+				"          \"AA\",",
+				"          \"TP\",",
+				"          \"AZ\"",
+				"        ]",
+				"      }",
+				"    }",
+				"  }",
+				"}",
+				"</code></pre>",
+				"",
+				"### Response example",
+				"<pre><code>",
+				"{",
+				"  \"meta\": {",
+				"    \"count\": 2",
+				"  },",
+				"  \"data\": [",
+				"    {",
+				"      \"type\": \"flight-offer\",",
+				"      \"id\": \"1\",",
+				"      \"source\": \"GDS\",",
+				"      \"instantTicketingRequired\": false,",
+				"      \"nonHomogeneous\": false,",
+				"      \"oneWay\": false,",
+				"      \"lastTicketingDate\": \"2020-01-16\",",
+				"      \"numberOfBookableSeats\": 7,",
+				"      \"itineraries\": [",
+				"        {",
+				"          \"duration\": \"PT15H55M\",",
+				"          \"segments\": [",
+				"            {",
+				"              \"departure\": {",
+				"                \"iataCode\": \"GIG\",",
+				"                \"terminal\": \"2\",",
+				"                \"at\": \"2020-08-01T21:50:00\"",
+				"              },",
+				"              \"arrival\": {",
+				"                \"iataCode\": \"LHR\",",
+				"                \"terminal\": \"5\",",
+				"                \"at\": \"2020-08-02T13:10:00\"",
+				"              },",
+				"              \"carrierCode\": \"BA\",",
+				"              \"number\": \"248\",",
+				"              \"aircraft\": {",
+				"                \"code\": \"788\"",
+				"              },",
+				"              \"operating\": {",
+				"                \"carrierCode\": \"BA\"",
+				"              },",
+				"              \"duration\": \"PT11H20M\",",
+				"              \"id\": \"1\",",
+				"              \"numberOfStops\": 0,",
+				"              \"blacklistedInEU\": false",
+				"            },",
+				"            {",
+				"              \"departure\": {",
+				"                \"iataCode\": \"LHR\",",
+				"                \"terminal\": \"5\",",
+				"                \"at\": \"2020-08-02T15:15:00\"",
+				"              },",
+				"              \"arrival\": {",
+				"                \"iataCode\": \"MAD\",",
+				"                \"terminal\": \"4S\",",
+				"                \"at\": \"2020-08-02T18:45:00\"",
+				"              },",
+				"              \"carrierCode\": \"BA\",",
+				"              \"number\": \"462\",",
+				"              \"aircraft\": {",
+				"                \"code\": \"321\"",
+				"              },",
+				"              \"operating\": {",
+				"                \"carrierCode\": \"BA\"",
+				"              },",
+				"              \"duration\": \"PT2H30M\",",
+				"              \"id\": \"2\",",
+				"              \"numberOfStops\": 0,",
+				"              \"blacklistedInEU\": false",
+				"            }",
+				"          ]",
+				"        },",
+				"        {",
+				"          \"duration\": \"PT13H35M\",",
+				"          \"segments\": [",
+				"            {",
+				"              \"departure\": {",
+				"                \"iataCode\": \"MAD\",",
+				"                \"terminal\": \"4S\",",
+				"                \"at\": \"2020-08-05T23:55:00\"",
+				"              },",
+				"              \"arrival\": {",
+				"                \"iataCode\": \"GRU\",",
+				"                \"terminal\": \"3\",",
+				"                \"at\": \"2020-08-06T05:40:00\"",
+				"              },",
+				"              \"carrierCode\": \"IB\",",
+				"              \"number\": \"6827\",",
+				"              \"aircraft\": {",
+				"                \"code\": \"346\"",
+				"              },",
+				"              \"operating\": {",
+				"                \"carrierCode\": \"IB\"",
+				"              },",
+				"              \"duration\": \"PT10H45M\",",
+				"              \"id\": \"5\",",
+				"              \"numberOfStops\": 0,",
+				"              \"blacklistedInEU\": false",
+				"            },",
+				"            {",
+				"              \"departure\": {",
+				"                \"iataCode\": \"GRU\",",
+				"                \"terminal\": \"2\",",
+				"                \"at\": \"2020-08-06T07:30:00\"",
+				"              },",
+				"              \"arrival\": {",
+				"                \"iataCode\": \"GIG\",",
+				"                \"terminal\": \"2\",",
+				"                \"at\": \"2020-08-06T08:30:00\"",
+				"              },",
+				"              \"carrierCode\": \"LA\",",
+				"              \"number\": \"4508\",",
+				"              \"aircraft\": {",
+				"                \"code\": \"320\"",
+				"              },",
+				"              \"duration\": \"PT1H\",",
+				"              \"id\": \"6\",",
+				"              \"numberOfStops\": 0,",
+				"              \"blacklistedInEU\": false",
+				"            }",
+				"          ]",
+				"        }",
+				"      ],",
+				"      \"price\": {",
+				"        \"currency\": \"USD\",",
+				"        \"total\": \"3842.10\",",
+				"        \"base\": \"3661.00\",",
+				"        \"fees\": [",
+				"          {",
+				"            \"amount\": \"0.00\",",
+				"            \"type\": \"SUPPLIER\"",
+				"          },",
+				"          {",
+				"            \"amount\": \"0.00\",",
+				"            \"type\": \"TICKETING\"",
+				"          }",
+				"        ],",
+				"        \"grandTotal\": \"3842.10\"",
+				"      },",
+				"      \"pricingOptions\": {",
+				"        \"fareType\": [",
+				"          \"PUBLISHED\"",
+				"        ],",
+				"        \"includedCheckedBagsOnly\": false",
+				"      },",
+				"      \"validatingAirlineCodes\": [",
+				"        \"BA\"",
+				"      ],",
+				"      \"travelerPricings\": [",
+				"        {",
+				"          \"travelerId\": \"1\",",
+				"          \"fareOption\": \"STANDARD\",",
+				"          \"travelerType\": \"ADULT\",",
+				"          \"price\": {",
+				"            \"currency\": \"USD\",",
+				"            \"total\": \"2178.55\",",
+				"            \"base\": \"2088.00\"",
+				"          },",
+				"          \"fareDetailsBySegment\": [",
+				"            {",
+				"              \"segmentId\": \"1\",",
+				"              \"cabin\": \"BUSINESS\",",
+				"              \"fareBasis\": \"RNNZ60S3\",",
+				"              \"brandedFare\": \"BUSINESS\",",
+				"              \"class\": \"R\",",
+				"              \"includedCheckedBags\": {",
+				"                \"quantity\": 2",
+				"              }",
+				"            },",
+				"            {",
+				"              \"segmentId\": \"2\",",
+				"              \"cabin\": \"BUSINESS\",",
+				"              \"fareBasis\": \"RNNZ60S3\",",
+				"              \"brandedFare\": \"BUSINESS\",",
+				"              \"class\": \"J\",",
+				"              \"includedCheckedBags\": {",
+				"                \"quantity\": 2",
+				"              }",
+				"            },",
+				"            {",
+				"              \"segmentId\": \"5\",",
+				"              \"cabin\": \"ECONOMY\",",
+				"              \"fareBasis\": \"VDH0NNM3\",",
+				"              \"brandedFare\": \"BAGSEAT\",",
+				"              \"class\": \"V\",",
+				"              \"includedCheckedBags\": {",
+				"                \"quantity\": 1",
+				"              }",
+				"            },",
+				"            {",
+				"              \"segmentId\": \"6\",",
+				"              \"cabin\": \"ECONOMY\",",
+				"              \"fareBasis\": \"VDH0NNM3\",",
+				"              \"brandedFare\": \"BAGSEAT\",",
+				"              \"class\": \"V\",",
+				"              \"includedCheckedBags\": {",
+				"                \"quantity\": 1",
+				"              }",
+				"            }",
+				"          ]",
+				"        },",
+				"        {",
+				"          \"travelerId\": \"2\",",
+				"          \"fareOption\": \"STANDARD\",",
+				"          \"travelerType\": \"CHILD\",",
+				"          \"price\": {",
+				"            \"currency\": \"USD\",",
+				"            \"total\": \"1663.55\",",
+				"            \"base\": \"1573.00\"",
+				"          },",
+				"          \"fareDetailsBySegment\": [",
+				"            {",
+				"              \"segmentId\": \"1\",",
+				"              \"cabin\": \"BUSINESS\",",
+				"              \"fareBasis\": \"RNNZ60S3\",",
+				"              \"brandedFare\": \"BUSINESS\",",
+				"              \"class\": \"R\"",
+				"            },",
+				"            {",
+				"              \"segmentId\": \"2\",",
+				"              \"cabin\": \"BUSINESS\",",
+				"              \"fareBasis\": \"RNNZ60S3\",",
+				"              \"brandedFare\": \"BUSINESS\",",
+				"              \"class\": \"J\"",
+				"            },",
+				"            {",
+				"              \"segmentId\": \"5\",",
+				"              \"cabin\": \"ECONOMY\",",
+				"              \"fareBasis\": \"VDH0NNM3\",",
+				"              \"brandedFare\": \"BAGSEAT\",",
+				"              \"class\": \"V\"",
+				"            },",
+				"            {",
+				"              \"segmentId\": \"6\",",
+				"              \"cabin\": \"ECONOMY\",",
+				"              \"fareBasis\": \"VDH0NNM3\",",
+				"              \"brandedFare\": \"BAGSEAT\",",
+				"              \"class\": \"V\"",
+				"            }",
+				"          ]",
+				"        }",
+				"      ]",
+				"    },",
+				"    {",
+				"      \"type\": \"flight-offer\",",
+				"      \"id\": \"2\",",
+				"      \"source\": \"GDS\",",
+				"      \"instantTicketingRequired\": false,",
+				"      \"nonHomogeneous\": false,",
+				"      \"oneWay\": false,",
+				"      \"lastTicketingDate\": \"2020-01-16\",",
+				"      \"numberOfBookableSeats\": 7,",
+				"      \"itineraries\": [",
+				"        {",
+				"          \"duration\": \"PT15H55M\",",
+				"          \"segments\": [",
+				"            {",
+				"              \"departure\": {",
+				"                \"iataCode\": \"GIG\",",
+				"                \"terminal\": \"2\",",
+				"                \"at\": \"2020-08-01T21:50:00\"",
+				"              },",
+				"              \"arrival\": {",
+				"                \"iataCode\": \"LHR\",",
+				"                \"terminal\": \"5\",",
+				"                \"at\": \"2020-08-02T13:10:00\"",
+				"              },",
+				"              \"carrierCode\": \"BA\",",
+				"              \"number\": \"248\",",
+				"              \"aircraft\": {",
+				"                \"code\": \"788\"",
+				"              },",
+				"              \"operating\": {",
+				"                \"carrierCode\": \"BA\"",
+				"              },",
+				"              \"duration\": \"PT11H20M\",",
+				"              \"id\": \"1\",",
+				"              \"numberOfStops\": 0,",
+				"              \"blacklistedInEU\": false",
+				"            },",
+				"            {",
+				"              \"departure\": {",
+				"                \"iataCode\": \"LHR\",",
+				"                \"terminal\": \"5\",",
+				"                \"at\": \"2020-08-02T15:15:00\"",
+				"              },",
+				"              \"arrival\": {",
+				"                \"iataCode\": \"MAD\",",
+				"                \"terminal\": \"4S\",",
+				"                \"at\": \"2020-08-02T18:45:00\"",
+				"              },",
+				"              \"carrierCode\": \"BA\",",
+				"              \"number\": \"462\",",
+				"              \"aircraft\": {",
+				"                \"code\": \"321\"",
+				"              },",
+				"              \"operating\": {",
+				"                \"carrierCode\": \"BA\"",
+				"              },",
+				"              \"duration\": \"PT2H30M\",",
+				"              \"id\": \"2\",",
+				"              \"numberOfStops\": 0,",
+				"              \"blacklistedInEU\": false",
+				"            }",
+				"          ]",
+				"        },",
+				"        {",
+				"          \"duration\": \"PT19H5M\",",
+				"          \"segments\": [",
+				"            {",
+				"              \"departure\": {",
+				"                \"iataCode\": \"MAD\",",
+				"                \"terminal\": \"4S\",",
+				"                \"at\": \"2020-08-05T23:55:00\"",
+				"              },",
+				"              \"arrival\": {",
+				"                \"iataCode\": \"GRU\",",
+				"                \"terminal\": \"3\",",
+				"                \"at\": \"2020-08-06T05:40:00\"",
+				"              },",
+				"              \"carrierCode\": \"IB\",",
+				"              \"number\": \"6827\",",
+				"              \"aircraft\": {",
+				"                \"code\": \"346\"",
+				"              },",
+				"              \"operating\": {",
+				"                \"carrierCode\": \"IB\"",
+				"              },",
+				"              \"duration\": \"PT10H45M\",",
+				"              \"id\": \"3\",",
+				"              \"numberOfStops\": 0,",
+				"              \"blacklistedInEU\": false",
+				"            },",
+				"            {",
+				"              \"departure\": {",
+				"                \"iataCode\": \"GRU\",",
+				"                \"terminal\": \"2\",",
+				"                \"at\": \"2020-08-06T13:00:00\"",
+				"              },",
+				"              \"arrival\": {",
+				"                \"iataCode\": \"GIG\",",
+				"                \"terminal\": \"2\",",
+				"                \"at\": \"2020-08-06T14:00:00\"",
+				"              },",
+				"              \"carrierCode\": \"LA\",",
+				"              \"number\": \"4537\",",
+				"              \"aircraft\": {",
+				"                \"code\": \"321\"",
+				"              },",
+				"              \"duration\": \"PT1H\",",
+				"              \"id\": \"4\",",
+				"              \"numberOfStops\": 0,",
+				"              \"blacklistedInEU\": false",
+				"            }",
+				"          ]",
+				"        }",
+				"      ],",
+				"      \"price\": {",
+				"        \"currency\": \"USD\",",
+				"        \"total\": \"3842.10\",",
+				"        \"base\": \"3661.00\",",
+				"        \"fees\": [",
+				"          {",
+				"            \"amount\": \"0.00\",",
+				"            \"type\": \"SUPPLIER\"",
+				"          },",
+				"          {",
+				"            \"amount\": \"0.00\",",
+				"            \"type\": \"TICKETING\"",
+				"          }",
+				"        ],",
+				"        \"grandTotal\": \"3842.10\"",
+				"      },",
+				"      \"pricingOptions\": {",
+				"        \"fareType\": [",
+				"          \"PUBLISHED\"",
+				"        ],",
+				"        \"includedCheckedBagsOnly\": false",
+				"      },",
+				"      \"validatingAirlineCodes\": [",
+				"        \"BA\"",
+				"      ],",
+				"      \"travelerPricings\": [",
+				"        {",
+				"          \"travelerId\": \"1\",",
+				"          \"fareOption\": \"STANDARD\",",
+				"          \"travelerType\": \"ADULT\",",
+				"          \"price\": {",
+				"            \"currency\": \"USD\",",
+				"            \"total\": \"2178.55\",",
+				"            \"base\": \"2088.00\"",
+				"          },",
+				"          \"fareDetailsBySegment\": [",
+				"            {",
+				"              \"segmentId\": \"1\",",
+				"              \"cabin\": \"BUSINESS\",",
+				"              \"fareBasis\": \"RNNZ60S3\",",
+				"              \"brandedFare\": \"BUSINESS\",",
+				"              \"class\": \"R\",",
+				"              \"includedCheckedBags\": {",
+				"                \"quantity\": 2",
+				"              }",
+				"            },",
+				"            {",
+				"              \"segmentId\": \"2\",",
+				"              \"cabin\": \"BUSINESS\",",
+				"              \"fareBasis\": \"RNNZ60S3\",",
+				"              \"brandedFare\": \"BUSINESS\",",
+				"              \"class\": \"J\",",
+				"              \"includedCheckedBags\": {",
+				"                \"quantity\": 2",
+				"              }",
+				"            },",
+				"            {",
+				"              \"segmentId\": \"3\",",
+				"              \"cabin\": \"ECONOMY\",",
+				"              \"fareBasis\": \"VDH0NNM3\",",
+				"              \"brandedFare\": \"BAGSEAT\",",
+				"              \"class\": \"V\",",
+				"              \"includedCheckedBags\": {",
+				"                \"quantity\": 1",
+				"              }",
+				"            },",
+				"            {",
+				"              \"segmentId\": \"4\",",
+				"              \"cabin\": \"ECONOMY\",",
+				"              \"fareBasis\": \"VDH0NNM3\",",
+				"              \"brandedFare\": \"BAGSEAT\",",
+				"              \"class\": \"V\",",
+				"              \"includedCheckedBags\": {",
+				"                \"quantity\": 1",
+				"              }",
+				"            }",
+				"          ]",
+				"        },",
+				"        {",
+				"          \"travelerId\": \"2\",",
+				"          \"fareOption\": \"STANDARD\",",
+				"          \"travelerType\": \"CHILD\",",
+				"          \"price\": {",
+				"            \"currency\": \"USD\",",
+				"            \"total\": \"1663.55\",",
+				"            \"base\": \"1573.00\"",
+				"          },",
+				"          \"fareDetailsBySegment\": [",
+				"            {",
+				"              \"segmentId\": \"1\",",
+				"              \"cabin\": \"BUSINESS\",",
+				"              \"fareBasis\": \"RNNZ60S3\",",
+				"              \"brandedFare\": \"BUSINESS\",",
+				"              \"class\": \"R\"",
+				"            },",
+				"            {",
+				"              \"segmentId\": \"2\",",
+				"              \"cabin\": \"BUSINESS\",",
+				"              \"fareBasis\": \"RNNZ60S3\",",
+				"              \"brandedFare\": \"BUSINESS\",",
+				"              \"class\": \"J\"",
+				"            },",
+				"            {",
+				"              \"segmentId\": \"3\",",
+				"              \"cabin\": \"ECONOMY\",",
+				"              \"fareBasis\": \"VDH0NNM3\",",
+				"              \"brandedFare\": \"BAGSEAT\",",
+				"              \"class\": \"V\"",
+				"            },",
+				"            {",
+				"              \"segmentId\": \"4\",",
+				"              \"cabin\": \"ECONOMY\",",
+				"              \"fareBasis\": \"VDH0NNM3\",",
+				"              \"brandedFare\": \"BAGSEAT\",",
+				"              \"class\": \"V\"",
+				"            }",
+				"          ]",
+				"        }",
+				"      ]",
+				"    }",
+				"  ],",
+				"  \"dictionaries\": {",
+				"    \"locations\": {",
+				"      \"MAD\": {",
+				"        \"cityCode\": \"MAD\",",
+				"        \"countryCode\": \"ES\"",
+				"      },",
+				"      \"GIG\": {",
+				"        \"cityCode\": \"RIO\",",
+				"        \"countryCode\": \"BR\"",
+				"      },",
+				"      \"LHR\": {",
+				"        \"cityCode\": \"LON\",",
+				"        \"countryCode\": \"GB\"",
+				"      },",
+				"      \"GRU\": {",
+				"        \"cityCode\": \"SAO\",",
+				"        \"countryCode\": \"BR\"",
+				"      }",
+				"    },",
+				"    \"aircraft\": {",
+				"      \"320\": \"AIRBUS INDUSTRIE A320-100/200\",",
+				"      \"321\": \"AIRBUS INDUSTRIE A321\",",
+				"      \"346\": \"AIRBUS INDUSTRIE A340-600\",",
+				"      \"788\": \"BOEING 787-8\"",
+				"    },",
+				"    \"currencies\": {",
+				"      \"USD\": \"US DOLLAR\"",
+				"    },",
+				"    \"carriers\": {",
+				"      \"LA\": \"LATAM AIRLINES GROUP\",",
+				"      \"IB\": \"IBERIA\",",
+				"      \"BA\": \"BRITISH AIRWAYS\"",
+				"    }",
+				"  }",
+				"}",
+				"</code></pre>",
+				""
+			],
+			"summary": "Return list of Flight Offers based on posted searching criteria.",
+			"method": "POST",
+			"example": "",
+			"responses": [
+				{
+					"status": "200",
+					"headers": [],
+					"content": []
+				},
+				{
+					"status": "400",
+					"headers": [],
+					"content": []
+				},
+				{
+					"status": "default",
+					"headers": [],
+					"content": []
+				}
+			],
+			"headers": [
+				{
+					"name": "X-HTTP-Method-Override",
+					"description": "the HTTP method to apply",
+					"default": "GET",
+					"required": true,
+					"type": "string"
+				},
+				{
+					"name": "Authorization",
+					"description": "",
+					"required": true,
+					"value": "",
+					"default": "Bearer kjhkjhkjh",
+					"example": ""
+				}
+			],
+			"parameters": [],
+			"content": [
+				{
+					"objectType": "object",
+					"required": true,
+					"name": "GetFlightOffersQuery"
+				}
+			],
+			"tags": "Shopping"
+		},
+		{
+			"id": "5929e08f-a78c-4171-cfd5-55f429d5bec0",
+			"path": "/shopping/flight-offers",
+			"description": [
+				"==OBJECT STRING==",
+				"Search for the best bookable flight offers from a very simple query where you can specify as little as the travel origin, a destination and a departure date.",
+				"",
+				"### Query example",
+				"  <pre><code>",
+				"  GET https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=SYD&destinationLocationCode=BKK&departureDate=2020-08-01&returnDate=2020-08-05&adults=2&includedAirlineCodes=TG&max=3",
+				"  </code></pre>",
+				"",
+				"### Response example",
+				"<pre><code>",
+				"{",
+				"  \"meta\": {",
+				"    \"count\": 1,",
+				"    \"links\": {",
+				"      \"self\": \"https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=SYD&destinationLocationCode=BKK&departureDate=2020-08-01&returnDate=2020-08-05&adults=2&includedAirlineCodes=TG&max=3\"",
+				"    }",
+				"  },",
+				"  \"data\": [",
+				"    {",
+				"      \"type\": \"flight-offer\",",
+				"      \"id\": \"1\",",
+				"      \"source\": \"GDS\",",
+				"      \"instantTicketingRequired\": false,",
+				"      \"nonHomogeneous\": false,",
+				"      \"oneWay\": false,",
+				"      \"lastTicketingDate\": \"2020-08-01\",",
+				"      \"numberOfBookableSeats\": 9,",
+				"      \"itineraries\": [",
+				"        {",
+				"          \"duration\": \"PT9H20M\",",
+				"          \"segments\": [",
+				"            {",
+				"              \"departure\": {",
+				"                \"iataCode\": \"SYD\",",
+				"                \"terminal\": \"1\",",
+				"                \"at\": \"2020-08-01T10:00:00\"",
+				"              },",
+				"              \"arrival\": {",
+				"                \"iataCode\": \"BKK\",",
+				"                \"at\": \"2020-08-01T16:20:00\"",
+				"              },",
+				"              \"carrierCode\": \"TG\",",
+				"              \"number\": \"476\",",
+				"              \"aircraft\": {",
+				"                \"code\": \"747\"",
+				"              },",
+				"              \"operating\": {",
+				"                \"carrierCode\": \"TG\"",
+				"              },",
+				"              \"duration\": \"PT9H20M\",",
+				"              \"id\": \"1\",",
+				"              \"numberOfStops\": 0,",
+				"              \"blacklistedInEU\": false",
+				"            }",
+				"          ]",
+				"        },",
+				"        {",
+				"          \"duration\": \"PT9H\",",
+				"          \"segments\": [",
+				"            {",
+				"              \"departure\": {",
+				"                \"iataCode\": \"BKK\",",
+				"                \"at\": \"2020-08-05T19:20:00\"",
+				"              },",
+				"              \"arrival\": {",
+				"                \"iataCode\": \"SYD\",",
+				"                \"terminal\": \"1\",",
+				"                \"at\": \"2020-08-06T07:20:00\"",
+				"              },",
+				"              \"carrierCode\": \"TG\",",
+				"              \"number\": \"475\",",
+				"              \"aircraft\": {",
+				"                \"code\": \"747\"",
+				"              },",
+				"              \"operating\": {",
+				"                \"carrierCode\": \"TG\"",
+				"              },",
+				"              \"duration\": \"PT9H\",",
+				"              \"id\": \"2\",",
+				"              \"numberOfStops\": 0,",
+				"              \"blacklistedInEU\": false",
+				"            }",
+				"          ]",
+				"        }",
+				"      ],",
+				"      \"price\": {",
+				"        \"currency\": \"EUR\",",
+				"        \"total\": \"1590.78\",",
+				"        \"base\": \"1390.00\",",
+				"        \"fees\": [",
+				"          {",
+				"            \"amount\": \"0.00\",",
+				"            \"type\": \"SUPPLIER\"",
+				"          },",
+				"          {",
+				"            \"amount\": \"0.00\",",
+				"            \"type\": \"TICKETING\"",
+				"          }",
+				"        ],",
+				"        \"grandTotal\": \"1590.78\"",
+				"      },",
+				"      \"pricingOptions\": {",
+				"        \"fareType\": [",
+				"          \"PUBLISHED\"",
+				"        ],",
+				"        \"includedCheckedBagsOnly\": true",
+				"      },",
+				"      \"validatingAirlineCodes\": [",
+				"        \"TG\"",
+				"      ],",
+				"      \"travelerPricings\": [",
+				"        {",
+				"          \"travelerId\": \"1\",",
+				"          \"fareOption\": \"STANDARD\",",
+				"          \"travelerType\": \"ADULT\",",
+				"          \"price\": {",
+				"            \"currency\": \"EUR\",",
+				"            \"total\": \"795.39\",",
+				"            \"base\": \"695.00\"",
+				"          },",
+				"          \"fareDetailsBySegment\": [",
+				"            {",
+				"              \"segmentId\": \"1\",",
+				"              \"cabin\": \"ECONOMY\",",
+				"              \"fareBasis\": \"W1YRTTG\",",
+				"              \"class\": \"W\",",
+				"              \"includedCheckedBags\": {",
+				"                \"weight\": 30,",
+				"                \"weightUnit\": \"KG\"",
+				"              }",
+				"            },",
+				"            {",
+				"              \"segmentId\": \"2\",",
+				"              \"cabin\": \"ECONOMY\",",
+				"              \"fareBasis\": \"W1YRTTG\",",
+				"              \"class\": \"W\",",
+				"              \"includedCheckedBags\": {",
+				"                \"weight\": 30,",
+				"                \"weightUnit\": \"KG\"",
+				"              }",
+				"            }",
+				"          ]",
+				"        },",
+				"        {",
+				"          \"travelerId\": \"2\",",
+				"          \"fareOption\": \"STANDARD\",",
+				"          \"travelerType\": \"ADULT\",",
+				"          \"price\": {",
+				"            \"currency\": \"EUR\",",
+				"            \"total\": \"795.39\",",
+				"            \"base\": \"695.00\"",
+				"          },",
+				"          \"fareDetailsBySegment\": [",
+				"            {",
+				"              \"segmentId\": \"1\",",
+				"              \"cabin\": \"ECONOMY\",",
+				"              \"fareBasis\": \"W1YRTTG\",",
+				"              \"class\": \"W\",",
+				"              \"includedCheckedBags\": {",
+				"                \"weight\": 30,",
+				"                \"weightUnit\": \"KG\"",
+				"              }",
+				"            },",
+				"            {",
+				"              \"segmentId\": \"2\",",
+				"              \"cabin\": \"ECONOMY\",",
+				"              \"fareBasis\": \"W1YRTTG\",",
+				"              \"class\": \"W\",",
+				"              \"includedCheckedBags\": {",
+				"                \"weight\": 30,",
+				"                \"weightUnit\": \"KG\"",
+				"              }",
+				"            }",
+				"          ]",
+				"        }",
+				"      ]",
+				"    }",
+				"  ],",
+				"  \"dictionaries\": {",
+				"    \"locations\": {",
+				"      \"BKK\": {",
+				"        \"cityCode\": \"BKK\",",
+				"        \"countryCode\": \"TH\"",
+				"      },",
+				"      \"SYD\": {",
+				"        \"cityCode\": \"SYD\",",
+				"        \"countryCode\": \"AU\"",
+				"      }",
+				"    },",
+				"    \"aircraft\": {",
+				"      \"747\": \"BOEING 747 ALL SERIES PASSENGER\"",
+				"    },",
+				"    \"currencies\": {",
+				"      \"EUR\": \"EURO\"",
+				"    },",
+				"    \"carriers\": {",
+				"      \"TG\": \"THAI AIRWAYS INTERNATIONAL\"",
+				"    }",
+				"  }",
+				"}",
+				"</code></pre>",
+				""
+			],
+			"summary": "Return list of Flight Offers based on searching criteria.",
+			"method": "GET",
+			"example": "",
+			"responses": [
+				{
+					"status": "200",
+					"headers": [],
+					"content": [
+						{
+							"id": "4af4d054-7fad-4814-ba0a-4b710b55a745",
+							"name": "FlightOffer",
+							"objectType": "array"
+						}
+					]
+				},
+				{
+					"status": "400",
+					"headers": [],
+					"content": []
+				},
+				{
+					"status": "default",
+					"headers": [],
+					"content": []
+				}
+			],
+			"headers": [
+				{
+					"name": "Authorization",
+					"description": "",
+					"required": true,
+					"value": "",
+					"default": "Bearer jklhljhjlh",
+					"example": ""
+				}
+			],
+			"parameters": [
+				{
+					"name": "originLocationCode",
+					"description": "city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) from which the traveler will depart, e.g. BOS for Boston",
+					"inPath": false,
+					"required": true,
+					"type": "string"
+				},
+				{
+					"name": "destinationLocationCode",
+					"description": "city/airport [IATA code](http://www.iata.org/publications/Pages/code-search.aspx) to which the traveler is going, e.g. PAR for Paris",
+					"inPath": false,
+					"required": true,
+					"type": "string"
+				},
+				{
+					"name": "departureDate",
+					"description": "the date on which the traveler will depart from the origin to go to the destination. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2017-12-25",
+					"inPath": false,
+					"required": true,
+					"type": "string"
+				},
+				{
+					"name": "returnDate",
+					"description": "the date on which the traveler will depart from the destination to return to the origin. If this parameter is not specified, only one-way itineraries are found. If this parameter is specified, only round-trip itineraries are found. Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-02-28",
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "adults",
+					"description": "the number of adult travelers (age 12 or older on date of departure).",
+					"inPath": false,
+					"default": 1,
+					"required": true,
+					"type": "integer",
+					"minLength": 1,
+					"maxLength": 9
+				},
+				{
+					"name": "children",
+					"description": "the number of child travelers (older than age 2 and younger than age 12 on date of departure) who will each have their own separate seat. If specified, this number should be greater than or equal to 0",
+					"inPath": false,
+					"required": false,
+					"type": "integer",
+					"minLength": 0,
+					"maxLength": 9
+				},
+				{
+					"name": "infants",
+					"description": "the number of infant travelers (whose age is less or equal to 2 on date of departure). Infants travel on the lap of an adult traveler, and thus the number of infants must not exceed the number of adults. If specified, this number should be greater than or equal to 0",
+					"inPath": false,
+					"required": false,
+					"type": "integer",
+					"minLength": 0,
+					"maxLength": 9
+				},
+				{
+					"name": "travelClass",
+					"description": "most of the flight time should be spent in a cabin of this quality or higher. The accepted travel class is economy, premium economy, business or first class. If no travel class is specified, the search considers any travel class",
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "includedAirlineCodes",
+					"description": "if specified, the flight offer will include at least one segment per bound marketed by one of these airlines. Airlines are specified as [IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx) and are comma-separated, e.g. 6X,7X,8X",
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "excludedAirlineCodes",
+					"description": "if specified, the flight offer will exclude all the flights marketed by one of these airlines. Airlines are specified as [IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx) and are comma-separated, e.g. 6X,7X,8X",
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "nonStop",
+					"description": "if set to true, the search will find only flights going from the origin to the destination with no stop in between",
+					"inPath": false,
+					"default": false,
+					"required": false,
+					"type": "boolean"
+				},
+				{
+					"name": "currencyCode",
+					"description": "the preferred currency for the flight offers. Currency is specified in the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format, e.g. EUR for Euro",
+					"inPath": false,
+					"required": false,
+					"type": "string"
+				},
+				{
+					"name": "maxPrice",
+					"description": "maximum price per traveler. By default, no limit is applied. If specified, the value should be a positive number with no decimals",
+					"inPath": false,
+					"required": false,
+					"type": "integer",
+					"minLength": 1
+				},
+				{
+					"name": "max",
+					"description": "maximum number of flight offers to return. If specified, the value should be greater than or equal to 1",
+					"inPath": false,
+					"default": 250,
+					"required": false,
+					"type": "integer",
+					"minLength": 1
+				}
+			],
+			"content": [],
+			"tags": "Shopping"
+		}
+	],
+	"definitions": [
+		{
+			"id": "df8f54d8-85eb-40d2-8cbd-3d93f82b5ecc",
+			"name": "Error_400",
+			"properties": [
+				{
+					"id": "94f6409a-dc02-43d2-f988-2eea4b168588",
+					"required": true,
+					"name": "errors",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				}
+			]
+		},
+		{
+			"id": "0e17dccd-778d-48ad-b79a-641496847f89",
+			"name": "Error_500",
+			"properties": [
+				{
+					"id": "416eae05-a287-4553-8a69-7e59ba538ff0",
+					"required": true,
+					"name": "errors",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				}
+			]
+		},
+		{
+			"id": "19bfa9eb-0e2c-436c-9f1f-5145c4264e7d",
+			"name": "Issue",
+			"properties": [
+				{
+					"id": "db2ddb07-4888-45e9-fc02-8a6c1435e7fb",
+					"name": "status",
+					"parent": "",
+					"description": "the HTTP status code applicable to this error",
+					"pattern": "",
+					"example": "",
+					"objectType": "integer"
+				},
+				{
+					"id": "b5d03a1d-d2a5-4bc2-9848-9cdc0c50b9ac",
+					"name": "code",
+					"parent": "",
+					"description": "an application-specific error code",
+					"pattern": "",
+					"example": "",
+					"objectType": "integer"
+				},
+				{
+					"id": "6af79922-35cd-4af7-d5eb-05645ecba6fa",
+					"name": "title",
+					"parent": "",
+					"description": "a short summary of the error",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "3cbd936b-ce1e-4a92-e696-dfc6dffa7496",
+					"name": "detail",
+					"parent": "",
+					"description": "explanation of the error",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "ce7c3917-b755-4c90-e6db-68b9985e4b8f",
+					"name": "pointer",
+					"parent": "fbfa1f25-c472-45d7-e350-066be1fc4d5c",
+					"description": "a JSON Pointer [RFC6901] to the associated entity in the request document",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "0bcc734e-1ebc-452c-a4e7-cdbfae9ac651",
+					"name": "parameter",
+					"parent": "fbfa1f25-c472-45d7-e350-066be1fc4d5c",
+					"description": "a string indicating which URI query parameter caused the issue",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "54f3c38a-8cb9-484a-c83c-5da91672fe4a",
+					"name": "example",
+					"parent": "fbfa1f25-c472-45d7-e350-066be1fc4d5c",
+					"description": "a string indicating an example of the right value",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "fbfa1f25-c472-45d7-e350-066be1fc4d5c",
+					"name": "source",
+					"parent": "",
+					"description": "an object containing references to the source of the error",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				}
+			]
+		},
+		{
+			"id": "7b9608aa-ffb6-4013-c5b9-f6eb4ac1ef68",
+			"name": "Collection_Meta",
+			"properties": [
+				{
+					"id": "aed5b552-d010-430d-9a4b-e01331689e35",
+					"name": "count",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": 1,
+					"objectType": "integer"
+				},
+				{
+					"id": "4d4ad92f-de73-47db-a617-9ba3d6ab86b2",
+					"name": "originDestinationId",
+					"parent": "47662df9-3f51-454b-b52c-272fba509815",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "e196e51b-f7b9-4ec0-835f-c5c7a63e9fd0",
+					"name": "flightOfferIds",
+					"parent": "47662df9-3f51-454b-b52c-272fba509815",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				},
+				{
+					"id": "47662df9-3f51-454b-b52c-272fba509815",
+					"name": "oneWayCombinations",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				}
+			]
+		},
+		{
+			"id": "9809506a-2de2-4746-9782-2f59fa19520c",
+			"name": "Collection_Meta_Link",
+			"properties": [
+				{
+					"id": "7563e122-9f77-4f7f-dd7d-1ebe15552a4f",
+					"name": "count",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": 1,
+					"objectType": "integer"
+				},
+				{
+					"id": "575f949e-357a-43c2-e94c-0c40b094a784",
+					"name": "links",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": {
+						"self": "https://test.api.amadeus.com/v1/area/resources?param=value"
+					},
+					"objectType": {
+						"title": "CollectionLinks",
+						"properties": {
+							"self": {
+								"type": "string",
+								"format": "uri",
+								"example": "https://test.api.amadeus.com/v1/area/resources?..."
+							},
+							"next": {
+								"type": "string",
+								"format": "uri",
+								"example": "https://test.api.amadeus.com/v1/area/resources?..."
+							},
+							"previous": {
+								"type": "string",
+								"format": "uri",
+								"example": "https://test.api.amadeus.com/v1/area/resources?..."
+							},
+							"last": {
+								"type": "string",
+								"format": "uri",
+								"example": "https://test.api.amadeus.com/v1/area/resources?..."
+							},
+							"first": {
+								"type": "string",
+								"format": "uri",
+								"example": "https://test.api.amadeus.com/v1/area/resources?..."
+							},
+							"up": {
+								"type": "string",
+								"format": "uri",
+								"example": "https://test.api.amadeus.com/v1/area/resources?..."
+							}
+						},
+						"example": {
+							"self": "https://test.api.amadeus.com/v1/area/resources?param=value"
+						}
+					}
+				}
+			]
+		},
+		{
+			"id": "e2a99903-a350-4361-85ec-4197952f9751",
+			"name": "LocationEntry",
+			"properties": [
+				{
+					"id": "61ffe339-7d72-45dc-baef-e1e5e02b6565",
+					"required": true,
+					"name": "key",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "d11f3191-dec8-442a-b9b9-dbce5f1bc11f",
+			"name": "AircraftEntry",
+			"properties": [
+				{
+					"id": "3419747f-8549-45fa-93ba-8db128509272",
+					"name": "key",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "9d237974-75bd-4365-cf43-3be479d9cb39",
+			"name": "CurrencyEntry",
+			"properties": [
+				{
+					"id": "5f38296c-0e7b-4183-b416-258a46411d47",
+					"required": true,
+					"name": "key",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "Euro",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "1a5186ed-0bc4-46a7-9999-079284c3167c",
+			"name": "CarrierEntry",
+			"properties": [
+				{
+					"id": "8eacb0fa-0001-45c8-cba4-1c6ce067e0fa",
+					"name": "key",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "b784cb33-66a6-46e1-b57f-d9019f77d2d1",
+			"name": "FlightSegment",
+			"description": "defining a flight segment; including both operating and marketing details when applicable",
+			"properties": [
+				{
+					"id": "f1fff135-e5c8-4ff5-ea44-d9124659dab7",
+					"name": "departure",
+					"parent": "",
+					"description": "departure or arrival information",
+					"pattern": "",
+					"example": "",
+					"objectType": {
+						"title": "FlightEndPoint",
+						"description": "departure or arrival information",
+						"allOf": [
+							{
+								"$ref": "#/definitions/OriginalFlightEndPoint"
+							},
+							{
+								"type": "object",
+								"properties": {
+									"at": {
+										"description": "local date and time in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-ddThh:mm:ss format, e.g. 2017-02-10T20:40:00",
+										"type": "string",
+										"format": "date-time",
+										"example": "2017-10-23T20:00:00"
+									}
+								}
+							}
+						]
+					}
+				},
+				{
+					"id": "8c2e5f21-2fe8-49af-9520-944bff5f93ff",
+					"name": "arrival",
+					"parent": "",
+					"description": "departure or arrival information",
+					"pattern": "",
+					"example": "",
+					"objectType": {
+						"title": "FlightEndPoint",
+						"description": "departure or arrival information",
+						"allOf": [
+							{
+								"$ref": "#/definitions/OriginalFlightEndPoint"
+							},
+							{
+								"type": "object",
+								"properties": {
+									"at": {
+										"description": "local date and time in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-ddThh:mm:ss format, e.g. 2017-02-10T20:40:00",
+										"type": "string",
+										"format": "date-time",
+										"example": "2017-10-23T20:00:00"
+									}
+								}
+							}
+						]
+					}
+				},
+				{
+					"id": "c3459d82-5739-4f1a-bc88-ed1404a4e1e6",
+					"name": "carrierCode",
+					"parent": "",
+					"description": "providing the airline / carrier code",
+					"pattern": "",
+					"example": "DL",
+					"objectType": "string"
+				},
+				{
+					"id": "1e49b071-1401-4ffc-b2d7-4250d2540a58",
+					"name": "number",
+					"parent": "",
+					"description": "the flight number as assigned by the carrier",
+					"pattern": "",
+					"example": "212",
+					"objectType": "string"
+				},
+				{
+					"id": "ca270b4d-8a86-4a97-ea21-c32de210c440",
+					"name": "aircraft",
+					"parent": "",
+					"description": "information related to the aircraft",
+					"pattern": "",
+					"example": "",
+					"objectType": {
+						"description": "information related to the aircraft",
+						"properties": {
+							"code": {
+								"type": "string",
+								"description": [
+									"==OBJECT STRING==",
+									"IATA aircraft code (http://www.flugzeuginfo.net/table_accodes_iata_en.php)",
+									""
+								],
+								"pattern": "[a-zA-Z0-9]{3}",
+								"example": "318"
+							}
+						}
+					}
+				},
+				{
+					"id": "303d2d37-77ee-473c-eed1-a44b8adf4121",
+					"name": "operating",
+					"parent": "",
+					"description": "information about the operating flight",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "c2e51550-ce88-43ea-d419-3e71345b1a1a",
+					"name": "duration",
+					"parent": "",
+					"description": "stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M",
+					"pattern": "",
+					"example": "PT2H10M",
+					"objectType": "string"
+				},
+				{
+					"id": "f7c11aa1-a06a-4e17-b1d1-68e38f65e211",
+					"name": "stops",
+					"parent": "",
+					"description": "details of stops for direct or change of gauge flights",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				}
+			]
+		},
+		{
+			"id": "4e91da03-28d3-4468-e79f-9931e4e6ceec",
+			"name": "OriginalFlightEndPoint",
+			"description": "departure or arrival information",
+			"properties": [
+				{
+					"id": "c21fe5a8-7f8b-4760-e2cb-2de16447cdff",
+					"name": "iataCode",
+					"parent": "",
+					"description": "[IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx)",
+					"pattern": "",
+					"example": "JFK",
+					"objectType": "string"
+				},
+				{
+					"id": "e75440df-7d06-4199-f70a-4ee202a8ea23",
+					"name": "terminal",
+					"parent": "",
+					"description": "terminal name / number",
+					"pattern": "",
+					"example": "T2",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "b6ba958c-8018-441a-daf7-256c67b6e695",
+			"name": "FlightEndPoint",
+			"description": "departure or arrival information",
+			"properties": []
+		},
+		{
+			"id": "38356e9c-8d2b-4770-ba0c-ae616d5df4ab",
+			"name": "OriginalFlightStop",
+			"description": "details of stops for direct or change of gauge flights",
+			"properties": [
+				{
+					"id": "5bcd9cc6-ea70-4f45-f659-c40c7bb06e29",
+					"name": "iataCode",
+					"parent": "",
+					"description": "[IATA airline codes](http://www.iata.org/publications/Pages/code-search.aspx)",
+					"pattern": "",
+					"example": "JFK",
+					"objectType": "string"
+				},
+				{
+					"id": "35e1c9e2-caea-441a-9b29-4f4aa6c91bae",
+					"name": "duration",
+					"parent": "",
+					"description": "stop duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M",
+					"pattern": "",
+					"example": "PT2H10M",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "a960ea5c-926d-4148-ff07-be08272d5886",
+			"name": "FlightStop",
+			"description": "details of stops for direct or change of gauge flights",
+			"properties": []
+		},
+		{
+			"id": "73ac7a41-0679-4163-e73d-03acb538f92f",
+			"name": "AircraftEquipment",
+			"description": "information related to the aircraft",
+			"properties": [
+				{
+					"id": "4ffcda52-f3f6-4d5f-8f23-2d0377d2c345",
+					"name": "code",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"IATA aircraft code (http://www.flugzeuginfo.net/table_accodes_iata_en.php)",
+						""
+					],
+					"pattern": "[a-zA-Z0-9]{3}",
+					"example": "318",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "af767977-594f-4e4d-fdc8-dd1aac4ecb51",
+			"name": "OperatingFlight",
+			"description": "information about the operating flight",
+			"properties": [
+				{
+					"id": "1103de89-b823-478f-cfb9-c0a2e0cafe91",
+					"name": "carrierCode",
+					"parent": "",
+					"description": "providing the airline / carrier code",
+					"pattern": "",
+					"example": "DL",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "ba1bb896-c92f-4e90-de1b-67a0fb840ee8",
+			"name": "Price",
+			"properties": [
+				{
+					"id": "28727701-64b8-4ca6-ef3d-923d4d8d2e86",
+					"name": "currency",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "USD",
+					"objectType": "string"
+				},
+				{
+					"id": "9fb73f96-c3bc-4245-8e52-85ea15fb187c",
+					"name": "total",
+					"parent": "",
+					"description": "Total amount paid by the user",
+					"pattern": "",
+					"example": "932.70",
+					"objectType": "string"
+				},
+				{
+					"id": "859f4d44-637a-4996-91af-510ca4fbe897",
+					"name": "base",
+					"parent": "",
+					"description": "Amount without taxes",
+					"pattern": "",
+					"example": "632.70",
+					"objectType": "string"
+				},
+				{
+					"id": "1ef03d51-a96a-4f74-9339-f9b8df1e9fc6",
+					"name": "fees",
+					"parent": "",
+					"description": "a fee",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				},
+				{
+					"id": "774a5372-5a23-4dd1-a11b-1b0dc8b2e2f9",
+					"name": "taxes",
+					"parent": "",
+					"description": "a tax",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				},
+				{
+					"id": "614c3595-1d63-44a3-cc78-f9414ed19a08",
+					"name": "refundableTaxes",
+					"parent": "",
+					"description": "The amount of taxes which are refundable",
+					"pattern": "",
+					"example": "200.00",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "224c6467-a22a-46de-e002-164dfbca3be5",
+			"name": "Extended_Price",
+			"description": "price information",
+			"properties": []
+		},
+		{
+			"id": "e9de4e10-e4f7-4181-ae8c-ce5c7c51eb0b",
+			"name": "Fee",
+			"description": "a fee",
+			"properties": [
+				{
+					"id": "5077d229-f76c-46a0-d6ff-7e55284fabdc",
+					"name": "amount",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "332.70",
+					"objectType": "string"
+				},
+				{
+					"id": "0ff958df-0568-402c-ade8-84f58e6793e0",
+					"name": "type",
+					"parent": "",
+					"description": "type of fee",
+					"pattern": "",
+					"example": "TICKETING",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "0bdf9e34-10f5-4f41-f1dc-818c88475760",
+			"name": "FeeType",
+			"description": "type of fee",
+			"properties": []
+		},
+		{
+			"id": "d8ebe66f-f4b4-4762-cbef-877d6984d149",
+			"name": "Tax",
+			"description": "a tax",
+			"properties": [
+				{
+					"id": "96638477-dce0-4cfa-e788-35e0be6fcaf7",
+					"name": "amount",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "332.70",
+					"objectType": "string"
+				},
+				{
+					"id": "243f2316-5fcf-4365-85f4-3befa222acad",
+					"name": "code",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "MX",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "05ad3cfa-5e62-43bc-8b0f-e2c5c2093830",
+			"name": "TravelClass",
+			"description": "quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class",
+			"properties": []
+		},
+		{
+			"id": "528a14ce-3476-425b-adbe-ff2280978c86",
+			"name": "Co2Emission",
+			"properties": [
+				{
+					"id": "35a2a561-9303-4829-9d50-db3186e1a93d",
+					"name": "weight",
+					"parent": "",
+					"description": "Weight of Co2 emitted for the concerned segment",
+					"pattern": "",
+					"example": 90,
+					"objectType": "integer"
+				},
+				{
+					"id": "e3fea350-b8ae-4dc8-e2ce-71d8787e101c",
+					"name": "weightUnit",
+					"parent": "",
+					"description": "Code to qualify unit as pounds or kilos",
+					"pattern": "",
+					"example": "KG",
+					"objectType": "string"
+				},
+				{
+					"id": "762edfaa-0674-48d4-ed21-cb67bdfc0768",
+					"name": "cabin",
+					"parent": "",
+					"description": "quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class",
+					"pattern": "",
+					"example": "PREMIUM_ECONOMY",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "c068c5a2-f381-4b53-b69e-868658e15fc4",
+			"name": "OriginDestination",
+			"properties": [
+				{
+					"id": "357ae869-f502-4673-878d-193af9d9dba6",
+					"name": "id",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": 1,
+					"objectType": "string"
+				},
+				{
+					"id": "d74add66-36cd-4bea-a870-084801df4fca",
+					"name": "originLocationCode",
+					"parent": "",
+					"description": "Origin location, such as a city or an airport. Currently, only the locations defined in [IATA](http://www.iata.org/publications/Pages/code-search.aspx) are supported.",
+					"pattern": "",
+					"example": "PAR",
+					"objectType": "string"
+				},
+				{
+					"id": "8f188ad4-1cd5-4074-efd7-a65763a6b770",
+					"name": "originRadius",
+					"parent": "",
+					"description": "Include other possible locations around the point, located less than this distance in kilometers away. Max:300",
+					"pattern": "",
+					"example": 200,
+					"objectType": "number"
+				},
+				{
+					"id": "438d9d50-41ca-4c5f-aa59-fe05e8fed54f",
+					"name": "alternativeOriginsCodes",
+					"parent": "",
+					"description": "Set of alternative origin location, such as a city or an airport. Currently, only the locations defined in [IATA](http://www.iata.org/publications/Pages/code-search.aspx) are supported.",
+					"pattern": "",
+					"example": [
+						"LON",
+						"MUC"
+					],
+					"objectType": "array"
+				},
+				{
+					"id": "02521ade-643c-4fdc-f628-51182955b8d4",
+					"name": "destinationLocationCode",
+					"parent": "",
+					"description": "Destination location, such as a city or an airport. Currently, only the locations defined in [IATA](http://www.iata.org/publications/Pages/code-search.aspx) are supported.",
+					"pattern": "",
+					"example": "NYC",
+					"objectType": "string"
+				},
+				{
+					"id": "d18ee02a-20df-4b68-89ca-21e494d6938c",
+					"name": "destinationRadius",
+					"parent": "",
+					"description": "Include other possible locations around the point, located less than this distance in kilometers away. Max:300",
+					"pattern": "",
+					"example": 200,
+					"objectType": "number"
+				},
+				{
+					"id": "4b211d69-57a5-4fd6-adfe-e367eaa94a3e",
+					"name": "alternativeDestinationsCodes",
+					"parent": "",
+					"description": "Set of alternative destination location, such as a city or an airport. Currently, only the locations defined in [IATA](http://www.iata.org/publications/Pages/code-search.aspx) are supported.",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				},
+				{
+					"id": "2b0a385b-5aed-44bb-b734-cb6656d62262",
+					"name": "departureDateTimeRange",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "b59caafa-de13-4219-9b09-aa5803d73715",
+					"name": "arrivalDateTimeRange",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "54bd700c-1a34-47e4-989d-40e6809bdefc",
+					"name": "includedConnectionPoints",
+					"parent": "",
+					"description": "List of included connections points. When an includedViaPoints option is specified, all FlightOffer returned must at least go via this Connecting Point. Currently, only the locations defined in IATA are supported. Used only by the AMADEUS provider",
+					"pattern": "",
+					"example": [
+						"MRS"
+					],
+					"objectType": "array"
+				},
+				{
+					"id": "e478c0ab-3e63-476e-d596-1ad1c0b74fae",
+					"name": "excludedConnectionPoints",
+					"parent": "",
+					"description": "List of excluded connections points. Any FlightOffer with these connections points will be present in response. Currently, only the locations defined in IATA are supported. Used only by the AMADEUS provider",
+					"pattern": "",
+					"example": [
+						"MRS"
+					],
+					"objectType": "array"
+				}
+			]
+		},
+		{
+			"id": "9d641913-5073-4dc0-8b61-abf53bea7a28",
+			"name": "DateTimeRange",
+			"properties": [
+				{
+					"id": "0a5193dc-e065-4e2c-db3f-1b251e14a1f8",
+					"required": true,
+					"name": "date",
+					"parent": "",
+					"description": "Dates are specified in the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) YYYY-MM-DD format, e.g. 2018-12-25",
+					"pattern": "",
+					"example": "2018-09-22",
+					"objectType": "string"
+				},
+				{
+					"id": "a2cff5cc-1993-4a25-b555-d1d0897eb0e6",
+					"name": "dateWindow",
+					"parent": "",
+					"description": "Either 1, 2 or 3 extra days around the local date (IxD for +/- x days - Ex: I3D), Either 1 to 3 days after the local date (PxD for +x days - Ex: P3D), or 1 to 3 days before the local date (MxD for -x days - Ex: M3D)",
+					"pattern": "^[MPI][1-3]D",
+					"example": "I3D",
+					"objectType": "string"
+				},
+				{
+					"id": "76af851d-3798-49db-8282-868b83bb7696",
+					"name": "time",
+					"parent": "",
+					"description": "Local time. hh:mm:ss format, e.g 10:30:00",
+					"pattern": "",
+					"example": "10:30:00",
+					"objectType": "string"
+				},
+				{
+					"id": "4c0ed43a-c133-4412-9644-de2ecb68326d",
+					"name": "timeWindow",
+					"parent": "",
+					"description": "1 to 12 hours around (both +and -) the local time. Possibly limited by the number of extra days when specified, i.e.  in some situations, it may not be used to exceed the maximum date range. [1-12]H format, e.g. 6H",
+					"pattern": "^([1-9]|10|11|12)H",
+					"example": "2H",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "efa73dd1-f7a6-40cb-b9b9-fe8e431da9ff",
+			"name": "Traveler",
+			"properties": [
+				{
+					"id": "fce025b8-35bc-4d3a-975d-909c6769ff8a",
+					"required": true,
+					"name": "id",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": 1,
+					"objectType": "string"
+				},
+				{
+					"id": "b3a15697-b156-4ad4-93e5-74ddd93b97a1",
+					"required": true,
+					"name": "travelerType",
+					"parent": "",
+					"description": [
+						"==OBJECT STRING==",
+						"traveler type",
+						"age restrictions : CHILD < 12y, HELD_INFANT < 2y, SEATED_INFANT < 2y, SENIOR >=60y",
+						""
+					],
+					"pattern": "",
+					"example": "ADULT",
+					"objectType": "string"
+				},
+				{
+					"id": "3531fb48-c9b4-4cab-d34f-4793d20acfd9",
+					"name": "associatedAdultId",
+					"parent": "",
+					"description": "if type=\"HELD_INFANT\", corresponds to the adult travelers's id who will share the seat",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "4293df33-7051-4914-a71a-0afb5640275f",
+			"name": "SearchCriteria",
+			"properties": [
+				{
+					"id": "2843f8c4-d160-4391-88c0-2d379de00a8e",
+					"name": "excludeAllotments",
+					"parent": "",
+					"description": "This option allows to exclude the isAllotment flag associated to a booking class in the search response when it exist.",
+					"pattern": "",
+					"example": "",
+					"objectType": "boolean"
+				},
+				{
+					"id": "112eb5bd-82f3-47f2-c0ae-3945718469c7",
+					"name": "addOneWayOffers",
+					"parent": "",
+					"description": "This option allows activate the one-way combinable feature",
+					"pattern": "",
+					"example": true,
+					"objectType": "boolean"
+				},
+				{
+					"id": "3d61593f-c251-4d12-d1fe-4fe22c3eaa40",
+					"name": "maxFlightOffers",
+					"parent": "",
+					"description": "Maximum number of flight offers returned (Max 250)",
+					"pattern": "",
+					"example": 250,
+					"default": 250,
+					"objectType": "number"
+				},
+				{
+					"id": "26462f1c-0394-4037-90ed-bea27712be51",
+					"name": "maxPrice",
+					"parent": "",
+					"description": "maximum price per traveler. By default, no limit is applied. If specified, the value should be a positive number with no decimals",
+					"pattern": "",
+					"example": 100,
+					"objectType": "integer"
+				},
+				{
+					"id": "aebe34df-33d8-40f2-dc04-dd602d92cb7e",
+					"name": "allowAlternativeFareOptions",
+					"parent": "",
+					"description": "This option allows to default to a standard fareOption if no offers are found for the selected fareOption.",
+					"pattern": "",
+					"example": true,
+					"objectType": "boolean"
+				},
+				{
+					"id": "85c45bea-6c2b-4655-d077-4f4eccf4eb3e",
+					"name": "oneFlightOfferPerDay",
+					"parent": "",
+					"description": "Requests the system to find at least one flight-offer per day, if possible, when a range of dates is specified. Default is false.",
+					"pattern": "",
+					"example": true,
+					"objectType": "boolean"
+				},
+				{
+					"id": "f7b10c38-8942-4570-fe8c-c5bc56e24008",
+					"name": "chargeableCheckedBags",
+					"parent": "bbc28d65-46fa-49f9-f24b-87bf8c7702f5",
+					"description": "If true, returns the price of the first additional bag when the airline is an \"Amadeus Ancillary Services\" member.",
+					"pattern": "",
+					"example": true,
+					"objectType": "boolean"
+				},
+				{
+					"id": "0d600a70-502b-4f10-c7c0-99e7ca9edfdb",
+					"name": "brandedFares",
+					"parent": "bbc28d65-46fa-49f9-f24b-87bf8c7702f5",
+					"description": "If true, returns the fare family name for each flight-offer which supports fare family",
+					"pattern": "",
+					"example": true,
+					"objectType": "boolean"
+				},
+				{
+					"id": "bbc28d65-46fa-49f9-f24b-87bf8c7702f5",
+					"name": "additionalInformation",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "39714af4-b3d1-4923-bd12-488b063323c5",
+					"name": "pricingOptions",
+					"parent": "",
+					"description": "fare filter options",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "2ddb909e-1d95-443c-fe7d-149f92b196bc",
+					"name": "crossBorderAllowed",
+					"parent": "c3c2b621-cb66-48ca-b6a8-94a4c14d3ba6",
+					"description": "Allows to search a location outside the borders when a radius around a location is specified. Default is false.",
+					"pattern": "",
+					"example": "",
+					"objectType": "boolean"
+				},
+				{
+					"id": "94f19854-d024-4be2-ae0f-2185cc1137ab",
+					"name": "moreOvernightsAllowed",
+					"parent": "c3c2b621-cb66-48ca-b6a8-94a4c14d3ba6",
+					"description": "This flag enables/disables the possibility to have more overnight flights in Low Fare Search",
+					"pattern": "",
+					"example": "",
+					"objectType": "boolean"
+				},
+				{
+					"id": "dc64c6e8-a733-46c9-cdb0-5b19074ae572",
+					"name": "returnToDepartureAirport",
+					"parent": "c3c2b621-cb66-48ca-b6a8-94a4c14d3ba6",
+					"description": "This option force to retrieve flight-offer with a departure and a return in the same airport",
+					"pattern": "",
+					"example": "",
+					"objectType": "boolean"
+				},
+				{
+					"id": "213c8f42-f340-452e-94c4-78f3e7a66b0b",
+					"name": "railSegmentAllowed",
+					"parent": "c3c2b621-cb66-48ca-b6a8-94a4c14d3ba6",
+					"description": "This flag enable/disable filtering of rail segment (TGV AIR, RAIL ...)",
+					"pattern": "",
+					"example": true,
+					"objectType": "boolean"
+				},
+				{
+					"id": "88e710c4-3347-4fe6-e7d2-e7f3959dd000",
+					"name": "busSegmentAllowed",
+					"parent": "c3c2b621-cb66-48ca-b6a8-94a4c14d3ba6",
+					"description": "This flag enable/disable filtering of bus segment",
+					"pattern": "",
+					"example": true,
+					"objectType": "boolean"
+				},
+				{
+					"id": "49a5318d-c09b-4faf-d691-afcf87e1a918",
+					"name": "maxFlightTime",
+					"parent": "c3c2b621-cb66-48ca-b6a8-94a4c14d3ba6",
+					"description": "This option allows to modify the value for the Elapsed Flying Time (EFT) masterPricer option",
+					"pattern": "",
+					"example": 200,
+					"objectType": "number"
+				},
+				{
+					"id": "91ede862-66d4-4ab8-a540-8d28f8530114",
+					"name": "blacklistedInEUAllowed",
+					"parent": "816a586a-8354-489e-c4a4-8612be6bb6fa",
+					"description": "This flag enable/disable filtering of blacklisted airline by EU. The list of the banned airlines is published in the Official Journal of the European Union, where they are included as annexes A and B to the Commission Regulation. The blacklist of an airline can concern all its flights or some specific aircraft types pertaining to the airline",
+					"pattern": "",
+					"example": "",
+					"objectType": "boolean"
+				},
+				{
+					"id": "135ec268-885d-401f-bcbc-87b7d5038570",
+					"name": "excludedCarrierCodes",
+					"parent": "816a586a-8354-489e-c4a4-8612be6bb6fa",
+					"description": "This option ensures that the system will only consider these airlines.",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				},
+				{
+					"id": "9224c049-dd0a-498d-c58a-be5daceb9a6b",
+					"name": "includedCarrierCodes",
+					"parent": "816a586a-8354-489e-c4a4-8612be6bb6fa",
+					"description": "This option ensures that the system will only consider these airlines.",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				},
+				{
+					"id": "816a586a-8354-489e-c4a4-8612be6bb6fa",
+					"name": "carrierRestrictions",
+					"parent": "c3c2b621-cb66-48ca-b6a8-94a4c14d3ba6",
+					"description": "Restriction towards carriers.",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "87841468-1999-4acc-d7ae-48b8e3352056",
+					"name": "cabin",
+					"parent": "1248104b-4f37-4b5b-8f51-ed39e3270ce1",
+					"description": "quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class",
+					"pattern": "",
+					"example": "PREMIUM_ECONOMY",
+					"objectType": "string"
+				},
+				{
+					"id": "e86a5856-adc2-4d18-97c3-43d1bb043375",
+					"name": "coverage",
+					"parent": "1248104b-4f37-4b5b-8f51-ed39e3270ce1",
+					"description": "part of the trip covered by the travel class restriction (ALL_SEGMENTS if ommited)",
+					"pattern": "",
+					"example": "MOST_SEGMENTS",
+					"objectType": "string"
+				},
+				{
+					"id": "9dab61f9-1985-40d5-e762-8772ac05e0cd",
+					"name": "originDestinationIds",
+					"parent": "1248104b-4f37-4b5b-8f51-ed39e3270ce1",
+					"description": "The list of originDestination identifiers for which the cabinRestriction applies",
+					"pattern": "",
+					"example": [
+						1,
+						2
+					],
+					"objectType": "array"
+				},
+				{
+					"id": "1248104b-4f37-4b5b-8f51-ed39e3270ce1",
+					"name": "cabinRestrictions",
+					"parent": "c3c2b621-cb66-48ca-b6a8-94a4c14d3ba6",
+					"description": "Restriction towards cabins.",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				},
+				{
+					"id": "531fc066-b6f3-43bc-c103-53e5ad7eb9b6",
+					"name": "maxNumberOfConnections",
+					"parent": "77780d76-8f70-4dd3-e1c5-f3943f9005d0",
+					"description": "The maximal number of connections for each itinerary. Value can be 0, 1 or 2.",
+					"pattern": "",
+					"example": 2,
+					"objectType": "number"
+				},
+				{
+					"id": "368906a8-d9a3-4026-b4f4-a844713b0411",
+					"name": "airportChangeAllowed",
+					"parent": "77780d76-8f70-4dd3-e1c5-f3943f9005d0",
+					"description": "Allow to change airport during connection",
+					"pattern": "",
+					"example": "",
+					"objectType": "boolean"
+				},
+				{
+					"id": "8b68290e-ee13-4b6b-c790-70fe80a33470",
+					"name": "technicalStopsAllowed",
+					"parent": "77780d76-8f70-4dd3-e1c5-f3943f9005d0",
+					"description": "This option allows the single segment to have one or more intermediate stops (technical stops).",
+					"pattern": "",
+					"example": true,
+					"objectType": "boolean"
+				},
+				{
+					"id": "77780d76-8f70-4dd3-e1c5-f3943f9005d0",
+					"name": "connectionRestriction",
+					"parent": "c3c2b621-cb66-48ca-b6a8-94a4c14d3ba6",
+					"description": "Restriction towards number of connections.",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "c3c2b621-cb66-48ca-b6a8-94a4c14d3ba6",
+					"name": "flightFilters",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				}
+			]
+		},
+		{
+			"id": "0f679dd9-a34e-4fe8-af18-d1e6318ca27d",
+			"name": "FlightOffer",
+			"properties": [
+				{
+					"id": "cbad96bc-a63e-445a-e1d9-f46ba615e0fd",
+					"required": true,
+					"name": "type",
+					"parent": "",
+					"description": "the resource name",
+					"pattern": "",
+					"example": "flight-offer",
+					"objectType": "string"
+				},
+				{
+					"id": "6f0ca0c1-599a-4ddf-abed-1fab672eb482",
+					"required": true,
+					"name": "id",
+					"parent": "",
+					"description": "Id of the flight offer",
+					"pattern": "",
+					"example": "1",
+					"objectType": "string"
+				},
+				{
+					"id": "63ce1cfb-321c-4598-d2ae-04faeff52532",
+					"required": true,
+					"name": "source",
+					"parent": "",
+					"description": "source of the flight offer",
+					"pattern": "",
+					"example": "GDS",
+					"objectType": "string"
+				},
+				{
+					"id": "28645765-550c-4261-c76b-08da5d008d9f",
+					"name": "instantTicketingRequired",
+					"parent": "",
+					"description": "If true, inform that a ticketing will be required at booking step.",
+					"pattern": "",
+					"example": "",
+					"objectType": "boolean"
+				},
+				{
+					"id": "8f8fd25d-d13c-4a9c-c608-dc64738dc6e7",
+					"name": "disablePricing",
+					"parent": "",
+					"description": "BOOK step ONLY - If true, allows to book a PNR without pricing. Only for the source \"GDS\"",
+					"pattern": "",
+					"example": "",
+					"objectType": "boolean"
+				},
+				{
+					"id": "cf5dd3b5-ef62-4909-90c2-5764f60c6d81",
+					"name": "nonHomogeneous",
+					"parent": "",
+					"description": "If true, upon completion of the booking, this pricing solution is expected to yield multiple records (a record contains booking information confirmed and stored, typically a Passenger Name Record (PNR), in the provider GDS or system)",
+					"pattern": "",
+					"example": "",
+					"objectType": "boolean"
+				},
+				{
+					"id": "7ca586d3-e0b8-4a34-9f57-5a96baf49531",
+					"name": "oneWay",
+					"parent": "",
+					"description": "If true, the flight offer fulfills only one originDestination and has to be combined with other oneWays to complete the whole journey.",
+					"pattern": "",
+					"example": "",
+					"objectType": "boolean"
+				},
+				{
+					"id": "f8ce430e-fda9-4b29-c2af-18401c202aa4",
+					"name": "paymentCardRequired",
+					"parent": "",
+					"description": "If true, a payment card is mandatory to book this flight offer",
+					"pattern": "",
+					"example": "",
+					"objectType": "boolean"
+				},
+				{
+					"id": "e43348de-57c4-4618-f5eb-8dc975a05c34",
+					"name": "lastTicketingDate",
+					"parent": "",
+					"description": "If booked on the same day as the search (with respect to timezone), this flight offer is guaranteed to be thereafter valid for ticketing until this date (included). Unspecified when it does not make sense for this flight offer (e.g. no control over ticketing once booked). YYYY-MM-DD format, e.g. 2019-06-07",
+					"pattern": "",
+					"example": "2018-06-19T00:00:00.000Z",
+					"objectType": "string"
+				},
+				{
+					"id": "0a9415e5-92a7-459b-d37b-3eb9daf1fd10",
+					"name": "numberOfBookableSeats",
+					"parent": "",
+					"description": "Number of seats bookable in a single request. Can not be higher than 9.",
+					"pattern": "",
+					"example": 9,
+					"objectType": "number"
+				},
+				{
+					"id": "ef0f6b80-5f9e-40f7-9bda-9257e284ff2d",
+					"name": "duration",
+					"parent": "3d2637ec-9a35-49aa-8f1c-f18eff1ef59b",
+					"description": "duration in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) PnYnMnDTnHnMnS format, e.g. PT2H10M for a duration of 2h10m",
+					"pattern": "",
+					"example": "PT2H10M",
+					"objectType": "string"
+				},
+				{
+					"id": "506d94b3-0960-4bd5-f764-1dafe10c4489",
+					"name": "segments",
+					"parent": "3d2637ec-9a35-49aa-8f1c-f18eff1ef59b",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				},
+				{
+					"id": "3d2637ec-9a35-49aa-8f1c-f18eff1ef59b",
+					"name": "itineraries",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				},
+				{
+					"id": "83f156d4-599e-4880-be62-89b7ffba56f5",
+					"name": "price",
+					"parent": "",
+					"description": "price information",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "e90c8996-b61a-4426-bd5c-df4721604333",
+					"name": "fareType",
+					"parent": "684b0db5-2949-400e-effb-7653970c9cc8",
+					"description": "type of fare of the flight-offer",
+					"pattern": "",
+					"example": [
+						"PUBLISHED"
+					],
+					"objectType": "array"
+				},
+				{
+					"id": "5c1deae0-6e07-4eff-d278-d447e62b4a73",
+					"name": "corporateCodes",
+					"parent": "684b0db5-2949-400e-effb-7653970c9cc8",
+					"description": "Allow Corporate negotiated fares using one or more corporate number (corporate code).",
+					"pattern": "",
+					"example": [
+						"123456"
+					],
+					"objectType": "array"
+				},
+				{
+					"id": "3386fc93-032c-4e08-d3d0-cfb707dff9a6",
+					"name": "includedCheckedBagsOnly",
+					"parent": "684b0db5-2949-400e-effb-7653970c9cc8",
+					"description": "If true, returns the flight-offers with included checked bags only",
+					"pattern": "",
+					"example": true,
+					"objectType": "boolean"
+				},
+				{
+					"id": "83682992-7439-4c09-d830-df226b73a0f7",
+					"name": "refundableFare",
+					"parent": "684b0db5-2949-400e-effb-7653970c9cc8",
+					"description": "If true, returns the flight-offers with refundable fares only",
+					"pattern": "",
+					"example": true,
+					"objectType": "boolean"
+				},
+				{
+					"id": "e3200365-7df1-4cca-95f4-914445765ecd",
+					"name": "noRestrictionFare",
+					"parent": "684b0db5-2949-400e-effb-7653970c9cc8",
+					"description": "If true, returns the flight-offers with no restriction fares only",
+					"pattern": "",
+					"example": true,
+					"objectType": "boolean"
+				},
+				{
+					"id": "83702a6c-dc37-472b-a0e9-7321096752e1",
+					"name": "noPenaltyFare",
+					"parent": "684b0db5-2949-400e-effb-7653970c9cc8",
+					"description": "If true, returns the flight-offers with no penalty fares only",
+					"pattern": "",
+					"example": true,
+					"objectType": "boolean"
+				},
+				{
+					"id": "684b0db5-2949-400e-effb-7653970c9cc8",
+					"name": "pricingOptions",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "f74c70e1-7f2e-46a1-88b0-a10d0dac145b",
+					"name": "validatingAirlineCodes",
+					"parent": "",
+					"description": "This option ensures that the system will only consider these airlines.",
+					"pattern": "",
+					"example": [
+						"AF"
+					],
+					"objectType": "array"
+				},
+				{
+					"id": "81751d18-3cbc-4927-917a-1fa99a8df513",
+					"name": "travelerId",
+					"parent": "bff935ad-085e-47c9-c49f-66fd30e20662",
+					"description": "Id of the traveler",
+					"pattern": "",
+					"example": "1",
+					"objectType": "string"
+				},
+				{
+					"id": "d538b4fe-fd6d-4516-9604-5e11bf4848c2",
+					"name": "fareOption",
+					"parent": "bff935ad-085e-47c9-c49f-66fd30e20662",
+					"description": [
+						"==OBJECT STRING==",
+						"option specifying a group of fares, which may be valid under certain conditons",
+						"Can be used to specify special fare discount for a passenger",
+						""
+					],
+					"pattern": "",
+					"example": "STANDARD",
+					"objectType": "string"
+				},
+				{
+					"id": "db2ad857-bc5b-4b07-a4f9-89392a3d6299",
+					"name": "travelerType",
+					"parent": "bff935ad-085e-47c9-c49f-66fd30e20662",
+					"description": [
+						"==OBJECT STRING==",
+						"traveler type",
+						"age restrictions : CHILD < 12y, HELD_INFANT < 2y, SEATED_INFANT < 2y, SENIOR >=60y",
+						""
+					],
+					"pattern": "",
+					"example": "ADULT",
+					"objectType": "string"
+				},
+				{
+					"id": "916eebc6-6a42-4aeb-e456-39ca3040062b",
+					"name": "associatedAdultId",
+					"parent": "bff935ad-085e-47c9-c49f-66fd30e20662",
+					"description": "if type=\"HELD_INFANT\", corresponds to the adult traveler's id who will share the seat",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "d9ac67f9-7a6c-452a-c836-54a7cd5a6862",
+					"name": "price",
+					"parent": "bff935ad-085e-47c9-c49f-66fd30e20662",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": {
+						"properties": {
+							"currency": {
+								"type": "string",
+								"example": "USD"
+							},
+							"total": {
+								"description": "Total amount paid by the user",
+								"type": "string",
+								"example": "932.70"
+							},
+							"base": {
+								"description": "Amount without taxes",
+								"type": "string",
+								"example": "632.70"
+							},
+							"fees": {
+								"description": "List of applicable fees",
+								"type": "array",
+								"items": {
+									"$ref": "#/definitions/Fee"
+								}
+							},
+							"taxes": {
+								"type": "array",
+								"items": {
+									"$ref": "#/definitions/Tax"
+								}
+							},
+							"refundableTaxes": {
+								"description": "The amount of taxes which are refundable",
+								"type": "string",
+								"example": "200.00"
+							}
+						}
+					}
+				},
+				{
+					"id": "14cda0df-cc73-4ff9-e22b-127e0fa71122",
+					"name": "segmentId",
+					"parent": "32a616d2-4f6e-405f-ff9a-b0c56f4ba403",
+					"description": "Id of the segment",
+					"pattern": "",
+					"example": "1",
+					"objectType": "string"
+				},
+				{
+					"id": "9b2157c3-9e2e-4f01-f1b8-c0a105c8a98c",
+					"name": "cabin",
+					"parent": "32a616d2-4f6e-405f-ff9a-b0c56f4ba403",
+					"description": "quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class",
+					"pattern": "",
+					"example": "PREMIUM_ECONOMY",
+					"objectType": "string"
+				},
+				{
+					"id": "94e17c57-4df8-4a54-f4aa-7f789e2e5320",
+					"name": "fareBasis",
+					"parent": "32a616d2-4f6e-405f-ff9a-b0c56f4ba403",
+					"description": "Fare basis specifying the rules of a fare. Usually, though not always, is composed of the booking class code followed by a set of letters and digits representing other characteristics of the ticket, such as refundability, minimum stay requirements, discounts or special promotional elements.",
+					"pattern": "[[A-Z0-9]{1,18}",
+					"example": "ANNNNF4K",
+					"objectType": "string"
+				},
+				{
+					"id": "b3cb12e0-bd3a-4564-c3b9-d3ec6d205239",
+					"name": "brandedFare",
+					"parent": "32a616d2-4f6e-405f-ff9a-b0c56f4ba403",
+					"description": "The name of the Fare Family corresponding to the fares. Only for the GDS provider and if the airline has fare families filled",
+					"pattern": "",
+					"example": "LIGHTONE",
+					"objectType": "string"
+				},
+				{
+					"id": "44819730-1e83-49ae-bcab-70dee4d6bbdf",
+					"name": "class",
+					"parent": "32a616d2-4f6e-405f-ff9a-b0c56f4ba403",
+					"description": "The code of the booking class, a.k.a. class of service or Reservations/Booking Designator (RBD)",
+					"pattern": "[A-Z]{1}",
+					"example": "A",
+					"objectType": "string"
+				},
+				{
+					"id": "37814623-27da-4ff2-9a49-bc03f7817e2f",
+					"name": "isAllotment",
+					"parent": "32a616d2-4f6e-405f-ff9a-b0c56f4ba403",
+					"description": "True if the corresponding booking class is in an allotment",
+					"pattern": "",
+					"example": true,
+					"objectType": "boolean"
+				},
+				{
+					"id": "e8204cb9-1653-42f2-e1df-0596ac982518",
+					"name": "tourName",
+					"parent": "737f263e-fc4a-4127-ae8e-87b2ef0d1102",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "e75bdbe4-bde4-4872-b7c4-8ce53bb13e97",
+					"name": "tourReference",
+					"parent": "737f263e-fc4a-4127-ae8e-87b2ef0d1102",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "737f263e-fc4a-4127-ae8e-87b2ef0d1102",
+					"name": "allotmentDetails",
+					"parent": "32a616d2-4f6e-405f-ff9a-b0c56f4ba403",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "f34bccef-9efc-4863-bbdb-eb7590040893",
+					"name": "sliceDiceIndicator",
+					"parent": "32a616d2-4f6e-405f-ff9a-b0c56f4ba403",
+					"description": "slice and Dice indicator, such as Local Availability, Sub OnD(Origin and Destination) 1 Availability and Sub OnD 2 Availability",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "f704c728-6671-422d-808a-aea1d7b9a1ac",
+					"name": "includedCheckedBags",
+					"parent": "32a616d2-4f6e-405f-ff9a-b0c56f4ba403",
+					"description": "baggageAllowance",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "653982fd-c00c-4cb6-b44b-dcfbddbdd686",
+					"name": "chargeableCheckedBags",
+					"parent": "a20d4c4b-b7df-48f9-d235-8c3de9d4f171",
+					"description": "baggageAllowance",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "e0fa0561-9728-4216-fbb0-d0823f3f0082",
+					"name": "chargeableSeatNumber",
+					"parent": "a20d4c4b-b7df-48f9-d235-8c3de9d4f171",
+					"description": "seat number",
+					"pattern": "[1-9][0-9]{0,2}[A-Z]?",
+					"example": "33D",
+					"objectType": "string"
+				},
+				{
+					"id": "70370254-b4e2-4eda-e56b-ba07c79113ab",
+					"name": "otherServices",
+					"parent": "a20d4c4b-b7df-48f9-d235-8c3de9d4f171",
+					"description": "type of service",
+					"pattern": "",
+					"example": "PRIORITY_BOARDING",
+					"objectType": "array"
+				},
+				{
+					"id": "a20d4c4b-b7df-48f9-d235-8c3de9d4f171",
+					"name": "additionalServices",
+					"parent": "32a616d2-4f6e-405f-ff9a-b0c56f4ba403",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "32a616d2-4f6e-405f-ff9a-b0c56f4ba403",
+					"name": "fareDetailsBySegment",
+					"parent": "bff935ad-085e-47c9-c49f-66fd30e20662",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				},
+				{
+					"id": "bff935ad-085e-47c9-c49f-66fd30e20662",
+					"name": "travelerPricings",
+					"parent": "",
+					"description": "Fare information for each traveler/segment",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				},
+				{
+					"id": "da47b7ef-1032-4346-c31a-4dc46a58bf57",
+					"name": "fareRules",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				}
+			]
+		},
+		{
+			"id": "73184fe0-bd39-4bcd-a0f9-09c4c086f066",
+			"name": "Segment",
+			"properties": []
+		},
+		{
+			"id": "30f84298-7deb-4662-8c32-7306cf6b24a2",
+			"name": "TravelerType",
+			"description": [
+				"==OBJECT STRING==",
+				"traveler type",
+				"age restrictions : CHILD < 12y, HELD_INFANT < 2y, SEATED_INFANT < 2y, SENIOR >=60y",
+				""
+			],
+			"properties": []
+		},
+		{
+			"id": "71015d5a-9fbe-45ce-d28b-ece4ccd10666",
+			"name": "ExtendedPricingOptions",
+			"description": "fare filter options",
+			"properties": [
+				{
+					"id": "01c261b6-a892-4ef5-ac02-a3fdeb9df1c4",
+					"name": "includedCheckedBagsOnly",
+					"parent": "",
+					"description": "If true, returns the flight-offers with included checked bags only",
+					"pattern": "",
+					"example": true,
+					"objectType": "boolean"
+				}
+			]
+		},
+		{
+			"id": "6cddb341-f969-4425-98ec-a5acbac3f5e2",
+			"name": "Coverage",
+			"description": "part of the trip covered by the travel class restriction (ALL_SEGMENTS if ommited)",
+			"properties": []
+		},
+		{
+			"id": "46c5dac9-626f-4b37-8d22-372538f08f8d",
+			"name": "AdditionalServiceType",
+			"description": "additional service type",
+			"properties": []
+		},
+		{
+			"id": "e230c338-b78f-4df4-dcb5-0653911c5083",
+			"name": "FlightOfferSource",
+			"description": "source of the flight offer",
+			"properties": []
+		},
+		{
+			"id": "2de6ee21-782b-4ac0-df1b-4ee60fd1df82",
+			"name": "PricingOptionsFareType",
+			"description": "type of fare of the flight-offer",
+			"properties": []
+		},
+		{
+			"id": "d5d0e496-af78-4d99-c874-2a905ee3c6a1",
+			"name": "TravelerPricingFareOption",
+			"description": [
+				"==OBJECT STRING==",
+				"option specifying a group of fares, which may be valid under certain conditons",
+				"Can be used to specify special fare discount for a passenger",
+				""
+			],
+			"properties": []
+		},
+		{
+			"id": "4477cec9-f371-4dcd-8da3-4229eb24ba7f",
+			"name": "SliceDiceIndicator",
+			"description": "slice and Dice indicator, such as Local Availability, Sub OnD(Origin and Destination) 1 Availability and Sub OnD 2 Availability",
+			"properties": []
+		},
+		{
+			"id": "60a47354-1a8e-4057-e9e7-6c4f2c7c2c54",
+			"name": "Dictionaries",
+			"properties": [
+				{
+					"id": "94b6512d-95a6-4875-e72c-316585060eb2",
+					"name": "locations",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": {
+						"required": [
+							"key"
+						],
+						"properties": {
+							"key": {
+								"type": "string"
+							}
+						},
+						"additionalProperties": {
+							"$ref": "#/definitions/LocationValue"
+						}
+					}
+				},
+				{
+					"id": "ad6aa245-72c8-4902-ac7e-75075f97d18a",
+					"name": "aircraft",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				},
+				{
+					"id": "1611daaf-443e-4457-bc89-21152ea54201",
+					"name": "currencies",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": {
+						"required": [
+							"key"
+						],
+						"properties": {
+							"key": {
+								"type": "string",
+								"example": "Euro"
+							}
+						},
+						"additionalProperties": {
+							"type": "string",
+							"example": "EUR"
+						}
+					}
+				},
+				{
+					"id": "ad26b1d8-7765-4150-c52c-1571672c17ab",
+					"name": "carriers",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				}
+			]
+		},
+		{
+			"id": "07c9ce69-bd5a-4016-9ec0-53af187ce7b6",
+			"name": "LocationValue",
+			"properties": [
+				{
+					"id": "549a6f7d-ad94-46bd-d881-66959b3811bb",
+					"name": "cityCode",
+					"parent": "",
+					"description": "City code associated to the airport",
+					"pattern": "",
+					"example": "PAR",
+					"objectType": "string"
+				},
+				{
+					"id": "f1160fd7-89ab-42a8-ace9-6d64cbcb2959",
+					"name": "countryCode",
+					"parent": "",
+					"description": "Country code of the airport",
+					"pattern": "",
+					"example": "FR",
+					"objectType": "string"
+				}
+			]
+		},
+		{
+			"id": "17a1b8b9-c91c-4bd3-d6a6-53110d95ec43",
+			"name": "FareRules",
+			"properties": [
+				{
+					"id": "907c661e-475f-4510-aab6-34bb6e2d47f8",
+					"name": "currency",
+					"parent": "",
+					"description": "The currency of the penalties",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "9f9335bf-648b-4ab9-f01d-fa7004235f3f",
+					"name": "rules",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				}
+			]
+		},
+		{
+			"id": "adc3ea36-9a63-4eb2-ec96-e77ba58247ab",
+			"name": "TermAndCondition",
+			"properties": [
+				{
+					"id": "b9b1515a-7646-49c1-ca39-62d7dcea7ebd",
+					"name": "category",
+					"parent": "",
+					"description": "This defines what type of modification is concerned in this rule.",
+					"pattern": "",
+					"example": "EXCHANGE",
+					"objectType": "string"
+				},
+				{
+					"id": "f596ccf4-47f6-453b-ed97-3802bdfc07cb",
+					"name": "circumstances",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "9893a5f8-2644-4473-e1c7-306dda21fd80",
+					"name": "notApplicable",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "boolean"
+				},
+				{
+					"id": "56479723-d30f-40fc-b260-723515f38e42",
+					"name": "maxPenaltyAmount",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "975415a6-3aa5-45ce-be50-b151ba5156a5",
+					"name": "descriptionType",
+					"parent": "dc5fa9f6-106a-467c-e2d7-1821bda743ca",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "43190c03-6a68-4954-a167-a9c5319226a3",
+					"name": "text",
+					"parent": "dc5fa9f6-106a-467c-e2d7-1821bda743ca",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "string"
+				},
+				{
+					"id": "dc5fa9f6-106a-467c-e2d7-1821bda743ca",
+					"name": "descriptions",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				}
+			]
+		},
+		{
+			"id": "72267709-fc83-4490-89d2-c650ad3bd6ff",
+			"name": "GetFlightOffersQuery",
+			"properties": [
+				{
+					"id": "d3948535-9f9a-4b09-e893-e65c5a0b1978",
+					"name": "currencyCode",
+					"parent": "",
+					"description": "The currency code, as defined in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217), to reflect the currency in which this amount is expressed.",
+					"pattern": "",
+					"example": "EUR",
+					"objectType": "string"
+				},
+				{
+					"id": "90fcae3e-92ce-4ab0-c285-a7acdafa74ee",
+					"required": true,
+					"name": "originDestinations",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				},
+				{
+					"id": "b4f489dd-c353-4082-f50c-30fce3724178",
+					"required": true,
+					"name": "travelers",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "array"
+				},
+				{
+					"id": "9bc3817c-f21c-4ab6-a6f0-197f95bdb15d",
+					"required": true,
+					"name": "sources",
+					"parent": "",
+					"description": "source of the flight offer",
+					"pattern": "",
+					"example": "GDS",
+					"objectType": "array"
+				},
+				{
+					"id": "4a54ae2f-ad7f-479e-d234-f6b95bb0370f",
+					"name": "searchCriteria",
+					"parent": "",
+					"description": "",
+					"pattern": "",
+					"example": "",
+					"objectType": "object"
+				}
+			]
+		},
+		{
+			"id": "cbb54c5e-499c-40f5-b599-2cf8d3abdba7",
+			"name": "ServiceName",
+			"description": "type of service",
+			"properties": []
+		},
+		{
+			"id": "78daece2-bc12-4273-c471-453a90912d8c",
+			"name": "BaggageAllowance",
+			"description": "baggageAllowance",
+			"properties": [
+				{
+					"id": "4b2cf590-aeca-4e24-a7e3-ad7196032d3a",
+					"name": "quantity",
+					"parent": "",
+					"description": "Total number of units",
+					"pattern": "",
+					"example": 1,
+					"objectType": "integer"
+				},
+				{
+					"id": "ed217c0f-2106-446c-ea07-48749f4d47fd",
+					"name": "weight",
+					"parent": "",
+					"description": "Weight of the baggage allowance",
+					"pattern": "",
+					"example": 20,
+					"objectType": "integer"
+				},
+				{
+					"id": "0441fc32-8fd2-470b-f524-d57f68b490f7",
+					"name": "weightUnit",
+					"parent": "",
+					"description": "Code to qualify unit as pounds or kilos",
+					"pattern": "",
+					"example": "KG",
+					"objectType": "string"
+				}
+			]
+		}
+	],
+	"documentation": [],
+	"name": "Amadeus_FlightSearch",
+	"endpoint": "https://test.api.amadeus.com/v2",
+	"ver": "20.5.4.147",
+	"version": "2.3.0",
+	"description": null,
+	"mediaType": "application/vnd.amadeus+json",
+	"securitySchemes": null,
+	"swaggerURI": null,
+	"swaggerSystem": null,
+	"apiType": "",
+	"about": [
+		"==OBJECT STRING==",
+		"# Introduction",
+		"",
+		"  The **Flight Offers Search** REST/JSON API is an open search API that enables you to get cheapest flight recommendations and prices on a given journey. ",
+		"",
+		"  The API provides a list of flight recommendations and fares from a given origin (city or airport), for a given date (or date range) and for a given list of passengers. Additional information such as bag allowance, first ancillary bag prices or fare details are also provided.",
+		"",
+		"# Authorization",
+		"",
+		"  Before using the API you will need to get an access token. Please read our **[Authorization Guide](https://developers.amadeus.com/self-service/apis-docs/guides/authorization)** for more information on how to get your token.",
+		"",
+		"# Supported Operations",
+		"  List of supported operations by resource:",
+		"  - GET: to do a quick search using key parameter ",
+		"  - POST: to do a customized search with every option available"
+	],
+	"enableProxy": true,
+	"restrictAccess": false,
+	"enableTrace": false,
+	"enableIDE": true,
+	"internalAPI": false,
+	"isPublic": false,
+	"tlsAllowUntrusted": false,
+	"useOwnProcess": false,
+	"package": "b69714db-0a11-4c2b-9cfa-aabfa4102da6",
+	"apiGroup": "10141d64-d063-4665-94ad-ee21142059b3",
+	"apiFormat": 0,
+	"roles": []
+}

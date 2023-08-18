@@ -1,0 +1,6 @@
+if (typeof photoUrl === "undefined" || photoUrl === null) { return; }  
+if (photoUrl === "") {
+   photoUrl =  "/media/root/hotel_image.png";
+}
+var formattedText = photoUrl; 
+return formattedText;

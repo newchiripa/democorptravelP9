@@ -1,0 +1,3 @@
+if (oInputSLocationKey.getValue().length > 0) {
+    oInputSLocation.setValueState(sap.ui.core.ValueState.None);
+}

@@ -1,0 +1,14 @@
+.thumbnail {
+  display: block;
+  max-width: 230px;
+  max-height: 100px;
+  width: auto;
+  height: auto;
+}
+
+.Carousel {
+  display: block;
+  max-height: 500px;
+  width: auto;
+  height: auto;
+}

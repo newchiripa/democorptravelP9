@@ -1,0 +1,84 @@
+{
+	"id": "a6e81e01-1187-eb11-85aa-0003ff1e43fb",
+	"createdAt": "2021-03-17T11:07:47.813Z",
+	"createdBy": "lloyd",
+	"auth": [],
+	"endpoints": [],
+	"paths": [
+		{
+			"id": "bd1d4ca1-b507-48b6-9786-bfbca7a5c09f",
+			"method": "GET",
+			"path": "/geocode/v1/json",
+			"description": "",
+			"parameters": [
+				{
+					"name": "q",
+					"description": "",
+					"required": true,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "key",
+					"description": "",
+					"required": true,
+					"inPath": false,
+					"value": "",
+					"default": "f43ae24223074a8e9c3c252483bbec9d",
+					"example": ""
+				}
+			],
+			"headers": [],
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"body": [],
+					"content": [
+						{
+							"id": "b37ad33c-2336-4310-b479-dd936dfcfbd6",
+							"name": "body",
+							"objectType": "object"
+						}
+					]
+				}
+			]
+		}
+	],
+	"definitions": [
+		{
+			"id": "e7c4c64d-16e5-4cbe-c533-1e6eed2570c7",
+			"name": "body",
+			"description": "",
+			"isInclude": false,
+			"properties": []
+		}
+	],
+	"documentation": [],
+	"name": "Geocode Location V2",
+	"endpoint": "https://api.opencagedata.com",
+	"ver": "23.7.20.931",
+	"version": null,
+	"description": null,
+	"mediaType": null,
+	"securitySchemes": null,
+	"swaggerURI": null,
+	"swaggerSystem": null,
+	"apiType": "",
+	"about": null,
+	"enableProxy": true,
+	"restrictAccess": false,
+	"enableTrace": false,
+	"enableIDE": true,
+	"internalAPI": false,
+	"isPublic": false,
+	"tlsAllowUntrusted": false,
+	"useOwnProcess": false,
+	"package": "b69714db-0a11-4c2b-9cfa-aabfa4102da6",
+	"apiGroup": "f35647fa-722a-4a35-ba03-1029deb1fc99",
+	"apiFormat": 0,
+	"roles": []
+}

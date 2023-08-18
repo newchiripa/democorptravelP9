@@ -1,0 +1,7 @@
+if (typeof outdays === "undefined" || outdays === null || outdays === "") { return; }  
+var formattedText = "";
+if (outdays !== 0){
+    formattedText = "+" + outdays;
+}
+
+return formattedText;

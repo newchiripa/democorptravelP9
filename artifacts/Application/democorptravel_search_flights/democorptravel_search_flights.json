@@ -1,0 +1,4503 @@
+{
+	"id": "444695e3-1303-495a-a36b-04bf32066c29",
+	"createdAt": "2020-12-11T12:42:58.486Z",
+	"createdBy": "admin",
+	"objects": [
+		{
+			"fieldNo": "6ee9f9e1-abfd-4677-8b69-56e29aa519d0",
+			"fieldName": "oShell",
+			"fieldParent": 0,
+			"fieldType": "sap.m.Shell",
+			"script": "",
+			"request": [],
+			"response": [],
+			"attributes": [],
+			"data": [
+				{
+					"fieldNo": "6e997fb2-e6d8-4658-c813-b5c2d7210608",
+					"fieldName": "oApp",
+					"fieldParent": "6ee9f9e1-abfd-4677-8b69-56e29aa519d0",
+					"fieldType": "sap.m.SplitApp",
+					"script": "",
+					"request": [],
+					"response": [],
+					"attributes": [],
+					"data": [
+						{
+							"fieldNo": "602f80e7-1ca8-480a-d072-1dbf0b56fc6a",
+							"fieldName": "oPageSearch",
+							"fieldParent": "6e997fb2-e6d8-4658-c813-b5c2d7210608",
+							"fieldType": "sap.m.Page",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "title",
+									"grouping": "Properties",
+									"value": "Search Flights",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "position",
+									"grouping": "Parent",
+									"value": "addMasterPage",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": [
+								{
+									"fieldNo": "d32b8503-bbbf-4ada-a85f-6d5181a9af9e",
+									"fieldName": "oFormSearchFlights",
+									"fieldParent": "602f80e7-1ca8-480a-d072-1dbf0b56fc6a",
+									"fieldType": "sap.ui.layout.form.SimpleForm",
+									"script": "",
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "editable",
+											"grouping": "Properties",
+											"value": "true",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": [
+										{
+											"fieldNo": "b06987ea-5a54-436d-a44f-689332c774bf",
+											"fieldName": "oLabelSFFrom",
+											"fieldParent": "d32b8503-bbbf-4ada-a85f-6d5181a9af9e",
+											"fieldType": "sap.m.Label",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "text",
+													"grouping": "Properties",
+													"value": "From",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "design",
+													"grouping": "Properties",
+													"value": "Bold",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": []
+										},
+										{
+											"fieldNo": "676f91bc-877b-4929-f6b1-1b04e29f1bdd",
+											"fieldName": "oInputSFFrom",
+											"fieldParent": "d32b8503-bbbf-4ada-a85f-6d5181a9af9e",
+											"fieldType": "sap.m.Input",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "startSuggestion",
+													"grouping": "Properties",
+													"value": "3",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "showSuggestion",
+													"grouping": "Properties",
+													"value": "true",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "suggest",
+													"grouping": "Events",
+													"value": "Anonymous Function",
+													"script": "file://event/sap.m.Input/oInputSFFrom/suggest.script",
+													"translation": []
+												}
+											],
+											"data": []
+										},
+										{
+											"fieldNo": "e41c43b2-88d5-4530-cd77-2b87d8e7c2f9",
+											"fieldName": "oLabelSFTo",
+											"fieldParent": "d32b8503-bbbf-4ada-a85f-6d5181a9af9e",
+											"fieldType": "sap.m.Label",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "text",
+													"grouping": "Properties",
+													"value": "To",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "design",
+													"grouping": "Properties",
+													"value": "Bold",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": []
+										},
+										{
+											"fieldNo": "b4e26151-1ba1-4f04-f8f8-583917a5d21f",
+											"fieldName": "oInputSFTo",
+											"fieldParent": "d32b8503-bbbf-4ada-a85f-6d5181a9af9e",
+											"fieldType": "sap.m.Input",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "showSuggestion",
+													"grouping": "Properties",
+													"value": "true",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "suggest",
+													"grouping": "Events",
+													"value": "Anonymous Function",
+													"script": "file://event/sap.m.Input/oInputSFTo/suggest.script",
+													"translation": []
+												}
+											],
+											"data": []
+										},
+										{
+											"fieldNo": "a7cef9b6-dacb-4202-c67b-1e5dd2449847",
+											"fieldName": "oLabelSFTravelType",
+											"fieldParent": "d32b8503-bbbf-4ada-a85f-6d5181a9af9e",
+											"fieldType": "sap.m.Label",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "text",
+													"grouping": "Properties",
+													"value": "Type",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "design",
+													"grouping": "Properties",
+													"value": "Bold",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": []
+										},
+										{
+											"fieldNo": "e53c4b71-a485-421d-a13c-dbea3fd48360",
+											"fieldName": "oSelectSFTravelType",
+											"fieldParent": "d32b8503-bbbf-4ada-a85f-6d5181a9af9e",
+											"fieldType": "sap.m.Select",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "change",
+													"grouping": "Events",
+													"value": "Anonymous Function",
+													"script": "file://event/sap.m.Select/oSelectSFTravelType/change.script",
+													"translation": []
+												}
+											],
+											"data": [
+												{
+													"fieldNo": "7c107c2c-b35f-4466-d8cf-b8fdbd0e015f",
+													"fieldName": "oItemReturn",
+													"fieldParent": "e53c4b71-a485-421d-a13c-dbea3fd48360",
+													"fieldType": "sap.ui.core.Item",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "text",
+															"grouping": "Properties",
+															"value": "Return",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "key",
+															"grouping": "Properties",
+															"value": "RT",
+															"script": "",
+															"translation": []
+														}
+													],
+													"data": []
+												},
+												{
+													"fieldNo": "44498338-76b4-4a56-e0b8-8cd0187c9478",
+													"fieldName": "oItemOneWay",
+													"fieldParent": "e53c4b71-a485-421d-a13c-dbea3fd48360",
+													"fieldType": "sap.ui.core.Item",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "text",
+															"grouping": "Properties",
+															"value": "One Way",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "key",
+															"grouping": "Properties",
+															"value": "OW",
+															"script": "",
+															"translation": []
+														}
+													],
+													"data": []
+												}
+											]
+										},
+										{
+											"fieldNo": "07508ab9-f3c9-44cd-bc63-2e5664f8717f",
+											"fieldName": "oLabelSFOutDate",
+											"fieldParent": "d32b8503-bbbf-4ada-a85f-6d5181a9af9e",
+											"fieldType": "sap.m.Label",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "text",
+													"grouping": "Properties",
+													"value": "Leaving on ",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "design",
+													"grouping": "Properties",
+													"value": "Bold",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": []
+										},
+										{
+											"fieldNo": "2852656b-f7a5-42e1-dbc3-62bcd8451422",
+											"fieldName": "oDateSFOutDate",
+											"fieldParent": "d32b8503-bbbf-4ada-a85f-6d5181a9af9e",
+											"fieldType": "sap.m.DatePicker",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "visible",
+													"grouping": "Properties",
+													"value": "false",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": []
+										},
+										{
+											"fieldNo": "aed387a4-32e6-4d24-bd0f-09c4782b400e",
+											"fieldName": "oLabelSFDateRange",
+											"fieldParent": "d32b8503-bbbf-4ada-a85f-6d5181a9af9e",
+											"fieldType": "sap.m.Label",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "text",
+													"grouping": "Properties",
+													"value": "Travel dates",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "design",
+													"grouping": "Properties",
+													"value": "Bold",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": []
+										},
+										{
+											"fieldNo": "7bf9da4a-d8fc-4b8e-97c0-c2fe14edce14",
+											"fieldName": "oDateSFDateRange",
+											"fieldParent": "d32b8503-bbbf-4ada-a85f-6d5181a9af9e",
+											"fieldType": "sap.m.DateRangeSelection",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [],
+											"data": []
+										},
+										{
+											"fieldNo": "0d16633b-c67e-4a64-af08-5001fac21e02",
+											"fieldName": "oLabelSFPassengers",
+											"fieldParent": "d32b8503-bbbf-4ada-a85f-6d5181a9af9e",
+											"fieldType": "sap.m.Label",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "text",
+													"grouping": "Properties",
+													"value": "No. of Passengers",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "design",
+													"grouping": "Properties",
+													"value": "Bold",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": []
+										},
+										{
+											"fieldNo": "7f9266c8-01a5-44cc-a562-65ff94452a08",
+											"fieldName": "oInputSFPassengers",
+											"fieldParent": "d32b8503-bbbf-4ada-a85f-6d5181a9af9e",
+											"fieldType": "sap.m.StepInput",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "min",
+													"grouping": "Properties",
+													"value": "1",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": []
+										},
+										{
+											"fieldNo": "1a252d62-d572-483d-c71a-3d050e6cba8d",
+											"fieldName": "oLabelSFDirect",
+											"fieldParent": "d32b8503-bbbf-4ada-a85f-6d5181a9af9e",
+											"fieldType": "sap.m.Label",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "text",
+													"grouping": "Properties",
+													"value": "Direct Only?",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "design",
+													"grouping": "Properties",
+													"value": "Bold",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": []
+										},
+										{
+											"fieldNo": "3f0d5764-3808-44b2-a6ec-b73469282a60",
+											"fieldName": "oSwitchSFDirect",
+											"fieldParent": "d32b8503-bbbf-4ada-a85f-6d5181a9af9e",
+											"fieldType": "sap.m.Switch",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "customTextOn",
+													"grouping": "Properties",
+													"value": "Yes",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "customTextOff",
+													"grouping": "Properties",
+													"value": "No",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": []
+										}
+									]
+								},
+								{
+									"fieldNo": "964af605-1370-46c3-a5dc-59a32a17ceaa",
+									"fieldName": "oFooterSearchFlights",
+									"fieldParent": "602f80e7-1ca8-480a-d072-1dbf0b56fc6a",
+									"fieldType": "sap.m.Bar",
+									"script": "",
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "position",
+											"grouping": "Parent",
+											"value": "setFooter",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": [
+										{
+											"fieldNo": "d128e58a-cb8c-4d78-a9ad-231245ff2830",
+											"fieldName": "Right",
+											"fieldParent": "964af605-1370-46c3-a5dc-59a32a17ceaa",
+											"fieldType": "neptune.BarContent",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "position",
+													"grouping": "Parent",
+													"value": "ContentRight",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": [
+												{
+													"fieldNo": "2f9d1821-d562-4397-adc1-8175f3d3c763",
+													"fieldName": "oButtonSearchFlights",
+													"fieldParent": "d128e58a-cb8c-4d78-a9ad-231245ff2830",
+													"fieldType": "sap.m.Button",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "text",
+															"grouping": "Properties",
+															"value": "Search",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "icon",
+															"grouping": "Properties",
+															"value": "sap-icon://search",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "press",
+															"grouping": "Events",
+															"value": "Anonymous Function",
+															"script": "file://event/sap.m.Button/oButtonSearchFlights/press.script",
+															"translation": []
+														}
+													],
+													"data": []
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"fieldNo": "6cc41940-ad01-44af-950f-7a16eac1bbba",
+							"fieldName": "oPageBlank",
+							"fieldParent": "6e997fb2-e6d8-4658-c813-b5c2d7210608",
+							"fieldType": "sap.m.Page",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "position",
+									"grouping": "Parent",
+									"value": "addDetailPage",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "d72943b8-3360-48ba-95af-53409a0a0567",
+							"fieldName": "oPageResults",
+							"fieldParent": "6e997fb2-e6d8-4658-c813-b5c2d7210608",
+							"fieldType": "sap.m.Page",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "title",
+									"grouping": "Properties",
+									"value": "Search Results",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "showNavButton",
+									"grouping": "Properties",
+									"value": "true",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "position",
+									"grouping": "Parent",
+									"value": "addDetailPage",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "navButtonPress",
+									"grouping": "Events",
+									"value": "oApp.backMasterToPage(oPageSearch);",
+									"script": "oApp.backMasterToPage(oPageSearch);",
+									"translation": []
+								}
+							],
+							"data": [
+								{
+									"fieldNo": "e62528c5-a2d6-4097-c2ea-d6c047a5c48f",
+									"fieldName": "oListFlights",
+									"fieldParent": "d72943b8-3360-48ba-95af-53409a0a0567",
+									"fieldType": "sap.m.List",
+									"script": "",
+									"bindingValue": "Generic Array",
+									"bindingType": "h",
+									"bindingSource": "P9",
+									"request": [],
+									"response": [],
+									"attributes": [],
+									"data": [
+										{
+											"fieldNo": "8bc627f8-5bdb-4e02-ebf0-3c4bf9650f53",
+											"fieldName": "oCustomListItem",
+											"fieldParent": "e62528c5-a2d6-4097-c2ea-d6c047a5c48f",
+											"fieldType": "sap.m.CustomListItem",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "type",
+													"grouping": "Properties",
+													"value": "Active",
+													"script": "",
+													"translation": []
+												},
+												{
+													"attribute": "press",
+													"grouping": "Events",
+													"value": "Anonymous Function",
+													"script": "file://event/sap.m.CustomListItem/oCustomListItem/press.script",
+													"translation": []
+												}
+											],
+											"data": [
+												{
+													"fieldNo": "0a057184-d009-416e-91b9-52dd9cfaa0e3",
+													"fieldName": "oFlexBoxItem",
+													"fieldParent": "8bc627f8-5bdb-4e02-ebf0-3c4bf9650f53",
+													"fieldType": "sap.m.FlexBox",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "direction",
+															"grouping": "Properties",
+															"value": "Row",
+															"script": "",
+															"translation": []
+														}
+													],
+													"data": [
+														{
+															"fieldNo": "82febb98-7e5f-4fdd-e2fc-cc9c99776197",
+															"fieldName": "oVBoxFlightDetails",
+															"fieldParent": "0a057184-d009-416e-91b9-52dd9cfaa0e3",
+															"fieldType": "sap.m.VBox",
+															"script": "",
+															"request": [],
+															"response": [],
+															"attributes": [],
+															"data": [
+																{
+																	"fieldNo": "c78a9470-a0c6-40cf-e01a-a2c1c723e7ad",
+																	"fieldName": "oHBoxOutbound",
+																	"fieldParent": "82febb98-7e5f-4fdd-e2fc-cc9c99776197",
+																	"fieldType": "sap.m.HBox",
+																	"script": "",
+																	"request": [],
+																	"response": [],
+																	"attributes": [
+																		{
+																			"attribute": "wrap",
+																			"grouping": "Properties",
+																			"value": "Wrap",
+																			"script": "",
+																			"translation": []
+																		},
+																		{
+																			"attribute": "styleClassMargin",
+																			"grouping": "Properties",
+																			"value": "sapUiSmallMargin",
+																			"script": "",
+																			"translation": []
+																		}
+																	],
+																	"data": [
+																		{
+																			"fieldNo": "be252fd1-c968-488a-81c9-06a7179b8b29",
+																			"fieldName": "oHBoxOutbound1",
+																			"fieldParent": "c78a9470-a0c6-40cf-e01a-a2c1c723e7ad",
+																			"fieldType": "sap.m.HBox",
+																			"script": "",
+																			"request": [],
+																			"response": [],
+																			"attributes": [
+																				{
+																					"attribute": "styleClassMargin",
+																					"grouping": "Properties",
+																					"value": "sapUiSmallMarginEnd",
+																					"script": "",
+																					"translation": []
+																				}
+																			],
+																			"data": [
+																				{
+																					"fieldNo": "5fef4f45-9810-4abc-add1-672a57b5cc3e",
+																					"fieldName": "oImageOutboundDep",
+																					"fieldParent": "be252fd1-c968-488a-81c9-06a7179b8b29",
+																					"fieldType": "sap.m.Image",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "src",
+																							"grouping": "Properties",
+																							"value": "/media/root/DemoTravelSuite/Outbound.png",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "height",
+																							"grouping": "Properties",
+																							"value": "35px",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				},
+																				{
+																					"fieldNo": "802f0153-cef4-408a-b540-89e303bf20e6",
+																					"fieldName": "oVBoxOutboundDepInfo",
+																					"fieldParent": "be252fd1-c968-488a-81c9-06a7179b8b29",
+																					"fieldType": "sap.m.VBox",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "justifyContent",
+																							"grouping": "Properties",
+																							"value": "Center",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "alignItems",
+																							"grouping": "Properties",
+																							"value": "Center",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "alignContent",
+																							"grouping": "Properties",
+																							"value": "Center",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": [
+																						{
+																							"fieldNo": "013fe58e-4466-4f3d-ae28-893185a2caa8",
+																							"fieldName": "oTitleOutboundDepTime",
+																							"fieldParent": "802f0153-cef4-408a-b540-89e303bf20e6",
+																							"fieldType": "sap.m.Title",
+																							"script": "",
+																							"request": [],
+																							"response": [],
+																							"attributes": [
+																								{
+																									"attribute": "titleStyle",
+																									"grouping": "Properties",
+																									"value": "H3",
+																									"script": "",
+																									"translation": []
+																								},
+																								{
+																									"attribute": "text",
+																									"grouping": "Properties",
+																									"value": "{outdeptime}",
+																									"script": "",
+																									"translation": []
+																								}
+																							],
+																							"data": []
+																						},
+																						{
+																							"fieldNo": "f5a3642b-1493-4fcb-e0b5-59583258c627",
+																							"fieldName": "oTextOutboundDepLocation",
+																							"fieldParent": "802f0153-cef4-408a-b540-89e303bf20e6",
+																							"fieldType": "sap.m.Text",
+																							"script": "",
+																							"request": [],
+																							"response": [],
+																							"attributes": [
+																								{
+																									"attribute": "text",
+																									"grouping": "Properties",
+																									"value": "{outdepairport}",
+																									"script": "",
+																									"translation": []
+																								}
+																							],
+																							"data": []
+																						}
+																					]
+																				},
+																				{
+																					"fieldNo": "bd31d75a-aa04-4c03-fdc8-d3a1efccfe36",
+																					"fieldName": "oVBoxOutboundStops",
+																					"fieldParent": "be252fd1-c968-488a-81c9-06a7179b8b29",
+																					"fieldType": "sap.m.VBox",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "justifyContent",
+																							"grouping": "Properties",
+																							"value": "Center",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "alignItems",
+																							"grouping": "Properties",
+																							"value": "Center",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "alignContent",
+																							"grouping": "Properties",
+																							"value": "Center",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": [
+																						{
+																							"fieldNo": "f6314dc1-2544-4bac-84e7-6d47953f5f5c",
+																							"fieldName": "oImageOutboundStops",
+																							"fieldParent": "bd31d75a-aa04-4c03-fdc8-d3a1efccfe36",
+																							"fieldType": "sap.m.Image",
+																							"script": "",
+																							"request": [],
+																							"response": [],
+																							"attributes": [
+																								{
+																									"attribute": "src",
+																									"grouping": "Properties",
+																									"value": "{outstop}",
+																									"script": "",
+																									"translation": []
+																								},
+																								{
+																									"attribute": "height",
+																									"grouping": "Properties",
+																									"value": "20px",
+																									"script": "",
+																									"translation": []
+																								},
+																								{
+																									"attribute": "src",
+																									"grouping": "Formatter",
+																									"value": "Anonymous Function",
+																									"script": "file://event/sap.m.Image/oImageOutboundStops/src.script",
+																									"translation": []
+																								}
+																							],
+																							"data": []
+																						},
+																						{
+																							"fieldNo": "580a3e18-fcc4-4291-c2ec-a07b0ee1a16c",
+																							"fieldName": "oTextOutboundStops",
+																							"fieldParent": "bd31d75a-aa04-4c03-fdc8-d3a1efccfe36",
+																							"fieldType": "sap.m.Text",
+																							"script": "",
+																							"request": [],
+																							"response": [],
+																							"attributes": [
+																								{
+																									"attribute": "text",
+																									"grouping": "Properties",
+																									"value": "{outstop, outstoplocs}",
+																									"script": "",
+																									"translation": []
+																								},
+																								{
+																									"attribute": "text",
+																									"grouping": "Formatter",
+																									"value": "Anonymous Function",
+																									"script": "file://event/sap.m.Text/oTextOutboundStops/text.script",
+																									"translation": []
+																								}
+																							],
+																							"data": []
+																						}
+																					]
+																				},
+																				{
+																					"fieldNo": "2ecd9ba8-2d80-4a9e-ddca-69e12e6afb88",
+																					"fieldName": "oVBoxOutboundArrivalInfo",
+																					"fieldParent": "be252fd1-c968-488a-81c9-06a7179b8b29",
+																					"fieldType": "sap.m.VBox",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "justifyContent",
+																							"grouping": "Properties",
+																							"value": "Center",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "alignItems",
+																							"grouping": "Properties",
+																							"value": "Center",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "alignContent",
+																							"grouping": "Properties",
+																							"value": "Center",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": [
+																						{
+																							"fieldNo": "10a8a4ea-670e-4516-ef9a-2cbbe4daa6f2",
+																							"fieldName": "oHBoxOutboundArrTime",
+																							"fieldParent": "2ecd9ba8-2d80-4a9e-ddca-69e12e6afb88",
+																							"fieldType": "sap.m.HBox",
+																							"script": "",
+																							"request": [],
+																							"response": [],
+																							"attributes": [],
+																							"data": [
+																								{
+																									"fieldNo": "a67e5474-d3d1-4be3-8ea9-707d3c430197",
+																									"fieldName": "oTitleOutboundArrTime",
+																									"fieldParent": "10a8a4ea-670e-4516-ef9a-2cbbe4daa6f2",
+																									"fieldType": "sap.m.Title",
+																									"script": "",
+																									"request": [],
+																									"response": [],
+																									"attributes": [
+																										{
+																											"attribute": "titleStyle",
+																											"grouping": "Properties",
+																											"value": "H3",
+																											"script": "",
+																											"translation": []
+																										},
+																										{
+																											"attribute": "text",
+																											"grouping": "Properties",
+																											"value": "{outarrtime}",
+																											"script": "",
+																											"translation": []
+																										}
+																									],
+																									"data": []
+																								},
+																								{
+																									"fieldNo": "680bbef9-7dfb-48f3-f044-d7c31e735839",
+																									"fieldName": "oTextOutboundDays",
+																									"fieldParent": "10a8a4ea-670e-4516-ef9a-2cbbe4daa6f2",
+																									"fieldType": "sap.m.Text",
+																									"script": "",
+																									"request": [],
+																									"response": [],
+																									"attributes": [
+																										{
+																											"attribute": "text",
+																											"grouping": "Properties",
+																											"value": "{outdays}",
+																											"script": "",
+																											"translation": []
+																										},
+																										{
+																											"attribute": "text",
+																											"grouping": "Formatter",
+																											"value": "Anonymous Function",
+																											"script": "file://event/sap.m.Text/oTextOutboundDays/text.script",
+																											"translation": []
+																										}
+																									],
+																									"data": []
+																								}
+																							]
+																						},
+																						{
+																							"fieldNo": "9a002e2a-6098-49d4-bbfa-4f7a764c24c7",
+																							"fieldName": "oTextOutboundArrLocation",
+																							"fieldParent": "2ecd9ba8-2d80-4a9e-ddca-69e12e6afb88",
+																							"fieldType": "sap.m.Text",
+																							"script": "",
+																							"request": [],
+																							"response": [],
+																							"attributes": [
+																								{
+																									"attribute": "text",
+																									"grouping": "Properties",
+																									"value": "{outarrairport}",
+																									"script": "",
+																									"translation": []
+																								}
+																							],
+																							"data": []
+																						}
+																					]
+																				}
+																			]
+																		},
+																		{
+																			"fieldNo": "0da098b1-1f7e-4fb1-ad87-6322872f68ed",
+																			"fieldName": "oVBoxOutbound2",
+																			"fieldParent": "c78a9470-a0c6-40cf-e01a-a2c1c723e7ad",
+																			"fieldType": "sap.m.VBox",
+																			"script": "",
+																			"request": [],
+																			"response": [],
+																			"attributes": [
+																				{
+																					"attribute": "justifyContent",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "alignItems",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "alignContent",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				}
+																			],
+																			"data": [
+																				{
+																					"fieldNo": "a18e3e19-4b48-48c2-affe-0c8851c811f2",
+																					"fieldName": "oTextOutboundTravelTime",
+																					"fieldParent": "0da098b1-1f7e-4fb1-ad87-6322872f68ed",
+																					"fieldType": "sap.m.Text",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "text",
+																							"grouping": "Properties",
+																							"value": "{outtraveltime}",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"fieldNo": "82856021-e239-45e6-d8bf-3edc042a92e2",
+																	"fieldName": "oHBoxInbound",
+																	"fieldParent": "82febb98-7e5f-4fdd-e2fc-cc9c99776197",
+																	"fieldType": "sap.m.HBox",
+																	"script": "",
+																	"request": [],
+																	"response": [],
+																	"attributes": [
+																		{
+																			"attribute": "wrap",
+																			"grouping": "Properties",
+																			"value": "Wrap",
+																			"script": "",
+																			"translation": []
+																		},
+																		{
+																			"attribute": "visible",
+																			"grouping": "Properties",
+																			"value": "{displayReturn}",
+																			"script": "",
+																			"translation": []
+																		},
+																		{
+																			"attribute": "styleClassMargin",
+																			"grouping": "Properties",
+																			"value": "sapUiSmallMargin",
+																			"script": "",
+																			"translation": []
+																		}
+																	],
+																	"data": [
+																		{
+																			"fieldNo": "6d4d9d0e-2ac1-4c80-8c2e-23d0b54a9fe2",
+																			"fieldName": "oHBoxInbound1",
+																			"fieldParent": "82856021-e239-45e6-d8bf-3edc042a92e2",
+																			"fieldType": "sap.m.HBox",
+																			"script": "",
+																			"request": [],
+																			"response": [],
+																			"attributes": [
+																				{
+																					"attribute": "styleClassMargin",
+																					"grouping": "Properties",
+																					"value": "sapUiSmallMarginEnd",
+																					"script": "",
+																					"translation": []
+																				}
+																			],
+																			"data": [
+																				{
+																					"fieldNo": "c40ac657-97b7-4f59-d262-23e49ae7f659",
+																					"fieldName": "oImageInboundDep",
+																					"fieldParent": "6d4d9d0e-2ac1-4c80-8c2e-23d0b54a9fe2",
+																					"fieldType": "sap.m.Image",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "src",
+																							"grouping": "Properties",
+																							"value": "/media/root/DemoTravelSuite/Inbound.png",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "height",
+																							"grouping": "Properties",
+																							"value": "35px",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				},
+																				{
+																					"fieldNo": "e99095d8-3fd2-4d47-b8d9-f4abc4cd9ac0",
+																					"fieldName": "oVBoxInboundDepInfo",
+																					"fieldParent": "6d4d9d0e-2ac1-4c80-8c2e-23d0b54a9fe2",
+																					"fieldType": "sap.m.VBox",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "justifyContent",
+																							"grouping": "Properties",
+																							"value": "Center",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "alignItems",
+																							"grouping": "Properties",
+																							"value": "Center",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "alignContent",
+																							"grouping": "Properties",
+																							"value": "Center",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": [
+																						{
+																							"fieldNo": "01c7772c-4f74-4b7b-b578-5ba5dac51355",
+																							"fieldName": "oTitleInboundDepTime",
+																							"fieldParent": "e99095d8-3fd2-4d47-b8d9-f4abc4cd9ac0",
+																							"fieldType": "sap.m.Title",
+																							"script": "",
+																							"request": [],
+																							"response": [],
+																							"attributes": [
+																								{
+																									"attribute": "titleStyle",
+																									"grouping": "Properties",
+																									"value": "H3",
+																									"script": "",
+																									"translation": []
+																								},
+																								{
+																									"attribute": "text",
+																									"grouping": "Properties",
+																									"value": "{indeptime}",
+																									"script": "",
+																									"translation": []
+																								}
+																							],
+																							"data": []
+																						},
+																						{
+																							"fieldNo": "261761b4-16aa-4489-fb47-0e1038a845fa",
+																							"fieldName": "oTextInboundDepLocation",
+																							"fieldParent": "e99095d8-3fd2-4d47-b8d9-f4abc4cd9ac0",
+																							"fieldType": "sap.m.Text",
+																							"script": "",
+																							"request": [],
+																							"response": [],
+																							"attributes": [
+																								{
+																									"attribute": "text",
+																									"grouping": "Properties",
+																									"value": "{indepairport}",
+																									"script": "",
+																									"translation": []
+																								}
+																							],
+																							"data": []
+																						}
+																					]
+																				},
+																				{
+																					"fieldNo": "b46567da-2139-47dd-9631-30a1a926f015",
+																					"fieldName": "oVBoxInboundStops",
+																					"fieldParent": "6d4d9d0e-2ac1-4c80-8c2e-23d0b54a9fe2",
+																					"fieldType": "sap.m.VBox",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "justifyContent",
+																							"grouping": "Properties",
+																							"value": "Center",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "alignItems",
+																							"grouping": "Properties",
+																							"value": "Center",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "alignContent",
+																							"grouping": "Properties",
+																							"value": "Center",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": [
+																						{
+																							"fieldNo": "051e17c4-58ca-45ed-8dfd-944e382ecc75",
+																							"fieldName": "oImageInboundStops",
+																							"fieldParent": "b46567da-2139-47dd-9631-30a1a926f015",
+																							"fieldType": "sap.m.Image",
+																							"script": "",
+																							"request": [],
+																							"response": [],
+																							"attributes": [
+																								{
+																									"attribute": "src",
+																									"grouping": "Properties",
+																									"value": "{instop}",
+																									"script": "",
+																									"translation": []
+																								},
+																								{
+																									"attribute": "height",
+																									"grouping": "Properties",
+																									"value": "20px",
+																									"script": "",
+																									"translation": []
+																								},
+																								{
+																									"attribute": "src",
+																									"grouping": "Formatter",
+																									"value": "Anonymous Function",
+																									"script": "file://event/sap.m.Image/oImageInboundStops/src.script",
+																									"translation": []
+																								}
+																							],
+																							"data": []
+																						},
+																						{
+																							"fieldNo": "c99e128c-e4f8-47ad-943f-a74b21333b5a",
+																							"fieldName": "oTextInboundStops",
+																							"fieldParent": "b46567da-2139-47dd-9631-30a1a926f015",
+																							"fieldType": "sap.m.Text",
+																							"script": "",
+																							"request": [],
+																							"response": [],
+																							"attributes": [
+																								{
+																									"attribute": "text",
+																									"grouping": "Properties",
+																									"value": "{instop, instoplocs}",
+																									"script": "",
+																									"translation": []
+																								},
+																								{
+																									"attribute": "text",
+																									"grouping": "Formatter",
+																									"value": "Anonymous Function",
+																									"script": "file://event/sap.m.Text/oTextInboundStops/text.script",
+																									"translation": []
+																								}
+																							],
+																							"data": []
+																						}
+																					]
+																				},
+																				{
+																					"fieldNo": "c88f47fe-a6f8-4ea1-91fe-84d365c543b0",
+																					"fieldName": "oVBoxInboundArrivalInfo",
+																					"fieldParent": "6d4d9d0e-2ac1-4c80-8c2e-23d0b54a9fe2",
+																					"fieldType": "sap.m.VBox",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "justifyContent",
+																							"grouping": "Properties",
+																							"value": "Center",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "alignItems",
+																							"grouping": "Properties",
+																							"value": "Center",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "alignContent",
+																							"grouping": "Properties",
+																							"value": "Center",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": [
+																						{
+																							"fieldNo": "b48c0f0a-946e-48ee-e7fc-408cbc604f36",
+																							"fieldName": "oHBoxInboundArrTime",
+																							"fieldParent": "c88f47fe-a6f8-4ea1-91fe-84d365c543b0",
+																							"fieldType": "sap.m.HBox",
+																							"script": "",
+																							"request": [],
+																							"response": [],
+																							"attributes": [],
+																							"data": [
+																								{
+																									"fieldNo": "5c7810dd-940c-4b84-a58c-83c7b3fdab69",
+																									"fieldName": "oTitleInboundArrTime",
+																									"fieldParent": "b48c0f0a-946e-48ee-e7fc-408cbc604f36",
+																									"fieldType": "sap.m.Title",
+																									"script": "",
+																									"request": [],
+																									"response": [],
+																									"attributes": [
+																										{
+																											"attribute": "titleStyle",
+																											"grouping": "Properties",
+																											"value": "H3",
+																											"script": "",
+																											"translation": []
+																										},
+																										{
+																											"attribute": "text",
+																											"grouping": "Properties",
+																											"value": "{inarrtime}",
+																											"script": "",
+																											"translation": []
+																										}
+																									],
+																									"data": []
+																								},
+																								{
+																									"fieldNo": "0799fbb0-7459-4cda-842f-662a7f3eba67",
+																									"fieldName": "oTextInboundDays",
+																									"fieldParent": "b48c0f0a-946e-48ee-e7fc-408cbc604f36",
+																									"fieldType": "sap.m.Text",
+																									"script": "",
+																									"request": [],
+																									"response": [],
+																									"attributes": [
+																										{
+																											"attribute": "text",
+																											"grouping": "Properties",
+																											"value": "{indays}",
+																											"script": "",
+																											"translation": []
+																										},
+																										{
+																											"attribute": "text",
+																											"grouping": "Formatter",
+																											"value": "Anonymous Function",
+																											"script": "file://event/sap.m.Text/oTextInboundDays/text.script",
+																											"translation": []
+																										}
+																									],
+																									"data": []
+																								}
+																							]
+																						},
+																						{
+																							"fieldNo": "891fd1e8-1efe-4a92-86c4-6c9b7575c0de",
+																							"fieldName": "oTextInboundArrLocation",
+																							"fieldParent": "c88f47fe-a6f8-4ea1-91fe-84d365c543b0",
+																							"fieldType": "sap.m.Text",
+																							"script": "",
+																							"request": [],
+																							"response": [],
+																							"attributes": [
+																								{
+																									"attribute": "text",
+																									"grouping": "Properties",
+																									"value": "{inarrairport}",
+																									"script": "",
+																									"translation": []
+																								}
+																							],
+																							"data": []
+																						}
+																					]
+																				}
+																			]
+																		},
+																		{
+																			"fieldNo": "c75e94c4-4aea-402a-e3f8-93199a6c1bf3",
+																			"fieldName": "oVBoxInbound2",
+																			"fieldParent": "82856021-e239-45e6-d8bf-3edc042a92e2",
+																			"fieldType": "sap.m.VBox",
+																			"script": "",
+																			"request": [],
+																			"response": [],
+																			"attributes": [
+																				{
+																					"attribute": "alignItems",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "alignContent",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				}
+																			],
+																			"data": [
+																				{
+																					"fieldNo": "0eb4911a-cf15-45bf-d7f0-d663f351f8d8",
+																					"fieldName": "oTextInboundTravelTime",
+																					"fieldParent": "c75e94c4-4aea-402a-e3f8-93199a6c1bf3",
+																					"fieldType": "sap.m.Text",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "text",
+																							"grouping": "Properties",
+																							"value": "{intraveltime}",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				}
+																			]
+																		}
+																	]
+																}
+															]
+														},
+														{
+															"fieldNo": "7a2789de-183e-4e08-f667-9556ecff01ec",
+															"fieldName": "oVBoxPrices",
+															"fieldParent": "0a057184-d009-416e-91b9-52dd9cfaa0e3",
+															"fieldType": "sap.m.VBox",
+															"script": "",
+															"request": [],
+															"response": [],
+															"attributes": [
+																{
+																	"attribute": "wrap",
+																	"grouping": "Properties",
+																	"value": "Wrap",
+																	"script": "",
+																	"translation": []
+																},
+																{
+																	"attribute": "styleClassMargin",
+																	"grouping": "Properties",
+																	"value": "sapUiSmallMargin",
+																	"script": "",
+																	"translation": []
+																},
+																{
+																	"attribute": "styleClass",
+																	"grouping": "Properties",
+																	"value": "TotalPrice",
+																	"script": "",
+																	"translation": []
+																},
+																{
+																	"attribute": "justifyContent",
+																	"grouping": "Properties",
+																	"value": "Center",
+																	"script": "",
+																	"translation": []
+																},
+																{
+																	"attribute": "alignItems",
+																	"grouping": "Properties",
+																	"value": "Center",
+																	"script": "",
+																	"translation": []
+																},
+																{
+																	"attribute": "alignContent",
+																	"grouping": "Properties",
+																	"value": "Center",
+																	"script": "",
+																	"translation": []
+																}
+															],
+															"data": [
+																{
+																	"fieldNo": "5d2269e7-a7c2-44e5-b472-e60bea8eed98",
+																	"fieldName": "oImageOutboundAirline",
+																	"fieldParent": "7a2789de-183e-4e08-f667-9556ecff01ec",
+																	"fieldType": "sap.m.Image",
+																	"script": "",
+																	"request": [],
+																	"response": [],
+																	"attributes": [
+																		{
+																			"attribute": "src",
+																			"grouping": "Properties",
+																			"value": "{outairline}",
+																			"script": "",
+																			"translation": []
+																		},
+																		{
+																			"attribute": "src",
+																			"grouping": "Formatter",
+																			"value": "Anonymous Function",
+																			"script": "file://event/sap.m.Image/oImageOutboundAirline/src.script",
+																			"translation": []
+																		}
+																	],
+																	"data": []
+																},
+																{
+																	"fieldNo": "6b02434c-747d-48eb-8970-7b13fe7ceaae",
+																	"fieldName": "oImageInboundAirline",
+																	"fieldParent": "7a2789de-183e-4e08-f667-9556ecff01ec",
+																	"fieldType": "sap.m.Image",
+																	"script": "",
+																	"request": [],
+																	"response": [],
+																	"attributes": [
+																		{
+																			"attribute": "src",
+																			"grouping": "Properties",
+																			"value": "{inairline}",
+																			"script": "",
+																			"translation": []
+																		},
+																		{
+																			"attribute": "src",
+																			"grouping": "Formatter",
+																			"value": "Anonymous Function",
+																			"script": "file://event/sap.m.Image/oImageInboundAirline/src.script",
+																			"translation": []
+																		}
+																	],
+																	"data": []
+																},
+																{
+																	"fieldNo": "ee3c1599-7c14-47cf-af6f-9477cc80babf",
+																	"fieldName": "oTitlePrice",
+																	"fieldParent": "7a2789de-183e-4e08-f667-9556ecff01ec",
+																	"fieldType": "sap.m.Title",
+																	"script": "",
+																	"request": [],
+																	"response": [],
+																	"attributes": [
+																		{
+																			"attribute": "titleStyle",
+																			"grouping": "Properties",
+																			"value": "H1",
+																			"script": "",
+																			"translation": []
+																		},
+																		{
+																			"attribute": "text",
+																			"grouping": "Properties",
+																			"value": "{totalprice, currency}",
+																			"script": "",
+																			"translation": []
+																		},
+																		{
+																			"attribute": "text",
+																			"grouping": "Formatter",
+																			"value": "Anonymous Function",
+																			"script": "file://event/sap.m.Title/oTitlePrice/text.script",
+																			"translation": []
+																		}
+																	],
+																	"data": []
+																},
+																{
+																	"fieldNo": "8345a702-5749-463f-bded-22426f5d3a22",
+																	"fieldName": "oTextCabin",
+																	"fieldParent": "7a2789de-183e-4e08-f667-9556ecff01ec",
+																	"fieldType": "sap.m.Text",
+																	"script": "",
+																	"request": [],
+																	"response": [],
+																	"attributes": [
+																		{
+																			"attribute": "text",
+																			"grouping": "Properties",
+																			"value": "{cabin}",
+																			"script": "",
+																			"translation": []
+																		},
+																		{
+																			"attribute": "text",
+																			"grouping": "Formatter",
+																			"value": "Anonymous Function",
+																			"script": "file://event/sap.m.Text/oTextCabin/text.script",
+																			"translation": []
+																		}
+																	],
+																	"data": []
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"fieldNo": "1439590c-e9d2-47cd-c621-2bb34d541ba7",
+							"fieldName": "oPageSelection",
+							"fieldParent": "6e997fb2-e6d8-4658-c813-b5c2d7210608",
+							"fieldType": "sap.m.Page",
+							"script": "",
+							"bindingValue": "Generic Object",
+							"bindingType": "u",
+							"bindingSource": "P9",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "showSubHeader",
+									"grouping": "Properties",
+									"value": "false",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "showHeader",
+									"grouping": "Properties",
+									"value": "false",
+									"script": "",
+									"translation": []
+								},
+								{
+									"attribute": "position",
+									"grouping": "Parent",
+									"value": "addDetailPage",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": [
+								{
+									"fieldNo": "6c59a176-945f-4189-9b89-8fe5b107fcca",
+									"fieldName": "oPanelOutboundDetails",
+									"fieldParent": "1439590c-e9d2-47cd-c621-2bb34d541ba7",
+									"fieldType": "sap.m.Panel",
+									"script": "",
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "headerText",
+											"grouping": "Properties",
+											"value": "Outbound Details",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "expanded",
+											"grouping": "Properties",
+											"value": "true",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "expandable",
+											"grouping": "Properties",
+											"value": "true",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": [
+										{
+											"fieldNo": "3c7d3dd0-dc13-40b4-8163-905ee3f0bd2c",
+											"fieldName": "oHBoxOutboundTitle",
+											"fieldParent": "6c59a176-945f-4189-9b89-8fe5b107fcca",
+											"fieldType": "sap.m.HBox",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "justifyContent",
+													"grouping": "Properties",
+													"value": "SpaceBetween",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": [
+												{
+													"fieldNo": "40423e52-dda6-4d75-c942-ce2081b4f928",
+													"fieldName": "oTitleOutboundFromTo",
+													"fieldParent": "3c7d3dd0-dc13-40b4-8163-905ee3f0bd2c",
+													"fieldType": "sap.m.Title",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "titleStyle",
+															"grouping": "Properties",
+															"value": "H2",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "text",
+															"grouping": "Properties",
+															"value": "{/outbDepLocation,/outbArrLocation}",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "text",
+															"grouping": "Formatter",
+															"value": "Anonymous Function",
+															"script": "file://event/sap.m.Title/oTitleOutboundFromTo/text.script",
+															"translation": []
+														}
+													],
+													"data": []
+												},
+												{
+													"fieldNo": "7f546376-a314-495b-e243-e72a759b2300",
+													"fieldName": "oTitleOutboundTravelTime",
+													"fieldParent": "3c7d3dd0-dc13-40b4-8163-905ee3f0bd2c",
+													"fieldType": "sap.m.Title",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "titleStyle",
+															"grouping": "Properties",
+															"value": "H2",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "text",
+															"grouping": "Properties",
+															"value": "{/outbTotalTravelTime}",
+															"script": "",
+															"translation": []
+														}
+													],
+													"data": []
+												}
+											]
+										},
+										{
+											"fieldNo": "2f3f1e8d-4000-426f-dfd9-f1be1193d50a",
+											"fieldName": "oListOutboundSegments",
+											"fieldParent": "6c59a176-945f-4189-9b89-8fe5b107fcca",
+											"fieldType": "sap.m.List",
+											"script": "",
+											"bindingValue": "Generic Array",
+											"bindingType": "h",
+											"bindingSource": "P9",
+											"request": [],
+											"response": [],
+											"attributes": [],
+											"data": [
+												{
+													"fieldNo": "7076435f-5f88-4469-b1c2-20447bee2edc",
+													"fieldName": "oListItemOutSeg",
+													"fieldParent": "2f3f1e8d-4000-426f-dfd9-f1be1193d50a",
+													"fieldType": "sap.m.CustomListItem",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [],
+													"data": [
+														{
+															"fieldNo": "70683647-6e71-4eef-eb1c-57a7b1c30073",
+															"fieldName": "oHBoxOutSeg",
+															"fieldParent": "7076435f-5f88-4469-b1c2-20447bee2edc",
+															"fieldType": "sap.m.HBox",
+															"script": "",
+															"request": [],
+															"response": [],
+															"attributes": [
+																{
+																	"attribute": "wrap",
+																	"grouping": "Properties",
+																	"value": "Wrap",
+																	"script": "",
+																	"translation": []
+																},
+																{
+																	"attribute": "styleClassMargin",
+																	"grouping": "Properties",
+																	"value": "sapUiSmallMargin",
+																	"script": "",
+																	"translation": []
+																}
+															],
+															"data": [
+																{
+																	"fieldNo": "4614417b-35af-4739-e74c-eebb40d719ad",
+																	"fieldName": "oHBoxOutSeg1",
+																	"fieldParent": "70683647-6e71-4eef-eb1c-57a7b1c30073",
+																	"fieldType": "sap.m.HBox",
+																	"script": "",
+																	"request": [],
+																	"response": [],
+																	"attributes": [
+																		{
+																			"attribute": "styleClassMargin",
+																			"grouping": "Properties",
+																			"value": "sapUiSmallMarginEnd",
+																			"script": "",
+																			"translation": []
+																		}
+																	],
+																	"data": [
+																		{
+																			"fieldNo": "9139d5ee-2103-40b4-e2da-b254034b5eea",
+																			"fieldName": "oVBoxOutSegDepInfo",
+																			"fieldParent": "4614417b-35af-4739-e74c-eebb40d719ad",
+																			"fieldType": "sap.m.VBox",
+																			"script": "",
+																			"request": [],
+																			"response": [],
+																			"attributes": [
+																				{
+																					"attribute": "justifyContent",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "alignItems",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "alignContent",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				}
+																			],
+																			"data": [
+																				{
+																					"fieldNo": "9f07ab1f-7d1c-46d4-d969-644ce9fdca1d",
+																					"fieldName": "oTitleOutSegDepLocation",
+																					"fieldParent": "9139d5ee-2103-40b4-e2da-b254034b5eea",
+																					"fieldType": "sap.m.Title",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "titleStyle",
+																							"grouping": "Properties",
+																							"value": "H3",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "text",
+																							"grouping": "Properties",
+																							"value": "{depairport}",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				},
+																				{
+																					"fieldNo": "0e958f5b-1873-4a89-f46c-dfa3c390386d",
+																					"fieldName": "oTitleOutSegDepTime",
+																					"fieldParent": "9139d5ee-2103-40b4-e2da-b254034b5eea",
+																					"fieldType": "sap.m.Title",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "titleStyle",
+																							"grouping": "Properties",
+																							"value": "H3",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "text",
+																							"grouping": "Properties",
+																							"value": "{deptime}",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				},
+																				{
+																					"fieldNo": "86edb502-4bea-480b-a154-e518c0279948",
+																					"fieldName": "oTextOutSegDepDate",
+																					"fieldParent": "9139d5ee-2103-40b4-e2da-b254034b5eea",
+																					"fieldType": "sap.m.Text",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "text",
+																							"grouping": "Properties",
+																							"value": "{depdate}",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "text",
+																							"grouping": "Formatter",
+																							"value": "Anonymous Function",
+																							"script": "file://event/sap.m.Text/oTextOutSegDepDate/text.script",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				}
+																			]
+																		},
+																		{
+																			"fieldNo": "dc12d3d3-176d-4881-e54c-bdde31e32438",
+																			"fieldName": "oVBoxOutSegStops",
+																			"fieldParent": "4614417b-35af-4739-e74c-eebb40d719ad",
+																			"fieldType": "sap.m.VBox",
+																			"script": "",
+																			"request": [],
+																			"response": [],
+																			"attributes": [
+																				{
+																					"attribute": "justifyContent",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "alignItems",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "alignContent",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				}
+																			],
+																			"data": [
+																				{
+																					"fieldNo": "86b96676-52ba-404e-bf46-b025f33333e9",
+																					"fieldName": "oImageOutSegDep",
+																					"fieldParent": "dc12d3d3-176d-4881-e54c-bdde31e32438",
+																					"fieldType": "sap.m.Image",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "src",
+																							"grouping": "Properties",
+																							"value": "{airline}",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "height",
+																							"grouping": "Properties",
+																							"value": "25px",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "src",
+																							"grouping": "Formatter",
+																							"value": "Anonymous Function",
+																							"script": "file://event/sap.m.Image/oImageOutSegDep/src.script",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				},
+																				{
+																					"fieldNo": "4194c49c-540c-450c-f0c6-4fdaa03d70a1",
+																					"fieldName": "oImageOutSegStops",
+																					"fieldParent": "dc12d3d3-176d-4881-e54c-bdde31e32438",
+																					"fieldType": "sap.m.Image",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "src",
+																							"grouping": "Properties",
+																							"value": "/media/root/DemoTravelSuite/non_stop.png",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "height",
+																							"grouping": "Properties",
+																							"value": "20px",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				},
+																				{
+																					"fieldNo": "e03ff36a-f150-4c50-f1e2-b3e8352d3431",
+																					"fieldName": "oTextOutSegStops",
+																					"fieldParent": "dc12d3d3-176d-4881-e54c-bdde31e32438",
+																					"fieldType": "sap.m.Text",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "text",
+																							"grouping": "Properties",
+																							"value": "{flightduration}",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				}
+																			]
+																		},
+																		{
+																			"fieldNo": "515ed725-bd12-4c5a-fc15-3ccfb66215cd",
+																			"fieldName": "oVBoxOutSegArrivalInfo",
+																			"fieldParent": "4614417b-35af-4739-e74c-eebb40d719ad",
+																			"fieldType": "sap.m.VBox",
+																			"script": "",
+																			"request": [],
+																			"response": [],
+																			"attributes": [
+																				{
+																					"attribute": "justifyContent",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "alignItems",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "alignContent",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				}
+																			],
+																			"data": [
+																				{
+																					"fieldNo": "7dfcc9a5-65e6-4e7b-9c47-6a84e0513c80",
+																					"fieldName": "oTitleOutSegArrLocation",
+																					"fieldParent": "515ed725-bd12-4c5a-fc15-3ccfb66215cd",
+																					"fieldType": "sap.m.Title",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "titleStyle",
+																							"grouping": "Properties",
+																							"value": "H3",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "text",
+																							"grouping": "Properties",
+																							"value": "{arrairport}",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				},
+																				{
+																					"fieldNo": "1557b666-0b3f-4b78-901f-411e78d1a1e1",
+																					"fieldName": "oHBoxOutSegArrTime",
+																					"fieldParent": "515ed725-bd12-4c5a-fc15-3ccfb66215cd",
+																					"fieldType": "sap.m.HBox",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [],
+																					"data": [
+																						{
+																							"fieldNo": "cb21a4b3-2bc9-4478-b825-ff38990134be",
+																							"fieldName": "oTitleOutSegArrTime",
+																							"fieldParent": "1557b666-0b3f-4b78-901f-411e78d1a1e1",
+																							"fieldType": "sap.m.Title",
+																							"script": "",
+																							"request": [],
+																							"response": [],
+																							"attributes": [
+																								{
+																									"attribute": "titleStyle",
+																									"grouping": "Properties",
+																									"value": "H3",
+																									"script": "",
+																									"translation": []
+																								},
+																								{
+																									"attribute": "text",
+																									"grouping": "Properties",
+																									"value": "{arrtime}",
+																									"script": "",
+																									"translation": []
+																								}
+																							],
+																							"data": []
+																						},
+																						{
+																							"fieldNo": "00e71455-fc9d-4e4c-c342-73548ba51f67",
+																							"fieldName": "oTextOutSegDays",
+																							"fieldParent": "1557b666-0b3f-4b78-901f-411e78d1a1e1",
+																							"fieldType": "sap.m.Text",
+																							"script": "",
+																							"request": [],
+																							"response": [],
+																							"attributes": [
+																								{
+																									"attribute": "text",
+																									"grouping": "Properties",
+																									"value": "{days}",
+																									"script": "",
+																									"translation": []
+																								},
+																								{
+																									"attribute": "text",
+																									"grouping": "Formatter",
+																									"value": "Anonymous Function",
+																									"script": "file://event/sap.m.Text/oTextOutSegDays/text.script",
+																									"translation": []
+																								}
+																							],
+																							"data": []
+																						}
+																					]
+																				},
+																				{
+																					"fieldNo": "316eb27b-2c3f-4f23-c068-1d14bc604457",
+																					"fieldName": "oTextOutSefArrDate",
+																					"fieldParent": "515ed725-bd12-4c5a-fc15-3ccfb66215cd",
+																					"fieldType": "sap.m.Text",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "text",
+																							"grouping": "Properties",
+																							"value": "{arrdate}",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "text",
+																							"grouping": "Formatter",
+																							"value": "Anonymous Function",
+																							"script": "file://event/sap.m.Text/oTextOutSefArrDate/text.script",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"fieldNo": "8b88fcb5-deb4-465a-8769-8d9b365c8390",
+																	"fieldName": "oVBoxOutSeg2",
+																	"fieldParent": "70683647-6e71-4eef-eb1c-57a7b1c30073",
+																	"fieldType": "sap.m.VBox",
+																	"script": "",
+																	"request": [],
+																	"response": [],
+																	"attributes": [
+																		{
+																			"attribute": "justifyContent",
+																			"grouping": "Properties",
+																			"value": "Center",
+																			"script": "",
+																			"translation": []
+																		},
+																		{
+																			"attribute": "alignItems",
+																			"grouping": "Properties",
+																			"value": "Start",
+																			"script": "",
+																			"translation": []
+																		},
+																		{
+																			"attribute": "alignContent",
+																			"grouping": "Properties",
+																			"value": "Start",
+																			"script": "",
+																			"translation": []
+																		}
+																	],
+																	"data": [
+																		{
+																			"fieldNo": "9b814f4f-4754-45e2-d078-cac61b8bc739",
+																			"fieldName": "oTextOutSegAirline",
+																			"fieldParent": "8b88fcb5-deb4-465a-8769-8d9b365c8390",
+																			"fieldType": "sap.m.Text",
+																			"script": "",
+																			"request": [],
+																			"response": [],
+																			"attributes": [
+																				{
+																					"attribute": "text",
+																					"grouping": "Properties",
+																					"value": "{airlineName, flightno}",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "styleClassMargin",
+																					"grouping": "Properties",
+																					"value": "sapUiTinyMarginEnd",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "text",
+																					"grouping": "Formatter",
+																					"value": "Anonymous Function",
+																					"script": "file://event/sap.m.Text/oTextOutSegAirline/text.script",
+																					"translation": []
+																				}
+																			],
+																			"data": []
+																		},
+																		{
+																			"fieldNo": "ae1e47f2-caa0-4782-f11e-ee300290d8b5",
+																			"fieldName": "oTextOutSegAircraft",
+																			"fieldParent": "8b88fcb5-deb4-465a-8769-8d9b365c8390",
+																			"fieldType": "sap.m.Text",
+																			"script": "",
+																			"request": [],
+																			"response": [],
+																			"attributes": [
+																				{
+																					"attribute": "text",
+																					"grouping": "Properties",
+																					"value": "{airplane}",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "text",
+																					"grouping": "Formatter",
+																					"value": "Anonymous Function",
+																					"script": "file://event/sap.m.Text/oTextOutSegAircraft/text.script",
+																					"translation": []
+																				}
+																			],
+																			"data": []
+																		},
+																		{
+																			"fieldNo": "e281f41f-e063-4cc5-da9e-b3cf58fd0d47",
+																			"fieldName": "oTextOutSegCabin",
+																			"fieldParent": "8b88fcb5-deb4-465a-8769-8d9b365c8390",
+																			"fieldType": "sap.m.Text",
+																			"script": "",
+																			"request": [],
+																			"response": [],
+																			"attributes": [
+																				{
+																					"attribute": "text",
+																					"grouping": "Properties",
+																					"value": "{cabin}",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "styleClassMargin",
+																					"grouping": "Properties",
+																					"value": "sapUiMediumMarginEnd",
+																					"script": "",
+																					"translation": []
+																				}
+																			],
+																			"data": []
+																		},
+																		{
+																			"fieldNo": "2aeae20e-6e06-4add-ce7f-1d7d384eb899",
+																			"fieldName": "oHBoxOutSegLuggage",
+																			"fieldParent": "8b88fcb5-deb4-465a-8769-8d9b365c8390",
+																			"fieldType": "sap.m.HBox",
+																			"script": "",
+																			"request": [],
+																			"response": [],
+																			"attributes": [],
+																			"data": [
+																				{
+																					"fieldNo": "6b0a9fb4-fa21-4001-d068-106fcef35fd6",
+																					"fieldName": "oTextOutSegLuggage",
+																					"fieldParent": "2aeae20e-6e06-4add-ce7f-1d7d384eb899",
+																					"fieldType": "sap.m.Text",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "text",
+																							"grouping": "Properties",
+																							"value": "{includedBags}",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "styleClassMargin",
+																							"grouping": "Properties",
+																							"value": "sapUiTinyMarginEnd",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				},
+																				{
+																					"fieldNo": "f1df9a86-b458-4575-e2d5-e42ee2ad073e",
+																					"fieldName": "oIcon",
+																					"fieldParent": "2aeae20e-6e06-4add-ce7f-1d7d384eb899",
+																					"fieldType": "sap.ui.core.Icon",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "src",
+																							"grouping": "Properties",
+																							"value": "sap-icon://suitcase",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				}
+																			]
+																		},
+																		{
+																			"fieldNo": "2f9dc66c-e58d-4b05-9633-e92a6b0043aa",
+																			"fieldName": "oTextOutSegFareBasis",
+																			"fieldParent": "8b88fcb5-deb4-465a-8769-8d9b365c8390",
+																			"fieldType": "sap.m.Text",
+																			"script": "",
+																			"request": [],
+																			"response": [],
+																			"attributes": [
+																				{
+																					"attribute": "text",
+																					"grouping": "Properties",
+																					"value": "{fareBasis}",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "text",
+																					"grouping": "Formatter",
+																					"value": "Anonymous Function",
+																					"script": "file://event/sap.m.Text/oTextOutSegFareBasis/text.script",
+																					"translation": []
+																				}
+																			],
+																			"data": []
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"fieldNo": "8473444b-2d7d-4d69-8fdc-9f8160999079",
+									"fieldName": "oPanelInboundDetails",
+									"fieldParent": "1439590c-e9d2-47cd-c621-2bb34d541ba7",
+									"fieldType": "sap.m.Panel",
+									"script": "",
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "visible",
+											"grouping": "Properties",
+											"value": "{showInbound}",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "headerText",
+											"grouping": "Properties",
+											"value": "Inbound Details",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "expanded",
+											"grouping": "Properties",
+											"value": "true",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "expandable",
+											"grouping": "Properties",
+											"value": "true",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": [
+										{
+											"fieldNo": "171ee8fd-c11d-4c9d-e300-1d95de48ca21",
+											"fieldName": "oHBoxInboundTitle",
+											"fieldParent": "8473444b-2d7d-4d69-8fdc-9f8160999079",
+											"fieldType": "sap.m.HBox",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "justifyContent",
+													"grouping": "Properties",
+													"value": "SpaceBetween",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": [
+												{
+													"fieldNo": "6c240ffd-74c2-4a43-ba2c-b9d3a2f46b24",
+													"fieldName": "oTitleInboundFromTo",
+													"fieldParent": "171ee8fd-c11d-4c9d-e300-1d95de48ca21",
+													"fieldType": "sap.m.Title",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "titleStyle",
+															"grouping": "Properties",
+															"value": "H2",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "text",
+															"grouping": "Properties",
+															"value": "{/inbDepLocation,/inbArrLocation}",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "text",
+															"grouping": "Formatter",
+															"value": "Anonymous Function",
+															"script": "file://event/sap.m.Title/oTitleInboundFromTo/text.script",
+															"translation": []
+														}
+													],
+													"data": []
+												},
+												{
+													"fieldNo": "e1b5bd2e-fd08-4a62-fdfe-1ccccf93f995",
+													"fieldName": "oTitleInboundTravelTime",
+													"fieldParent": "171ee8fd-c11d-4c9d-e300-1d95de48ca21",
+													"fieldType": "sap.m.Title",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "titleStyle",
+															"grouping": "Properties",
+															"value": "H2",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "text",
+															"grouping": "Properties",
+															"value": "{/inbTotalTravelTime}",
+															"script": "",
+															"translation": []
+														}
+													],
+													"data": []
+												}
+											]
+										},
+										{
+											"fieldNo": "855d074f-c522-48a9-cceb-7501ba32ddec",
+											"fieldName": "oListInboundSegments",
+											"fieldParent": "8473444b-2d7d-4d69-8fdc-9f8160999079",
+											"fieldType": "sap.m.List",
+											"script": "",
+											"bindingValue": "Generic Array",
+											"bindingType": "h",
+											"bindingSource": "P9",
+											"request": [],
+											"response": [],
+											"attributes": [],
+											"data": [
+												{
+													"fieldNo": "4dc6955d-ec47-4e04-b883-a8e48bb54a21",
+													"fieldName": "oListItemInbSeg",
+													"fieldParent": "855d074f-c522-48a9-cceb-7501ba32ddec",
+													"fieldType": "sap.m.CustomListItem",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [],
+													"data": [
+														{
+															"fieldNo": "053da0f0-d945-4799-9d04-d1a7aa01cd31",
+															"fieldName": "oHBoxInbSeg",
+															"fieldParent": "4dc6955d-ec47-4e04-b883-a8e48bb54a21",
+															"fieldType": "sap.m.HBox",
+															"script": "",
+															"request": [],
+															"response": [],
+															"attributes": [
+																{
+																	"attribute": "wrap",
+																	"grouping": "Properties",
+																	"value": "Wrap",
+																	"script": "",
+																	"translation": []
+																},
+																{
+																	"attribute": "styleClassMargin",
+																	"grouping": "Properties",
+																	"value": "sapUiSmallMargin",
+																	"script": "",
+																	"translation": []
+																}
+															],
+															"data": [
+																{
+																	"fieldNo": "9ae1ce4a-3d68-4908-dcf3-1f738f197ad1",
+																	"fieldName": "oHBoxInbSeg1",
+																	"fieldParent": "053da0f0-d945-4799-9d04-d1a7aa01cd31",
+																	"fieldType": "sap.m.HBox",
+																	"script": "",
+																	"request": [],
+																	"response": [],
+																	"attributes": [
+																		{
+																			"attribute": "styleClassMargin",
+																			"grouping": "Properties",
+																			"value": "sapUiSmallMarginEnd",
+																			"script": "",
+																			"translation": []
+																		}
+																	],
+																	"data": [
+																		{
+																			"fieldNo": "95594be8-58e1-4e58-f7f9-e70135bc1caa",
+																			"fieldName": "oVBoxInbSegDepInfo",
+																			"fieldParent": "9ae1ce4a-3d68-4908-dcf3-1f738f197ad1",
+																			"fieldType": "sap.m.VBox",
+																			"script": "",
+																			"request": [],
+																			"response": [],
+																			"attributes": [
+																				{
+																					"attribute": "justifyContent",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "alignItems",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "alignContent",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				}
+																			],
+																			"data": [
+																				{
+																					"fieldNo": "c0bcc021-f56b-4d82-aa58-c4ae0a364215",
+																					"fieldName": "oTitleInbSegDepLocation",
+																					"fieldParent": "95594be8-58e1-4e58-f7f9-e70135bc1caa",
+																					"fieldType": "sap.m.Title",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "titleStyle",
+																							"grouping": "Properties",
+																							"value": "H3",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "text",
+																							"grouping": "Properties",
+																							"value": "{depairport}",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				},
+																				{
+																					"fieldNo": "5a2a56a8-a042-4614-9b9a-166cf8ff12a3",
+																					"fieldName": "oTitleInbSegDepTime",
+																					"fieldParent": "95594be8-58e1-4e58-f7f9-e70135bc1caa",
+																					"fieldType": "sap.m.Title",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "titleStyle",
+																							"grouping": "Properties",
+																							"value": "H3",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "text",
+																							"grouping": "Properties",
+																							"value": "{deptime}",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				},
+																				{
+																					"fieldNo": "16886dc4-42cf-4282-cd84-9d829c17ad88",
+																					"fieldName": "oTextInbSegDepDate",
+																					"fieldParent": "95594be8-58e1-4e58-f7f9-e70135bc1caa",
+																					"fieldType": "sap.m.Text",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "text",
+																							"grouping": "Properties",
+																							"value": "{depdate}",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "text",
+																							"grouping": "Formatter",
+																							"value": "Anonymous Function",
+																							"script": "file://event/sap.m.Text/oTextInbSegDepDate/text.script",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				}
+																			]
+																		},
+																		{
+																			"fieldNo": "b40ce447-5983-487d-d905-583f882cd3c5",
+																			"fieldName": "oVBoxInbSegStops",
+																			"fieldParent": "9ae1ce4a-3d68-4908-dcf3-1f738f197ad1",
+																			"fieldType": "sap.m.VBox",
+																			"script": "",
+																			"request": [],
+																			"response": [],
+																			"attributes": [
+																				{
+																					"attribute": "justifyContent",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "alignItems",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "alignContent",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				}
+																			],
+																			"data": [
+																				{
+																					"fieldNo": "6afec867-1954-416e-c150-553e8d9a7cb7",
+																					"fieldName": "oImageInbSegDep",
+																					"fieldParent": "b40ce447-5983-487d-d905-583f882cd3c5",
+																					"fieldType": "sap.m.Image",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "src",
+																							"grouping": "Properties",
+																							"value": "{airline}",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "height",
+																							"grouping": "Properties",
+																							"value": "25px",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "src",
+																							"grouping": "Formatter",
+																							"value": "Anonymous Function",
+																							"script": "file://event/sap.m.Image/oImageInbSegDep/src.script",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				},
+																				{
+																					"fieldNo": "c831f3ea-97e9-4ea1-aecb-afb32b719c6e",
+																					"fieldName": "oImageInbSegStops",
+																					"fieldParent": "b40ce447-5983-487d-d905-583f882cd3c5",
+																					"fieldType": "sap.m.Image",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "src",
+																							"grouping": "Properties",
+																							"value": "/media/root/DemoTravelSuite/non_stop.png",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "height",
+																							"grouping": "Properties",
+																							"value": "20px",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				},
+																				{
+																					"fieldNo": "39ca214a-ce4d-416e-82e4-23758236f15d",
+																					"fieldName": "oTextInbSegStops",
+																					"fieldParent": "b40ce447-5983-487d-d905-583f882cd3c5",
+																					"fieldType": "sap.m.Text",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "text",
+																							"grouping": "Properties",
+																							"value": "{flightduration}",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				}
+																			]
+																		},
+																		{
+																			"fieldNo": "43ffd012-6be5-4e0b-ef7a-444a1401f0e3",
+																			"fieldName": "oVBoxInbSegArrivalInfo",
+																			"fieldParent": "9ae1ce4a-3d68-4908-dcf3-1f738f197ad1",
+																			"fieldType": "sap.m.VBox",
+																			"script": "",
+																			"request": [],
+																			"response": [],
+																			"attributes": [
+																				{
+																					"attribute": "justifyContent",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "alignItems",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "alignContent",
+																					"grouping": "Properties",
+																					"value": "Center",
+																					"script": "",
+																					"translation": []
+																				}
+																			],
+																			"data": [
+																				{
+																					"fieldNo": "570793af-9f0d-462f-b63c-461003c3faa2",
+																					"fieldName": "oTitleInbSegArrLocation",
+																					"fieldParent": "43ffd012-6be5-4e0b-ef7a-444a1401f0e3",
+																					"fieldType": "sap.m.Title",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "titleStyle",
+																							"grouping": "Properties",
+																							"value": "H3",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "text",
+																							"grouping": "Properties",
+																							"value": "{arrairport}",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				},
+																				{
+																					"fieldNo": "2b04450e-b1a2-4ee1-d37b-42850609dd3e",
+																					"fieldName": "oHBoxInbSegArrTime",
+																					"fieldParent": "43ffd012-6be5-4e0b-ef7a-444a1401f0e3",
+																					"fieldType": "sap.m.HBox",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [],
+																					"data": [
+																						{
+																							"fieldNo": "9292137e-8a27-4bfb-9831-daf9decb3018",
+																							"fieldName": "oTitleInbSegArrTime",
+																							"fieldParent": "2b04450e-b1a2-4ee1-d37b-42850609dd3e",
+																							"fieldType": "sap.m.Title",
+																							"script": "",
+																							"request": [],
+																							"response": [],
+																							"attributes": [
+																								{
+																									"attribute": "titleStyle",
+																									"grouping": "Properties",
+																									"value": "H3",
+																									"script": "",
+																									"translation": []
+																								},
+																								{
+																									"attribute": "text",
+																									"grouping": "Properties",
+																									"value": "{arrtime}",
+																									"script": "",
+																									"translation": []
+																								}
+																							],
+																							"data": []
+																						},
+																						{
+																							"fieldNo": "8b421788-c5d3-4331-b2ee-550e4e5a169e",
+																							"fieldName": "oTextInbSegDays",
+																							"fieldParent": "2b04450e-b1a2-4ee1-d37b-42850609dd3e",
+																							"fieldType": "sap.m.Text",
+																							"script": "",
+																							"request": [],
+																							"response": [],
+																							"attributes": [
+																								{
+																									"attribute": "text",
+																									"grouping": "Properties",
+																									"value": "{days}",
+																									"script": "",
+																									"translation": []
+																								},
+																								{
+																									"attribute": "text",
+																									"grouping": "Formatter",
+																									"value": "Anonymous Function",
+																									"script": "file://event/sap.m.Text/oTextInbSegDays/text.script",
+																									"translation": []
+																								}
+																							],
+																							"data": []
+																						}
+																					]
+																				},
+																				{
+																					"fieldNo": "32d0f143-5677-435a-de76-7dca65607c0a",
+																					"fieldName": "oTextInbSegSefArrDate",
+																					"fieldParent": "43ffd012-6be5-4e0b-ef7a-444a1401f0e3",
+																					"fieldType": "sap.m.Text",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "text",
+																							"grouping": "Properties",
+																							"value": "{arrdate}",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "text",
+																							"grouping": "Formatter",
+																							"value": "Anonymous Function",
+																							"script": "file://event/sap.m.Text/oTextInbSegSefArrDate/text.script",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				}
+																			]
+																		}
+																	]
+																},
+																{
+																	"fieldNo": "33569ba9-38bc-4ed7-d014-6383ca73b155",
+																	"fieldName": "oVBoxInbSeg2",
+																	"fieldParent": "053da0f0-d945-4799-9d04-d1a7aa01cd31",
+																	"fieldType": "sap.m.VBox",
+																	"script": "",
+																	"request": [],
+																	"response": [],
+																	"attributes": [
+																		{
+																			"attribute": "justifyContent",
+																			"grouping": "Properties",
+																			"value": "Center",
+																			"script": "",
+																			"translation": []
+																		},
+																		{
+																			"attribute": "alignItems",
+																			"grouping": "Properties",
+																			"value": "Start",
+																			"script": "",
+																			"translation": []
+																		},
+																		{
+																			"attribute": "alignContent",
+																			"grouping": "Properties",
+																			"value": "Start",
+																			"script": "",
+																			"translation": []
+																		}
+																	],
+																	"data": [
+																		{
+																			"fieldNo": "b4ed730d-cfe8-4f4b-d4df-3cb6493ee25d",
+																			"fieldName": "oTextInbSegAirline",
+																			"fieldParent": "33569ba9-38bc-4ed7-d014-6383ca73b155",
+																			"fieldType": "sap.m.Text",
+																			"script": "",
+																			"request": [],
+																			"response": [],
+																			"attributes": [
+																				{
+																					"attribute": "text",
+																					"grouping": "Properties",
+																					"value": "{airlineName, flightno}",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "styleClassMargin",
+																					"grouping": "Properties",
+																					"value": "sapUiTinyMarginEnd",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "text",
+																					"grouping": "Formatter",
+																					"value": "Anonymous Function",
+																					"script": "file://event/sap.m.Text/oTextInbSegAirline/text.script",
+																					"translation": []
+																				}
+																			],
+																			"data": []
+																		},
+																		{
+																			"fieldNo": "5a2eb308-9c67-40c4-d2d4-1320dd597742",
+																			"fieldName": "oTextInbSegAircraft",
+																			"fieldParent": "33569ba9-38bc-4ed7-d014-6383ca73b155",
+																			"fieldType": "sap.m.Text",
+																			"script": "",
+																			"request": [],
+																			"response": [],
+																			"attributes": [
+																				{
+																					"attribute": "text",
+																					"grouping": "Properties",
+																					"value": "{airplane}",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "text",
+																					"grouping": "Formatter",
+																					"value": "Anonymous Function",
+																					"script": "file://event/sap.m.Text/oTextInbSegAircraft/text.script",
+																					"translation": []
+																				}
+																			],
+																			"data": []
+																		},
+																		{
+																			"fieldNo": "e99b3f9d-6baf-4c41-e9de-7fbf3032c2aa",
+																			"fieldName": "oTextInbSegCabin",
+																			"fieldParent": "33569ba9-38bc-4ed7-d014-6383ca73b155",
+																			"fieldType": "sap.m.Text",
+																			"script": "",
+																			"request": [],
+																			"response": [],
+																			"attributes": [
+																				{
+																					"attribute": "text",
+																					"grouping": "Properties",
+																					"value": "{cabin}",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "styleClassMargin",
+																					"grouping": "Properties",
+																					"value": "sapUiMediumMarginEnd",
+																					"script": "",
+																					"translation": []
+																				}
+																			],
+																			"data": []
+																		},
+																		{
+																			"fieldNo": "0a830435-c4fc-4407-8963-301d85ad1fd3",
+																			"fieldName": "oHBoxInbSegLuggage",
+																			"fieldParent": "33569ba9-38bc-4ed7-d014-6383ca73b155",
+																			"fieldType": "sap.m.HBox",
+																			"script": "",
+																			"request": [],
+																			"response": [],
+																			"attributes": [],
+																			"data": [
+																				{
+																					"fieldNo": "56a5d327-4765-4396-fe34-d5b52ef81e93",
+																					"fieldName": "oTextInbSegLuggage",
+																					"fieldParent": "0a830435-c4fc-4407-8963-301d85ad1fd3",
+																					"fieldType": "sap.m.Text",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "text",
+																							"grouping": "Properties",
+																							"value": "{includedBags}",
+																							"script": "",
+																							"translation": []
+																						},
+																						{
+																							"attribute": "styleClassMargin",
+																							"grouping": "Properties",
+																							"value": "sapUiTinyMarginEnd",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				},
+																				{
+																					"fieldNo": "05d84b59-4b0a-43ec-9f41-ff92e5590e1e",
+																					"fieldName": "oIconSegInb",
+																					"fieldParent": "0a830435-c4fc-4407-8963-301d85ad1fd3",
+																					"fieldType": "sap.ui.core.Icon",
+																					"script": "",
+																					"request": [],
+																					"response": [],
+																					"attributes": [
+																						{
+																							"attribute": "src",
+																							"grouping": "Properties",
+																							"value": "sap-icon://suitcase",
+																							"script": "",
+																							"translation": []
+																						}
+																					],
+																					"data": []
+																				}
+																			]
+																		},
+																		{
+																			"fieldNo": "f322daee-41e8-4b64-ce9a-5b3da586a632",
+																			"fieldName": "oTextInbSegFareBasis",
+																			"fieldParent": "33569ba9-38bc-4ed7-d014-6383ca73b155",
+																			"fieldType": "sap.m.Text",
+																			"script": "",
+																			"request": [],
+																			"response": [],
+																			"attributes": [
+																				{
+																					"attribute": "text",
+																					"grouping": "Properties",
+																					"value": "{fareBasis}",
+																					"script": "",
+																					"translation": []
+																				},
+																				{
+																					"attribute": "text",
+																					"grouping": "Formatter",
+																					"value": "Anonymous Function",
+																					"script": "file://event/sap.m.Text/oTextInbSegFareBasis/text.script",
+																					"translation": []
+																				}
+																			],
+																			"data": []
+																		}
+																	]
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"fieldNo": "5cc092cf-6d75-4b57-fa37-2902ae031c6c",
+									"fieldName": "oPanelPriceDetails",
+									"fieldParent": "1439590c-e9d2-47cd-c621-2bb34d541ba7",
+									"fieldType": "sap.m.Panel",
+									"script": "",
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "visible",
+											"grouping": "Properties",
+											"value": "{showInbound}",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "styleClassMargin",
+											"grouping": "Properties",
+											"value": "sapUiTinyMarginEnd",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "styleClass",
+											"grouping": "Properties",
+											"value": "TotalPrice",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "headerText",
+											"grouping": "Properties",
+											"value": "Price details",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "expanded",
+											"grouping": "Properties",
+											"value": "true",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": [
+										{
+											"fieldNo": "952dade3-5fa4-4be0-ff81-f8b32f7c6cbf",
+											"fieldName": "oGrid",
+											"fieldParent": "5cc092cf-6d75-4b57-fa37-2902ae031c6c",
+											"fieldType": "sap.ui.layout.Grid",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [],
+											"data": [
+												{
+													"fieldNo": "a65e001d-6fcb-4498-9ae0-03144a76ff1a",
+													"fieldName": "oGridDataPD1",
+													"fieldParent": "952dade3-5fa4-4be0-ff81-f8b32f7c6cbf",
+													"fieldType": "sap.ui.layout.GridData",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "spanS",
+															"grouping": "Properties",
+															"value": "4",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "spanM",
+															"grouping": "Properties",
+															"value": "4",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "spanL",
+															"grouping": "Properties",
+															"value": "4",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "linebreak",
+															"grouping": "Properties",
+															"value": "true",
+															"script": "",
+															"translation": []
+														}
+													],
+													"data": [
+														{
+															"fieldNo": "11a60fbf-e47d-42ec-b037-31ba73d50731",
+															"fieldName": "oLabelPDBase",
+															"fieldParent": "a65e001d-6fcb-4498-9ae0-03144a76ff1a",
+															"fieldType": "sap.m.Label",
+															"script": "",
+															"request": [],
+															"response": [],
+															"attributes": [
+																{
+																	"attribute": "text",
+																	"grouping": "Properties",
+																	"value": "Base Tariff",
+																	"script": "",
+																	"translation": []
+																},
+																{
+																	"attribute": "design",
+																	"grouping": "Properties",
+																	"value": "Bold",
+																	"script": "",
+																	"translation": []
+																}
+															],
+															"data": []
+														}
+													]
+												},
+												{
+													"fieldNo": "a6dd2997-6497-47ce-8364-19bf6ee36bde",
+													"fieldName": "oGridDataPD2",
+													"fieldParent": "952dade3-5fa4-4be0-ff81-f8b32f7c6cbf",
+													"fieldType": "sap.ui.layout.GridData",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "spanS",
+															"grouping": "Properties",
+															"value": "8",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "spanM",
+															"grouping": "Properties",
+															"value": "8",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "spanL",
+															"grouping": "Properties",
+															"value": "8",
+															"script": "",
+															"translation": []
+														}
+													],
+													"data": [
+														{
+															"fieldNo": "373e2490-89af-441b-d2b2-e2f6fc5a157b",
+															"fieldName": "oTextPDBase",
+															"fieldParent": "a6dd2997-6497-47ce-8364-19bf6ee36bde",
+															"fieldType": "sap.m.Text",
+															"script": "",
+															"request": [],
+															"response": [],
+															"attributes": [
+																{
+																	"attribute": "text",
+																	"grouping": "Properties",
+																	"value": "{/base,/currency}",
+																	"script": "",
+																	"translation": []
+																},
+																{
+																	"attribute": "text",
+																	"grouping": "Formatter",
+																	"value": "Anonymous Function",
+																	"script": "file://event/sap.m.Text/oTextPDBase/text.script",
+																	"translation": []
+																}
+															],
+															"data": []
+														}
+													]
+												},
+												{
+													"fieldNo": "f2b79c28-8a50-4098-d6ee-cafbe195f36e",
+													"fieldName": "oGridDataPD3",
+													"fieldParent": "952dade3-5fa4-4be0-ff81-f8b32f7c6cbf",
+													"fieldType": "sap.ui.layout.GridData",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "spanS",
+															"grouping": "Properties",
+															"value": "4",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "spanM",
+															"grouping": "Properties",
+															"value": "4",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "spanL",
+															"grouping": "Properties",
+															"value": "4",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "linebreak",
+															"grouping": "Properties",
+															"value": "true",
+															"script": "",
+															"translation": []
+														}
+													],
+													"data": [
+														{
+															"fieldNo": "086206f0-49c6-4e7f-ef65-b069f4c37678",
+															"fieldName": "oLabelPDTaxes",
+															"fieldParent": "f2b79c28-8a50-4098-d6ee-cafbe195f36e",
+															"fieldType": "sap.m.Label",
+															"script": "",
+															"request": [],
+															"response": [],
+															"attributes": [
+																{
+																	"attribute": "text",
+																	"grouping": "Properties",
+																	"value": "Taxes and fees",
+																	"script": "",
+																	"translation": []
+																},
+																{
+																	"attribute": "design",
+																	"grouping": "Properties",
+																	"value": "Bold",
+																	"script": "",
+																	"translation": []
+																}
+															],
+															"data": []
+														}
+													]
+												},
+												{
+													"fieldNo": "54ca17c9-4609-40e1-ac13-9162c23e3a07",
+													"fieldName": "oGridDataPD4",
+													"fieldParent": "952dade3-5fa4-4be0-ff81-f8b32f7c6cbf",
+													"fieldType": "sap.ui.layout.GridData",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "spanS",
+															"grouping": "Properties",
+															"value": "8",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "spanM",
+															"grouping": "Properties",
+															"value": "8",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "spanL",
+															"grouping": "Properties",
+															"value": "8",
+															"script": "",
+															"translation": []
+														}
+													],
+													"data": [
+														{
+															"fieldNo": "92088e27-2b15-4d4b-dd31-321257501e7f",
+															"fieldName": "oTextPDTaxes",
+															"fieldParent": "54ca17c9-4609-40e1-ac13-9162c23e3a07",
+															"fieldType": "sap.m.Text",
+															"script": "",
+															"request": [],
+															"response": [],
+															"attributes": [
+																{
+																	"attribute": "text",
+																	"grouping": "Properties",
+																	"value": "{/taxes,/currency}",
+																	"script": "",
+																	"translation": []
+																},
+																{
+																	"attribute": "text",
+																	"grouping": "Formatter",
+																	"value": "Anonymous Function",
+																	"script": "file://event/sap.m.Text/oTextPDTaxes/text.script",
+																	"translation": []
+																}
+															],
+															"data": []
+														}
+													]
+												},
+												{
+													"fieldNo": "9db99bef-3309-46fd-bf77-893889a2cbdc",
+													"fieldName": "oGridDataPD5",
+													"fieldParent": "952dade3-5fa4-4be0-ff81-f8b32f7c6cbf",
+													"fieldType": "sap.ui.layout.GridData",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "spanS",
+															"grouping": "Properties",
+															"value": "4",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "spanM",
+															"grouping": "Properties",
+															"value": "4",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "spanL",
+															"grouping": "Properties",
+															"value": "4",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "linebreak",
+															"grouping": "Properties",
+															"value": "true",
+															"script": "",
+															"translation": []
+														}
+													],
+													"data": [
+														{
+															"fieldNo": "1955ba3b-1eae-46fc-d513-5fa2e370d1d6",
+															"fieldName": "oLabelPDTotal",
+															"fieldParent": "9db99bef-3309-46fd-bf77-893889a2cbdc",
+															"fieldType": "sap.m.Label",
+															"script": "",
+															"request": [],
+															"response": [],
+															"attributes": [
+																{
+																	"attribute": "text",
+																	"grouping": "Properties",
+																	"value": "Total",
+																	"script": "",
+																	"translation": []
+																},
+																{
+																	"attribute": "design",
+																	"grouping": "Properties",
+																	"value": "Bold",
+																	"script": "",
+																	"translation": []
+																}
+															],
+															"data": []
+														}
+													]
+												},
+												{
+													"fieldNo": "d7ee4e18-9f10-4549-c03a-b2cc75e81dc7",
+													"fieldName": "oGridDataPD6",
+													"fieldParent": "952dade3-5fa4-4be0-ff81-f8b32f7c6cbf",
+													"fieldType": "sap.ui.layout.GridData",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "spanS",
+															"grouping": "Properties",
+															"value": "8",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "spanM",
+															"grouping": "Properties",
+															"value": "8",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "spanL",
+															"grouping": "Properties",
+															"value": "8",
+															"script": "",
+															"translation": []
+														}
+													],
+													"data": [
+														{
+															"fieldNo": "47f9ece1-e2b7-48fe-b3bb-a6379e885ed7",
+															"fieldName": "oTextPDTotal",
+															"fieldParent": "d7ee4e18-9f10-4549-c03a-b2cc75e81dc7",
+															"fieldType": "sap.m.Text",
+															"script": "",
+															"request": [],
+															"response": [],
+															"attributes": [
+																{
+																	"attribute": "text",
+																	"grouping": "Properties",
+																	"value": "{/grandTotal,/currency}",
+																	"script": "",
+																	"translation": []
+																},
+																{
+																	"attribute": "styleClass",
+																	"grouping": "Properties",
+																	"value": "fontTotal",
+																	"script": "",
+																	"translation": []
+																},
+																{
+																	"attribute": "text",
+																	"grouping": "Formatter",
+																	"value": "Anonymous Function",
+																	"script": "file://event/sap.m.Text/oTextPDTotal/text.script",
+																	"translation": []
+																}
+															],
+															"data": []
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"fieldNo": "46a79c33-60b6-4b8f-d328-3dfe4148af88",
+									"fieldName": "oBarFooterSelection",
+									"fieldParent": "1439590c-e9d2-47cd-c621-2bb34d541ba7",
+									"fieldType": "sap.m.Bar",
+									"script": "",
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "position",
+											"grouping": "Parent",
+											"value": "setFooter",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": [
+										{
+											"fieldNo": "e5b26506-4dca-488c-ebe4-bb47d825ded1",
+											"fieldName": "Left",
+											"fieldParent": "46a79c33-60b6-4b8f-d328-3dfe4148af88",
+											"fieldType": "neptune.BarContent",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "position",
+													"grouping": "Parent",
+													"value": "ContentLeft",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": [
+												{
+													"fieldNo": "ee682f47-5355-47d3-9d47-ea03dbd308f9",
+													"fieldName": "oButtonBackToFlights",
+													"fieldParent": "e5b26506-4dca-488c-ebe4-bb47d825ded1",
+													"fieldType": "sap.m.Button",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "icon",
+															"grouping": "Properties",
+															"value": "sap-icon://nav-back",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "press",
+															"grouping": "Events",
+															"value": "oApp.backDetailToPage(oPageResults);",
+															"script": "oApp.backDetailToPage(oPageResults);",
+															"translation": []
+														}
+													],
+													"data": []
+												}
+											]
+										},
+										{
+											"fieldNo": "daa51f2c-07b7-4c38-d09e-edf774ed0d7c",
+											"fieldName": "Right",
+											"fieldParent": "46a79c33-60b6-4b8f-d328-3dfe4148af88",
+											"fieldType": "neptune.BarContent",
+											"script": "",
+											"request": [],
+											"response": [],
+											"attributes": [
+												{
+													"attribute": "position",
+													"grouping": "Parent",
+													"value": "ContentRight",
+													"script": "",
+													"translation": []
+												}
+											],
+											"data": [
+												{
+													"fieldNo": "67f4edc0-b1c3-44e8-c8e2-6e5f266a1089",
+													"fieldName": "oButtonBook",
+													"fieldParent": "daa51f2c-07b7-4c38-d09e-edf774ed0d7c",
+													"fieldType": "sap.m.Button",
+													"script": "",
+													"request": [],
+													"response": [],
+													"attributes": [
+														{
+															"attribute": "text",
+															"grouping": "Properties",
+															"value": "Add Flight to Trip",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "icon",
+															"grouping": "Properties",
+															"value": "sap-icon://fa-solid/shopping-basket",
+															"script": "",
+															"translation": []
+														},
+														{
+															"attribute": "press",
+															"grouping": "Events",
+															"value": "Anonymous Function",
+															"script": "file://event/sap.m.Button/oButtonBook/press.script",
+															"translation": []
+														}
+													],
+													"data": []
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"fieldNo": "0359d4db-6996-47c3-ffb5-7cb3a2ce1f54",
+							"fieldName": "oPageHidden",
+							"fieldParent": "6e997fb2-e6d8-4658-c813-b5c2d7210608",
+							"fieldType": "sap.m.Page",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "position",
+									"grouping": "Parent",
+									"value": "addDetailPage",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": [
+								{
+									"fieldNo": "0cddfd82-aaa8-4817-8f4d-764884606440",
+									"fieldName": "oListFlightsSelected",
+									"fieldParent": "0359d4db-6996-47c3-ffb5-7cb3a2ce1f54",
+									"fieldType": "sap.m.List",
+									"script": "",
+									"bindingValue": "Generic Array",
+									"bindingType": "h",
+									"bindingSource": "P9",
+									"request": [],
+									"response": [],
+									"attributes": [
+										{
+											"attribute": "setInitLoad",
+											"grouping": "Model",
+											"value": "cache",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "setEnableCache",
+											"grouping": "Model",
+											"value": "true",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "setCacheUserBased",
+											"grouping": "Model",
+											"value": "true",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "setCacheType",
+											"grouping": "Model",
+											"value": "IndexedDB",
+											"script": "",
+											"translation": []
+										},
+										{
+											"attribute": "setCacheGlobal",
+											"grouping": "Model",
+											"value": "true",
+											"script": "",
+											"translation": []
+										}
+									],
+									"data": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"fieldNo": 99999,
+			"data": [
+				{
+					"fieldNo": "b58506ba-5cc9-4f55-df70-15dee56a2a47",
+					"fieldName": "oMsgInfo",
+					"fieldParent": 99999,
+					"fieldType": "sap.m.MessageBox",
+					"script": "",
+					"request": [],
+					"response": [],
+					"attributes": [
+						{
+							"attribute": "title",
+							"grouping": "Properties",
+							"value": "Info",
+							"script": "",
+							"translation": []
+						},
+						{
+							"attribute": "text",
+							"grouping": "Properties",
+							"value": "This app is connected to a demo API.\\n\\nResults may contain dummy data and images.\\n\\nRecommended search:\\n'London' to 'New York'",
+							"script": "",
+							"translation": []
+						}
+					],
+					"data": []
+				},
+				{
+					"fieldNo": "9a2079b9-5980-45bd-8927-5f64ba29503f",
+					"fieldName": "oMessageBoxNoFlightsFound",
+					"fieldParent": 99999,
+					"fieldType": "sap.m.MessageBox",
+					"script": "",
+					"request": [],
+					"response": [],
+					"attributes": [
+						{
+							"attribute": "title",
+							"grouping": "Properties",
+							"value": "No Flights found",
+							"script": "",
+							"translation": []
+						},
+						{
+							"attribute": "text",
+							"grouping": "Properties",
+							"value": "No flights found. Please modify your search criteria and try again",
+							"script": "",
+							"translation": []
+						},
+						{
+							"attribute": "icon",
+							"grouping": "Properties",
+							"value": "ERROR",
+							"script": "",
+							"translation": []
+						},
+						{
+							"attribute": "Button1",
+							"grouping": "Properties",
+							"value": "CLOSE",
+							"script": "",
+							"translation": []
+						}
+					],
+					"data": []
+				},
+				{
+					"fieldNo": "b436683b-2cb2-4e3d-cd50-beeb4d01199e",
+					"fieldName": "Texts",
+					"fieldParent": 99999,
+					"fieldType": "neptune.folder",
+					"script": "",
+					"request": [],
+					"response": [],
+					"attributes": [],
+					"data": [
+						{
+							"fieldNo": "431f0301-4de7-403d-c9fb-9bb348d1a4ca",
+							"fieldName": "oTextDay",
+							"fieldParent": "b436683b-2cb2-4e3d-cd50-beeb4d01199e",
+							"fieldType": "sap.m.Text",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": "day",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "8b0b3a67-93b1-41cc-d4af-5772f1592c7c",
+							"fieldName": "oTextDays",
+							"fieldParent": "b436683b-2cb2-4e3d-cd50-beeb4d01199e",
+							"fieldType": "sap.m.Text",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": "Days",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "8f8b36b9-f359-4590-9117-7281a4cbfc71",
+							"fieldName": "oTextHour",
+							"fieldParent": "b436683b-2cb2-4e3d-cd50-beeb4d01199e",
+							"fieldType": "sap.m.Text",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": "Hour",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "2b8d9d47-81c6-4cfe-945d-5886498ca2da",
+							"fieldName": "oTextHours",
+							"fieldParent": "b436683b-2cb2-4e3d-cd50-beeb4d01199e",
+							"fieldType": "sap.m.Text",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": "Hours",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "d42813c3-0706-4450-c21f-237b4977beb3",
+							"fieldName": "oTextMinute",
+							"fieldParent": "b436683b-2cb2-4e3d-cd50-beeb4d01199e",
+							"fieldType": "sap.m.Text",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": "Minute",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "dc10010f-0e2c-4136-cb8a-1fda8d46a666",
+							"fieldName": "oTextMinutes",
+							"fieldParent": "b436683b-2cb2-4e3d-cd50-beeb4d01199e",
+							"fieldType": "sap.m.Text",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": "Minutes",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "d397ca6a-c31e-4791-9db4-83d7ebbc2eee",
+							"fieldName": "oTextSameDay",
+							"fieldParent": "b436683b-2cb2-4e3d-cd50-beeb4d01199e",
+							"fieldType": "sap.m.Text",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": "Same day",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "72ff7579-9751-40af-d1cd-ad8be6e7a665",
+							"fieldName": "oTextNextDay",
+							"fieldParent": "b436683b-2cb2-4e3d-cd50-beeb4d01199e",
+							"fieldType": "sap.m.Text",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": "Next day",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "1cc14cd4-0016-4c5d-cc7d-b901e04d8e30",
+							"fieldName": "oTextXDaysAfter",
+							"fieldParent": "b436683b-2cb2-4e3d-cd50-beeb4d01199e",
+							"fieldType": "sap.m.Text",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": "days after",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "050014cd-f911-4694-b38c-f5454f62c532",
+							"fieldName": "oTextDirect",
+							"fieldParent": "b436683b-2cb2-4e3d-cd50-beeb4d01199e",
+							"fieldType": "sap.m.Text",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": "Direct",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "3a20eafb-6c6a-480d-c129-08e00ef73e07",
+							"fieldName": "oTextOneStop",
+							"fieldParent": "b436683b-2cb2-4e3d-cd50-beeb4d01199e",
+							"fieldType": "sap.m.Text",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": "1 stop",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "cd7d984b-69cf-43b7-c230-00c033329555",
+							"fieldName": "oTextStops",
+							"fieldParent": "b436683b-2cb2-4e3d-cd50-beeb4d01199e",
+							"fieldType": "sap.m.Text",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": "stops",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "61a20ffa-f94c-4ca4-dc95-fac9ced64058",
+							"fieldName": "oTextH",
+							"fieldParent": "b436683b-2cb2-4e3d-cd50-beeb4d01199e",
+							"fieldType": "sap.m.Text",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": "h",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "f60a8ed2-1fde-4733-b935-07b6109f834c",
+							"fieldName": "oTextM",
+							"fieldParent": "b436683b-2cb2-4e3d-cd50-beeb4d01199e",
+							"fieldType": "sap.m.Text",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": "m",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						},
+						{
+							"fieldNo": "224178d2-adc7-486b-acce-69d90cc70931",
+							"fieldName": "oTextD",
+							"fieldParent": "b436683b-2cb2-4e3d-cd50-beeb4d01199e",
+							"fieldType": "sap.m.Text",
+							"script": "",
+							"request": [],
+							"response": [],
+							"attributes": [
+								{
+									"attribute": "text",
+									"grouping": "Properties",
+									"value": "d",
+									"script": "",
+									"translation": []
+								}
+							],
+							"data": []
+						}
+					]
+				},
+				{
+					"fieldNo": "81060fd6-f21f-451b-f041-3d3d1e011442",
+					"fieldName": "oJavascript",
+					"fieldParent": 99999,
+					"fieldType": "neptune.Script",
+					"script": "file://script/neptune.Script/oJavascript.js",
+					"request": [],
+					"response": [],
+					"attributes": [],
+					"data": []
+				},
+				{
+					"fieldNo": "62a47540-27a5-4aaa-efec-164fda4e7449",
+					"fieldName": "oMultiModelConfigData",
+					"fieldParent": 99999,
+					"fieldType": "neptune.model",
+					"script": "",
+					"bindingValue": "democorptravel_script_apis>data",
+					"bindingType": "h",
+					"bindingSource": "API",
+					"bindingParentID": "459937c4-71fa-4c51-87c2-8ad4e8ff8fdf",
+					"bindingPathID": "411476dc-3851-4224-eb9b-adfd02ace1ea",
+					"request": [],
+					"response": [],
+					"attributes": [],
+					"data": []
+				},
+				{
+					"fieldNo": "56a4e584-20b9-4af2-c4ce-4630d618f27a",
+					"fieldName": "oMultiModelAirpFrom",
+					"fieldParent": 99999,
+					"fieldType": "neptune.model",
+					"script": "",
+					"bindingValue": "Amadeus_LocationSearch>Location",
+					"bindingType": "h",
+					"bindingSource": "API",
+					"bindingParentID": "6c0a848c-cd2a-4d5f-b30c-59c65f8b6990",
+					"bindingPathID": "2a8db165-6127-4f4f-d392-0128d12012ce",
+					"request": [],
+					"response": [],
+					"attributes": [],
+					"data": []
+				},
+				{
+					"fieldNo": "654d2178-eda6-48bc-d91a-b371c5e366ce",
+					"fieldName": "oMultiModelAirpTo",
+					"fieldParent": 99999,
+					"fieldType": "neptune.model",
+					"script": "",
+					"bindingValue": "Amadeus_LocationSearch>Location",
+					"bindingType": "h",
+					"bindingSource": "API",
+					"bindingParentID": "6c0a848c-cd2a-4d5f-b30c-59c65f8b6990",
+					"bindingPathID": "2a8db165-6127-4f4f-d392-0128d12012ce",
+					"request": [],
+					"response": [],
+					"attributes": [],
+					"data": []
+				},
+				{
+					"fieldNo": "b41be008-7148-4f57-bc9f-c0fca235c903",
+					"fieldName": "oMultiModelAmadeusFlights",
+					"fieldParent": 99999,
+					"fieldType": "neptune.model",
+					"script": "",
+					"bindingValue": "Amadeus_FlightSearch>FlightOffer",
+					"bindingType": "h",
+					"bindingSource": "API",
+					"bindingParentID": "319021fa-f707-49ec-a83c-6180fd31b959",
+					"bindingPathID": "0f679dd9-a34e-4fe8-af18-d1e6318ca27d",
+					"request": [],
+					"response": [],
+					"attributes": [],
+					"data": []
+				},
+				{
+					"fieldNo": "4b7e69f1-6ccf-4843-aa07-ad9ffa7a516b",
+					"fieldName": "oAPIGetConfigData",
+					"fieldParent": 99999,
+					"fieldType": "neptune.restapi",
+					"script": "",
+					"restSource": "459937c4-71fa-4c51-87c2-8ad4e8ff8fdf",
+					"restOperation": "9a80baa1-9bc2-40e7-ac5c-8e481731a908",
+					"request": [],
+					"response": [
+						{
+							"status": "200",
+							"dataId": "411476dc-3851-4224-eb9b-adfd02ace1ea",
+							"modelFieldNo": "62a47540-27a5-4aaa-efec-164fda4e7449"
+						}
+					],
+					"attributes": [
+						{
+							"attribute": "setInitLoad",
+							"grouping": "Model",
+							"value": "online",
+							"script": "",
+							"translation": []
+						},
+						{
+							"attribute": "ajaxSuccess",
+							"grouping": "Events",
+							"value": "Anonymous Function",
+							"script": "file://event/neptune.restapi/oAPIGetConfigData/ajaxSuccess.script",
+							"translation": []
+						}
+					],
+					"data": []
+				},
+				{
+					"fieldNo": "f382ce92-4249-48b7-e797-bb2ed1835104",
+					"fieldName": "oAPIGetAirpFrom",
+					"fieldParent": 99999,
+					"fieldType": "neptune.restapi",
+					"script": "",
+					"restSource": "6c0a848c-cd2a-4d5f-b30c-59c65f8b6990",
+					"restOperation": "061089ae-106d-43b3-e97d-ff9dec6179c1",
+					"request": [],
+					"response": [
+						{
+							"status": "200",
+							"dataId": "2a8db165-6127-4f4f-d392-0128d12012ce",
+							"modelFieldNo": "56a4e584-20b9-4af2-c4ce-4630d618f27a"
+						}
+					],
+					"attributes": [
+						{
+							"attribute": "ajaxSuccess",
+							"grouping": "Events",
+							"value": "Anonymous Function",
+							"script": "file://event/neptune.restapi/oAPIGetAirpFrom/ajaxSuccess.script",
+							"translation": []
+						}
+					],
+					"data": []
+				},
+				{
+					"fieldNo": "e4df211b-1bfc-410c-9fc6-9ba2768e76e4",
+					"fieldName": "oAPIGetAirpTo",
+					"fieldParent": 99999,
+					"fieldType": "neptune.restapi",
+					"script": "",
+					"restSource": "6c0a848c-cd2a-4d5f-b30c-59c65f8b6990",
+					"restOperation": "061089ae-106d-43b3-e97d-ff9dec6179c1",
+					"request": [],
+					"response": [
+						{
+							"status": "200",
+							"dataId": "2a8db165-6127-4f4f-d392-0128d12012ce",
+							"modelFieldNo": "654d2178-eda6-48bc-d91a-b371c5e366ce"
+						}
+					],
+					"attributes": [
+						{
+							"attribute": "ajaxSuccess",
+							"grouping": "Events",
+							"value": "Anonymous Function",
+							"script": "file://event/neptune.restapi/oAPIGetAirpTo/ajaxSuccess.script",
+							"translation": []
+						}
+					],
+					"data": []
+				},
+				{
+					"fieldNo": "093d6150-ade0-4095-8ee0-0e0fe08eac5e",
+					"fieldName": "oAPIAmadeusSearchFlights",
+					"fieldParent": 99999,
+					"fieldType": "neptune.restapi",
+					"script": "",
+					"restSource": "319021fa-f707-49ec-a83c-6180fd31b959",
+					"restOperation": "5929e08f-a78c-4171-cfd5-55f429d5bec0",
+					"request": [],
+					"response": [
+						{
+							"status": "200",
+							"dataId": "0f679dd9-a34e-4fe8-af18-d1e6318ca27d",
+							"modelFieldNo": "b41be008-7148-4f57-bc9f-c0fca235c903"
+						}
+					],
+					"attributes": [
+						{
+							"attribute": "ajaxSuccess",
+							"grouping": "Events",
+							"value": "Anonymous Function",
+							"script": "file://event/neptune.restapi/oAPIAmadeusSearchFlights/ajaxSuccess.script",
+							"translation": []
+						},
+						{
+							"attribute": "ajaxError",
+							"grouping": "Events",
+							"value": "Anonymous Function",
+							"script": "file://event/neptune.restapi/oAPIAmadeusSearchFlights/ajaxError.script",
+							"translation": []
+						}
+					],
+					"data": []
+				}
+			]
+		},
+		{
+			"fieldNo": 99998,
+			"data": []
+		}
+	],
+	"componentInterface": null,
+	"ver": "22.3.8.1552",
+	"application": "democorptravel_search_flights",
+	"title": "",
+	"description": "",
+	"enableFileStorage": false,
+	"enableManifest": false,
+	"enableStylesheet": true,
+	"enableObfuscate": false,
+	"onlyRunLaunchpad": false,
+	"disabled": false,
+	"loadLaunchpadCode": null,
+	"loadApplicationCode": null,
+	"appType": "A",
+	"ui5_m": true,
+	"ui5_f": false,
+	"ui5_table": false,
+	"ui5_tnt": false,
+	"ui5_uxap": false,
+	"ui5_chart": false,
+	"ui5_theme": "sap_belize",
+	"ui5_version": "",
+	"ui5_language": null,
+	"ui5_url": null,
+	"cus_theme": "",
+	"css": "file:///css.css",
+	"compiledCss": null,
+	"header": "<script src=\"//cdnjs.cloudflare.com/ajax/libs/moment.js/2.7.0/moment.min.js\" type=\"text/javascript\"></script>",
+	"manifest": "",
+	"globalScript": "",
+	"deleted": false,
+	"libHighchart": false,
+	"libHighmap": false,
+	"publicAccess": false,
+	"ui5_bootstrap": false,
+	"ui5_ionic": false,
+	"useV2AppHandler": false,
+	"compilerTarget": 3,
+	"tabWidth": null,
+	"printWidth": null,
+	"apis": [
+		{
+			"id": "6c0a848c-cd2a-4d5f-b30c-59c65f8b6990",
+			"name": "Amadeus_LocationSearch",
+			"ver": "20.5.4.950"
+		},
+		{
+			"id": "459937c4-71fa-4c51-87c2-8ad4e8ff8fdf",
+			"name": "democorptravel_script_apis",
+			"ver": "20.5.4.1022"
+		},
+		{
+			"id": "319021fa-f707-49ec-a83c-6180fd31b959",
+			"name": "Amadeus_FlightSearch",
+			"ver": "20.5.4.147"
+		}
+	],
+	"package": "b69714db-0a11-4c2b-9cfa-aabfa4102da6"
+}

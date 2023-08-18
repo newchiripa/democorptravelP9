@@ -1,0 +1,115 @@
+//Validate Inputs
+var error = false;
+
+if (oInputSLocationKey.getValue().length === 0) {
+    oInputSLocation.setValueState(sap.ui.core.ValueState.Error);
+    sap.m.MessageToast.show("Location not identified. Please try again");
+    return;
+    //error = true;
+}
+
+if (oDateFrom.getDateValue() === null) {
+    oDateFrom.setValueState(sap.ui.core.ValueState.Error);
+    error = true;
+}
+if (oDateTo.getDateValue() === null) {
+    oDateTo.setValueState(sap.ui.core.ValueState.Error);
+    error = true;
+}
+if (error) {
+    sap.m.MessageToast.show("Please complete all required fields...");
+    return;
+}
+
+var currency = oSelectSCurrency.getSelectedKey();
+console.log(currency);
+
+var checkInDatex = oDateFrom.getDateValue();
+var checkOutDatex = oDateTo.getDateValue();
+console.log(checkInDatex, checkOutDatex);
+
+var checkInDate = moment(checkInDatex).format("YYYY-MM-DD");
+var checkOutDate = moment(checkOutDatex).format("YYYY-MM-DD");
+
+console.log("1");
+console.log(checkInDate, checkOutDate);
+
+//05-02-21
+
+//var checkInDate = checkInDate.split("-").reverse().join("-");
+//var checkOutDate = checkOutDate.split("-").reverse().join("-");
+
+// INI - Commented Area Daniel ---------------------------------------------------------------
+
+// var options = {
+//     headers: {
+//         "Authorization": "Bearer " + AmadeusToken // Required.
+//     },
+//     parameters: {
+//         "cityCode": oInputSLocationKey.getValue(), // Optional
+//         "checkInDate": checkInDate, // Optional
+//         "checkOutDate": checkOutDate, // Optional
+//         "roomQuantity": oInputSNumberOfRooms.getValue(), // Optional
+//         "adults": oInputSNumberOfAdults.getValue(), // Optional
+//         "radius": "50", // Optional
+//         "radiusUnit": "KM", // Optional
+//         "hotelName": "", // Optional
+//         "chains": "", // Optional
+//         "rateCodes": "", // Optional
+//         "amenities": "", // Optional
+//         "ratings": "", // Optional
+//         "priceRange": oTextPriceRange.getText(), // Optional
+//         "currency": oSelectSCurrency.getSelectedKey(), // Optional
+//         "paymentPolicy": "NONE", // Optional
+//         "boardType": "", // Optional
+//         "includeClosed": false, // Optional
+//         "bestRateOnly": "true", // Optional
+//         "view": "FULL", // Optional
+//         "sort": oSelectSSortBy.getSelectedKey(), // Optional
+//         "page[limit]": "100", // Optional
+//         "page[offset]": "", // Optional
+//         "lang": "" // Optional
+//     }
+// };
+
+//oApp.setBusy(true);
+// console.log(options);
+// apioAPIGetHotelList(options);
+
+// END - Commented Area Daniel ---------------------------------------------------------------
+
+// INI - New Added Code Daniel ---------------------------------------------------------------
+ApiHotelV3Struc = {
+    checkInDate: checkInDate, // Optional
+    checkOutDate: checkOutDate, // Optional
+    roomQuantity: oInputSNumberOfRooms.getValue(), // Optional
+    adults: oInputSNumberOfAdults.getValue(), // Optional
+    priceRange: oTextPriceRange.getText(), // Optional
+    currency: oSelectSCurrency.getSelectedKey(), // Optional
+    paymentPolicy: "NONE", // Optional
+    boardType: "", // Optional
+    includeClosed: false, // Optional
+    bestRateOnly: "true", // Optional
+    lang: "", // Optional
+};
+
+oApp.setBusy(true);
+
+//Hotel List Search by City (This needs to be called first, because of the parameter change from the oAPIGetHotelList to oAPIGetHotelListV3)
+var options = {
+    headers: {
+        Authorization: "Bearer " + AmadeusToken, // Required.
+    },
+    parameters: {
+        cityCode: oInputSLocationKey.getValue(), // Required
+        radius: "5", // Optional
+        radiusUnit: "KM", // Optional
+        chainCodes: "", // Optional
+        amenities: "", // Optional
+        ratings: "", // Optional
+        hotelSource: "ALL", // Optional
+    },
+};
+
+apioAPIGetHotelListByCity(options);
+// END - New Added Code Daniel ---------------------------------------------------------------

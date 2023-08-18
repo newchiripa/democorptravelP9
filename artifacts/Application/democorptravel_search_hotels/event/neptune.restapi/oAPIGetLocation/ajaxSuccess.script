@@ -1,0 +1,15 @@
+//console.log(modeloMultiModelListLocations.oData);
+var dat = modeloMultiModelListLocations.oData.data
+var sug;
+oInputSLocation.removeAllSuggestionItems();
+for (i = 0; i < dat.length; i++) {
+    sug = new sap.ui.core.Item({
+        key: dat[i].iataCode,
+        text: dat[i].name + ", " + dat[i].address.cityName + " " + dat[i].address.countryName,
+    })
+    oInputSLocation.addSuggestionItem(sug);
+}
+
+
+
+oApp.setBusy(false);

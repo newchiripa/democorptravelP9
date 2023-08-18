@@ -1,0 +1,27 @@
+if (typeof indays === "undefined" || indays === null || indays === "") { return; }  
+var formattedText = "";
+if (indays !== 0){
+    formattedText = "+" + indays;
+}
+
+return formattedText;
+
+
+
+
+// List Get Selected Row
+// Replace yourField with Field ID and yourList with correct List ID
+
+var selectedItem = yourList.getSelectedItem();
+
+if (selectedItem) {
+    
+    var context = selectedItem.getBindingContext();
+
+    // Get Single Field
+    var value = context.getProperty("yourField");
+
+    // Get Entire Model
+    var data = context.getObject();
+
+}

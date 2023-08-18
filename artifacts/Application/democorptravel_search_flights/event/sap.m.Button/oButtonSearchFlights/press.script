@@ -1,0 +1,72 @@
+var params = {};
+
+params.originLocationCode = oInputSFFrom.getValue().substring(0, 3); // Required 
+params.destinationLocationCode = oInputSFTo.getValue().substring(0, 3); // Required 
+
+if (oSelectSFTravelType.getSelectedKey() === "RT") {
+    params.departureDate = getDate(oDateSFDateRange.getDateValue());
+    params.returnDate = getDate(oDateSFDateRange.getSecondDateValue());
+} else {
+    params.departureDate = getDate(oDateSFOutDate.getDateValue());
+}
+ 
+params.adults = oInputSFPassengers.getValue();
+params.nonStop = oSwitchSFDirect.getState();
+params.max = 50; // Optional 
+
+// params.children = ", // Optional 
+// params.infants = ", // Optional 
+// params.travelClass = ", // Optional 
+// params.includedAirlineCodes = ", // Optional 
+// params.excludedAirlineCodes = ", // Optional 
+// params.currencyCode = ", // Optional 
+// params.maxPrice = ", // Optional 
+
+var options = {
+    headers: {
+        "Authorization": "Bearer " + AmadeusToken // Required. 
+    },
+    parameters: params
+};
+oApp.setBusy(true);
+apioAPIAmadeusSearchFlights(options);
+
+
+
+
+
+// //using SABRE 
+// var params = {};
+
+// params.origin = oInputSFFrom.getValue().substring(0, 3);
+// params.destination = oInputSFTo.getValue().substring(0, 3);
+// params.passengercount = oInputSFPassengers.getValue();
+
+// if (oSelectSFTravelType.getSelectedKey() === "RT") {
+//     params.departuredate = getDate(oDateSFDateRange.getDateValue());
+//     params.returndate = getDate(oDateSFDateRange.getSecondDateValue());
+// } else {
+//     params.departuredate = getDate(oDateSFOutDate.getDateValue());
+// }
+
+// if (oSwitchSFDirect.getState()) {
+//     params.outboundflightstops = "3";
+//     params.inboundflightstops = "3";
+// }
+
+// params.eticketsonly = "Y";
+// params.sortby = "totalfare";
+// params.order = "asc";
+// params.sortby2 = "elapsedtime";
+// params.order2 = "asc";
+// params.pointofsalecountry = "US";
+
+
+// var options = {
+//     headers: {
+//         "Authorization": "Bearer T1RLAQKCYarKHR9QEl6jo83bP4oT8lJ+aRAukBsUifIxxCsGM67VqI+yAADAk8T62JmQtbdXiokVjjyn4o1ls9XqdlsnDir533Z6wGWyIXpbjWC0MuhWFePpIL1MDlAxktPg4OAzXzU/bAmCpUwJQWy1yPSGdKyqrgqt5oSSuCpHbbADkR1A/K/Kgs4QdgDMk9WnAzHt9sycH6ZlghLO3tBI3nURHxwhSrO4e+slxMmM41OjPLKLUMiCSIgz/3p4WhZNL4chmVqeArrgLFb9gx7V3t6o2YeUsGUJC4sGL3yrajAfPziErYHsA1g5" // Required. 
+//     },
+//     parameters: params
+// };
+// oApp.setBusy(true);
+// apioAPISearchFlights(options);

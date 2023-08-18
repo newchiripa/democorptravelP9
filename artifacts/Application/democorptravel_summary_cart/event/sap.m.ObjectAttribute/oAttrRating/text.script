@@ -1,0 +1,3 @@
+if (typeof rating === "undefined" || rating === null || rating === "") { return; }  
+var formattedText = rating; 
+return formattedText;

@@ -1,0 +1,27 @@
+if (oEvent === "YES") {
+    //call API to delete then
+var dataArray = [];
+var dataSet = {
+    "KEY": "WA_TRAVEL_HEAD",
+    "VALUE": JSON.stringify(modeloPageTripDetail.getData())
+}
+
+dataArray.push(dataSet);
+
+dataSet = {
+    "KEY": "GV_PAGE_SETTINGS",
+    "VALUE": JSON.stringify(modeloPageSettings.getData())
+}
+dataArray.push(dataSet);
+
+
+    var options = {
+        parameters: {
+            "$select": "", // Optional 
+            "sap-client": "800" // Required 
+        },
+        data: dataArray
+    };
+    oApp.setBusy(true);
+    apioAPITemplateDelete(options);
+}

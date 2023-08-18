@@ -1,0 +1,3 @@
+oApp.backDetailToPage(oPageBlank);
+oApp.backMasterToPage(oPageSearch);
+

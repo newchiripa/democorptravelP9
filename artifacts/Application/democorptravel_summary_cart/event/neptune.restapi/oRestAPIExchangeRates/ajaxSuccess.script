@@ -1,0 +1,6 @@
+//console.log("Exchange rates retrieved...");
+//console.log("modeloMultiModelExchangeRates = ", modeloMultiModelExchangeRates.oData);
+
+//calculateTripValue();
+
+callValuesTotalsAndCalculateTripValue();

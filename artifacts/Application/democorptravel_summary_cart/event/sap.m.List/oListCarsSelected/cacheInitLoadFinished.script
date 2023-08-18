@@ -1,0 +1,8 @@
+var data = modeloListCarsSelected.getData();
+
+//console.log("---------------");
+//console.log("oListCarsSelected: ",data);
+
+//getValuesAndTotals();
+modeloListVehicleResults.setData(data);
+

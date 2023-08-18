@@ -1,0 +1,163 @@
+{
+	"id": "b69714db-0a11-4c2b-9cfa-aabfa4102da6",
+	"createdAt": "2020-05-04T08:49:47.413Z",
+	"createdBy": "david",
+	"git": {
+		"remote": "https://github.com/newchiripa/democorptravelP9"
+	},
+	"name": "DemoCorpTravel_OCR",
+	"description": "Suit of apps for Travel and expenses with OCR",
+	"ver": "23.8.18.96",
+	"enableCICD": true,
+	"apps": [
+		{
+			"id": "6bfebc27-7e9d-47cc-9cf8-7e5ca54ed60a",
+			"application": "democorptravel_search_hotels",
+			"title": "",
+			"description": ""
+		},
+		{
+			"id": "444695e3-1303-495a-a36b-04bf32066c29",
+			"application": "democorptravel_search_flights",
+			"title": "",
+			"description": ""
+		},
+		{
+			"id": "34444486-5fab-46ef-97f3-79d462909943",
+			"application": "democorptravel_expense_claim",
+			"title": "",
+			"description": ""
+		},
+		{
+			"id": "273d0066-ac26-4891-b8e5-649a31581618",
+			"application": "democorptravel_summary_cart",
+			"title": "",
+			"description": ""
+		}
+	],
+	"api": [
+		{
+			"id": "e7dd82a7-3f26-ee11-907e-000d3a661202",
+			"name": "nominatim_reverseGeocoding",
+			"description": null,
+			"apiGroup": null
+		},
+		{
+			"id": "cd12a0ea-1026-ee11-907e-000d3a661202",
+			"name": "Amadeus_HotelSearch V3",
+			"description": null,
+			"apiGroup": "10141d64-d063-4665-94ad-ee21142059b3"
+		},
+		{
+			"id": "b51e4729-c7ed-475c-b452-f84443033ad9",
+			"name": "TravelAndExpensesOCRApp_API",
+			"description": null,
+			"apiGroup": "b204e596-c68f-4e43-bb81-9becdabb9ad2"
+		},
+		{
+			"id": "b44e921e-1526-ee11-907e-000d3a661202",
+			"name": "Amadeus_HotelSearch_byCity",
+			"description": "Since the other Hotel Search is now V3, in order to get Hotel IDs, we need to get them through this API first...",
+			"apiGroup": "10141d64-d063-4665-94ad-ee21142059b3"
+		},
+		{
+			"id": "ac5b856b-6f5e-4d84-9221-c6d8ebc54275",
+			"name": "Avis Budget Group STAGED",
+			"description": null,
+			"apiGroup": "f35647fa-722a-4a35-ba03-1029deb1fc99"
+		},
+		{
+			"id": "a6e81e01-1187-eb11-85aa-0003ff1e43fb",
+			"name": "Geocode Location V2",
+			"description": null,
+			"apiGroup": "f35647fa-722a-4a35-ba03-1029deb1fc99"
+		},
+		{
+			"id": "992206e6-ec51-4731-addd-979effd8c1b8",
+			"name": "Geocode Location",
+			"description": null,
+			"apiGroup": "f35647fa-722a-4a35-ba03-1029deb1fc99"
+		},
+		{
+			"id": "7517fb2f-18c8-415c-ab35-57978c67df66",
+			"name": "ExchangeRates",
+			"description": null,
+			"apiGroup": "f35647fa-722a-4a35-ba03-1029deb1fc99"
+		},
+		{
+			"id": "6c0a848c-cd2a-4d5f-b30c-59c65f8b6990",
+			"name": "Amadeus_LocationSearch",
+			"description": null,
+			"apiGroup": "10141d64-d063-4665-94ad-ee21142059b3"
+		},
+		{
+			"id": "459937c4-71fa-4c51-87c2-8ad4e8ff8fdf",
+			"name": "democorptravel_script_apis",
+			"description": null,
+			"apiGroup": "f35647fa-722a-4a35-ba03-1029deb1fc99"
+		},
+		{
+			"id": "319021fa-f707-49ec-a83c-6180fd31b959",
+			"name": "Amadeus_FlightSearch",
+			"description": null,
+			"apiGroup": "10141d64-d063-4665-94ad-ee21142059b3"
+		},
+		{
+			"id": "2c7ed86c-2e02-4956-b7ea-821761bca1f6",
+			"name": "Tripadvisor_Locations_rapidapi",
+			"description": null,
+			"apiGroup": "f35647fa-722a-4a35-ba03-1029deb1fc99"
+		},
+		{
+			"id": "03876222-c102-4f0c-b816-3fe239b9d177",
+			"name": "Amadeus_HotelSearch",
+			"description": null,
+			"apiGroup": "10141d64-d063-4665-94ad-ee21142059b3"
+		}
+	],
+	"odataSource": [],
+	"odataMock": [],
+	"dictionary": [],
+	"jsclass": [],
+	"jsscript_group": [
+		{
+			"id": "75f55c33-378c-4c21-a48f-f09140e63a14",
+			"name": "democorptravel_scripts",
+			"description": null
+		}
+	],
+	"theme": [],
+	"pdf": [],
+	"rulesengine": [],
+	"reports": [],
+	"api_authentication": [],
+	"api_group": [],
+	"tile": [],
+	"category": [],
+	"launchpad": [
+		{
+			"id": "51673fcb-0426-ee11-907e-000d3a661202",
+			"name": "DemocorpTravel - Copy",
+			"description": null
+		},
+		{
+			"id": "3ee54b21-6225-ee11-a9bb-000d3ada9c9b",
+			"name": "DemocorpTravel",
+			"description": null
+		}
+	],
+	"certificates": [],
+	"role": [],
+	"systems": [],
+	"doc": [],
+	"wf_notifications": [],
+	"department": [],
+	"script_scheduler": [],
+	"wf_definition": [],
+	"connector": [],
+	"events": [],
+	"media_library": [],
+	"code_snippets": [],
+	"wf_determination": [],
+	"wf_taskaction": []
+}

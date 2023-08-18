@@ -1,0 +1,8 @@
+// Delete item in list
+var deleteItem = oEvent.getParameter("listItem");
+var context = deleteItem.getBindingContext();
+var value = context.getProperty("KEY");
+changeFlag = true;
+
+ModelData.Delete(oTableExpenses,"KEY",value);
+oIconTabFilterExpenses.setCount(modeloTableExpenses.getData().length);

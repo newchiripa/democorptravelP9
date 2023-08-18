@@ -1,0 +1,21 @@
+dataToSave.id = createBookingID();
+//console.log("saving flight: ", dataToSave);
+
+//console.log("saving flight: ", dataToSave);
+getCacheoListFlightsSelected();
+
+// Triggers javascript code/function after some time
+// Change the number to set your desired timeout in ms
+
+setTimeout(function() {
+
+    ModelData.Add(oListFlightsSelected, dataToSave);
+    setCacheoListFlightsSelected();
+
+    jQuery.sap.require("sap.m.MessageBox");
+    sap.m.MessageBox.show("Flight added to your booking trip");
+
+    oApp.backDetailToPage(oPageBlank);
+    oApp.backMasterToPage(oPageSearch);
+
+}, 1000);

@@ -1,0 +1,2 @@
+var numdays = parseInt(oInputSNights.getValue());
+oDateTo.setDateValue(new Date(oDateFrom.getDateValue().addDays(numdays)));

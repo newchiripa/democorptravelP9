@@ -1,0 +1,20 @@
+oApp.setBusy(false);
+var data = modeloModelSAPSYNC.oData;
+
+console.log("oLIstTrips data:")
+console.log(data.result.IT_TRAVEL_HEAD)
+modeloListTrips.setData(data.result.IT_TRAVEL_HEAD);
+
+modeloSelectTDCountry.setData(data.result.IT_COUNTRIES);
+modeloSelectTDStatutory.setData(data.result.IT_STATUATORY);
+modeloSelectTDActivity.setData(data.result.IT_ACTIVITIES);
+
+//settings
+modeloPageSettings.setData(data.result.GV_PAGE_SETTINGS);
+//schemas
+modeloListSchema.setData(data.result.IT_TRIP_SCHEMA);
+
+//expense types
+modeloSelectExpenseType.setData(data.result.IT_EXPENSE_TYPES);
+//currencies
+modeloSelectExpenseCurrency.setData(data.result.IT_CURRENCIES);

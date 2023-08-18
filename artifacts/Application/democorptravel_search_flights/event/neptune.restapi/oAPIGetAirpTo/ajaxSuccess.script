@@ -1,0 +1,15 @@
+//console.log(modeloMultiModelAirpTo.oData);
+var dat = modeloMultiModelAirpTo.oData.data
+var sug;
+oInputSFTo.removeAllSuggestionItems();
+for (i = 0; i < dat.length; i++) {
+    sug = new sap.ui.core.Item({
+        key: dat[i].iataCode,
+        text: dat[i].iataCode + " - " + dat[i].name + " " + dat[i].subType + ", " + dat[i].address.cityName + " " + dat[i].address.countryName,
+    })
+    oInputSFTo.addSuggestionItem(sug);
+}
+
+
+
+oApp.setBusy(false);

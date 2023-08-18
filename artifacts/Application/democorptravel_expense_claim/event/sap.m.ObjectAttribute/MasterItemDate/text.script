@@ -1,0 +1,4 @@
+if (typeof DEP_DATE === "undefined" || DEP_DATE === null || DEP_DATE === "") { return; }  
+
+var formattedText = formatSAPDate(DEP_DATE);
+return formattedText;

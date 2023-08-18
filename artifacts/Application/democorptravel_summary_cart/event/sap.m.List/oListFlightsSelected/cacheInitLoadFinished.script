@@ -1,0 +1,12 @@
+
+var data = modeloListFlightsSelected.getData();
+//console.log("---------------");
+//console.log("oListFlightsSelected: ",data);
+
+//getValuesAndTotals();
+modeloListFlights.setData(data);
+
+
+
+
+

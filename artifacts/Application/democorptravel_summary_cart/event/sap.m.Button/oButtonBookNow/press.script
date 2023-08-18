@@ -1,0 +1,28 @@
+oInputPassportNumber.setVisible(false);
+oInputPassportNationality.setVisible(false);
+oSelectPassportIssueCountry.setVisible(false);
+oDatePickerPassportExpiryDate.setVisible(false);
+oInputDrivingLicenseNumber.setVisible(false);
+oDatePickerDLExpiryDate.setVisible(false);
+
+oApp.toDetail(oPageBookingDetails);
+
+var flights = modeloListFlightsSelected.getData();
+var hotels = modeloListHotelsSelected.getData();
+var cars = modeloListCarsSelected.getData();
+
+if(flights.length > 0){
+    oInputPassportNumber.setVisible(true);
+    oInputPassportNationality.setVisible(true);
+    oSelectPassportIssueCountry.setVisible(true);
+    oDatePickerPassportExpiryDate.setVisible(true);
+}
+
+if(hotels.length > 0){
+    
+}
+
+if(cars.length > 0){
+    oInputDrivingLicenseNumber.setVisible(true);
+    oDatePickerDLExpiryDate.setVisible(true);
+}

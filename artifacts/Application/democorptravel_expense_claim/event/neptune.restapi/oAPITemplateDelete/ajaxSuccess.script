@@ -1,0 +1,17 @@
+oApp.setBusy(false);
+//handle messages
+
+var data = modeloModelSAPDELETE.getData().result;
+
+if (data.IT_STATUS.length > 0) {
+    modeloListErrors.setData(data.IT_STATUS);
+    oDialogErrors.open();
+    //handle error messages
+
+} else {
+    OpenoMessageBoxDeletedSuccessfully();
+    oApp.backDetailToPage(oPageBlank);
+    oApp.backMasterToPage(oPageTrips);
+
+    oButtonSync.firePress();
+}

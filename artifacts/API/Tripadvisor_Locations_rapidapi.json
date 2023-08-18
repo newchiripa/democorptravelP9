@@ -1,0 +1,110 @@
+{
+	"id": "2c7ed86c-2e02-4956-b7ea-821761bca1f6",
+	"createdAt": "2020-04-16T10:01:39.000Z",
+	"createdBy": "admin",
+	"auth": [],
+	"endpoints": [],
+	"paths": [
+		{
+			"id": "882d04a0-6ef2-4555-8581-efb2e72b9ac5",
+			"method": "GET",
+			"path": "/auto-complete",
+			"description": "",
+			"parameters": [
+				{
+					"name": "query",
+					"description": "",
+					"required": true,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "lang",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				},
+				{
+					"name": "units",
+					"description": "",
+					"required": false,
+					"inPath": false,
+					"value": "",
+					"default": "",
+					"example": ""
+				}
+			],
+			"headers": [
+				{
+					"name": "x-rapidapi-host",
+					"description": "",
+					"required": false,
+					"value": "",
+					"default": "tripadvisor1.p.rapidapi.com",
+					"example": ""
+				},
+				{
+					"name": "x-rapidapi-key",
+					"description": "",
+					"required": true,
+					"value": "",
+					"default": "f00753a8f4mshe636d0420ca1581p1663f9jsnbfe70bf44640",
+					"example": ""
+				}
+			],
+			"responses": [
+				{
+					"status": "200",
+					"description": "OK",
+					"headers": [],
+					"body": [],
+					"content": [
+						{
+							"id": "846386f3-d09f-40a1-cd2f-68a1c8ac5e7a",
+							"name": "data",
+							"objectType": "array"
+						}
+					]
+				}
+			]
+		}
+	],
+	"definitions": [
+		{
+			"id": "a9fcf354-955f-46f9-9c61-f7862e8a4824",
+			"name": "data",
+			"description": "",
+			"isInclude": false,
+			"properties": []
+		}
+	],
+	"documentation": [],
+	"name": "Tripadvisor_Locations_rapidapi",
+	"endpoint": "https://tripadvisor1.p.rapidapi.com/locations",
+	"ver": "21.3.17.1031",
+	"version": null,
+	"description": null,
+	"mediaType": null,
+	"securitySchemes": null,
+	"swaggerURI": null,
+	"swaggerSystem": null,
+	"apiType": "",
+	"about": null,
+	"enableProxy": true,
+	"restrictAccess": false,
+	"enableTrace": false,
+	"enableIDE": true,
+	"internalAPI": false,
+	"isPublic": false,
+	"tlsAllowUntrusted": false,
+	"useOwnProcess": false,
+	"package": "b69714db-0a11-4c2b-9cfa-aabfa4102da6",
+	"apiGroup": "f35647fa-722a-4a35-ba03-1029deb1fc99",
+	"apiFormat": 0,
+	"roles": []
+}

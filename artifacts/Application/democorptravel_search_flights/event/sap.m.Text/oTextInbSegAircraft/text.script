@@ -1,0 +1,3 @@
+if (typeof airplane === "undefined" || airplane === null || airplane === "") { return; }  
+var formattedText = "(" + airplane + ")"; 
+return formattedText;

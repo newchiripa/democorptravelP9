@@ -1,0 +1,7 @@
+if (oSelectSFTravelType.getSelectedKey() === "RT"){
+    oDateSFOutDate.setVisible(false);
+    oDateSFDateRange.setVisible(true);
+} else {
+    oDateSFOutDate.setVisible(true);
+    oDateSFDateRange.setVisible(false);
+};

@@ -1,0 +1,12 @@
+modeloDialogExpense.getData().EXP_TYPE = oSelectExpenseType.getSelectedKey();
+modeloDialogExpense.getData().EXP_TEXT = ModelData.LookupValue(oSelectExpenseType, "EXP_TYPE", oSelectExpenseType.getSelectedKey(), "EXP_TEXT", "EQ");
+setFieldsReceipt();
+
+// obj = FieldName of your object with bound model (in the designer)
+// keyField = FieldName of your key in the model
+// keyValue = FieldValue of your key in the model
+// retField = FieldName of the returning value
+// operator = operator for comparison, see full list below
+// callBack = callBack function to execute at end of ModelData operation
+
+// Using single key field

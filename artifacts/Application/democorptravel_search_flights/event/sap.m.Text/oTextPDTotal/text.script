@@ -1,0 +1,4 @@
+if (typeof grandTotal === "undefined" || grandTotal === null || grandTotal === "") { return; }  
+if (typeof currency === "undefined" || currency === null || currency === "") { return; }  
+var formattedText = parseFloat(grandTotal).toFixed(2) + " " + currency; 
+return formattedText;

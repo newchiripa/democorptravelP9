@@ -1,0 +1,28 @@
+var selectedItem = oEvent.getSource();
+if (selectedItem) {
+    var context = selectedItem.getBindingContext();
+    var data = context.getObject();
+    modeloPageTripDetail.setData(data);
+    
+    
+    //expenses (receipts)
+    
+    var attachments = [];
+    var recs =  modeloModelSAPSYNC.getData().result.IT_RECEIPTS;
+    for (i = 0; i < recs.length; i++) {
+        if (recs[i].REINR === data.REINR) attachments.push(recs[i]);
+            
+    }
+    modeloTableExpenses.setData(attachments);
+    oIconTabFilterExpenses.setCount(attachments.length)
+    
+    setFieldsReceipt();
+    
+
+    
+    
+    
+    
+    oApp.toDetail(oPageTripDetail);
+
+}

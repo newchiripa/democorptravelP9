@@ -1,0 +1,3 @@
+if (typeof date === "undefined" || date === null || date === "") { return; }  
+var formattedText = new Date(date); 
+return formattedText;
